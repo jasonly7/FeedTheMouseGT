@@ -1501,10 +1501,10 @@ const float unitsPerMeter = 10000.0f;
     slideLineNormal = [[Vector alloc] init];
     // we already have the intersection point from the colliding with line/vertex function
     [slideLineOrigin initializeVectorX:eSpaceIntersectionPt->x andY:eSpaceIntersectionPt->y];
-   // [slideLineNormal initializeVectorX:slidingLine->normal->x andY:slidingLine->normal->y];
+    [slideLineNormal initializeVectorX:slidingLine->normal->x andY:slidingLine->normal->y];
     //Vector *eSpaceNewBasePoint = [[Vector alloc] init];
     //eSpaceNewBasePoint = [newBasePoint multiply:1/r];
-    slideLineNormal = [newBasePoint subtract: eSpaceIntersectionPt]; // probably wrong, set normal perpendicular to line
+   // slideLineNormal = [newBasePoint subtract: eSpaceIntersectionPt]; // probably wrong, set normal perpendicular to line
     [slideLineNormal normalize];
     slidingLine->origin = slideLineOrigin;
     slidingLine = [slidingLine initializeLineWithVectorOrigin:slideLineOrigin andVectorNormal:slideLineNormal];
