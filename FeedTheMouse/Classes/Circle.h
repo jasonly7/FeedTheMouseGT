@@ -27,5 +27,6 @@
 - (bool) collideWithCircle : (Circle *) circle;
 - (bool) collideWithSprite :(Sprite *)sprite;
 - (bool) collideWithRectangle: (CGRect ) rect andAngle: (float) angle;
+- (bool) collideWithLine: (Line *) line;
 
 @end

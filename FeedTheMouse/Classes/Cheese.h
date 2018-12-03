@@ -56,6 +56,7 @@
       //  Mouse *mouse;
         CollisionPacket *colPackage;
         Vector *vel; // velocity in R2
+        Vector *acceleration;
         Vector *zeroVector;
         Vector *justTouchVelocity; // temporary velocity to just touch the gear
         float t;
@@ -71,13 +72,15 @@
 - (void) draw: (CGContextRef) context;
 - (void) dropAt: (CGPoint) pt;
 - (void) fall: (float) interpolation;
-- (void) display: (double) lerp;
+- (void) update: (double) lerp;
 - (bool) collideWith: (Mouse*) mouse;
 //- (void) onCollide: (NSObject *) obj;
 - (void) bounceOffGear: (Gear*) gear;
 - (void) bounceOffDrum;
 - (void) bounceOffTeeterTotter;
 - (void) bounceOffFlipper;
+- (void) bounceOffLeftWall;
+- (void) bounceOffRightWall;
 - (void) slideOffTeeterTotter:(TeeterTotter *)totter;
 - (bool) checkCoin: (Coin*) c;
 - (bool) checkGear: (Gear*) g;

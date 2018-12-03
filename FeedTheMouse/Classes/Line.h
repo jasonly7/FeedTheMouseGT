@@ -30,4 +30,5 @@
 - (float) getNormalX;
 - (float) getNormalY;
 - (void) setNormal: (Vector *) n;
+- (bool) intersect:(Line *)line andRoot:(NSNumber **) root;// andIntersection:(Vector *) point;
 @end

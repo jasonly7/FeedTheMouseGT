@@ -55,9 +55,13 @@ const int MOUSE_WIDTH = 256;
 
     NSDate * levelStartDate;
     NSDate *lastDate;
+    double next_tick;
     double next_game_tick;
     double cur_game_tick;
     double delta_tick;
+    double time;
+    double sleep_time;
+    int frame;
     bool game_is_running;
     int loops;
     float interpolation;
@@ -66,6 +70,6 @@ const int MOUSE_WIDTH = 256;
 
 - (void) doParse:(NSData *) data;
 - (void) gameLoop;
-- (void) update_game;
-- (void) display_game:(double) lerp;
+- (void) update_game:(double) lerp;
+- (void) display_game;
 @end

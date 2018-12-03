@@ -59,7 +59,7 @@
 - (Vector*) normal
 {
     Vector *n = [[Vector alloc] init];
-    [n initializeVectorX:dy andY:-dx];
+    [n initializeVectorX:-dy andY:dx];
     [n normalize];
     return n;
 }
@@ -76,7 +76,11 @@
 {
     
     //lineConstant = - [normal dotProduct:origin];
-    return [point dotProduct:normal]+lineConstant;
+    double d = [point dotProduct:normal]+lineConstant;
+    if (d < 0)
+        d = -d;
+    d = d / [normal length];
+    return d;
 }
 
 - (float) getOriginX
@@ -97,6 +101,30 @@
 - (float) getNormalY
 {
     return normal->y;
+}
+- (bool) intersect: (Line *) line andRoot:(NSNumber **)root// andIntersection:(Vector *)point
+{
+    Vector *s1 = [[Vector alloc] init];
+    Vector *s2 = [[Vector alloc] init];
+    [s1 initializeVectorX:(p2.x - p1.x) andY: (p2.y -p1.y)];
+    [s2 initializeVectorX:(line->p2.x - line->p1.x) andY: (line->p2.y - line->p1.y)];
+    
+    double s = (-s1->y * (p1.x - line->p1.x) + s1->x * (p1.y - line->p1.y)) / ( -s2->x*s1->y + s1->x * s2->y);
+    double t = (s2->x * (p1.y - line->p1.y) - s2->y * (p1.x - line->p1.x)) / ( -s2->x*s1->y + s1->x * s2->y);
+    if (s >=0 && s <= 1 && t >= 0 && t <= 1)
+    {
+     /*  Vector *v = [[Vector alloc] init];
+       [v initializeVectorX:(p1.x + t*s1->y)*34 andY:(p1.y + t*s1->y)*34];
+       *point = v;*/
+        double x = (p1.x + t*s1->y);
+        double y = (p1.y + t*s1->y);
+      //  [point initializeVectorX: x andY: y];
+      //  point.x = p1.x + t*s1->x;
+     //   point->y = p1.y + t*s1->y;
+        *root = [NSNumber numberWithDouble:s];
+        return true;
+    }
+    return false;
 }
 
 @end

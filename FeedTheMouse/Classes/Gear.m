@@ -118,7 +118,7 @@
 - (void) rotate
 {
     
-    rotateAngle+=0.1;
+    rotateAngle+=0.015;
     gearSprite.rotation=rotateAngle;
 }
 

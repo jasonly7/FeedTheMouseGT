@@ -39,6 +39,9 @@
         [nAccelVector initializeVectorX:0 andY:0];
         normalForce->a = nAccelVector;
         
+        acceleration = [[Vector alloc] init];
+        [acceleration initializeVectorX:0 andY:0];
+        
         initVel = [[Vector alloc] init];
         [initVel initializeVectorX:0 andY:0];
         
@@ -73,7 +76,7 @@
 {
     vel->x = 0;
     vel->y = 0;
-    
+    acceleration->y = gravity->y;
     cheeseSprite.x = pt.x - cheeseSprite.width/2;
     cheeseSprite.y = pt.y - cheeseSprite.height/2;
     x = pt.x;
@@ -97,13 +100,15 @@
         
         if (!colPackage->foundCollision)
         {
-            t+=interpolation;
+            t=1;
             
-    //        vel->x = initVel->x;
+            //vel->x = initVel->x;
             x = pos->x + vel->x;
-            vel->y = initVel->y + gravity->y*t;
+            //vel->y = initVel->y + gravity->y*t;
+            vel->y += gravity->y*interpolation;
             y = pos->y + vel->y;
-          
+            
+            NSLog(@"vel->y: %f", vel->y);
             colPackage->R3Velocity = vel;
         }
         else
@@ -126,6 +131,21 @@
                 {
                     x = pos->x;
                     y = pos->y;
+                }
+                else if ([colPackage->collidedObj class] == [Drum class])
+                {
+                    if (colPackage->state == COLLISION_SLIDE)
+                    {
+                        x = pos->x * vel->x*t;
+                        vel->y = initVel->y + gravity->y*t;
+                        y = pos->y;
+                    }
+                    else
+                    {
+                        x = pos->x + vel->x;
+                        vel->y = initVel->y + gravity->y*t;
+                        y = pos->y + vel->y;
+                    }
                 }
                 else
                 {
@@ -194,25 +214,25 @@
     double dist = [c->pos subtract:pos]->length;
     double sumRadii = (c->r + r);
     dist -= sumRadii;
-    NSLog(@"Distance from cheese to coin: %f", dist);
-    NSLog(@"vel length: %f", [vel length]);
+   // NSLog(@"Distance from cheese to coin: %f", dist);
+  //  NSLog(@"vel length: %f", [vel length]);
     if( [vel length] < dist){
         return false;
     }
     
-    NSLog(@"vel: (%f,%f)", vel->x, vel->y);
+   // NSLog(@"vel: (%f,%f)", vel->x, vel->y);
     // Normalize the movevec
     Vector *N = [[Vector alloc] init];
     [N initializeVectorX:vel->x andY:vel->y];
     [N normalize];
-    NSLog(@"vel normalized: (%f,%f)", N->x, N->y);
+   // NSLog(@"vel normalized: (%f,%f)", N->x, N->y);
     
     // Find C, the vector from the center of the moving
     // circle A to the center of B
     Vector *C = [[[Vector alloc] init] autorelease];
     [C initializeVectorX:0 andY:0];
     C = [c->pos subtract:pos];
-    NSLog(@"C: (%f,%f)", C->x, C->y);
+   // NSLog(@"C: (%f,%f)", C->x, C->y);
     
     /* Vector *Friction = [[Vector alloc] init];
      [Friction initializeVectorX:-C->x andY:C->y];
@@ -222,7 +242,7 @@
     // D = N . C = ||C|| * cos(angle between N and C)
     // D, the distance between the center of A and the closest point on V to B
     double D = [N dotProduct:C];
-    NSLog(@"D: %f", D);
+   // NSLog(@"D: %f", D);
     [N release];
     
     // Another early escape: Make sure that A is moving
@@ -234,11 +254,11 @@
     }
     // Find the length of the vector C
     double lengthC = C->length;
-    NSLog(@"C length: %f", lengthC);
+    //NSLog(@"C length: %f", lengthC);
     
     // C^2 = F^2 + D^2
     double F = (lengthC * lengthC) - (D * D);
-    NSLog(@"F: %f", F);
+   // NSLog(@"F: %f", F);
     // Escape test: if the closest that A will get to B
     // is more than the sum of their radii, there's no
     // way they are going collide
@@ -251,7 +271,7 @@
     // We now have F and sumRadii, two sides of a right triangle.
     // Use these to find the third side, sqrt(T)
     double T = sumRadiiSquared - F;
-    NSLog(@"T: %f", T);
+    //NSLog(@"T: %f", T);
     // If there is no such right triangle with sides length of
     // sumRadii and sqrt(f), T will probably be less than 0.
     // Better to check now than perform a square root of a
@@ -263,11 +283,11 @@
     // Therefore the distance the circle has to travel along
     // movevec is D - sqrt(T)
     double distance = D - sqrt(T);
-    NSLog(@"distance: %f", distance);
+   // NSLog(@"distance: %f", distance);
     
     // Get the magnitude of the movement vector
     double mag = [vel length];
-    NSLog(@"magnitude: %f", mag);
+   // NSLog(@"magnitude: %f", mag);
     
     // Finally, make sure that the distance A has to move
     // to touch B is not greater than the magnitude of the
@@ -282,7 +302,7 @@
     [justTouchVelocity initializeVectorX:vel->x andY:vel->y];
     [justTouchVelocity normalize];
     justTouchVelocity = [justTouchVelocity multiply:distance];
-    NSLog(@"justTouchVelocity: %f,%f", justTouchVelocity->x, justTouchVelocity->y);
+   // NSLog(@"justTouchVelocity: %f,%f", justTouchVelocity->x, justTouchVelocity->y);
     return true;
 }
 
@@ -372,7 +392,7 @@
     bounceVel->x = (x - g->x);
     bounceVel->y = (y - g->y);
     //printf("bounceVel retain count: %lu", (unsigned long)[bounceVel length]);
-    printf("bounceVel retain count: %lu", (unsigned long)[bounceVel retainCount]);
+   // printf("bounceVel retain count: %lu", (unsigned long)[bounceVel retainCount]);
     [bounceVel normalize];
     bounceVel = [bounceVel multiply:[vel length]];
     
@@ -420,11 +440,10 @@
     bottomRightPt = CGPointMake(bottomRightX,bottomRightY);
     
     topLine = [topLine initializeLineWithPoint1:topLeftPt andPoint2:topRightPt];
-    bottomLine = [bottomLine initializeLineWithPoint1:bottomLeftPt andPoint2:bottomRightPt];
-    leftLine = [leftLine initializeLineWithPoint1:topLeftPt andPoint2:bottomLeftPt];
+    bottomLine = [bottomLine initializeLineWithPoint1:bottomRightPt andPoint2:bottomLeftPt];
+    leftLine = [leftLine initializeLineWithPoint1:bottomLeftPt andPoint2:topLeftPt];
     rightLine = [rightLine initializeLineWithPoint1:topRightPt andPoint2:bottomRightPt];
-    
-    
+  
     if (!colPackage->foundCollision)
     {
         CGPoint topLeft = CGPointMake(topLeftX, topLeftY);
@@ -433,97 +452,201 @@
         CGPoint bottomRight = CGPointMake(bottomRightX, bottomRightY);
         colPackage->state = COLLISION_NONE;
         Vector *normal = [[[Vector alloc] init] autorelease];
-      
+        Vector *normal1 = [[[Vector alloc] init] autorelease];
+        Vector *normal2 = [[[Vector alloc] init] autorelease];
+        Vector *I = [[[Vector alloc] init] autorelease];
+        Vector *negativeI = [[[Vector alloc] init] autorelease];
+        Vector *N = [[[Vector alloc] init] autorelease];
+        [I initializeVectorX:vel->x andY:vel->y];
+        [negativeI initializeVectorX:-vel->x andY:-vel->y];
+        [N initializeVectorX:0 andY:0];
         if ([self collideWithLine:topLine] )
         {
-            Vector *I = [[Vector alloc] init];
-            Vector *N = [[Vector alloc] init];
-            [I initializeVectorX:-vel->x andY:-vel->y];
-            [N initializeVectorX:0 andY:0];
             if ([topLine isFrontFacingTo:vel])
             {
-                normal = topLine->normal = [topLine normal];
-                
+                normal = [topLine normal];
             }
             else
             {
                 [normal initializeVectorX:-topLine->normal->x andY: -topLine->normal->y];
-                topLine->normal = normal;
             }
-            
+            [normal normalize];
             // projection of the normal along I (initial velocity vector going towards the line)
             // double nx = [normal multiply:[I dotProduct:normal]]->x;
             // double ny = ->y;
             //[N initializeVectorX:nx andY:ny];
-            [N setVector: [normal multiply:[I dotProduct:normal]]];
-            bounceVel =[[N multiply:2] add:I];
+            [N setVector: [normal multiply:[negativeI dotProduct:normal]]];
+            bounceVel = [[N multiply:2] add:I];
             [bounceVel normalize];
             bounceVel = [bounceVel multiply:vel.length];
-            [I release];
-            [N release];
+          //  [I release];
+          //  [N release];
             foundCollision = true;
-            slidingLine->normal = normal;
+           // slidingLine->normal = normal;
             colPackage->state = COLLISION_SLIDE;
+        }
+        else if ([self collideWithLine:leftLine])
+        {
+           /* if ([leftLine isFrontFacingTo:vel])
+            {
+                normal = leftLine->normal = [leftLine normal];
+            }
+            else
+            {
+                [normal initializeVectorX:-leftLine->normal->x andY: -leftLine->normal->y];
+                leftLine->normal = normal;
+            }
+            [normal normalize];
+            // projection of the normal along I (initial velocity vector going towards the line)
+            N = [normal multiply:[negativeI dotProduct:normal]];
+            bounceVel = [[N multiply:2] add:I];
+            [bounceVel normalize];
+            bounceVel = [bounceVel multiply:vel.length];
+            foundCollision = true;
+            colPackage->state = COLLISION_BOUNCE;*/
+        }
+        else if ([self collideWithLine:rightLine])
+        {
+           /* Vector *I = [[[Vector alloc] init] autorelease];
+            [I initializeVectorX:vel->x andY:vel->y];
+            Vector *negativeI = [[[Vector alloc] init] autorelease];
+            [negativeI initializeVectorX:-vel->x andY:-vel->y];
+            if ([rightLine isFrontFacingTo:vel])
+            {
+                normal = rightLine->normal = [rightLine normal];
+            }
+            else
+            {
+                [normal initializeVectorX:-rightLine->normal->x andY: -rightLine->normal->y];
+                rightLine->normal = normal;
+            }
+            [normal normalize];
+            // projection of the normal along I (initial velocity vector going towards the line)
+            N = [normal multiply:[negativeI dotProduct:normal]];
+            bounceVel = [[N multiply:2] add:I];
+            [bounceVel normalize];
+            bounceVel = [bounceVel multiply:vel.length];
+            foundCollision = true;
+            colPackage->state = COLLISION_BOUNCE;*/
         }
         else if ([self collideWithVertex:topLeft])
         {
+            if ([topLine isFrontFacingTo:vel])
+            {
+                normal1 = topLine->normal = [topLine normal];
+            }
+            else
+            {
+                [normal1 initializeVectorX:-topLine->normal->x andY: -topLine->normal->y];
+            }
+            if ([leftLine isFrontFacingTo:vel])
+            {
+                normal2 = [leftLine normal];
+            }
+            else
+            {
+                [normal2 initializeVectorX:-leftLine->normal->x andY: -leftLine->normal->y];
+            }
+            normal = [[normal1 add:normal2] multiply:0.5]; // average out lines to get vertex normal
+            [normal normalize];
             foundCollision = true;
+            slidingLine->normal = normal;
             colPackage->state = COLLISION_SLIDE;
         }
         else if ([self collideWithVertex:topRight])
         {
+            if ([topLine isFrontFacingTo:vel])
+            {
+                normal1 = [topLine normal];
+            }
+            else
+            {
+                [normal1 initializeVectorX:-topLine->normal->x andY: -topLine->normal->y];
+            }
+            if ([rightLine isFrontFacingTo:vel])
+            {
+                normal2 = [rightLine normal];
+            }
+            else
+            {
+                [normal2 initializeVectorX:-rightLine->normal->x andY: -rightLine->normal->y];
+            }
+            normal = [[normal1 add:normal2] multiply:0.5]; // average out lines to get vertex normal
+            [normal normalize];
             foundCollision = true;
+            slidingLine->normal = normal;
             colPackage->state = COLLISION_SLIDE;
         }
         else if ([self collideWithVertex:bottomLeft])
         {
+            if ([bottomLine isFrontFacingTo:vel])
+            {
+               normal1 = [bottomLine normal];
+            }
+            else
+            {
+                [normal1 initializeVectorX:-bottomLine->normal->x andY: -bottomLine->normal->y];
+            }
+            if ([leftLine isFrontFacingTo:vel])
+            {
+                normal2 = [leftLine normal];
+            }
+            else
+            {
+                [normal2 initializeVectorX:-leftLine->normal->x andY: -leftLine->normal->y];
+            }
+            // projection of the normal along I (initial velocity vector going towards the line)
+            N = [normal multiply:[negativeI dotProduct:normal]];
             foundCollision = false;
-            colPackage->state = COLLISION_NONE;
+            colPackage->state = COLLISION_SLIDE;
+            slidingLine->normal = normal;
         }
         else if ([self collideWithVertex:bottomRight])
         {
+            if ([bottomLine isFrontFacingTo:vel])
+            {
+                normal1 = [bottomLine normal];
+            }
+            else
+            {
+                [normal1 initializeVectorX:-bottomLine->normal->x andY: -bottomLine->normal->y];
+            }
+            if ([rightLine isFrontFacingTo:vel])
+            {
+                normal2 = [rightLine normal];
+            }
+            else
+            {
+                [normal2 initializeVectorX:-rightLine->normal->x andY: -rightLine->normal->y];
+            }
+            // projection of the normal along I (initial velocity vector going towards the line)
+            N = [normal multiply:[negativeI dotProduct:normal]];
             foundCollision = false;
-            colPackage->state = COLLISION_NONE;
+            colPackage->state = COLLISION_SLIDE;
+            slidingLine->normal = normal;
         }
         else if ([self collideWithLine:bottomLine])
         {
-            Vector *I = [[Vector alloc] init];
-            Vector *N = [[Vector alloc] init];
-            [I initializeVectorX:-vel->x andY:-vel->y];
-            [N initializeVectorX:0 andY:0];
+         
             if ([bottomLine isFrontFacingTo:vel])
             {
-                normal = bottomLine->normal = [bottomLine normal];
-                
+                normal = [bottomLine normal];
             }
             else
             {
                 [normal initializeVectorX:-bottomLine->normal->x andY: -bottomLine->normal->y];
-                bottomLine->normal = normal;
             }
-            
+            [normal normalize];
             // projection of the normal along I (initial velocity vector going towards the line)
            // double nx = [normal multiply:[I dotProduct:normal]]->x;
            // double ny = ->y;
             //[N initializeVectorX:nx andY:ny];
-            [N setVector: [normal multiply:[I dotProduct:normal]]];
-            bounceVel =[[N multiply:2] add:I];
+            [N setVector: [normal multiply:[negativeI dotProduct:normal]]];
+            bounceVel = [[N multiply:2] add:I];
             [bounceVel normalize];
             bounceVel = [bounceVel multiply:vel.length];
-            [I release];
-            [N release];
             foundCollision = true;
             slidingLine->normal = normal;
-            colPackage->state = COLLISION_BOUNCE;
-        }
-        else if ([self collideWithLine:rightLine])
-        {
-            foundCollision = true;
-            colPackage->state = COLLISION_BOUNCE;
-        }
-        else if ([self collideWithLine:leftLine])
-        {
-            foundCollision = true;
             colPackage->state = COLLISION_BOUNCE;
         }
         else
@@ -575,8 +698,8 @@
     bottomRightPt = CGPointMake(bottomRightX,bottomRightY);
     
     topLine = [topLine initializeLineWithPoint1:topLeftPt andPoint2:topRightPt];
-    bottomLine = [bottomLine initializeLineWithPoint1:bottomLeftPt andPoint2:bottomRightPt];
-    leftLine = [leftLine initializeLineWithPoint1:topLeftPt andPoint2:bottomLeftPt];
+    bottomLine = [bottomLine initializeLineWithPoint1:bottomRightPt andPoint2:bottomLeftPt];
+    leftLine = [leftLine initializeLineWithPoint1:bottomLeftPt andPoint2:topLeftPt];
     rightLine = [rightLine initializeLineWithPoint1:topRightPt andPoint2:bottomRightPt];
     
     
@@ -593,52 +716,189 @@
         Vector *normal2 = [[[Vector alloc] init] autorelease];
         Vector *N = [[[Vector alloc] init] autorelease];
         [N initializeVectorX:0 andY:0];
+        bool collidedWithTop = [self collideWithLine:topLine];
+        bool collidedWithBottom = [self collideWithLine:bottomLine];
+        bool collidedWithLeft = [self collideWithLine:leftLine];
+        bool collidedWithRight = [self collideWithLine:rightLine];
+       // NSLog(@"Checking topline from (%f,%f) to (%f,%f)", topLine->p1.x, topLine->p1.y, topLine->p2.x, topLine->p2.y);
         
-        if ([self collideWithLine:topLine] )
+       if ([self collideWithVertex:topLeft])
         {
-            Vector *I = [[[Vector alloc] init] autorelease];
-            [I initializeVectorX:-vel->x andY:-vel->y];
-            if ([topLine isFrontFacingTo:vel])
-            {
-                normal = topLine->normal = [topLine normal];
-            }
+            //if ([topLine isFrontFacingTo:vel])
+            //{
+                normal1 = [topLine normal];
+            /*}
             else
             {
-                [normal initializeVectorX:-topLine->normal->x andY: -topLine->normal->y];
-                topLine->normal = normal;
+               [normal1 initializeVectorX:-topLine->normal->x andY: -topLine->normal->y];
             }
-            // projection of the normal along I (initial velocity vector going towards the line)
-           // [normal normalize];
-            N = [normal multiply:[I dotProduct:normal]];
-            bounceVel = [[N multiply:2] add:I];
-           // initVel = bounceVel; will be done in bounceoffdrum
+            if ([leftLine isFrontFacingTo:vel])
+            {*/
+               normal2 = [leftLine normal];
+            /*}
+            else
+            {
+                [normal2 initializeVectorX:-leftLine->normal->x andY: -leftLine->normal->y];
+            }*/
+            double Ix = topLeft.x - pos->x;
+            double Iy = topLeft.y - pos->y;
+            Vector *I = [[[Vector alloc] init] autorelease];
+            Vector *negativeI = [[[Vector alloc] init] autorelease];
+            
+            [I initializeVectorX:Ix andY:Iy];
+            [negativeI initializeVectorX:-I->x andY:-I->y];
+            /*for (int i=0; i <= 1; i++)
+            {
+                normal = [[normal1 add:normal2] multiply:0.5]; // average out lines to get vertex normal
+                [normal normalize];
+
+                // projection of the normal along I (initial velocity vector going towards the line)
+                N = [normal multiply:[negativeI dotProduct:normal]];
+                bounceVel = [[N multiply:2] add:I];
+                if (bounceVel->x < 0.01)
+                {
+                    [I initializeVectorX:vel->x andY:vel->y];
+                    [negativeI initializeVectorX:-vel->x andY:-vel->y];
+                    continue;
+                }
+                else
+                    break;
+            }*/
+            bounceVel = negativeI;
             [bounceVel normalize];
             bounceVel = [bounceVel multiply:vel.length];
             foundCollision = true;
             slidingLine->normal = normal;
-        //    [slidingLine setNormal:normal];
         }
-        else if ([self collideWithLine:bottomLine])
+        else if ([self collideWithVertex:topRight])
         {
-            Vector *I = [[[Vector alloc] init] autorelease];
-            [I initializeVectorX:-vel->x andY:-vel->y];
-            
-            if ([bottomLine isFrontFacingTo:vel])
-            {
-                normal = bottomLine->normal = [bottomLine normal];
-                
-            }
+            //if ([topLine isFrontFacingTo:vel])
+            //{
+                normal1 = [topLine normal];
+            /*}
             else
             {
-                [normal initializeVectorX:-bottomLine->normal->x andY: -bottomLine->normal->y];
-                bottomLine->normal = normal;
-                // [lineInESpace->normal initializeVectorX:-lineInESpace->normal->x andY:-lineInESpace->normal->y];
+                [normal1 initializeVectorX:-topLine->normal->x andY: -topLine->normal->y];
             }
+            if ([rightLine isFrontFacingTo:vel])
+            {*/
+                normal2 = [rightLine normal];
+            /*}
+            else
+            {
+                [normal2 initializeVectorX:-rightLine->normal->x andY: -rightLine->normal->y];
+            }*/
             
+            Vector *I = [[[Vector alloc] init] autorelease];
+            Vector *negativeI = [[[Vector alloc] init] autorelease];
             
+            double Ix = topRight.x - pos->x;
+            double Iy = topRight.y - pos->y;
+            
+            [I initializeVectorX:Ix andY:Iy];
+            [negativeI initializeVectorX:-Ix andY:-Iy];
+            
+            /*for (int i=0; i <= 1; i++)
+            {
+                normal = [[normal1 add:normal2] multiply:0.5]; // average out lines to get vertex normal
+              //  [normal1 normalize];
+               // [normal2 normalize];
+                [normal normalize];
+                // projection of the normal along I (initial velocity vector going towards the line)
+                N = [normal multiply:[negativeI dotProduct:normal]];
+                bounceVel = [[N multiply:2] add:I];
+                if (bounceVel->x < 0.01)
+                {
+                    [I initializeVectorX:vel->x andY:vel->y];
+                    [negativeI initializeVectorX:-vel->x andY:-vel->y];
+                    continue;
+                }
+                else
+                    break;
+            }*/
+            bounceVel = negativeI;
+            [bounceVel normalize];
+            bounceVel = [bounceVel multiply:vel.length];
+            foundCollision = true;
+            slidingLine->normal = normal;
+        }
+        else if ([self collideWithVertex:bottomLeft])
+        {
+            double Ix = bottomLeft.x - pos->x;
+            double Iy = bottomLeft.y - pos->y;
+            Vector *I = [[[Vector alloc] init] autorelease];
+            Vector *negativeI = [[[Vector alloc] init] autorelease];
+            [I initializeVectorX:Ix andY:Iy];
+            [negativeI initializeVectorX:-Ix andY:-Iy];
+           // if ([bottomLine isFrontFacingTo:vel])
+            //{
+                normal1 = [bottomLine normal];
+           /* }
+            else
+            {
+                [normal1 initializeVectorX:-bottomLine->normal->x andY: -bottomLine->normal->y];
+            }
+            if ([leftLine isFrontFacingTo:vel])
+            {*/
+                normal2 = [leftLine normal];
+            /*}
+            else
+            {
+                [normal2 initializeVectorX:-leftLine->normal->x andY: -leftLine->normal->y];
+            }*/
+            
+            /*Vector *I = [[[Vector alloc] init] autorelease];
+            [I initializeVectorX:vel->x andY:vel->y];
+            Vector *negativeI = [[[Vector alloc] init] autorelease];
+            [negativeI initializeVectorX:-vel->x andY:-vel->y];*/
+            [normal1 normalize];
+            [normal2 normalize];
+            normal = [[normal1 add:normal2] multiply:0.5]; // average out lines to get vertex normal
+            [normal normalize];
             // projection of the normal along I (initial velocity vector going towards the line)
-            N = [normal multiply:[I dotProduct:normal]];
-            bounceVel = [[N multiply:2] add:I];
+            N = [normal multiply:[negativeI dotProduct:normal]];
+            bounceVel = negativeI;//[[N multiply:2] add:I];
+            [bounceVel normalize];
+            bounceVel = [bounceVel multiply:vel.length];
+            foundCollision = true;
+            slidingLine->normal = normal;
+        }
+        else if ([self collideWithVertex:bottomRight])
+        {
+            double Ix = bottomRight.x - pos->x;
+            double Iy = bottomRight.y - pos->y;
+            Vector *I = [[[Vector alloc] init] autorelease];
+            Vector *negativeI = [[[Vector alloc] init] autorelease];
+            [I initializeVectorX:Ix andY:Iy];
+            [negativeI initializeVectorX:-Ix andY:-Iy];
+            /*if ([bottomLine isFrontFacingTo:vel])
+            {*/
+                normal1 = [bottomLine normal];
+            /*}
+            else
+            {
+                [normal1 initializeVectorX:-bottomLine->normal->x andY: -bottomLine->normal->y];
+            }
+            if ([rightLine isFrontFacingTo:vel])
+            {*/
+                normal2 = [rightLine normal];
+            /*}
+            else
+            {
+                [normal2 initializeVectorX:-rightLine->normal->x andY: -rightLine->normal->y];
+            }*/
+            
+           /* Vector *I = [[[Vector alloc] init] autorelease];
+            [I initializeVectorX:vel->x andY:vel->y];
+            Vector *negativeI = [[[Vector alloc] init] autorelease];
+            [negativeI initializeVectorX:-vel->x andY:-vel->y];*/
+            [normal1 normalize];
+            [normal2 normalize];
+            normal = [[normal1 add:normal2] multiply:0.5]; // average out lines to get vertex normal
+            [normal normalize];
+            // projection of the normal along I (initial velocity vector going towards the line)
+            N = [normal multiply:[negativeI dotProduct:normal]];
+            bounceVel = negativeI;//[[N multiply:2] add:I];
             [bounceVel normalize];
             bounceVel = [bounceVel multiply:vel.length];
             foundCollision = true;
@@ -647,19 +907,21 @@
         else if ([self collideWithLine:rightLine])
         {
             Vector *I = [[[Vector alloc] init] autorelease];
-            [I initializeVectorX:-vel->x andY:-vel->y];
+            [I initializeVectorX:vel->x andY:vel->y];
+            Vector *negativeI = [[[Vector alloc] init] autorelease];
+            [negativeI initializeVectorX:-vel->x andY:-vel->y];
             if ([rightLine isFrontFacingTo:vel])
             {
-                normal = rightLine->normal = [rightLine normal];
+                normal = [rightLine normal];
             }
             else
             {
                 [normal initializeVectorX:-rightLine->normal->x andY: -rightLine->normal->y];
-                rightLine->normal = normal;
             }
+            [normal normalize];
             // projection of the normal along I (initial velocity vector going towards the line)
-            N = [normal multiply:[I dotProduct:normal]];
-            bounceVel =[[N multiply:2] add:I];
+            N = [normal multiply:[negativeI dotProduct:normal]];
+            bounceVel = [[N multiply:2] add:I];
             [bounceVel normalize];
             bounceVel = [bounceVel multiply:vel.length];
             foundCollision = true;
@@ -668,153 +930,86 @@
         else if ([self collideWithLine:leftLine])
         {
             Vector *I = [[[Vector alloc] init] autorelease];
-            [I initializeVectorX:-vel->x andY:-vel->y];
+            [I initializeVectorX:vel->x andY:vel->y];
+            Vector *negativeI = [[[Vector alloc] init] autorelease];
+            [negativeI initializeVectorX:-vel->x andY:-vel->y];
             if ([leftLine isFrontFacingTo:vel])
             {
-                normal = leftLine->normal = [leftLine normal];
+                normal = [leftLine normal];
             }
             else
             {
                 [normal initializeVectorX:-leftLine->normal->x andY: -leftLine->normal->y];
-                leftLine->normal = normal;
             }
+            [normal normalize];
             // projection of the normal along I (initial velocity vector going towards the line)
-            N = [normal multiply:[I dotProduct:normal]];
-            bounceVel =[[N multiply:2] add:I];
+            N = [normal multiply:[negativeI dotProduct:normal]];
+            bounceVel = [[N multiply:2] add:I];
             [bounceVel normalize];
             bounceVel = [bounceVel multiply:vel.length];
             foundCollision = true;
             slidingLine->normal = normal;
         }
-        if ([self collideWithVertex:topLeft])
+        else if (collidedWithTop || collidedWithBottom)
         {
-            if ([topLine isFrontFacingTo:vel])
-            {
-                normal1 = topLine->normal = [topLine normal];
-            }
-            else
-            {
-                [normal1 initializeVectorX:-topLine->normal->x andY: -topLine->normal->y];
-                topLine->normal = normal;
-            }
-            if ([leftLine isFrontFacingTo:vel])
-            {
-                normal2 = leftLine->normal = [leftLine normal];
-            }
-            else
-            {
-                [normal2 initializeVectorX:-leftLine->normal->x andY: -leftLine->normal->y];
-                leftLine->normal = normal;
-            }
-            
             Vector *I = [[[Vector alloc] init] autorelease];
-            [I initializeVectorX:-vel->x andY:-vel->y];
-            
-            normal = [[normal1 add:normal2] multiply:0.5]; // average out lines to get vertex normal
+            [I initializeVectorX:vel->x andY:vel->y];
+            Vector *negativeI = [[[Vector alloc] init] autorelease];
+            [negativeI initializeVectorX:-vel->x andY:-vel->y];
+            if (vel->y <= 0 && collidedWithTop)
+            {
+                if ([topLine isFrontFacingTo:vel])
+                {
+                    normal = [topLine normal];
+                }
+                else
+                {
+                    [normal initializeVectorX:-topLine->normal->x andY: -topLine->normal->y];
+                }
+            }
+            else if (vel->y >= 0 && collidedWithBottom)
+            {
+                if ([bottomLine isFrontFacingTo:vel])
+                {
+                    normal = [bottomLine normal];
+                }
+                else
+                {
+                   [normal initializeVectorX:-bottomLine->normal->x andY: -bottomLine->normal->y];
+                }
+            }
+            else if (collidedWithTop)
+            {
+                if ([topLine isFrontFacingTo:vel])
+                {
+                    normal = [topLine normal];
+                }
+                else
+                {
+                    [normal initializeVectorX:-topLine->normal->x andY: -topLine->normal->y];
+                }
+            }
+            else if (collidedWithBottom)
+            {
+                if ([bottomLine isFrontFacingTo:vel])
+                {
+                    normal = [bottomLine normal];
+                }
+                else
+                {
+                    [normal initializeVectorX:-bottomLine->normal->x andY: -bottomLine->normal->y];
+                }
+            }
             // projection of the normal along I (initial velocity vector going towards the line)
-            N = [normal multiply:[I dotProduct:normal]];
-            bounceVel =[[N multiply:2] add:I];
-            
+            [normal normalize];
+            N = [normal multiply:[negativeI dotProduct:normal]];
+            bounceVel = [[N multiply:2] add:I];
+            // initVel = bounceVel; will be done in bounceoffdrum
             [bounceVel normalize];
             bounceVel = [bounceVel multiply:vel.length];
             foundCollision = true;
             slidingLine->normal = normal;
-        }
-        else if ([self collideWithVertex:topRight])
-        {
-            if ([topLine isFrontFacingTo:vel])
-            {
-                normal1 = topLine->normal = [topLine normal];
-            }
-            else
-            {
-                [normal1 initializeVectorX:-topLine->normal->x andY: -topLine->normal->y];
-                topLine->normal = normal;
-            }
-            if ([rightLine isFrontFacingTo:vel])
-            {
-                normal2 = rightLine->normal = [rightLine normal];
-            }
-            else
-            {
-                [normal2 initializeVectorX:-rightLine->normal->x andY: -rightLine->normal->y];
-                rightLine->normal = normal;
-            }
-            
-            Vector *I = [[[Vector alloc] init] autorelease];
-            [I initializeVectorX:-vel->x andY:-vel->y];
-            normal = [[normal1 add:normal2] multiply:0.5]; // average out lines to get vertex normal
-            // projection of the normal along I (initial velocity vector going towards the line)
-            N = [normal multiply:[I dotProduct:normal]];
-            bounceVel =[[N multiply:2] add:I];
-            [bounceVel normalize];
-            bounceVel = [bounceVel multiply:vel.length];
-            foundCollision = true;
-            slidingLine->normal = normal;
-        }
-        else if ([self collideWithVertex:bottomLeft])
-        {
-            if ([bottomLine isFrontFacingTo:vel])
-            {
-                normal1 = bottomLine->normal = [bottomLine normal];
-            }
-            else
-            {
-                [normal1 initializeVectorX:-bottomLine->normal->x andY: -bottomLine->normal->y];
-                bottomLine->normal = normal;
-            }
-            if ([leftLine isFrontFacingTo:vel])
-            {
-                normal2 = leftLine->normal = [leftLine normal];
-            }
-            else
-            {
-                [normal2 initializeVectorX:-leftLine->normal->x andY: -leftLine->normal->y];
-                leftLine->normal = normal;
-            }
-            
-            Vector *I = [[[Vector alloc] init] autorelease];
-            [I initializeVectorX:-vel->x andY:-vel->y];
-            normal = [[normal1 add:normal2] multiply:0.5]; // average out lines to get vertex normal
-            // projection of the normal along I (initial velocity vector going towards the line)
-            N = [normal multiply:[I dotProduct:normal]];
-            bounceVel =[[N multiply:2] add:I];
-            [bounceVel normalize];
-            bounceVel = [bounceVel multiply:vel.length];
-            foundCollision = true;
-            slidingLine->normal = normal;
-        }
-        else if ([self collideWithVertex:bottomRight])
-        {
-            if ([bottomLine isFrontFacingTo:vel])
-            {
-                normal1 = bottomLine->normal = [bottomLine normal];
-            }
-            else
-            {
-                [normal1 initializeVectorX:-bottomLine->normal->x andY: -bottomLine->normal->y];
-                bottomLine->normal = normal;
-            }
-            if ([rightLine isFrontFacingTo:vel])
-            {
-                normal2 = rightLine->normal = [rightLine normal];
-            }
-            else
-            {
-                [normal2 initializeVectorX:-rightLine->normal->x andY: -rightLine->normal->y];
-                rightLine->normal = normal;
-            }
-            
-            Vector *I = [[[Vector alloc] init] autorelease];
-            [I initializeVectorX:-vel->x andY:-vel->y];
-            normal = [[normal1 add:normal2] multiply:0.5]; // average out lines to get vertex normal
-            // projection of the normal along I (initial velocity vector going towards the line)
-            N = [normal multiply:[I dotProduct:normal]];
-            bounceVel =[[N multiply:2] add:I];
-            [bounceVel normalize];
-            bounceVel = [bounceVel multiply:vel.length];
-            foundCollision = true;
-            slidingLine->normal = normal;
+            //    [slidingLine setNormal:normal];
         }
     }
         
@@ -857,8 +1052,8 @@
     bottomRightPt = CGPointMake(bottomRightX,bottomRightY);
     
     topLine = [topLine initializeLineWithPoint1:topLeftPt andPoint2:topRightPt];
-    bottomLine = [bottomLine initializeLineWithPoint1:bottomLeftPt andPoint2:bottomRightPt];
-    leftLine = [leftLine initializeLineWithPoint1:topLeftPt andPoint2:bottomLeftPt];
+    bottomLine = [bottomLine initializeLineWithPoint1:bottomRightPt andPoint2:bottomLeftPt];
+    leftLine = [leftLine initializeLineWithPoint1:bottomLeftPt andPoint2:topLeftPt];
     rightLine = [rightLine initializeLineWithPoint1:topRightPt andPoint2:bottomRightPt];
     
     
@@ -875,223 +1070,306 @@
         Vector *normal2 = [[[Vector alloc] init] autorelease];
         Vector *N = [[[Vector alloc] init] autorelease];
         
+        bool collidedWithTop = [self collideWithLine:topLine];
+        bool collidedWithBottom = [self collideWithLine:bottomLine];
+        
         if ([self collideWithVertex:topLeft])
         {
-            if ([topLine isFrontFacingTo:vel])
-            {
-                normal1 = topLine->normal = [topLine normal];
-            }
+           // if ([topLine isFrontFacingTo:vel])
+            //{
+                normal1 = [topLine normal];
+            /*}
             else
             {
-                [normal1 initializeVectorX:-topLine->normal->x andY: -topLine->normal->y];
-                topLine->normal = normal;
+               [normal1 initializeVectorX:-topLine->normal->x andY: -topLine->normal->y];
             }
             if ([leftLine isFrontFacingTo:vel])
-            {
-                normal2 = leftLine->normal = [leftLine normal];
-            }
+            {*/
+                normal2 = [leftLine normal];
+            /*}
             else
             {
-                [normal2 initializeVectorX:-leftLine->normal->x andY: -leftLine->normal->y];
-                leftLine->normal = normal;
-            }
+               [normal2 initializeVectorX:-leftLine->normal->x andY: -leftLine->normal->y];
+            }*/
             
             Vector *I = [[[Vector alloc] init] autorelease];
-            [I initializeVectorX:-vel->x andY:-vel->y];
+            Vector *negativeI = [[[Vector alloc] init] autorelease];
+            double Ix = topLeft.x - pos->x;
+            double Iy = topLeft.y - pos->y;
             
-            normal = [[normal1 add:normal2] multiply:0.5]; // average out lines to get vertex normal
-            // projection of the normal along I (initial velocity vector going towards the line)
-            N = [normal multiply:[I dotProduct:normal]];
-            bounceVel = [[N multiply:2] add:I];
+            [I initializeVectorX:Ix andY:Iy];
+            [negativeI initializeVectorX:-Ix andY:-Iy];
             
+           /* for (int i=0; i <= 1; i++)
+            {
+                normal = [[normal1 add:normal2] multiply:0.5]; // average out lines to get vertex normal
+                [normal normalize];
+                // projection of the normal along I (initial velocity vector going towards the line)
+                N = [normal multiply:[negativeI dotProduct:normal]];
+                bounceVel = [[N multiply:2] add:I];
+                if (bounceVel->x < 0.01)
+                {
+                    [I initializeVectorX:vel->x andY:vel->y];
+                    [negativeI initializeVectorX:-vel->x andY:-vel->y];
+                    continue;
+                }
+               else
+                   break;
+           }*/
+            bounceVel = negativeI;
             [bounceVel normalize];
             bounceVel = [bounceVel multiply:vel.length];
+            slidingLine->normal = normal;
             foundCollision = true;
         }
         else if ([self collideWithVertex:topRight])
         {
-            if ([topLine isFrontFacingTo:vel])
-            {
-                normal1 = topLine->normal = [topLine normal];
-            }
+            //if ([topLine isFrontFacingTo:vel])
+            //{
+                normal1 = [topLine normal];
+            /*}
             else
             {
                 [normal1 initializeVectorX:-topLine->normal->x andY: -topLine->normal->y];
-                topLine->normal = normal;
             }
             if ([rightLine isFrontFacingTo:vel])
-            {
-                normal2 = rightLine->normal = [rightLine normal];
-            }
+            {*/
+                normal2 = [rightLine normal];
+            /*}
             else
             {
                 [normal2 initializeVectorX:-rightLine->normal->x andY: -rightLine->normal->y];
-                rightLine->normal = normal;
-            }
+            }*/
             
             Vector *I = [[[Vector alloc] init] autorelease];
-            [I initializeVectorX:-vel->x andY:-vel->y];
-            normal = [[normal1 add:normal2] multiply:0.5]; // average out lines to get vertex normal
-            // projection of the normal along I (initial velocity vector going towards the line)
-            N = [normal multiply:[I dotProduct:normal]];
-            bounceVel =[[N multiply:2] add:I];
+            Vector *negativeI = [[[Vector alloc] init] autorelease];
+            double Ix = topRight.x - pos->x;
+            double Iy = topRight.y - pos->y;
+            
+            [I initializeVectorX:Ix andY:Iy];
+            [negativeI initializeVectorX:-Ix andY:-Iy];
+            
+            /*for (int i=0; i <= 1; i++)
+            {
+                normal = [[normal1 add:normal2] multiply:0.5]; // average out lines to get vertex normal
+                [normal normalize];
+                // projection of the normal along I (initial velocity vector going towards the line)
+                N = [normal multiply:[negativeI dotProduct:normal]];
+                bounceVel = [[N multiply:2] add:I];
+                if (bounceVel->x < 0.01)
+                {
+                    [I initializeVectorX:vel->x andY:vel->y];
+                    [negativeI initializeVectorX:-vel->x andY:-vel->y];
+                    continue;
+                }
+                else
+                    break;
+            }*/
+            bounceVel = negativeI;
             [bounceVel normalize];
             bounceVel = [bounceVel multiply:vel.length];
+            slidingLine->normal = normal;
             foundCollision = true;
         }
         else if ([self collideWithVertex:bottomLeft])
         {
-            if ([bottomLine isFrontFacingTo:vel])
-            {
-                normal1 = bottomLine->normal = [bottomLine normal];
-            }
+            Vector *I = [[[Vector alloc] init] autorelease];
+            Vector *negativeI = [[[Vector alloc] init] autorelease];
+            double Ix = bottomLeft.x - pos->x;
+            double Iy = bottomLeft.y - pos->y;
+            
+            [I initializeVectorX:Ix andY:Iy];
+            [negativeI initializeVectorX:-Ix andY:-Iy];
+            //Vector *velNormalized = [[Vector alloc] init];
+            //velNormalized = vel;
+            //[velNormalized normalize];
+           // if ([bottomLine isFrontFacingTo:velNormalized])
+            //{
+                normal1 = [bottomLine normal];
+            /*}
             else
             {
-                [normal1 initializeVectorX:-bottomLine->normal->x andY: -bottomLine->normal->y];
-                bottomLine->normal = normal;
-            }
-            if ([leftLine isFrontFacingTo:vel])
-            {
-                normal2 = leftLine->normal = [leftLine normal];
-            }
+               [normal1 initializeVectorX:-bottomLine->normal->x andY: -bottomLine->normal->y];
+            }*/
+            //if ([leftLine isFrontFacingTo:velNormalized])
+            //{
+                normal2 = [leftLine normal];
+            /*}
             else
             {
                 [normal2 initializeVectorX:-leftLine->normal->x andY: -leftLine->normal->y];
-                leftLine->normal = normal;
             }
             
             Vector *I = [[[Vector alloc] init] autorelease];
-            [I initializeVectorX:-vel->x andY:-vel->y];
+            [I initializeVectorX:vel->x andY:vel->y];
+            Vector *negativeI = [[[Vector alloc] init] autorelease];
+            [negativeI initializeVectorX:-vel->x andY:-vel->y];*/
+            [normal1 normalize];
+            [normal2 normalize];
             normal = [[normal1 add:normal2] multiply:0.5]; // average out lines to get vertex normal
+            [normal normalize];
             // projection of the normal along I (initial velocity vector going towards the line)
-            N = [normal multiply:[I dotProduct:normal]];
-            bounceVel =[[N multiply:2] add:I];
+            N = [normal multiply:[negativeI dotProduct:normal]];
+            bounceVel = negativeI;//[[N multiply:2] add:I];
             [bounceVel normalize];
             bounceVel = [bounceVel multiply:vel.length];
+            slidingLine->normal = normal;
             foundCollision = true;
         }
         else if ([self collideWithVertex:bottomRight])
         {
-            if ([bottomLine isFrontFacingTo:vel])
-            {
-                normal1 = bottomLine->normal = [bottomLine normal];
-            }
-            else
-            {
-                [normal1 initializeVectorX:-bottomLine->normal->x andY: -bottomLine->normal->y];
-                bottomLine->normal = normal;
-            }
-            if ([rightLine isFrontFacingTo:vel])
-            {
-                normal2 = rightLine->normal = [rightLine normal];
-            }
-            else
-            {
-                [normal2 initializeVectorX:-rightLine->normal->x andY: -rightLine->normal->y];
-                rightLine->normal = normal;
-            }
-            
             Vector *I = [[[Vector alloc] init] autorelease];
-            [I initializeVectorX:-vel->x andY:-vel->y];
-            normal = [[normal1 add:normal2] multiply:0.5]; // average out lines to get vertex normal
-            // projection of the normal along I (initial velocity vector going towards the line)
-            N = [normal multiply:[I dotProduct:normal]];
-            bounceVel =[[N multiply:2] add:I];
-            [bounceVel normalize];
-            bounceVel = [bounceVel multiply:vel.length];
-            foundCollision = true;
-        }
-        else if ([self collideWithLine:bottomLine])
-        {
-            Vector *I = [[[Vector alloc] init] autorelease];
-            [I initializeVectorX:-vel->x andY:-vel->y];
-            
-            if ([bottomLine isFrontFacingTo:vel])
-            {
-                normal = bottomLine->normal = [bottomLine normal];
+            Vector *negativeI = [[[Vector alloc] init] autorelease];
+            double Ix = bottomRight.x - pos->x;
+            double Iy = bottomRight.y - pos->y;
+            [I initializeVectorX:Ix andY:Iy];
+            [negativeI initializeVectorX:-Ix andY:-Iy];
+            //if ([bottomLine isFrontFacingTo:vel])
+          //  {
+                normal1 = [bottomLine normal];
+          //  }
+           // else
+           // {
+                //[normal1 initializeVectorX:-bottomLine->normal->x andY: -bottomLine->normal->y];
+           // }
+           // if ([rightLine isFrontFacingTo:vel])
+            //{
+                normal2 = [rightLine normal];
+            //}
+           // else
+           // {
+              // [normal2 initializeVectorX:-rightLine->normal->x andY: -rightLine->normal->y];
                 
-            }
-            else
-            {
-                [normal initializeVectorX:-bottomLine->normal->x andY: -bottomLine->normal->y];
-                bottomLine->normal = normal;
-                // [lineInESpace->normal initializeVectorX:-lineInESpace->normal->x andY:-lineInESpace->normal->y];
-            }
+           // }
             
-            
+           /* Vector *I = [[[Vector alloc] init] autorelease];
+            [I initializeVectorX:vel->x andY:vel->y];
+            Vector *negativeI = [[[Vector alloc] init] autorelease];
+            [negativeI initializeVectorX:-vel->x andY:-vel->y];*/
+            [normal1 normalize];
+            [normal2 normalize];
+            normal = [[normal1 add:normal2] multiply:0.5]; // average out lines to get vertex normal
+            [normal normalize];
             // projection of the normal along I (initial velocity vector going towards the line)
-            N = [normal multiply:[I dotProduct:normal]];
-            bounceVel =[[N multiply:2] add:I];
+            N = [normal multiply:[negativeI dotProduct:normal]];
+            bounceVel = negativeI;//[[N multiply:2] add:I];
             [bounceVel normalize];
             bounceVel = [bounceVel multiply:vel.length];
-            foundCollision = true;
-        }
-        else if ([self collideWithLine:topLine] )
-        {
-            Vector *I = [[[Vector alloc] init] autorelease];
-            [I initializeVectorX:-vel->x andY:-vel->y];
-            if ([topLine isFrontFacingTo:vel])
-            {
-                normal = topLine->normal = [topLine normal];
-            }
-            else
-            {
-                [normal initializeVectorX:-topLine->normal->x andY: -topLine->normal->y];
-                topLine->normal = normal;
-            }
-            // projection of the normal along I (initial velocity vector going towards the line)
-            N = [normal multiply:[I dotProduct:normal]];
-            bounceVel =[[N multiply:2] add:I];
-            [bounceVel normalize];
-            bounceVel = [bounceVel multiply:vel.length];
+            slidingLine->normal = normal;
             foundCollision = true;
         }
         else if ([self collideWithLine:rightLine])
         {
             Vector *I = [[[Vector alloc] init] autorelease];
-            [I initializeVectorX:-vel->x andY:-vel->y];
+            [I initializeVectorX:vel->x andY:vel->y];
+            Vector *negativeI = [[[Vector alloc] init] autorelease];
+            [negativeI initializeVectorX:-vel->x andY:-vel->y];
             if ([rightLine isFrontFacingTo:vel])
             {
-                normal = rightLine->normal = [rightLine normal];
+                normal = [rightLine normal];
             }
             else
             {
                 [normal initializeVectorX:-rightLine->normal->x andY: -rightLine->normal->y];
-                rightLine->normal = normal;
             }
+            [normal normalize];
             // projection of the normal along I (initial velocity vector going towards the line)
-            N = [normal multiply:[I dotProduct:normal]];
-            bounceVel =[[N multiply:2] add:I];
+            N = [normal multiply:[negativeI dotProduct:normal]];
+            bounceVel = [[N multiply:2] add:I];
             [bounceVel normalize];
             bounceVel = [bounceVel multiply:vel.length];
             foundCollision = true;
+            slidingLine->normal = normal;
         }
         else if ([self collideWithLine:leftLine])
         {
             Vector *I = [[[Vector alloc] init] autorelease];
-            [I initializeVectorX:-vel->x andY:-vel->y];
+            [I initializeVectorX:vel->x andY:vel->y];
+            Vector *negativeI = [[[Vector alloc] init] autorelease];
+            [negativeI initializeVectorX:-vel->x andY:-vel->y];
             if ([leftLine isFrontFacingTo:vel])
             {
-                normal = leftLine->normal = [leftLine normal];
+                normal = [leftLine normal];
             }
             else
             {
                 [normal initializeVectorX:-leftLine->normal->x andY: -leftLine->normal->y];
-                leftLine->normal = normal;
             }
+            [normal normalize];
             // projection of the normal along I (initial velocity vector going towards the line)
-            N = [normal multiply:[I dotProduct:normal]];
+            N = [normal multiply:[negativeI dotProduct:normal]];
             bounceVel =[[N multiply:2] add:I];
             [bounceVel normalize];
             bounceVel = [bounceVel multiply:vel.length];
             foundCollision = true;
+            slidingLine->normal = normal;
+        }
+        else if ( collidedWithTop || collidedWithBottom)
+        {
+            Vector *I = [[[Vector alloc] init] autorelease];
+            [I initializeVectorX:vel->x andY:vel->y];
+            Vector *negativeI = [[[Vector alloc] init] autorelease];
+            [negativeI initializeVectorX:-vel->x andY:-vel->y];
+            if (collidedWithTop && vel->y < 0)
+            {
+                if ([topLine isFrontFacingTo:vel])
+                {
+                    normal = [topLine normal];
+                }
+                else
+                {
+                    [normal initializeVectorX:-topLine->normal->x andY: -topLine->normal->y];
+                }
+            }
+            else if (collidedWithBottom && vel->y > 0)
+            {
+                if ([bottomLine isFrontFacingTo:vel])
+                {
+                    normal = [bottomLine normal];
+                }
+                else
+                {
+                    [normal initializeVectorX:-bottomLine->normal->x andY: -bottomLine->normal->y];
+                }
+            }
+            else if (collidedWithTop)
+            {
+                if ([topLine isFrontFacingTo:vel])
+                {
+                    normal = [topLine normal];
+                }
+                else
+                {
+                   [normal initializeVectorX:-topLine->normal->x andY: -topLine->normal->y];
+                }
+            }
+            else if (collidedWithBottom)
+            {
+                if ([bottomLine isFrontFacingTo:vel])
+                {
+                    normal = [bottomLine normal];
+                }
+                else
+                {
+                    [normal initializeVectorX:-bottomLine->normal->x andY: -bottomLine->normal->y];
+                }
+            }
+            [normal normalize];
+            // projection of the normal along I (initial velocity vector going towards the line)
+            N = [normal multiply:[negativeI dotProduct:normal]];
+            bounceVel = [[N multiply:2] add:I];
+            [bounceVel normalize];
+            bounceVel = [bounceVel multiply:vel.length];
+            foundCollision = true;
+            slidingLine->normal = normal;
+            
         }
     }
     
     return foundCollision;
 }
 
-- (void) display: (double) lerp
+- (void) update: (double) lerp
 {
     NSNumber *numX, *numY;
     float M11, M12;
@@ -1150,6 +1428,48 @@
 
 }
 
+- (void) bounceOffLeftWall
+{
+    Vector *N = [[[Vector alloc] init] autorelease];
+    Vector *normal = [[[Vector alloc] init] autorelease];
+    Vector *I = [[[Vector alloc] init] autorelease];
+    [I initializeVectorX:vel->x andY:vel->y];
+    Vector *negativeI = [[[Vector alloc] init] autorelease];
+    [negativeI initializeVectorX:-vel->x andY:-vel->y];
+    [normal initializeVectorX:1 andY:0];
+    [normal normalize];
+    // projection of the normal along I (initial velocity vector going towards the line)
+    N = [normal multiply:[negativeI dotProduct:normal]];
+    bounceVel = [[N multiply:2] add:I];
+    [bounceVel normalize];
+    bounceVel = [bounceVel multiply:vel.length];
+    colPackage->foundCollision = true;
+    self->pos->x = 35;
+    self->x = 35;
+    [initVel initializeVectorX:bounceVel->x andY:bounceVel->y];
+    t = 0;
+}
+
+- (void) bounceOffRightWall
+{
+    Vector *N = [[[Vector alloc] init] autorelease];
+    Vector *normal = [[[Vector alloc] init] autorelease];
+    Vector *I = [[[Vector alloc] init] autorelease];
+    [I initializeVectorX:vel->x andY:vel->y];
+    Vector *negativeI = [[[Vector alloc] init] autorelease];
+    [negativeI initializeVectorX:-vel->x andY:-vel->y];
+    [normal initializeVectorX:-1 andY:0];
+    [normal normalize];
+    // projection of the normal along I (initial velocity vector going towards the line)
+    N = [normal multiply:[negativeI dotProduct:normal]];
+    bounceVel = [[N multiply:2] add:I];
+    [bounceVel normalize];
+    bounceVel = [bounceVel multiply:vel.length];
+    colPackage->foundCollision = true;
+    [initVel initializeVectorX:bounceVel->x andY:bounceVel->y];
+    t = 0;
+}
+
 - (void) bounceOffDrum
 {
     if (colPackage->foundCollision)
@@ -1172,8 +1492,7 @@
     if (colPackage->foundCollision)
     {
        
-        initVel->x = bounceVel->x;
-        initVel->y = bounceVel->y;
+        [initVel initializeVectorX:bounceVel->x andY:bounceVel->y];
         
         t = 0;
         cheeseSprite.rotation +=1;
@@ -1235,6 +1554,7 @@
 
 - (bool) collideWithLine: (Line *)line
 {
+   // NSLog(@"Checking line from (%f,%f) to (%f,%f)", line->p1.x, line->p1.y, line->p2.x, line->p2.y);
     Vector *velocityInESpace; // velocity in espace
     Vector *positionInESpace; // position in espace
     float f0;
@@ -1259,10 +1579,23 @@
     [[CBM->M objectAtIndex:1] addObject:num21];
     [[CBM->M objectAtIndex:1] addObject:num22];
     
+    
+    
     float detCBM = [num11 floatValue] * [num22 floatValue] - [num12 floatValue] * [num21 floatValue];
     Matrix *CBMInverse = [[Matrix alloc] init]; // multiply this to get back to R2 space
     CBMInverse = [CBMInverse initWithWidth:2 andHeight:2];
     CBMInverse = [Matrix scale:(1/detCBM) multiplyMatrix:CBM];
+    
+    /*Matrix *CBM2 = [[[Matrix alloc] init] autorelease]; // multiply this to get into eSpace
+    num11 = [NSNumber numberWithDouble:2/3];
+    num12 = [NSNumber numberWithDouble:0.0];
+    num21 = [NSNumber numberWithDouble:0.0];
+    num22 = [NSNumber numberWithDouble:2/3];
+    CBM2 = [CBM2 initWithWidth:2 andHeight:2];
+    [[CBM2->M objectAtIndex:0] addObject:num11];
+    [[CBM2->M objectAtIndex:0] addObject:num12];
+    [[CBM2->M objectAtIndex:1] addObject:num21];
+    [[CBM2->M objectAtIndex:1] addObject:num22];*/
         
     Vector *p1 = [[Vector alloc] init];
     [p1 initializeVectorX:line->p1.x andY:line->p1.y];
@@ -1274,12 +1607,15 @@
     [[matrixP1->M objectAtIndex:0] addObject:numX];
     [[matrixP1->M objectAtIndex:0] addObject:numY];
     matrixP1 = [Matrix matrixA:matrixP1 multiplyMatrixB:CBM];
+   // matrixP1 = [Matrix matrixA:matrixP1 multiplyMatrixB:CBM2];
     M11 = [[[matrixP1->M objectAtIndex:0] objectAtIndex:0] floatValue];
     M12 = [[[matrixP1->M objectAtIndex:0] objectAtIndex:1] floatValue];
     [p1 initializeVectorX:M11 andY:M12];
+   // NSLog(@"p1: (%f,%f): ", p1->x, p1->y);
 
     Vector *p2 = [[[Vector alloc] init] autorelease];
     [p2 initializeVectorX:line->p2.x andY:line->p2.y];
+    
     // convert p2 to espace
     Matrix *matrixP2 = [[[Matrix alloc] init] autorelease];
     matrixP2 = [matrixP2 initWithWidth:2 andHeight:1];
@@ -1291,20 +1627,53 @@
     M11 = [[[matrixP2->M objectAtIndex:0] objectAtIndex:0] floatValue];
     M12 = [[[matrixP2->M objectAtIndex:0] objectAtIndex:1] floatValue];
     [p2 initializeVectorX:M11 andY:M12];
+   // NSLog(@"p2: (%f,%f): ", p2->x, p2->y);
     
     Vector *baseToVertex = [[[Vector alloc] init] autorelease];
     baseToVertex = [p1 subtract:positionInESpace];
+    //NSLog(@"baseToVertex: (%f,%f)", baseToVertex->x, baseToVertex->y);
     
     Vector *edge = [[[Vector alloc] init] autorelease];
     edge = [p2 subtract:p1];
-    double A = ([edge length]*[edge length])*(-([velocityInESpace length]*[velocityInESpace length]))+[edge dotProduct:velocityInESpace]*[edge dotProduct:velocityInESpace];
-    double B = ([edge length]*[edge length])*(2*([velocityInESpace dotProduct:baseToVertex])) - 2*(([edge dotProduct:velocityInESpace])*([edge dotProduct:baseToVertex]));
-    double C = ([edge length]*[edge length]) * (1 - [baseToVertex length]*[baseToVertex length]) + ([edge dotProduct:baseToVertex])*([edge dotProduct:baseToVertex]);
+   // NSLog(@"edge (x,y): (%f,%f)", edge->x, edge->y);
+   // NSLog(@"edge's length: %f", [edge length]);
+  //  NSLog(@"edge.length: %f", edge.length);
+  //  NSLog(@"baseToVertex's length: %f", [baseToVertex length]);
+  //  NSLog(@"edge.baseToVertex: %f", [edge dotProduct:baseToVertex] );
+    
+    double edgeSquared = [edge length]*[edge length];
+    //NSLog(@"edge squared: %f", edgeSquared);
+    double A = edgeSquared*(-([velocityInESpace length]*[velocityInESpace length]))+[edge dotProduct:velocityInESpace]*[edge dotProduct:velocityInESpace];
+    double B = edgeSquared*(2*([velocityInESpace dotProduct:baseToVertex])) - 2*(([edge dotProduct:velocityInESpace])*([edge dotProduct:baseToVertex]));
+    double C = edgeSquared * (1 - [baseToVertex length]*[baseToVertex length]) + ([edge dotProduct:baseToVertex])*([edge dotProduct:baseToVertex]);
     
     x1 = [[NSNumber alloc] init];
 
-    if (![Quadratic getLowestRootA:A andB:B andC:C andThreshold:(1) andRoot:&x1])
-        return false;
+    NSLog(@"t: %f", t);
+    NSLog(@"vEspace: %f", velocityInESpace->y);
+    NSLog(@"v normalized: (%f,%f)", colPackage->normalizedVelocity->x, colPackage->normalizedVelocity->y);
+  /*  if (![Quadratic getLowestRootA:A andB:B andC:C andThreshold:(1) andRoot:&x1])
+    {
+      return false;
+    }*/
+        Line *cheeseLine = [[[Line alloc] init] autorelease];
+        Line *boundLine = [[[Line alloc] init] autorelease];
+        CGPoint pt0, pt1,pt2,pt3;
+        pt0 = CGPointMake(colPackage->R3Position->x , colPackage->R3Position->y  );
+        pt1 = CGPointMake(pt0.x + 34.0f * colPackage->normalizedVelocity->x + colPackage->R3Velocity->x * t,
+                          pt0.y + 34.0f * colPackage->normalizedVelocity->y + colPackage->R3Velocity->y*t);
+   // pt0 = CGPointMake(positionInESpace->x, positionInESpace->y);
+  //  pt1 = CGPointMake(positionInESpace->x + velocityInESpace->x*t, positionInESpace->y + velocityInESpace->y*t);
+        cheeseLine = [cheeseLine initializeLineWithPoint1:pt0 andPoint2:pt1];
+        pt2 = CGPointMake(line->p1.x, line->p1.y);
+         pt3 = CGPointMake(line->p2.x, line->p2.y);
+        //  pt2 = CGPointMake(line->p1.x/r, line->p1.y/r);
+       // pt3 = CGPointMake(line->p2.x/r, line->p2.y/r);
+        boundLine = [boundLine initializeLineWithPoint1:pt2 andPoint2:pt3];
+        //if (![cheeseLine intersect:boundLine andRoot:&x1 andIntersection:collisionPoint])
+        if (![cheeseLine intersect:boundLine andRoot:&x1])
+            return false;
+   
     
     Vector *posInR3 = [[[Vector alloc] init] autorelease];
     Matrix *matrixPosInR3 = [[[Matrix alloc] init] autorelease];
@@ -1316,17 +1685,18 @@
     matrixPosInR3 = [Matrix matrixA:matrixPosInR3 multiplyMatrixB:CBMInverse];
     M11 = [[[matrixPosInR3->M objectAtIndex:0] objectAtIndex:0] floatValue];
     M12 = [[[matrixPosInR3->M objectAtIndex:0] objectAtIndex:1] floatValue];
-    NSLog(@"posInR3: %p", posInR3);
+   // NSLog(@"posInR3: %p", posInR3);
     [posInR3 initializeVectorX:M11 andY:M12];
-    NSLog(@"posInR3(x,y): (%f,%f)", posInR3->x, posInR3->y);
+   // NSLog(@"posInR3(x,y): (%f,%f)", posInR3->x, posInR3->y);
     numerator = ([edge dotProduct:velocityInESpace])*[x1 floatValue] - ([edge dotProduct:baseToVertex]);
     denominator = edge.length*edge.length;
     f0 = numerator/denominator;
+    //NSLog(@"f0: %f", f0);
     if (f0 >= 0.0 && f0 <=1.0) {
         collisionPoint = [[Vector alloc] init];
         [collisionPoint initializeVectorX:0 andY:0];
         collisionPoint = [p1 add:[edge multiply:f0]];
-        t=[x1 floatValue];
+        //t = [x1 floatValue]; no need since in collideWithWorldPostionAndVelocity is going to move the cheese very close to intersection point
         // convert collision point back to r3
         Matrix *matrixCollisionPoint = [[[Matrix alloc] init] autorelease];
         matrixCollisionPoint = [matrixCollisionPoint initWithWidth:2 andHeight:1];
@@ -1337,9 +1707,9 @@
         matrixCollisionPoint = [Matrix matrixA:matrixCollisionPoint multiplyMatrixB:CBMInverse];
         M11 = [[[matrixCollisionPoint->M objectAtIndex:0] objectAtIndex:0] floatValue];
         M12 = [[[matrixCollisionPoint->M objectAtIndex:0] objectAtIndex:1] floatValue];
-        NSLog(@"collisionPoint: %p", collisionPoint);
+        //NSLog(@"collisionPoint: %p", collisionPoint);
         [collisionPoint initializeVectorX:M11 andY:M12];
-        NSLog(@"collisionPoint(x,y): (%f,%f)", collisionPoint->x, collisionPoint->y);
+       // NSLog(@"collisionPoint(x,y): (%f,%f)", collisionPoint->x, collisionPoint->y);
         colPackage->intersectionPoint = collisionPoint;
         colPackage->R3Velocity = vel;
         colPackage->nearestDistance = [x1 floatValue] * [vel length];
@@ -1403,8 +1773,8 @@
     if (![Quadratic getLowestRootA:A andB:B andC:C andThreshold:(1) andRoot:&x1])
         return false;
     t =[x1 floatValue];
-    p->x = pt.x;
-    p->y = pt.y;
+    p->x = pos->x + vel->x*t;//pt.x;
+    p->y = pos->y + vel->y*t;//pt.y;
     collisionPoint = p;
     colPackage->intersectionPoint = collisionPoint;
     colPackage->R3Velocity = vel;
@@ -1418,7 +1788,7 @@
 - (void) collideAndSlide
 {
     colPackage->R3Position = pos;
-    colPackage->R3Velocity = vel;//[vel add:[vel add:[gravity multiply:0.00033]]];
+    colPackage->R3Velocity = [vel add:gravity];//[vel add:[vel add:[gravity multiply:0.00033]]];
     //velocityInESpace = colPackage->R3Velocity;
     
     // calculate position and velocity in eSpace
@@ -1432,15 +1802,14 @@
     collisionRecursionDepth = 0;
     Vector *finalPosition = [[[Vector alloc] init] autorelease];
     [finalPosition initializeVectorX:0 andY:0];
-    NSLog(@"pos: (%f,%f)", eSpacePosition->x, eSpacePosition->y);
-    NSLog(@"velocity: (%f,%f)", eSpaceVelocity->x, eSpaceVelocity->y);
+    //NSLog(@"pos: (%f,%f)", eSpacePosition->x, eSpacePosition->y);
+    //NSLog(@"velocity: (%f,%f)", eSpaceVelocity->x, eSpaceVelocity->y);
     finalPosition = [self collideWithWorldPosition:eSpacePosition andVelocity:eSpaceVelocity];
     
     // keep cheese from bouncing straight up, because found collision is set to false because of recursion in collideWithWorld
     if (collisionRecursionDepth>0 && ([colPackage->collidedObj class] == [Drum class] ||
         [colPackage->collidedObj class] == [Flipper class]))
         colPackage->foundCollision = true;
-    // add gravity pull
     
    // set the new r3 position (convert back from espace to r3)
    /* colPackage->R3Position = [finalPosition multiply: colPackage->eRadius];
@@ -1451,8 +1820,8 @@
     
     finalPosition = [self collideWithWorldPosition:finalPosition andVelocity:eSpaceVelocity];*/
     // convert final result back to R3
-    printf("radius: %f\n", colPackage->eRadius);
-    printf("finalPosition: %f,%f\n", finalPosition->x, finalPosition->y);
+   // printf("radius: %f\n", colPackage->eRadius);
+    //printf("finalPosition: %f,%f\n", finalPosition->x, finalPosition->y);
     float radius = colPackage->eRadius;
     finalPosition = [finalPosition multiply:radius];
     if (colPackage->foundCollision ) {
@@ -1469,7 +1838,7 @@ const float unitsPerMeter = 10000.0f;
 - (Vector*) collideWithWorldPosition: (Vector*)position andVelocity: (Vector*) velocity
 {
     float unitScale = unitsPerMeter / 100.0f;
-    float veryCloseDistance = 0.0015f * unitScale;
+    float veryCloseDistance = 0.05f * unitScale;
     
     // do we need to worry?
     if (collisionRecursionDepth>5)
@@ -1482,7 +1851,7 @@ const float unitsPerMeter = 10000.0f;
     [colPackage->normalizedVelocity normalize];
     colPackage->basePoint = position;
     
-    NSLog(@"World checking collisions...");
+   // NSLog(@"World checking collisions...");
     [world checkCollision:&(colPackage)];
     
     if (colPackage->foundCollision == false) {
@@ -1490,7 +1859,7 @@ const float unitsPerMeter = 10000.0f;
     }
     
     // *** Collision occured ***
-    NSLog(@"Collision occured");
+   // NSLog(@"Collision occured");
     // the original destination point
     Vector *destinationPoint = [[Vector alloc] init];
     [destinationPoint initializeVectorX:0 andY:0];
@@ -1500,33 +1869,42 @@ const float unitsPerMeter = 10000.0f;
     // only update if we are not already very close
     // and if so we only move very close to intersection..not
     // to the exact spot
-    NSLog(@"eSpaceNearestDist: %f ", eSpaceNearestDist);
-    NSLog(@"veryCloseDistance: %f ", veryCloseDistance);
-    if (eSpaceNearestDist >= veryCloseDistance && (eSpaceIntersectionPt->x!= 0 && eSpaceIntersectionPt->y!=0))
+   // NSLog(@"eSpaceNearestDist: %f ", eSpaceNearestDist);
+   // NSLog(@"veryCloseDistance: %f ", veryCloseDistance);
+    if (eSpaceNearestDist >= veryCloseDistance
+        //&&
+        //eSpaceIntersectionPt->x!= 0 && eSpaceIntersectionPt->y!=0 &&
+        //!isnan(eSpaceIntersectionPt->x) && !isnan(eSpaceIntersectionPt->y) &&
+        //!isnan(velocity->x) && !isnan(velocity->y)
+        )
     {
+        
         Vector *V = [[[Vector alloc] init] autorelease];
         Vector *v = [[[Vector alloc] init] autorelease];
         [v initializeVectorX:0 andY:0];
         [V initializeVectorX:velocity->x andY:velocity->y];
         [V setLength:eSpaceNearestDist-veryCloseDistance];
-        NSLog(@"V: (%f,%f)", V->x,V->y);
+       // NSLog(@"V: (%f,%f)", V->x,V->y);
         newBasePoint = [colPackage->basePoint add:V];
-        NSLog(@"new base point: (%f,%f)", newBasePoint->x, newBasePoint->y);
+       // NSLog(@"new base point: (%f,%f)", newBasePoint->x, newBasePoint->y);
         //t = 0;
         // Adjust polygon intersection point (so sliding
         // plane will be unaffected by the fact that we
         // move slightly less than collision tells us)
         [V normalize];
-        NSLog(@"V normalized: (%f,%f)", V->x, V->y);
-        NSLog(@"eSpaceIntersectionPt: (%f,%f)", eSpaceIntersectionPt->x, eSpaceIntersectionPt->y);
+       // NSLog(@"V normalized: (%f,%f)", V->x, V->y);
+       // NSLog(@"eSpaceIntersectionPt: (%f,%f)", eSpaceIntersectionPt->x, eSpaceIntersectionPt->y);
+       // NSLog(@"eSpaceintersectionPt->length: %f", eSpaceIntersectionPt->length);
         v = [V multiply:veryCloseDistance]; // fix this
-        NSLog(@"tiny V: (%f,%f)", v->x, v->y);
-        NSLog(@"eSpaceIntersectionPt instance: %p", eSpaceIntersectionPt);
-        NSLog(@"v instance: %p", v);
+      //  NSLog(@"tiny V: (%f,%f)", v->x, v->y);
+      //  NSLog(@"eSpaceIntersectionPt instance: %p", eSpaceIntersectionPt);
+      //  NSLog(@"v instance: %p", v);
       //  eSpaceIntersectionPt = [[Vector alloc] init];
-        eSpaceIntersectionPt = [eSpaceIntersectionPt subtract: v];
-        NSLog(@"eSpaceIntersectionPt - a little bit: (%f,%f)", eSpaceIntersectionPt->x, eSpaceIntersectionPt->y);
+        if (eSpaceIntersectionPt->length!=0)
+            eSpaceIntersectionPt = [eSpaceIntersectionPt subtract: v];
+      //  NSLog(@"eSpaceIntersectionPt - a little bit: (%f,%f)", eSpaceIntersectionPt->x, eSpaceIntersectionPt->y);
       //  [V release];
+        
     }
     
     // determine the sliding line
@@ -1534,19 +1912,31 @@ const float unitsPerMeter = 10000.0f;
     slideLineNormal = [[Vector alloc] init];
     // we already have the intersection point from the colliding with line/vertex function
     [slideLineOrigin initializeVectorX:eSpaceIntersectionPt->x andY:eSpaceIntersectionPt->y];
-    [slideLineNormal initializeVectorX:slidingLine->normal->x andY:slidingLine->normal->y];
-    //Vector *eSpaceNewBasePoint = [[Vector alloc] init];
-    //eSpaceNewBasePoint = [newBasePoint multiply:1/r];
-   // slideLineNormal = [newBasePoint subtract: eSpaceIntersectionPt]; // probably wrong, set normal perpendicular to line
+    [slideLineNormal initializeVectorX:0 andY:0];
+   // [slideLineNormal initializeVectorX:slidingLine->normal->x andY:slidingLine->normal->y];
+   // Vector *newBasePoint = [[Vector alloc] init];
+   // newBasePoint = [newBasePoint multiply:1/r];
+    slideLineNormal = [position subtract: eSpaceIntersectionPt]; // probably wrong, set normal perpendicular to line
     [slideLineNormal normalize];
+   
     slidingLine->origin = slideLineOrigin;
+    slidingLine->normal = slideLineNormal;
     slidingLine = [slidingLine initializeLineWithVectorOrigin:slideLineOrigin andVectorNormal:slideLineNormal];
     
-    float distance =  [slidingLine signedDistanceTo:destinationPoint];
-
-    // project the original velocity vector to the sliding line to get a new destination
-    Vector *newDestinationPoint = [destinationPoint subtract: [ slideLineNormal multiply:distance]];
+    float distance =  [slidingLine signedDistanceTo:destinationPoint]; // distance from original destination point to sliding line
     
+    // project the original velocity vector to the sliding line to get a new destination
+    Vector *slideLineNormalTimesDistance = [[[Vector alloc] init] autorelease];
+    slideLineNormalTimesDistance = [ slideLineNormal multiply:distance];
+    Vector *newDestinationPoint = [[Vector alloc] init];
+    //if (colPackage->state == COLLISION_SLIDE)
+   // {
+        newDestinationPoint = [destinationPoint subtract: slideLineNormalTimesDistance];
+   // }
+    //else
+    //{
+    //    newDestinationPoint = destinationPoint;
+   // }
    
     /*Vector *b = [position subtract:destinationPoint];
    
@@ -1565,14 +1955,14 @@ const float unitsPerMeter = 10000.0f;
     Vector *newVelocityVector = [newDestinationPoint subtract:eSpaceIntersectionPt];
     
     // Recurse
-    NSLog(@"newVelocityVector length: %f", [newVelocityVector length]);
+    //NSLog(@"newVelocityVector length: %f", [newVelocityVector length]);
     // dont recurse if the new velocity is very small
-    if ([newVelocityVector length] < veryCloseDistance || colPackage->state == COLLISION_BOUNCE) {
+    if ([newVelocityVector length] < veryCloseDistance) {//} || colPackage->state == COLLISION_BOUNCE) {
         return [newBasePoint add:newVelocityVector];
     }
 
     collisionRecursionDepth++;
-    NSLog(@"collision recursion depth %d", collisionRecursionDepth);
+   // NSLog(@"collision recursion depth %d", collisionRecursionDepth);
     return [self collideWithWorldPosition:newBasePoint andVelocity:newVelocityVector];
 }
 

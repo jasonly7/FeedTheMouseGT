@@ -89,7 +89,12 @@
         return false;
 }
 
-
-
+- (bool) collideWithLine: (Line *) line
+{
+    // get distance from the center of the circle to the two ends of the line
+    Line *lineA = [[Line alloc] init];
+    //lineA =
+    return false;
+}
 
 @end

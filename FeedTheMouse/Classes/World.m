@@ -23,39 +23,63 @@
 {
     cheese->colPackage->foundCollision = false;
     cheese->colPackage->collidedObj = nil;
-    for (int i = 0; i< [lvl->coins count]; i++)
+    
+    CGPoint wallTopLeft = CGPointMake(cheese->cheeseSprite->width/8, 0);
+    CGPoint wallBottomLeft = CGPointMake(cheese->cheeseSprite->width/8,960);
+    CGPoint wallTopRight = CGPointMake(640 - cheese->cheeseSprite->width/8,0);
+    CGPoint wallBottomRight = CGPointMake(640 - cheese->cheeseSprite->width/8, 960);
+    Line *leftWall = [[Line alloc] init];
+    Line *rightWall = [[Line alloc] init];
+    [leftWall initializeLineWithPoint1:wallTopLeft andPoint2:wallBottomLeft];
+    [rightWall initializeLineWithPoint1:wallTopRight andPoint2:wallBottomRight];
+    
+    if ([cheese collideWithLine:leftWall])
     {
-        Coin *coin;// = [[Coin alloc] init];
-        coin = [lvl->coins objectAtIndex:i];
-        NSLog(@"Checking coin %d", i);
-        cheese->colPackage->foundCollision = [cheese checkCoin:coin];
-        
-        if (cheese->colPackage->foundCollision)
-        {
-            NSLog(@"Found coin collision");
-           // cheese->colPackage->collidedObj = coin;
-            NSLog(@"# of coins: %d", (int)lvl->coins.count);
-            NSLog(@"removing coin at index %d", i);
-            [lvl->coins removeObjectAtIndex:i];
-            break;
-        }
-        else
-        {
-            NSLog(@"No coin collision found for #%d", i);
-        }
+        [cheese bounceOffLeftWall];
+    }
+    else if ([cheese collideWithLine:rightWall])
+    {
+        [cheese bounceOffRightWall];
     }
     
-    for (int i = 0; i < [lvl->gears count]; i++ )
+    if (cheese->colPackage->foundCollision==false)
     {
-        Gear *gear = [lvl->gears objectAtIndex:i];
-        cheese->colPackage->foundCollision = [cheese checkGear:gear];
-        //if ([cheese collideWithCircle:gear])
-        if (cheese->colPackage->foundCollision)
+        for (int i = 0; i< [lvl->coins count]; i++)
         {
-            cheese->colPackage->collidedObj = gear;
-            [mouse openMouth];
-            [cheese bounceOffGear:gear];
-            break;
+            Coin *coin;// = [[Coin alloc] init];
+            coin = [lvl->coins objectAtIndex:i];
+           // NSLog(@"Checking coin %d", i);
+            cheese->colPackage->foundCollision = [cheese checkCoin:coin];
+            
+            if (cheese->colPackage->foundCollision)
+            {
+              //  NSLog(@"Found coin collision");
+               // cheese->colPackage->collidedObj = coin;
+               // NSLog(@"# of coins: %d", (int)lvl->coins.count);
+               // NSLog(@"removing coin at index %d", i);
+                [lvl->coins removeObjectAtIndex:i];
+                break;
+            }
+            else
+            {
+               // NSLog(@"No coin collision found for #%d", i);
+            }
+        }
+    }
+    if (cheese->colPackage->foundCollision==false)
+    {
+        for (int i = 0; i < [lvl->gears count]; i++ )
+        {
+            Gear *gear = [lvl->gears objectAtIndex:i];
+            cheese->colPackage->foundCollision = [cheese checkGear:gear];
+            //if ([cheese collideWithCircle:gear])
+            if (cheese->colPackage->foundCollision)
+            {
+                cheese->colPackage->collidedObj = gear;
+                [mouse openMouth];
+                [cheese bounceOffGear:gear];
+                break;
+            }
         }
     }
     
@@ -64,14 +88,24 @@
         for (int i = 0; i < [lvl->drums count]; i++)
         {
             Drum *drum = [lvl->drums objectAtIndex:i];
+            NSLog(@"Checking drum %d", i);
             cheese->colPackage->foundCollision = [cheese checkDrum:drum];
             if (cheese->colPackage->foundCollision)
             {
                 cheese->colPackage->collidedObj = drum;
-                cheese->colPackage->state = COLLISION_BOUNCE;
-               // cheese->initVel = cheese->bounceVel; will be set in bounceOffDrum
+             //   NSLog(@"bounceVel length: %f", [cheese->bounceVel length]);
+                if ([cheese->bounceVel length] < 1)
+                {
+                    cheese->colPackage->state = COLLISION_SLIDE;
+                }
+                else
+                {
+                    cheese->colPackage->state = COLLISION_BOUNCE;
+                   // cheese->initVel = cheese->bounceVel; will be set in bounceOffDrum
+                    [cheese bounceOffDrum];
+                }
                 [mouse openMouth];
-                [cheese bounceOffDrum];
+                
                 break;
             }
         }
@@ -86,8 +120,16 @@
             if (cheese->colPackage->foundCollision)
             {
                 cheese->colPackage->collidedObj = flipper;
-                cheese->colPackage->state = COLLISION_BOUNCE;
-                [cheese bounceOffFlipper];
+                /*if ( [cheese->bounceVel length] < 5)
+                {
+                    cheese->colPackage->state = COLLISION_SLIDE;
+                }
+                else
+                {*/
+                    cheese->colPackage->state = COLLISION_BOUNCE;
+                    [cheese bounceOffFlipper];
+                //}
+                [mouse openMouth];
                 break;
             }
         }

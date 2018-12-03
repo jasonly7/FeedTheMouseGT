@@ -12,7 +12,7 @@
 #define kDirForward 0
 #define kFPS 30.0
 #define TICKS_PER_SECOND 50
-#define SKIP_TICKS 1000 / TICKS_PER_SECOND
+#define SKIP_TICKS 1 / kFPS
 #define MAX_FRAMESKIP 10
 
 @implementation FeedTheMouseView
@@ -75,7 +75,7 @@
         [data release];
         // get array of objects here
         gears = [curLevel getGears];
-        printf("gears retain count:%lu", (unsigned long)[gears retainCount]);
+       // printf("gears retain count:%lu", (unsigned long)[gears retainCount]);
         cheese->gears = gears;
         coins = [curLevel getCoins];
         drums = [curLevel getDrums];
@@ -88,10 +88,14 @@
         [cheese->world setLevel:curLevel];
         mouse = curLevel->mouse;
         [cheese->world setMouse:&(mouse)];
+        cheese->x = 430;
+        cheese->pos->x = 430;
         [cheese->world setCheese:&(cheese)];
         lastDate = [[NSDate date] retain];
         next_game_tick = -[lastDate timeIntervalSinceNow ];
         titleView = [[TitleView alloc] initWithCoder:coder];
+        sleep_time = 0;
+        next_tick = next_game_tick;
     }
     return self;
 }
@@ -178,7 +182,7 @@
          float newAngle = [drum getAngle]*M_PI/180;
          t0 = CGAffineTransformRotate(t0,newAngle );
          t0 = CGAffineTransformTranslate(t0, -drum->x ,-drum->y);
-                 CGContextConcatCTM(context,t0);
+         CGContextConcatCTM(context,t0);
         
         [drum draw:context];
     }
@@ -222,20 +226,25 @@
     CGContextBeginPath(context);
     CGContextMoveToPoint(context, cheese->x/2.0f, self.bounds.size.height - cheese->y/2.0f);
     //printf("cheese: (%f,%f)", cheese->x/2.0f, self.bounds.size.height-cheese->y/2.0f - 17);
-    float x = (cheese->x + cheese->vel->x )/2.0f;
-    float y = (self.bounds.size.height - cheese->y/2.0f) - cheese->vel->y/2.0f;
-
+    Vector *cheeseVelNorm = [[Vector alloc] init];
+    [cheeseVelNorm initializeVectorX:cheese->vel->x andY:cheese->vel->y];
+    [cheeseVelNorm normalize];
+    
+    float x = (cheese->x + cheese->vel->x)/2.0f;
+    float y = (self.bounds.size.height - cheese->y/2.0f) - cheese->vel->y /2.0f;
+    float x3 = (cheese->x + 34 * cheeseVelNorm->x + cheese->vel->x )/2.0f;
+    float y3 = self.bounds.size.height - (cheese->y + 34 *cheeseVelNorm->y + cheese->vel->y)/2.0f;
     //printf(" move to: (%f,%f)\n", x, y);
-    CGContextAddLineToPoint(context, x, y);
+    CGContextAddLineToPoint(context, x3, y3);
     CGContextStrokePath(context);
     CGContextSetStrokeColor(context, red);
     CGContextBeginPath(context);
     CGContextAddArc(context, x, y, cheese->r/2, 0, 2*M_PI, YES);
     CGContextStrokePath(context);
-
+    CGFloat blue[4] = {0.0f, 0.0f, 1.0f, 1.0f};
     if (cheese->slidingLine->normal!=nil)
     {
-        CGFloat blue[4] = {0.0f, 0.0f, 1.0f, 1.0f};
+        
         CGContextSetStrokeColor(context, blue);
         CGContextBeginPath(context);
         float x1 = 0.0, y1 = 0.0, x2 = 0.0, y2 = 0.0;
@@ -261,11 +270,89 @@
             CGContextStrokePath(context);
         }
     }
+    
+    CGFloat black[4] = {0.0f, 0.0f, 0.0f, 1.0f};
+    CGFloat yellow[4] = {1.0f, 1.0f, 0.0f, 1.0f};
+   // CGContextSetFillColor(context, black);
+    //CGContextFillRect(context, CGRectMake( 0,self.bounds.size.height - 960 /34 * 15/2.0f, 640 / 34 * 15 / 2, 960 /34 * 15 /2.0f));
    
+    float topLeftX, topLeftY, topRightX, topRightY;
+    CGPoint topLeftPt,topRightPt;
+    double radAngle;
+    for (int i=0; i < [drums count]; i++)
+    {
+       // CGContextSetStrokeColor(context, blue);
+        drum = [drums objectAtIndex:i];
+        radAngle = drum->angle*M_PI/180.0f;
+        
+        topLeftX = drum->x - cos(radAngle)*drum->drumSprite.width/2 + cos(radAngle+M_PI_2)*drum->drumSprite.height/2;
+        topLeftY = drum->y - sin(radAngle)*drum->drumSprite.width/2 + sin(radAngle+M_PI_2)*drum->drumSprite.height/2;
+        topLeftPt = CGPointMake(topLeftX, topLeftY);
+        // get top right of rectangle
+        topRightX = drum->x + cos(radAngle)*drum->drumSprite.width/2 + cos(radAngle+M_PI_2)*drum->drumSprite.height/2;
+        topRightY = drum->y + sin(radAngle)*drum->drumSprite.width/2 + sin(radAngle+M_PI_2)*drum->drumSprite.height/2;
+        topRightPt = CGPointMake(topRightX,topRightY);
+        
+        CGContextSetStrokeColor(context, blue);
+        CGContextMoveToPoint(context, topLeftX/2.0f, self.bounds.size.height - topLeftY/2.0f);
+        CGContextAddLineToPoint(context,topRightX/2.0f, self.bounds.size.height - topRightY/2.0f);
+        CGContextStrokePath(context);
+        
+        topLeftX = topLeftX/34*15;
+        topLeftY = topLeftY/34*15;
+        topRightX = topRightX/34*15;
+        topRightY = topRightY/34*15;
+        
+        CGContextSetStrokeColor(context, yellow);
+        CGContextMoveToPoint(context, topLeftX/2.0f, self.bounds.size.height - topLeftY/2.0f);
+        CGContextAddLineToPoint(context,topRightX/2.0f, self.bounds.size.height - topRightY/2.0f);
+        CGContextStrokePath(context);
+    }
+    
+     CGContextSetStrokeColor(context, yellow);
+   // CGContextBeginPath(context);
+    float cheeseX, cheeseY, cheeseX2, cheeseY2;
+    float x1 = cheese->x / 34.0f;
+    cheeseX = x1 * 15.0f;
+    float y1 = cheese->y/ 34.0f;
+    cheeseY = y1 * 15.0f;
+ 
+    float vtx = cheese->vel->x;
+    float x2t = cheese->x + vtx;
+    cheeseX2 = ( x2t ) / 34.0f * 15.0f;
+    float vty = cheese->vel->y;
+    float y2t = cheese->y + vty;
+    float dist = y2t - cheese->y;
+   // NSLog(@"cheese->y: %d", cheese->y);
+  //  NSLog(@"cheese->y +vt: %f", y2t);
+   // NSLog(@"dist: %f", dist);
+    cheeseY2 = y2t / 34.0f * 15.0f;
+    float distance = cheeseY2 - cheeseY;
+ //   NSLog(@"cheeseY: %f", cheeseY);
+  //  NSLog(@"cheeseY2: %f", cheeseY2);
+  //  NSLog(@"distance: %f",distance);
+   // CGContextSetFillColor(context, white);
+    float finalY = [self bounds].size.height - cheeseY / 2.0f;
+    float finalX = cheeseX / 2.0f;
+   // NSLog(@"finalX: %f", finalX);
+   // NSLog(@"finalY: %f", finalY);
+    CGContextMoveToPoint(context, finalX, finalY);
+    float x2 = cheeseX2 /2.0f;
+   // NSLog(@"height: %f", [self bounds].size.height);
+
+    float finalY2 = [self bounds].size.height - cheeseY2 / 2.0f;
+  //  NSLog(@"finalX2: %f", x2);
+   // NSLog(@"finalY2: %f", finalY2);
+    
+    CGContextAddLineToPoint(context, x2 , finalY2); // add 1 cuz too tiny
+    //CGContextFillRect(context,CGRectMake(cheeseX / 2.0f,self.bounds.size.height - cheeseY/2.0f,1,1));
+    CGContextStrokePath(context);
+    
 }
 
-- (void) update_game
+- (void) update_game:(double) lerp
 {
+    
     if ([mouse isDoneChewing])
     {
         currentLevelNumber++;
@@ -306,7 +393,28 @@
      {
      mouseSprite.frame = kSad[frame];
      }*/
-    
+    [cheese update:lerp];
+    for (int i=0; i < [gears count]; i++)
+    {
+        gear = (Gear*)[gears objectAtIndex:i];
+        [gear rotate];
+    }
+    for (int i=0; i < [drums count]; i++)
+    {
+        drum = (Drum*)[drums objectAtIndex:i];
+        [drum update];
+    }
+    for (int i=0; i < [teeterTotters count]; i++)
+    {
+        teeterTotter = (TeeterTotter*)[teeterTotters objectAtIndex:i];
+        [teeterTotter update];
+    }
+    for (int i=0; i < [flippers count]; i++)
+    {
+        flipper = (Flipper*)[flippers objectAtIndex:i];
+        
+    }
+    [mouse update];
 }
 
 - (void) gameLoop
@@ -324,18 +432,51 @@
             next_game_tick += SKIP_TICKS;
             loops++;
         }*/
-        [self update_game];
+        [self update_game:SKIP_TICKS];
+        cur_game_tick = -[lastDate timeIntervalSinceNow];
+        
+        delta_tick = cur_game_tick - next_game_tick;
+        
+        next_game_tick = -[lastDate timeIntervalSinceNow];
+        time+=delta_tick;
+       // printf("delta_tick: %f\n",delta_tick);
+        //NSLog(@"next_tick: %f", next_tick);
+       // NSLog(@"cur_game_tick: %f", cur_game_tick);
+        next_tick += SKIP_TICKS;
+        sleep_time = cur_game_tick - next_tick;
+      //  NSLog(@"SKIP_TICKS: %f", SKIP_TICKS);
+        
+        //NSLog(@"sleep_time: %f", sleep_time);
+        if (sleep_time >= 0 ) {
+            NSLog(@"Sleeping for %f", sleep_time);
+            sleep(sleep_time);
+            
+        }
+        else
+        {
+          //  NSLog(@"Running behind..");
+            
+        }
+        if (time > 1)
+        {
+          //  NSLog(@"fps: %d", frame);
+            frame = 0;
+            time = 0;
+        }
+        else
+        {
+            frame++;
+        }
         timer = [NSTimer scheduledTimerWithTimeInterval: 0
                                                  target:self
                                                selector:@selector(gameLoop)
                                                userInfo:nil
                                                 repeats:NO];
         
-        cur_game_tick = -[lastDate timeIntervalSinceNow];
-        delta_tick = cur_game_tick - next_game_tick;
-        next_game_tick = -[lastDate timeIntervalSinceNow];
-        [self display_game:.02];
-        printf("delta_tick: %f\n",delta_tick);
+        
+        
+        [self display_game];
+       
         //interpolation = (cur_game_tick + SKIP_TICKS - next_game_tick) / SKIP_TICKS;
         //printf("interp: %f", interpolation);
         
@@ -379,31 +520,8 @@ void cleanRemoveFromSuperview( UIView * view ) {
     [view removeFromSuperview];
 }
 
-- (void) display_game:(double) lerp
+- (void) display_game
 {
-
-    [cheese display:lerp];
-    for (int i=0; i < [gears count]; i++)
-    {
-        gear = (Gear*)[gears objectAtIndex:i];
-        [gear rotate];
-    }
-    for (int i=0; i < [drums count]; i++)
-    {
-        drum = (Drum*)[drums objectAtIndex:i];
-        [drum update];
-    }
-    for (int i=0; i < [teeterTotters count]; i++)
-    {
-        teeterTotter = (TeeterTotter*)[teeterTotters objectAtIndex:i];
-        [teeterTotter update];
-    }
-    for (int i=0; i < [flippers count]; i++)
-    {
-        flipper = (Flipper*)[flippers objectAtIndex:i];
-       
-    }
-    [mouse update];
     [self setNeedsDisplay];
 }
 
@@ -413,8 +531,12 @@ void cleanRemoveFromSuperview( UIView * view ) {
     animationNumber = (animationNumber+1)%4;
     float x = [touch locationInView:touch.view].x * 2;
     float y = 960;// - [touch locationInView:touch.view].y * 2;
+    if (x > 640 - cheese->cheeseSprite->width/2)
+        x = 640 - cheese->cheeseSprite->width/2;
+    else if (x < cheese->cheeseSprite->width/2)
+        x = cheese->cheeseSprite->width/2;
     CGPoint pt = CGPointMake(x,y);
-    printf("(x,y): (%f, %f)\n",pt.x,pt.y);
+    //printf("(x,y): (%f, %f)\n",pt.x,pt.y);
     [cheese dropAt:pt];
     lastDate = [[NSDate date] retain];
     next_game_tick = -[lastDate timeIntervalSinceNow];//+SKIP_TICKS;

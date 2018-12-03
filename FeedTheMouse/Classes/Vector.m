@@ -42,7 +42,7 @@
 
 - (Vector*) subtract:(Vector*) v
 {
-    Vector *result = [[[Vector alloc] init] autorelease];
+    Vector *result = [[Vector alloc] init];
     result->x = self->x - v->x;
     result->y = self->y - v->y;
     result.length = [result length];

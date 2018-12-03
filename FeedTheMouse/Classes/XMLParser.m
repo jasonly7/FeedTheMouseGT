@@ -39,7 +39,7 @@
         currentObject = @"Coin";
     }
     else if ([elementName isEqualToString:@"Gear"]) {
-        NSLog(@"gear element found – create a new instance of Gear class...");
+      //  NSLog(@"gear element found – create a new instance of Gear class...");
         gear = [[Gear alloc] init];
         currentObject = @"Gear";
         //We do not have any attributes in the gear elements, but if
@@ -139,7 +139,7 @@
         currentElementName = @"";
     }
 
-    NSLog(@"Processing value for : %s", [string UTF8String]);
+    //NSLog(@"Processing value for : %s", [string UTF8String]);
 }
 
 - (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName
@@ -171,7 +171,7 @@
             int gy = [g getY];
             UIColor *c = [g getColor];
             NSString *strColor = [g getStringColor];
-            NSLog(@"gear color:%@", strColor);
+           // NSLog(@"gear color:%@", strColor);
             [newGear initializeGearWithX:gx andY:gy andColor:c];
             [level addGear:newGear];
         }
