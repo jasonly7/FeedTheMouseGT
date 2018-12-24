@@ -121,9 +121,12 @@
 
     
 	CGContextSaveGState(context);
-    NSNumber *myDoubleNumber = [NSNumber numberWithDouble:delta_tick];
-    NSString *str = @"delta: ";
-    str = [str stringByAppendingString: myDoubleNumber.stringValue];
+    NSNumber *myDoubleX = [NSNumber numberWithDouble:cheese->x];
+    NSNumber *myDoubleY = [NSNumber numberWithDouble:cheese->y];
+    NSString *str = @"(x,y): ";
+    str = [str stringByAppendingString: myDoubleX.stringValue];
+    str = [str stringByAppendingString: @","];
+    str = [str stringByAppendingString: myDoubleY.stringValue] ;
     
     CGPoint textPt = CGPointMake(50, 100);
     

@@ -114,7 +114,7 @@
         }
         else
         {
-            if (colPackage->state== COLLISION_BOUNCE)
+            if (colPackage->state == COLLISION_BOUNCE)
             {
                 [vel initializeVectorX:initVel->x andY:initVel->y];
                //vel->x = initVel->x;
@@ -1731,7 +1731,7 @@
     [futureCheese initializeWithX:futureX andY:futureY andRadius:r];
     //NSLog(@"f0: %f", f0);
     if (f0 >= 0.0 && f0 <=1) {
-   // if ([futureCheese collideWithLine:line]) {
+    //if ([futureCheese collideWithLine:line]) {
         collisionPoint = [[Vector alloc] init];
         [collisionPoint initializeVectorX:0 andY:0];
         collisionPoint = [p1 add:[edge multiply:f0]];
@@ -1812,8 +1812,8 @@
     if (![Quadratic getLowestRootA:A andB:B andC:C andThreshold:(1) andRoot:&x1])
         return false;
     t =[x1 floatValue];
-   // p->x = pos->x + vel->x*t;//pt.x;
-    //p->y = pos->y + vel->y*t;//pt.y;
+    p->x = pos->x + vel->x*t;//pt.x;
+    p->y = pos->y + vel->y*t;//pt.y;
     collisionPoint = p;
     colPackage->intersectionPoint = collisionPoint;
     colPackage->R3Velocity = vel;
@@ -1956,7 +1956,7 @@ const float unitsPerMeter = 10000.0f;
    // [slideLineNormal initializeVectorX:slidingLine->normal->x andY:slidingLine->normal->y];
    // Vector *newBasePoint = [[Vector alloc] init];
    // newBasePoint = [newBasePoint multiply:1/r];
-    slideLineNormal = [position subtract: eSpaceIntersectionPt]; // probably wrong, set normal perpendicular to line
+    slideLineNormal = [position subtract: eSpaceIntersectionPt];
     [slideLineNormal normalize];
    
     slidingLine->origin = slideLineOrigin;
