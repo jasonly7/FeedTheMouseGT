@@ -30,6 +30,7 @@
     if (self)
     {
         totterSprite = [Picture fromFile:@"teeter_totter.png"];
+        angularVelocity = 0;
         [self setX:0];
         [self setY:0];
         [self setAngle:0];

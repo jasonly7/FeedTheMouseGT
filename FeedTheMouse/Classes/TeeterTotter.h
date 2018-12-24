@@ -24,6 +24,7 @@ typedef enum {
     Sprite *totterSprite;
     float angle;
     TEETER_TOTTER_STATE state;
+    float angularVelocity;
 }
 - (UIColor*) getColor;
 - (TeeterTotter*) initializeTeeterTotterAtX:(float) tx andY: (float)ty andColor: (UIColor*)c;

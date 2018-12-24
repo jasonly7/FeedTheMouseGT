@@ -44,10 +44,29 @@
     origin = [[Vector alloc] init];
     origin = o;
    // [normal normalize];
-
+    
     lineConstant = - [normal dotProduct:origin];
 
     return self;
+}
+
+- (bool) collideWithPtX: (int) x andY: (int) y
+{
+    Line *line1 = [[Line alloc] init];
+    CGPoint pt = CGPointMake(x, y);
+    [line1 initializeLineWithPoint1:p1 andPoint2:pt];
+    double d1 = line1->length;
+    Line *line2 = [[Line alloc] init];
+    
+    [line2 initializeLineWithPoint1:p2 andPoint2:pt];
+    double d2 = line2->length;
+    
+    double buffer = 0.1;
+    if (d1+d2 >= length-buffer && d1+d2 <= length+buffer)
+    {
+        return true;
+    }
+    return false;
 }
 
 - (bool) isFrontFacingTo:(Vector *) direction
@@ -74,6 +93,46 @@
 
 - (double) signedDistanceTo:(Vector *) point
 {
+    /*Vector *U = [[Vector alloc] init];
+    Vector *V = [[Vector alloc] init];
+    // center of circle
+    double cx = point->x;
+    double cy = point->y;
+    
+    // end points of the line
+    double x1 = p1.x;
+    double y1 = p1.y;
+    double x2 = p2.x;
+    double y2 = p2.y;
+    
+    double ux = cx - x1;
+    double uy = cy - y1;
+    [U initializeVectorX:ux andY:uy];
+    //  [U normalize];
+    double vx = dx;
+    double vy = dy;
+    [V initializeVectorX:vx andY:vy];
+    [V normalize];
+    
+    double dot = [U dotProduct:V];
+    Vector *projUonV = [[Vector alloc] init];
+    
+    projUonV = [V multiply:dot];
+    double closestX = x1 + projUonV->x;
+    double closestY = y1 + projUonV->y;
+    Vector *perpUonV = [U subtract:projUonV]; // distance from circle to the line
+    
+   // if (![line collideWithPtX:closestX andY:closestY])
+     //   return false;
+    
+    double distX = closestX - cx;
+    double distY = closestY - cy;
+    double distance = sqrt( (distX*distX) + (distY*distY) );
+    return distance;*/
+   /* double distX = point->x - origin->x;
+    double distY = point->y - origin->y;
+    double distance = sqrt( (distX*distX) + (distY*distY) );
+    return distance;*/
     
     //lineConstant = - [normal dotProduct:origin];
     double d = [point dotProduct:normal]+lineConstant;

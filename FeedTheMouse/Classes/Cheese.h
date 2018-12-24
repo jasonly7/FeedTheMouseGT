@@ -33,7 +33,7 @@
     Force *bounceForce;
 
     NSNumber *x1;
-    Vector *collisionPoint;
+    
    // bool flag;
 
  //   Vector *newPosition;
@@ -41,6 +41,7 @@
     float eSpaceNearestDist;
     int collisionRecursionDepth;
     @public
+        Vector *collisionPoint;
         Vector *initVel;
         Vector *bounceVel;
         Line *slidingLine;

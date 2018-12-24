@@ -23,7 +23,7 @@
     float angularAcceleration;
 }
 
-//- (bool) checkDrum : (Drum *) drum;
+- (void) initializeWithX: (int) x andY: (int)y andRadius: (float)r;
 - (bool) collideWithCircle : (Circle *) circle;
 - (bool) collideWithSprite :(Sprite *)sprite;
 - (bool) collideWithRectangle: (CGRect ) rect andAngle: (float) angle;

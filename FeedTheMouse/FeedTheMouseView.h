@@ -26,6 +26,8 @@ const int MOUSE_HEIGHT = 322;
 const int MOUSE_WIDTH = 256;
 
 @interface FeedTheMouseView : UIView {
+    IBOutlet UILabel *fpsLabel;
+    
     Sprite *mouseSprite;
     Sprite *backgroundSprite;
 
@@ -40,7 +42,7 @@ const int MOUSE_WIDTH = 256;
     NSTimer *timer;
 
 	int direction;
-    int t;
+    float t;
     int animationNumber;
     CGContextRef context;
     XMLParser *parser;

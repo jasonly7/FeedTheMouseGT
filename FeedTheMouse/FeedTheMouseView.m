@@ -121,13 +121,29 @@
 
     
 	CGContextSaveGState(context);
-	
+    NSNumber *myDoubleNumber = [NSNumber numberWithDouble:delta_tick];
+    NSString *str = @"delta: ";
+    str = [str stringByAppendingString: myDoubleNumber.stringValue];
+    
+    CGPoint textPt = CGPointMake(50, 100);
+    
+    NSFont *font = [NSFont fontWithName:@"Arial" size:24.0];
+    
+    NSDictionary *attrsDictionary =
+        [NSDictionary dictionaryWithObjectsAndKeys:
+         font, NSFontAttributeName,
+         [NSNumber numberWithFloat:1.0], NSBaselineOffsetAttributeName, nil];
+    //[str drawAtPoint:textPt withAttributes:attrsDictionary];
+    //CGContextShowTextAtPoint(context, 10, 100, str, strlen(str));
+    CGRect drawRect = CGRectMake(0.0, 10.0, 500.0, 100.0);
+    [str drawInRect:drawRect withAttributes:attrsDictionary];
 	// Reset the transformation
 	CGAffineTransform t0 = CGContextGetCTM(context);
 	t0 = CGAffineTransformInvert(t0);
 	CGContextConcatCTM(context,t0);
     
     [backgroundSprite draw:context at:CGPointMake(0,0)];
+    
     
 //    [mouseSprite draw:context at:CGPointMake(mouse->x,mouse->y)];
   //  mouse = curLevel->mouse;
@@ -220,7 +236,7 @@
     }
     
     CGContextRestoreGState(context);
-    
+
     CGFloat red[4] = {1.0f, 0.0f, 0.0f, 1.0f};
     CGContextSetStrokeColor(context, red);
     CGContextBeginPath(context);
@@ -230,10 +246,10 @@
     [cheeseVelNorm initializeVectorX:cheese->vel->x andY:cheese->vel->y];
     [cheeseVelNorm normalize];
     
-    float x = (cheese->x + cheese->vel->x)/2.0f;
-    float y = (self.bounds.size.height - cheese->y/2.0f) - cheese->vel->y /2.0f;
-    float x3 = (cheese->x + 34 * cheeseVelNorm->x + cheese->vel->x )/2.0f;
-    float y3 = self.bounds.size.height - (cheese->y + 34 *cheeseVelNorm->y + cheese->vel->y)/2.0f;
+    float x = (cheese->x + cheese->vel->x*SKIP_TICKS*30)/2.0f;
+    float y = self.bounds.size.height - (cheese->y + cheese->vel->y*SKIP_TICKS*30)/2.0f;
+    float x3 = (cheese->x + 34 * cheeseVelNorm->x + cheese->vel->x*SKIP_TICKS*30)/2.0f;
+    float y3 = self.bounds.size.height - (cheese->y + 34 *cheeseVelNorm->y + cheese->vel->y*SKIP_TICKS*30)/2.0f;
     //printf(" move to: (%f,%f)\n", x, y);
     CGContextAddLineToPoint(context, x3, y3);
     CGContextStrokePath(context);
@@ -241,6 +257,17 @@
     CGContextBeginPath(context);
     CGContextAddArc(context, x, y, cheese->r/2, 0, 2*M_PI, YES);
     CGContextStrokePath(context);
+    
+    CGFloat purple[4] = {1.0f,0.0f,1.0f, 1.0f};
+    CGContextSetStrokeColor(context, purple);
+    CGContextBeginPath(context);
+   // CGContextMoveToPoint(context, cheese->collisionPoint->x, cheese->collisionPoint->y);
+    
+    float collisionPtX = cheese->collisionPoint->x/2.0f;
+    float collisionPtY = self.bounds.size.height - cheese->collisionPoint->y/2.0f;
+    CGContextAddArc(context, collisionPtX, collisionPtY, 5, 0, 2*M_PI,YES);
+    CGContextStrokePath(context);
+    
     CGFloat blue[4] = {0.0f, 0.0f, 1.0f, 1.0f};
     if (cheese->slidingLine->normal!=nil)
     {
@@ -356,8 +383,11 @@
     if ([mouse isDoneChewing])
     {
         currentLevelNumber++;
-        curLevel = [levels objectAtIndex:currentLevelNumber];
-        mouse = curLevel->mouse;
+        if (currentLevelNumber < [levels count])
+        {
+            curLevel = [levels objectAtIndex:currentLevelNumber];
+            mouse = curLevel->mouse;
+        }
         [cheese->world setMouse:&(mouse)];
         [cheese->world setLevel: curLevel];
         Vector *v = [[Vector alloc] init];
@@ -432,31 +462,32 @@
             next_game_tick += SKIP_TICKS;
             loops++;
         }*/
-        [self update_game:SKIP_TICKS];
+        //[self update_game:SKIP_TICKS];
+       
+       
         cur_game_tick = -[lastDate timeIntervalSinceNow];
         
         delta_tick = cur_game_tick - next_game_tick;
         
         next_game_tick = -[lastDate timeIntervalSinceNow];
         time+=delta_tick;
-       // printf("delta_tick: %f\n",delta_tick);
-        //NSLog(@"next_tick: %f", next_tick);
-       // NSLog(@"cur_game_tick: %f", cur_game_tick);
+        printf("delta_tick: %f\n",delta_tick);
+        NSLog(@"next_tick: %f", next_tick);
+        NSLog(@"cur_game_tick: %f", cur_game_tick);
         next_tick += SKIP_TICKS;
         sleep_time = cur_game_tick - next_tick;
-      //  NSLog(@"SKIP_TICKS: %f", SKIP_TICKS);
-        
+        NSLog(@"SKIP_TICKS: %f", SKIP_TICKS);
+        [self update_game:SKIP_TICKS];
         //NSLog(@"sleep_time: %f", sleep_time);
-        if (sleep_time >= 0 ) {
+       /* if (sleep_time >= 0 ) {
             NSLog(@"Sleeping for %f", sleep_time);
-            sleep(sleep_time);
+           // sleep(sleep_time);
             
         }
         else
         {
-          //  NSLog(@"Running behind..");
-            
-        }
+            NSLog(@"Running behind..");
+        }*/
         if (time > 1)
         {
           //  NSLog(@"fps: %d", frame);
@@ -485,7 +516,7 @@
             cleanRemoveFromSuperview(self.superview);
             [self addSubview:titleView];
         }*/
-        if (currentLevelNumber >= [levels count]-1)
+        if (currentLevelNumber >= [levels count])
         {
             
             //UIViewController *titleViewController = [[TitleViewController alloc] initWithNibName:@"TitleViewController" bundle:[NSBundle mainBundle]];
@@ -572,6 +603,7 @@ void cleanRemoveFromSuperview( UIView * view ) {
 - (void) dealloc
 {
     
+    [fpsLabel release];
     [super dealloc];
 
 }

@@ -24,10 +24,14 @@
     cheese->colPackage->foundCollision = false;
     cheese->colPackage->collidedObj = nil;
     
-    CGPoint wallTopLeft = CGPointMake(cheese->cheeseSprite->width/8, 0);
-    CGPoint wallBottomLeft = CGPointMake(cheese->cheeseSprite->width/8,960);
-    CGPoint wallTopRight = CGPointMake(640 - cheese->cheeseSprite->width/8,0);
-    CGPoint wallBottomRight = CGPointMake(640 - cheese->cheeseSprite->width/8, 960);
+    /*CGPoint wallTopLeft = CGPointMake(cheese->cheeseSprite->width/4, 0);
+    CGPoint wallBottomLeft = CGPointMake(cheese->cheeseSprite->width/4,960);
+    CGPoint wallTopRight = CGPointMake(640 - cheese->cheeseSprite->width/4,0);
+    CGPoint wallBottomRight = CGPointMake(640 - cheese->cheeseSprite->width/4, 960);*/
+    CGPoint wallTopLeft = CGPointMake(0, 0);
+    CGPoint wallBottomLeft = CGPointMake(0,960);
+    CGPoint wallTopRight = CGPointMake(640 ,0);
+    CGPoint wallBottomRight = CGPointMake(640 , 960);
     Line *leftWall = [[Line alloc] init];
     Line *rightWall = [[Line alloc] init];
     [leftWall initializeLineWithPoint1:wallTopLeft andPoint2:wallBottomLeft];
@@ -120,15 +124,15 @@
             if (cheese->colPackage->foundCollision)
             {
                 cheese->colPackage->collidedObj = flipper;
-                /*if ( [cheese->bounceVel length] < 5)
+                if ( [cheese->bounceVel length] < 1)
                 {
                     cheese->colPackage->state = COLLISION_SLIDE;
                 }
                 else
-                {*/
+                {
                     cheese->colPackage->state = COLLISION_BOUNCE;
                     [cheese bounceOffFlipper];
-                //}
+                }
                 [mouse openMouth];
                 break;
             }
@@ -148,12 +152,15 @@
                     [cheese slideOffTeeterTotter:teeterTotter];
                 else if (cheese->colPackage->state == COLLISION_BOUNCE)
                     [cheese bounceOffTeeterTotter];
+                    
                /* if (cheese->pos->x > teeterTotter->x)
                     teeterTotter->angle-=1;
                 else if (cheese->pos->x < teeterTotter->x)
                     teeterTotter->angle+=1;*/
                 break;
             }
+           
+            
         }
     }
     

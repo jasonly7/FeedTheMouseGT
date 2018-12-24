@@ -20,6 +20,13 @@
     return self;
 }
 
+- (void) initializeWithX: (int) x andY: (int) y andRadius:(float)r
+{
+    self->x = x;
+    self->y = y;
+    self->r = r;
+}
+
 - (bool) collideWithCircle : (Circle *) circle
 {
     if ( (circle->x - x) * (circle->x - x) + (circle->y - y) * (circle->y - y) < (circle->r + r) * (circle->r + r))
@@ -91,9 +98,47 @@
 
 - (bool) collideWithLine: (Line *) line
 {
-    // get distance from the center of the circle to the two ends of the line
-    Line *lineA = [[Line alloc] init];
-    //lineA =
+   
+    Vector *U = [[Vector alloc] init];
+    Vector *V = [[Vector alloc] init];
+    // center of circle
+    double cx = x;
+    double cy = y;
+    
+    // end points of the line
+    double x1 = line->p1.x;
+    double y1 = line->p1.y;
+    double x2 = line->p2.x;
+    double y2 = line->p2.y;
+    
+    double ux = cx - x1;
+    double uy = cy - y1;
+    [U initializeVectorX:ux andY:uy];
+  //  [U normalize];
+    double vx = line->dx;
+    double vy = line->dy;
+    [V initializeVectorX:vx andY:vy];
+   [V normalize];
+    
+    double dot = [U dotProduct:V];
+    Vector *projUonV = [[Vector alloc] init];
+   
+    projUonV = [V multiply:dot];
+    double closestX = x1 + projUonV->x;
+    double closestY = y1 + projUonV->y;
+    Vector *perpUonV = [U subtract:projUonV]; // distance from circle to the line
+    
+    if (![line collideWithPtX:closestX andY:closestY])
+        return false;
+    
+    double distX = closestX - cx;
+    double distY = closestY - cy;
+    double distance = sqrt( (distX*distX) + (distY*distY) );
+    //if (perpUonV.length < r)
+    if (distance <= r)
+        return true;
+    //vel* t = perpUonV
+    // t = perpUonV/vel
     return false;
 }
 
