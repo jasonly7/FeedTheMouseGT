@@ -8,7 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "Picture.h"
-
+#import "Vector.h"
+#import "Line.h"
 
 typedef enum {
     TEETER_TOTTER_WAIT = 0,
@@ -24,7 +25,11 @@ typedef enum {
     Sprite *totterSprite;
     float angle;
     TEETER_TOTTER_STATE state;
-    float angularVelocity;
+    float angularVelocity, angularAcceleration;
+    Vector *normal;
+    float time;
+    Line *topLine;
+    Line *topLineRotated;
 }
 - (UIColor*) getColor;
 - (TeeterTotter*) initializeTeeterTotterAtX:(float) tx andY: (float)ty andColor: (UIColor*)c;
@@ -39,4 +44,5 @@ typedef enum {
 - (void) rotateClockwise: (float) value;
 - (void) rotateCounterClockwise: (float) value;
 - (void) update;
+
 @end

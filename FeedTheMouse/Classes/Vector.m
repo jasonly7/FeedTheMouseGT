@@ -31,7 +31,7 @@
 
 - (Vector*) add:(Vector*) v
 {
-    Vector *result = [[[Vector alloc] init] autorelease];
+    Vector *result = [[Vector alloc] init];
     result->x = self->x + v->x;
     result->y = self->y + v->y;
     result.length = [result length];
@@ -54,7 +54,8 @@
 
 - (Vector*) multiply:(float) scale
 {
-    Vector *result = [[[Vector alloc] init] autorelease];
+    Vector *result = [[Vector alloc] init];
+    [result initializeVectorX:0 andY:0];
     result->x = self->x * scale;
     result->y = self->y * scale;
     result.length = [result length];
@@ -95,7 +96,8 @@
 {
     Vector *res = [[Vector alloc] init];
     double numerator = [b dotProduct:a];
-    double denominator = 1/([a length]*[a length]);
+    [a normalize];
+    double denominator = ([a length]*[a length]);
     float num = numerator/denominator;
     [res setVector:[a multiply:num]];
     return [res autorelease];

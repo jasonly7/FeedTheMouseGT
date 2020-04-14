@@ -96,7 +96,7 @@
         return false;
 }
 
-- (bool) collideWithLine: (Line *) line
+- (bool) collideWithLine: (Line *) line andSpeed:(double) speed andRoot:(NSNumber **)root
 {
    
     Vector *U = [[Vector alloc] init];
@@ -108,8 +108,8 @@
     // end points of the line
     double x1 = line->p1.x;
     double y1 = line->p1.y;
-    double x2 = line->p2.x;
-    double y2 = line->p2.y;
+   // double x2 = line->p2.x;
+    //double y2 = line->p2.y;
     
     double ux = cx - x1;
     double uy = cy - y1;
@@ -126,7 +126,7 @@
     projUonV = [V multiply:dot];
     double closestX = x1 + projUonV->x;
     double closestY = y1 + projUonV->y;
-    Vector *perpUonV = [U subtract:projUonV]; // distance from circle to the line
+    
     
     if (![line collideWithPtX:closestX andY:closestY])
         return false;
@@ -136,7 +136,12 @@
     double distance = sqrt( (distX*distX) + (distY*distY) );
     //if (perpUonV.length < r)
     if (distance <= r)
+    {
+        Vector *perpUonV = [U subtract:projUonV]; // distance from circle to the line
+        double rt = [perpUonV length];// / speed; // divide by time
+        *root = [NSNumber numberWithDouble:rt];
         return true;
+    }
     //vel* t = perpUonV
     // t = perpUonV/vel
     return false;

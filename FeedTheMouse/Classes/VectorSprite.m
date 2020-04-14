@@ -38,12 +38,12 @@
 
 + (VectorSprite *) withPoints:(CGFloat *)rawPoints count:(int)count
 {
-    VectorSprite *v = [[[VectorSprite alloc] init] autorelease];
-    v.count = count;
-    v.points = rawPoints;
-    v.vectorScale = 1.0;
-    [v updateSize];
-    return v;
+    VectorSprite *vs = [[[VectorSprite alloc] init] autorelease];
+    vs.count = count;
+    vs.points = rawPoints;
+    vs.vectorScale = 1.0;
+    [vs updateSize];
+    return vs;
 }
 
 - (void)outlinePath: (CGContextRef) context

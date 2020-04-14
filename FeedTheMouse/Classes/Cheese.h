@@ -60,26 +60,31 @@
         Vector *acceleration;
         Vector *zeroVector;
         Vector *justTouchVelocity; // temporary velocity to just touch the gear
-        float t;
+        //float t;
         float time;
+        //float distance;
         float timeUntilImpact;
         World *world;
         Vector *gravity;
         double initVelX;
-    
+        Vector *newDestinationPoint;
+        Vector *destinationPoint;
+        Vector *destinationPointR3;
         Vector *slideLineNormal;
+        Vector *velocityInESpace; // velocity in espace
 }
 
 - (void) draw: (CGContextRef) context;
 - (void) dropAt: (CGPoint) pt;
 - (void) fall: (float) interpolation;
-- (void) update: (double) lerp;
+- (void) update;//
 - (bool) collideWith: (Mouse*) mouse;
 //- (void) onCollide: (NSObject *) obj;
 - (void) bounceOffGear: (Gear*) gear;
 - (void) bounceOffDrum;
 - (void) bounceOffTeeterTotter;
 - (void) bounceOffFlipper;
+- (void) bounceOffTopWall;
 - (void) bounceOffLeftWall;
 - (void) bounceOffRightWall;
 - (void) slideOffTeeterTotter:(TeeterTotter *)totter;
@@ -89,8 +94,12 @@
 - (bool) checkTeeterTotter: (TeeterTotter*) totter;
 - (bool) checkFlipper: (Flipper*)flipper;
 - (bool) collideWithLine: (Line *)line;
+- (float) collideWithLineF: (Line *)line;
+- (bool) nearLine: (Line *)line;
+- (bool) nearVertex: (CGPoint) pt;
 - (bool) collideWithVertex: (CGPoint) pt;
-- (void) collideAndSlide;
+- (float) collideWithVertexF: (CGPoint) pt;
+- (void) collideAndSlide: (double) lerp;
 - (Vector*) collideWithWorldPosition: (const Vector*)position andVelocity: (const Vector*) velocity;
 - (void) moveTo: (Vector*) position;
 - (void) dealloc;

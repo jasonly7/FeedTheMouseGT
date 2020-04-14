@@ -8,10 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
+#define veryCloseDistance 0.1
 @interface Quadratic : NSObject
 {
     
 }
 
-+ (bool) getLowestRootA: (double) a andB: (double) b andC: (double) c andThreshold: (double) maxR andRoot: (NSNumber **) root;
++ (bool) getLowestRootA: (double) a andB: (double) b andC: (double) c andMinThreshold: (double) minR andMaxThreshold: (double) maxR  andRoot: (NSNumber **) root;
 @end

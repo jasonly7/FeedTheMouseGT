@@ -135,10 +135,12 @@
     return distance;*/
     
     //lineConstant = - [normal dotProduct:origin];
-    double d = [point dotProduct:normal]+lineConstant;
+    [normal normalize];
+    double dotProd = [point dotProduct:normal];
+    double d = dotProd +lineConstant;
     if (d < 0)
         d = -d;
-    d = d / [normal length];
+    //d = d / [normal length];
     return d;
 }
 
@@ -175,8 +177,8 @@
      /*  Vector *v = [[Vector alloc] init];
        [v initializeVectorX:(p1.x + t*s1->y)*34 andY:(p1.y + t*s1->y)*34];
        *point = v;*/
-        double x = (p1.x + t*s1->y);
-        double y = (p1.y + t*s1->y);
+       // double x = (p1.x + t*s1->y);
+        //double y = (p1.y + t*s1->y);
       //  [point initializeVectorX: x andY: y];
       //  point.x = p1.x + t*s1->x;
      //   point->y = p1.y + t*s1->y;

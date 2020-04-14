@@ -8,11 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import "Vector.h"
+#import "TeeterTotter.h"
 
 typedef enum {
     COLLISION_NONE = 0,
     COLLISION_BOUNCE,
-    COLLISION_SLIDE
+    COLLISION_SLIDE,
+    COLLISION_SLIDING_OFF
 } COLLISION_STATE;
 
 @interface CollisionPacket : NSObject
@@ -35,6 +37,10 @@ typedef enum {
     Vector *intersectionPoint;
     NSObject *collidedObj;
     COLLISION_STATE state;
+    bool isSlidingOff;
+    int collisionRecursionDepth;
+    TeeterTotter *collidedTotter;
+    Vector *closestPt;
 }
 
 @end

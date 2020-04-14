@@ -10,11 +10,11 @@
 
 @implementation Mouse
 static int kWait[] = {0};
-static int kWaitOpen[] = {0};
+//static int kWaitOpen[] = {0};
 static int kBlink[] = {0,1,2,3,4,5,6};
 static int kOpenMouth[] = {0,1,2,3,4,5,6,7,8,9,10,11};
-static int kCloseMouth[] = {0,1,2,3,4,5,6,7,8,9,10,11};
-static int kSad[] = {0,1,2,3,4,5};
+//static int kCloseMouth[] = {0,1,2,3,4,5,6,7,8,9,10,11};
+//static int kSad[] = {0,1,2,3,4,5};
 static int kChew[] = {0,1,2,3,4,5,6,7,8,9,10,11};
 
 - (id) init

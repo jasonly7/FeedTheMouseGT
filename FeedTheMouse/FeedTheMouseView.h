@@ -72,6 +72,6 @@ const int MOUSE_WIDTH = 256;
 
 - (void) doParse:(NSData *) data;
 - (void) gameLoop;
-- (void) update_game:(double) lerp;
+- (void) update_game;
 - (void) display_game;
 @end

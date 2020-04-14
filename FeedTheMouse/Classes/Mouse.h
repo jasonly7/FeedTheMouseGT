@@ -54,7 +54,7 @@ typedef enum {
 - (void) updateWait;
 - (void) updateOpenMouth;
 - (void) updateMouthChew;
-- (void) blink;
+// - (void) blink;
 - (void) openMouth;
 - (void) chew;
 - (bool) isDoneChewing;

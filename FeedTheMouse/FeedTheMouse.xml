@@ -2,6 +2,27 @@
 <FeedTheMouse>
     <Level>
         <Mouse>
+            <X>431</X>
+            <Y>127</Y>
+        </Mouse>
+        <Drum>
+            <X>178</X>
+            <Y>708</Y>
+            <ANGLE>319.797546</ANGLE>
+        </Drum>
+        <Drum>
+            <X>173</X>
+            <Y>446</Y>
+            <ANGLE>323.497772</ANGLE>
+        </Drum>
+        <TeeterTotter>
+            <X>449</X>
+            <Y>537</Y>
+            <Color>orange</Color>
+        </TeeterTotter>
+    </Level>
+    <Level>
+        <Mouse>
             <X>500</X>
             <Y>150</Y>
         </Mouse>
@@ -18,7 +39,7 @@
         <Flipper>
             <X>164</X>
             <Y>763</Y>
-            <ANGLE>44.774033</ANGLE>
+            <ANGLE>45</ANGLE>
             <ISFLIPPED>false</ISFLIPPED>
             <Color>orange</Color>
         </Flipper>
@@ -169,11 +190,6 @@
             <Y>537</Y>
             <Color>orange</Color>
         </TeeterTotter>
-        <TeeterTotter>
-            <X>196</X>
-            <Y>252</Y>
-            <Color>orange</Color>
-        </TeeterTotter>
     </Level>
     <Level>
         <Mouse>
@@ -224,12 +240,38 @@
     </Level>
     <Level>
         <Mouse>
+            <X>446</X>
+            <Y>165</Y>
+        </Mouse>
+        <TeeterTotter>
+            <X>302</X>
+            <Y>771</Y>
+            <Color>orange</Color>
+        </TeeterTotter>
+        <TeeterTotter>
+            <X>186</X>
+            <Y>555</Y>
+            <Color>orange</Color>
+        </TeeterTotter>
+        <TeeterTotter>
+            <X>419</X>
+            <Y>551</Y>
+            <Color>orange</Color>
+        </TeeterTotter>
+        <TeeterTotter>
+            <X>314</X>
+            <Y>357</Y>
+            <Color>orange</Color>
+        </TeeterTotter>
+    </Level>
+    <Level>
+        <Mouse>
             <X>350</X>
             <Y>146</Y>
         </Mouse>
         <Gear>
             <X>339</X>
-            <Y>530</Y>
+            <Y>500</Y>
             <Color>orange</Color>
         </Gear>
         <TeeterTotter>

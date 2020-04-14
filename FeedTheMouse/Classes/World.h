@@ -21,7 +21,7 @@
 }
 
 - (void)checkCollision :( CollisionPacket **) colPackage;
-- (void)setLevel :(Level *)level;
+- (void)setLevel :(Level **)level;
 - (void)setMouse :(Mouse **)m;
 - (void)setCheese :(Cheese **)c;
 @end

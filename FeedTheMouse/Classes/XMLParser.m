@@ -14,6 +14,9 @@
 
 @implementation XMLParser
 
+@synthesize levels;
+@synthesize gears;
+@synthesize drum;
 @synthesize gear;
 @synthesize level;
 - (XMLParser *) initXMLParser {
@@ -170,7 +173,7 @@
             int gx = [g getX];
             int gy = [g getY];
             UIColor *c = [g getColor];
-            NSString *strColor = [g getStringColor];
+          //  NSString *strColor = [g getStringColor];
            // NSLog(@"gear color:%@", strColor);
             [newGear initializeGearWithX:gx andY:gy andColor:c];
             [level addGear:newGear];

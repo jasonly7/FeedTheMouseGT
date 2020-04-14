@@ -30,16 +30,22 @@
     if (self)
     {
         totterSprite = [Picture fromFile:@"teeter_totter.png"];
-        angularVelocity = 0;
+        angularAcceleration = 1;
+        angularVelocity = angularAcceleration;
         [self setX:0];
         [self setY:0];
+        //[self setAngle:-45];
         [self setAngle:0];
+        time = 0;
+        topLine = [[Line alloc] init];
     }
     return self;
 }
 
 - (TeeterTotter*) initializeTeeterTotterAtX:(float) tx andY: (float)ty andColor:(id)c
 {
+    float topLeftX, topLeftY, topRightX, topRightY;
+    CGPoint topLeftPt,topRightPt;
     if (c == [UIColor blueColor])
         totterSprite = [Picture fromFile:@"teeter_totter_blue.png"];
     else if (c == [UIColor greenColor])
@@ -54,8 +60,23 @@
         totterSprite = [Picture fromFile:@"teeter_totter_orange.png"];
     [self setX:tx];
     [self setY:ty];
+   // [self setAngle:45];
     [self setAngle:0];
     [self setColor:c];
+    topLine = [[Line alloc] init];
+    double radAngle = angle*M_PI/180.0f;
+    topLeftX = x - cos(radAngle)*totterSprite.width/2 + cos(radAngle+M_PI_2)*totterSprite.height/2;
+    topLeftY = y - sin(radAngle)*totterSprite.width/2 + sin(radAngle+M_PI_2)*totterSprite.height/2;
+    topLeftPt = CGPointMake(0, 0);
+    topLeftPt.x = topLeftX;
+    topLeftPt.y = topLeftY;
+    // get top right of rectangle
+    topRightX = x + cos(radAngle)*totterSprite.width/2 + cos(radAngle+M_PI_2)*totterSprite.height/2;
+    topRightY = y + sin(radAngle)*totterSprite.width/2 + sin(radAngle+M_PI_2)*totterSprite.height/2;
+    topRightPt = CGPointMake(0,0);
+    topRightPt.x = topRightX;
+    topRightPt.y = topRightY;
+    topLine = [topLine initializeLineWithPoint1:topLeftPt andPoint2:topRightPt];
     return self;
 }
 
@@ -120,5 +141,11 @@
 - (void) draw:(CGContextRef)context
 {
     [totterSprite draw:context];
+}
+
+- (void) dealloc
+{
+    [super dealloc];
+    [topLine release];
 }
 @end

@@ -20,6 +20,7 @@
         velocity = [[Vector alloc] init];
         intersectionPoint = [[Vector alloc] init];
         normalizedVelocity = [[Vector alloc] init];
+        closestPt = [[Vector alloc] init];
     }
     return self;
 }
