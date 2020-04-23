@@ -602,7 +602,7 @@
                 }
                 else if (vel->x >= 0)
                 {
-                    isPastTopLine = [self pastLine:leftLine];
+//                    isPastTopLine = [self pastLine:leftLine];
                     colPackage->state = COLLISION_BOUNCE;
                     Vector *I = [[[Vector alloc] init] autorelease];
                     [I initializeVectorX:vel->x andY:vel->y];
@@ -620,7 +620,7 @@
                         scaler = -scaler;
                     // projection of the normal along I (initial velocity vector going towards the line)
                     N = [normal multiply:scaler];
-                    [I normalize];
+                    //[I normalize];
                     bounceVel = [[N multiply:2] add:I];
                             
                     [bounceVel normalize];
@@ -684,15 +684,16 @@
                 }
                 else if (vel->x <= 0)
                 {
-                    isPastTopLine = [self pastLine:rightLine];
+                    //isPastRightLine = [self pastLine:rightLine];
                     
                     colPackage->state = COLLISION_BOUNCE;
                     foundCollision = true;
                     Vector *I = [[[Vector alloc] init] autorelease];
                     Vector *negativeI = [[[Vector alloc] init] autorelease];
-                    /*if (vel->x < 0.000000001)
+                    /*if (abs(vel->x) < 0.00000001)
                     {
-                        vel->x = 1;
+                        int roundedVelX = (int)(1000000000000000 * vel->x);
+                        vel->x = roundedVelX/1000000000000000.0f;
                     }
                     if (vel->y < 0.000000001)
                     {
@@ -712,7 +713,7 @@
                        scaler = -scaler;
                     // projection of the normal along I (initial velocity vector going towards the line)
                     N = [normal multiply:scaler];
-                    [I normalize];
+                  //  [I normalize];
                     bounceVel = [[N multiply:2] add:I];
                     [bounceVel normalize];
                     bounceVel = [bounceVel multiply:vel.length];
@@ -2402,8 +2403,8 @@ const float unitsPerMeter = 1000.0f;
             return position;
     }
     else if (colPackage->state == COLLISION_BOUNCE &&
-             ([colPackage->collidedObj class] == [Drum class] || [colPackage->collidedObj class] == [Flipper class] || [colPackage class] == [TeeterTotter class]) &&
-             isPastTopLine)
+             ([colPackage->collidedObj class] == [Drum class] || [colPackage->collidedObj class] == [Flipper class] ) &&
+             isPastTopLine )
     {
         initVel = bounceVel;
         vel = bounceVel;

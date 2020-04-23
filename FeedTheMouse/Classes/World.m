@@ -156,6 +156,7 @@
         }
     }
     
+    cheese->isPastRightLine = false;
     if (cheese->colPackage->foundCollision==false)
     {
         //printf("# of teeter totters: %d", [lvl->teeterTotters count] );
@@ -164,6 +165,7 @@
             TeeterTotter *teeterTotter = [lvl->teeterTotters objectAtIndex:i];
             cheese->colPackage->foundCollision = [cheese checkTeeterTotter:teeterTotter];
             bool isNearTopLine = [cheese nearLine:teeterTotter->topLine];
+             
             if (cheese->colPackage->foundCollision || isNearTopLine || [cheese nearVertex:teeterTotter->topLine->p1] || [cheese nearVertex:teeterTotter->topLine->p2])
             {
                 float topLeftX, topLeftY, topRightX, topRightY;
@@ -177,7 +179,7 @@
                 {
                     printf("collided with teeter totter\n");
                 }
-                else if (cheese->colPackage->state != COLLISION_BOUNCE)
+                else //if (cheese->colPackage->state != COLLISION_BOUNCE)
                 {
                     printf("near the teeter totter\n");
                     cheese->colPackage->state = cheese->colPackage->state == COLLISION_SLIDE;
@@ -185,7 +187,7 @@
                 }
                 
                 
-                if ([cheese nearLine:teeterTotter->topLine] && cheese->colPackage->state != COLLISION_BOUNCE)
+                if ([cheese nearLine:teeterTotter->topLine])// && cheese->colPackage->state != COLLISION_BOUNCE)
                     cheese->colPackage->state = COLLISION_SLIDE;
 
                 if (cheese->colPackage->state == COLLISION_SLIDE )

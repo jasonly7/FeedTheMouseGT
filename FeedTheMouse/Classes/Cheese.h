@@ -75,6 +75,7 @@
         Vector *velocityInESpace; // velocity in espace
         Vector *lineToCheese;
         bool isPastTopLine;
+        bool isPastRightLine;
         float diff;
 }
 
