@@ -829,15 +829,15 @@
             [I initializeVectorX:vel->x andY:vel->y];
             Vector *negativeI = [[[Vector alloc] init] autorelease];
             [negativeI initializeVectorX:-vel->x andY:-vel->y];
-            if ([rightLine isFrontFacingTo:vel])
-            {
+            //if ([rightLine isFrontFacingTo:vel])
+           // {
                 normal = rightLine->normal = [rightLine normal];
-            }
-            else
-            {
-                [normal initializeVectorX:-rightLine->normal->x andY: -rightLine->normal->y];
-                rightLine->normal = normal;
-            }
+           // }
+           // else
+           // {
+              //  [normal initializeVectorX:-rightLine->normal->x andY: -rightLine->normal->y];
+             //   rightLine->normal = normal;
+          // }
             [normal normalize];
             // projection of the normal along I (initial velocity vector going towards the line)
             N = [normal multiply:[negativeI dotProduct:normal]];
@@ -1329,6 +1329,9 @@
         Vector *N = [[[Vector alloc] init] autorelease];
         
         isPastTopLine = [self pastLine:topLine];
+        isPastBottomLine = [self pastLine:bottomLine];
+        isPastLeftLine = [self pastLine:leftLine];
+        isPastRightLine = [self pastLine:rightLine];
         bool collidedWithTop = [self collideWithLine:topLine]; // self->y < 910 && self->y > 100
         bool collidedWithBottom = [self collideWithLine:bottomLine];
         float collidedWithLeft = [self collideWithLineF:leftLine];
@@ -1357,7 +1360,8 @@
         if (shortestDistance != FLT_MAX || shortestDistance!=-1)
             colPackage->state == COLLISION_BOUNCE;
         
-        if (isPastTopLine && (shortestDistance != FLT_MAX || shortestDistance!=-1))
+        if (isPastTopLine  &&
+            (shortestDistance != FLT_MAX || shortestDistance!=-1))
         {
             Vector *I = [[[Vector alloc] init] autorelease];
             [I initializeVectorX:vel->x andY:vel->y];
@@ -1428,14 +1432,14 @@
             else if (collidedWithBottom == shortestDistance)
             {
                 [self collideWithLine:bottomLine];
-                if ([bottomLine isFrontFacingTo:vel])
-                {
+                //if ([bottomLine isFrontFacingTo:vel])
+                //{
                     normal = [bottomLine normal];
-                }
-                else
-                {
-                    [normal initializeVectorX:-bottomLine->normal->x andY: -bottomLine->normal->y];
-                }
+                //}
+               //else
+                //{
+                   // [normal initializeVectorX:-bottomLine->normal->x andY: -bottomLine->normal->y];
+               // }
             }
             [normal normalize];
             // projection of the normal along I (initial velocity vector going towards the line)
@@ -1526,7 +1530,7 @@
             [normal normalize];
             // projection of the normal along I (initial velocity vector going towards the line)
             N = [normal multiply:scaler];
-            [I normalize];
+            //[I normalize];
             bounceVel = [[N multiply:2] add:I];//negativeI;
             [bounceVel normalize];
             bounceVel = [bounceVel multiply:vel.length];
@@ -1553,7 +1557,7 @@
             [normal normalize];
             // projection of the normal along I (initial velocity vector going towards the line)
             N = [normal multiply:scaler];
-            [I normalize];
+            //[I normalize];
             bounceVel = [[N multiply:2] add:I];
             [bounceVel normalize];
             bounceVel = [bounceVel multiply:vel.length];
@@ -1567,14 +1571,14 @@
             [I initializeVectorX:vel->x andY:vel->y];
             Vector *negativeI = [[[Vector alloc] init] autorelease];
             [negativeI initializeVectorX:-vel->x andY:-vel->y];
-            if ([rightLine isFrontFacingTo:vel])
-            {
+            //if ([rightLine isFrontFacingTo:vel])
+            //{
                 normal = [rightLine normal];
-            }
-            else
-            {
-                [normal initializeVectorX:-rightLine->normal->x andY: -rightLine->normal->y];
-            }
+            //}
+           // else
+            //{
+             //   [normal initializeVectorX:-rightLine->normal->x andY: -rightLine->normal->y];
+           // }
             [normal normalize];
             // projection of the normal along I (initial velocity vector going towards the line)
             N = [normal multiply:[negativeI dotProduct:normal]];
@@ -1591,14 +1595,14 @@
             [I initializeVectorX:vel->x andY:vel->y];
             Vector *negativeI = [[[Vector alloc] init] autorelease];
             [negativeI initializeVectorX:-vel->x andY:-vel->y];
-            if ([leftLine isFrontFacingTo:vel])
-            {
+           // if ([leftLine isFrontFacingTo:vel])
+           // {
                 normal = [leftLine normal];
-            }
-            else
-            {
-                [normal initializeVectorX:-leftLine->normal->x andY: -leftLine->normal->y];
-            }
+           // }
+            //else
+            //{
+            //    [normal initializeVectorX:-leftLine->normal->x andY: -leftLine->normal->y];
+           // }
             [normal normalize];
             // projection of the normal along I (initial velocity vector going towards the line)
             N = [normal multiply:[negativeI dotProduct:normal]];
@@ -2403,8 +2407,8 @@ const float unitsPerMeter = 1000.0f;
             return position;
     }
     else if (colPackage->state == COLLISION_BOUNCE &&
-             ([colPackage->collidedObj class] == [Drum class] || [colPackage->collidedObj class] == [Flipper class] ) &&
-             isPastTopLine )
+             ([colPackage->collidedObj class] == [Drum class] || [colPackage->collidedObj class] == [Flipper class]) &&
+             isPastTopLine)
     {
         initVel = bounceVel;
         vel = bounceVel;

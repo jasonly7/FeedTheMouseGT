@@ -39,7 +39,7 @@
         <Flipper>
             <X>164</X>
             <Y>763</Y>
-            <ANGLE>45</ANGLE>
+            <ANGLE>45.000000</ANGLE>
             <ISFLIPPED>false</ISFLIPPED>
             <Color>orange</Color>
         </Flipper>
@@ -317,29 +317,29 @@
             <Y>114</Y>
         </Mouse>
         <Flipper>
-            <X>479</X>
-            <Y>681</Y>
+            <X>466</X>
+            <Y>694</Y>
             <ANGLE>36.402222</ANGLE>
             <ISFLIPPED>false</ISFLIPPED>
             <Color>orange</Color>
         </Flipper>
         <Flipper>
-            <X>144</X>
-            <Y>558</Y>
+            <X>181</X>
+            <Y>580</Y>
             <ANGLE>-30.701874</ANGLE>
             <ISFLIPPED>true</ISFLIPPED>
             <Color>orange</Color>
         </Flipper>
         <Flipper>
-            <X>490</X>
-            <Y>398</Y>
+            <X>460</X>
+            <Y>397</Y>
             <ANGLE>36.002197</ANGLE>
             <ISFLIPPED>false</ISFLIPPED>
             <Color>orange</Color>
         </Flipper>
         <Flipper>
-            <X>157</X>
-            <Y>281</Y>
+            <X>181</X>
+            <Y>277</Y>
             <ANGLE>-30.901886</ANGLE>
             <ISFLIPPED>true</ISFLIPPED>
             <Color>orange</Color>
