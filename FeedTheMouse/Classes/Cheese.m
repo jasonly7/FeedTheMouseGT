@@ -602,6 +602,7 @@
                 }
                 else if (vel->x >= 0)
                 {
+                    isPastTopLine = [self pastLine:leftLine];
                     colPackage->state = COLLISION_BOUNCE;
                     Vector *I = [[[Vector alloc] init] autorelease];
                     [I initializeVectorX:vel->x andY:vel->y];
@@ -683,10 +684,21 @@
                 }
                 else if (vel->x <= 0)
                 {
+                    isPastTopLine = [self pastLine:rightLine];
+                    
                     colPackage->state = COLLISION_BOUNCE;
-       
+                    foundCollision = true;
                     Vector *I = [[[Vector alloc] init] autorelease];
                     Vector *negativeI = [[[Vector alloc] init] autorelease];
+                    /*if (vel->x < 0.000000001)
+                    {
+                        vel->x = 1;
+                    }
+                    if (vel->y < 0.000000001)
+                    {
+                        int roundedVelY = (int)(10000000000 * vel->y);
+                        vel->y = roundedVelY/10000000000.0f;
+                    }*/
                     [I initializeVectorX: vel->x andY:vel->y];
                     [negativeI initializeVectorX:-I->x andY:-I->y];
 
@@ -704,8 +716,12 @@
                     bounceVel = [[N multiply:2] add:I];
                     [bounceVel normalize];
                     bounceVel = [bounceVel multiply:vel.length];
-    
+                    //double diff = self->x - topRight.x;
+                    //lineToCheese = [self->pos subtract:rightLine];
+                    //if (bounceVel->x < diff)
+                      //  [bounceVel initializeVectorX:diff andY:bounceVel->y];
                     slidingLine->normal = normal;
+                    
                 }
             }
             else
@@ -1243,7 +1259,7 @@
             bounceVel = [[N multiply:2] add:I];
             // initVel = bounceVel; will be done in bounceoffdrum
             [bounceVel normalize];
-            bounceVel = [[bounceVel multiply:vel.length] add:gravity];
+            bounceVel = [bounceVel multiply:vel.length];
             //if (collidedWithTop == shortestDistance && isNearTopLine)
                 foundCollision = true;
             
@@ -1425,7 +1441,7 @@
             N = [normal multiply:[negativeI dotProduct:normal]];
             bounceVel = [[N multiply:2] add:I];
             [bounceVel normalize];
-            bounceVel = [[bounceVel multiply:vel.length] add:gravity];
+            bounceVel = [bounceVel multiply:vel.length];
             foundCollision = true;
             slidingLine->normal = normal;
             
@@ -2386,7 +2402,7 @@ const float unitsPerMeter = 1000.0f;
             return position;
     }
     else if (colPackage->state == COLLISION_BOUNCE &&
-             ([colPackage->collidedObj class] == [Drum class] || [colPackage->collidedObj class] == [Flipper class]) &&
+             ([colPackage->collidedObj class] == [Drum class] || [colPackage->collidedObj class] == [Flipper class] || [colPackage class] == [TeeterTotter class]) &&
              isPastTopLine)
     {
         initVel = bounceVel;
@@ -2397,7 +2413,7 @@ const float unitsPerMeter = 1000.0f;
         //return [position add:vel];
         //colPackage->foundCollision = true;
         //[lineToCheese normalize];
-        //lineToCheese = lineToCheese multiply:<#(float)#>
+        lineToCheese = [lineToCheese multiply:diff];
         return [position add:lineToCheese];
     }
     /*if (colPackage->state== COLLISION_SLIDE) {

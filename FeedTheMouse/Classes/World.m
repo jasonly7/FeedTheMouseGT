@@ -170,22 +170,24 @@
                 CGPoint topLeftPt,topRightPt;
                 double radAngle = teeterTotter->angle*M_PI/180.0f;
                 Line *topLine = [[[Line alloc] init] autorelease];
+                cheese->colPackage->collidedObj = teeterTotter;
+                cheese->colPackage->collidedTotter = teeterTotter;
                 
                 if (cheese->colPackage->foundCollision)
                 {
                     printf("collided with teeter totter\n");
                 }
-                else
+                else if (cheese->colPackage->state != COLLISION_BOUNCE)
                 {
                     printf("near the teeter totter\n");
                     cheese->colPackage->state = cheese->colPackage->state == COLLISION_SLIDE;
                     //cheese->colPackage->foundCollision = true;
                 }
-                cheese->colPackage->collidedObj = teeterTotter;
-                cheese->colPackage->collidedTotter = teeterTotter;
                 
-                if ([cheese nearLine:teeterTotter->topLine])
+                
+                if ([cheese nearLine:teeterTotter->topLine] && cheese->colPackage->state != COLLISION_BOUNCE)
                     cheese->colPackage->state = COLLISION_SLIDE;
+
                 if (cheese->colPackage->state == COLLISION_SLIDE )
                     [cheese slideOffTeeterTotter:teeterTotter];
                 else if (cheese->colPackage->state == COLLISION_BOUNCE)
