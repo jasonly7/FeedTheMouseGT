@@ -379,8 +379,8 @@
     CGFloat black[4] = {0.0f, 0.0f, 0.0f, 1.0f};
    // CGFloat yellow[4] = {1.0f, 1.0f, 0.0f, 1.0f};
     CGFloat white[4] = {1.0f, 1.0f, 1.0f, 1.0f};
-    CGContextSetFillColor(context, black);
-    CGContextFillRect(context, CGRectMake( 0,self.bounds.size.height - 960 /34 * 15/2.0f, 640 / 34 * 15 / 2, 960 /34 * 15 /2.0f));
+   // CGContextSetFillColor(context, black);
+   // CGContextFillRect(context, CGRectMake( 0,self.bounds.size.height - 960 /34 * 15/2.0f, 640 / 34 * 15 / 2, 960 /34 * 15 /2.0f));
    
     float topLeftX, topLeftY, topRightX, topRightY;
     CGPoint topLeftPt,topRightPt;
@@ -520,7 +520,43 @@
     
     CGContextAddLineToPoint(context, finalX2 , finalY2); // add 1 cuz too tiny
     //CGContextFillRect(context,CGRectMake(cheeseX / 2.0f,self.bounds.size.height - cheeseY/2.0f,1,1));
-    CGContextStrokePath(context);}
+    CGContextStrokePath(context);
+    
+    
+    
+    CGContextSetStrokeColor(context, purple);
+    float sourceX = cheese->x / 2.0f;
+    float sourceY = [self bounds].size.height - cheese->y/2.0f;
+    
+    CGContextMoveToPoint(context,sourceX , sourceY);
+
+    float destinationPtX = cheese->destinationPoint->x * 34.0f;
+    float destinationPtY = cheese->destinationPoint->y * 34.0f;
+    
+    float finalY3 = [self bounds].size.height - destinationPtY / 2.0f;
+    float finalX3 = destinationPtX / 2.0f;
+
+    CGContextAddLineToPoint(context, finalX3 , finalY3);
+    //CGContextFillRect(context,CGRectMake(cheeseX / 2.0f,self.bounds.size.height - cheeseY/2.0f,1,1));
+    CGContextStrokePath(context);
+    
+       
+    CGContextSetStrokeColor(context, black);
+    float sourceX2 = cheese->x / 2.0f;
+    float sourceY2 = [self bounds].size.height - cheese->y/2.0f;
+    CGContextMoveToPoint(context,sourceX2 , sourceY2);
+
+    float newDestinationX = cheese->newDestinationPoint->x * 34.0f;
+    float newDestinationY = cheese->newDestinationPoint->y * 34.0f;
+
+    float finalY4 = [self bounds].size.height - newDestinationY / 2.0f;
+    float finalX4 = newDestinationX / 2.0f;
+
+    CGContextAddLineToPoint(context, finalX4 , finalY4);
+    //CGContextFillRect(context,CGRectMake(cheeseX / 2.0f,self.bounds.size.height - cheeseY/2.0f,1,1));
+    CGContextStrokePath(context);
+    
+}
 
 - (void) update_game
 {

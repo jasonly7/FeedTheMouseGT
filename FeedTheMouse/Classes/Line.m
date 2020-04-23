@@ -93,7 +93,7 @@
 
 - (double) signedDistanceTo:(Vector *) point
 {
-    /*Vector *U = [[Vector alloc] init];
+    Vector *U = [[Vector alloc] init];
     Vector *V = [[Vector alloc] init];
     // center of circle
     double cx = point->x;
@@ -109,6 +109,9 @@
     double uy = cy - y1;
     [U initializeVectorX:ux andY:uy];
     //  [U normalize];
+    
+    dx = x2 - x1;
+    dy = y2 - y1;
     double vx = dx;
     double vy = dy;
     [V initializeVectorX:vx andY:vy];
@@ -128,20 +131,20 @@
     double distX = closestX - cx;
     double distY = closestY - cy;
     double distance = sqrt( (distX*distX) + (distY*distY) );
-    return distance;*/
+    return distance;
    /* double distX = point->x - origin->x;
     double distY = point->y - origin->y;
     double distance = sqrt( (distX*distX) + (distY*distY) );
     return distance;*/
     
     //lineConstant = - [normal dotProduct:origin];
-    [normal normalize];
+    /*[normal normalize];
     double dotProd = [point dotProduct:normal];
     double d = dotProd +lineConstant;
     if (d < 0)
         d = -d;
     //d = d / [normal length];
-    return d;
+    return d;*/
 }
 
 - (float) getOriginX

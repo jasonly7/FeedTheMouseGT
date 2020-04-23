@@ -60,6 +60,7 @@
     if ([lvl->teeterTotters count] > 0)
         topTeeterTotter = [lvl->teeterTotters objectAtIndex:0];
     
+    cheese->isPastTopLine = false;
     if (cheese->colPackage->foundCollision==false)
     {
         for (int i = 0; i< [lvl->coins count]; i++)
@@ -103,12 +104,13 @@
     
     if (cheese->colPackage->foundCollision==false)
     {
+        
         for (int i = 0; i < [lvl->drums count]; i++)
         {
             Drum *drum = [lvl->drums objectAtIndex:i];
             NSLog(@"Checking drum %d", i);
             cheese->colPackage->foundCollision = [cheese checkDrum:drum];
-            if (cheese->colPackage->foundCollision)
+            if (cheese->colPackage->foundCollision || cheese->colPackage->state == COLLISION_BOUNCE)
             {
                 cheese->colPackage->collidedObj = drum;
              //   NSLog(@"bounceVel length: %f", [cheese->bounceVel length]);
@@ -174,7 +176,11 @@
                     printf("collided with teeter totter\n");
                 }
                 else
+                {
                     printf("near the teeter totter\n");
+                    cheese->colPackage->state = cheese->colPackage->state == COLLISION_SLIDE;
+                    //cheese->colPackage->foundCollision = true;
+                }
                 cheese->colPackage->collidedObj = teeterTotter;
                 cheese->colPackage->collidedTotter = teeterTotter;
                 

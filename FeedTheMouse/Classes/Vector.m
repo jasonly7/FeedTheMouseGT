@@ -32,9 +32,10 @@
 - (Vector*) add:(Vector*) v
 {
     Vector *result = [[Vector alloc] init];
-    result->x = self->x + v->x;
-    result->y = self->y + v->y;
-    result.length = [result length];
+    double x = self->x + v->x;;
+    double y = self->y + v->y;;
+    [result initializeVectorX:x andY:y];
+
     self = result;
    // [result release];
     return self;// [result autorelease];
@@ -55,10 +56,12 @@
 - (Vector*) multiply:(float) scale
 {
     Vector *result = [[Vector alloc] init];
-    [result initializeVectorX:0 andY:0];
-    result->x = self->x * scale;
-    result->y = self->y * scale;
-    result.length = [result length];
+    double x = self->x * scale;
+    double y = self->y * scale;
+    [result initializeVectorX:x andY:y];
+
+    
+    //result.length = [result length];
     self = result;
    
     return self;

@@ -71,9 +71,14 @@
         Vector *destinationPoint;
         Vector *destinationPointR3;
         Vector *slideLineNormal;
+        Vector *topLineNormal;
         Vector *velocityInESpace; // velocity in espace
+        Vector *lineToCheese;
+        bool isPastTopLine;
+        float diff;
 }
 
+- (bool) pastLine: (Line *)line;
 - (void) draw: (CGContextRef) context;
 - (void) dropAt: (CGPoint) pt;
 - (void) fall: (float) interpolation;
