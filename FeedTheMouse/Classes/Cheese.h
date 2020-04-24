@@ -78,9 +78,11 @@
         bool isPastBottomLine;
         bool isPastLeftLine;
         bool isPastRightLine;
+        bool isPastTopRight;
         float diff;
 }
 
+- (bool) pastVertex: (Vector *)vertex;
 - (bool) pastLine: (Line *)line;
 - (void) draw: (CGContextRef) context;
 - (void) dropAt: (CGPoint) pt;

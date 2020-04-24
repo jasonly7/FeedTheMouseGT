@@ -156,7 +156,7 @@
         }
     }
     
-   // cheese->isPastRightLine = false;
+    cheese->isPastTopRight = false;
     if (cheese->colPackage->foundCollision==false)
     {
         //printf("# of teeter totters: %d", [lvl->teeterTotters count] );
@@ -179,7 +179,7 @@
                 {
                     printf("collided with teeter totter\n");
                 }
-                else //if (cheese->colPackage->state != COLLISION_BOUNCE)
+                else if (cheese->colPackage->state != COLLISION_BOUNCE)// && !cheese->isPastTopRight)
                 {
                     printf("near the teeter totter\n");
                     cheese->colPackage->state = cheese->colPackage->state == COLLISION_SLIDE;
@@ -187,7 +187,7 @@
                 }
                 
                 
-                if ([cheese nearLine:teeterTotter->topLine])// && cheese->colPackage->state != COLLISION_BOUNCE)
+                if ([cheese nearLine:teeterTotter->topLine])// && (cheese->colPackage->state != COLLISION_BOUNCE && //!cheese->isPastTopRight))
                     cheese->colPackage->state = COLLISION_SLIDE;
 
                 if (cheese->colPackage->state == COLLISION_SLIDE )

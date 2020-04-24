@@ -578,7 +578,7 @@
             shortestDistance = collidedWithBottomLeft;
         if (collidedWithBottomRight < shortestDistance && collidedWithBottomRight > 0)
             shortestDistance = collidedWithBottomRight;
-
+        
         if ( collidedWithTopLeft == shortestDistance || isNearTopLeft)
         {
             [self collideWithVertex:topLeft];
@@ -591,6 +591,8 @@
             foundCollision = true;
             slidingLine->normal = normal;
             colPackage->state = COLLISION_SLIDE;
+            
+            
             if (isNearTopLeft && !isCollidedWithTopLeft)
             {
                 if (vel->x <0)
@@ -602,7 +604,8 @@
                 }
                 else if (vel->x >= 0)
                 {
-//                    isPastTopLine = [self pastLine:leftLine];
+                   // isPastTopRight = [self pastLine:leftLine];
+                    
                     colPackage->state = COLLISION_BOUNCE;
                     Vector *I = [[[Vector alloc] init] autorelease];
                     [I initializeVectorX:vel->x andY:vel->y];
@@ -668,14 +671,15 @@
         }
         else if (collidedWithTopRight == shortestDistance || isNearTopRight)
         {
-            [self collideWithVertex:topRight];
             Vector *topRightVector = [[[Vector alloc] init] autorelease];
             [topRightVector initializeVectorX:topRight.x andY:topRight.y];
+            
             
             normal = [self->pos subtract:topRightVector];
             [normal normalize];
             slidingLine->normal = normal;
             colPackage->state = COLLISION_SLIDE;
+            
             if (isNearTopRight && !isCollidedWithTopRight)
             {
                 if (vel->x > 0)
@@ -684,7 +688,7 @@
                 }
                 else if (vel->x <= 0)
                 {
-                    //isPastRightLine = [self pastLine:rightLine];
+                    isPastTopRight = [self pastVertex:topRightVector];                    //isPastRightLine = [self pastLine:rightLine];
                     
                     colPackage->state = COLLISION_BOUNCE;
                     foundCollision = true;
@@ -1832,6 +1836,14 @@
     return distanceVector.length < nearDist;
 }
 
+- (bool) pastVertex:(Vector *)vertex
+{
+    Vector *distanceVector = [[Vector alloc] init];
+    distanceVector = [self->pos subtract:vertex];
+    diff = self->r - distanceVector->length;
+    diff = diff/self->r;
+    return distanceVector->length < self->r;
+}
 
 - (bool) pastLine: (Line *)line
 {
@@ -1866,8 +1878,8 @@
        [closestPt initializeVectorX:closestX andY:closestY];
        colPackage->closestPt = closestPt;
        Vector *cheeseToLine = [[Vector alloc] init];
-       lineToCheese = [[Vector alloc] init];
-       [lineToCheese initializeVectorX:0 andY:0];
+       //lineToCheese = [[Vector alloc] init];
+       //[lineToCheese initializeVectorX:0 andY:0];
        float x = closestPt->x - cx;
        float y = closestPt->y - cy;
        [cheeseToLine initializeVectorX:x andY:y];
@@ -1881,7 +1893,7 @@
        if (cheeseToLine.length <= nearDist && dot2 <= veryCloseDistance) // perpendicular = 0
        {
            diff = nearDist - cheeseToLine.length;
-           lineToCheese = [cheeseToLine multiply:-1];
+        //   lineToCheese = [cheeseToLine multiply:-1];
            
            return true;
        }
@@ -2384,6 +2396,7 @@ const float unitsPerMeter = 1000.0f;
                      v2x = length*cos(angle);
                      v2y = length*sin(angle);
                       [vel initializeVectorX:v2x andY:v2y];
+                     
                  }
                  else if (self->x == colPackage->collidedTotter->x)
                  {
@@ -2406,6 +2419,11 @@ const float unitsPerMeter = 1000.0f;
         else
             return position;
     }
+    else if (colPackage->state == COLLISION_SLIDE && [colPackage->collidedObj class] == [TeeterTotter class] && isPastTopRight)
+    {
+        lineToCheese = [slidingLine->normal multiply:diff];
+        return [position add:lineToCheese];
+    }
     else if (colPackage->state == COLLISION_BOUNCE &&
              ([colPackage->collidedObj class] == [Drum class] || [colPackage->collidedObj class] == [Flipper class]) &&
              isPastTopLine)
@@ -2418,7 +2436,7 @@ const float unitsPerMeter = 1000.0f;
         //return [position add:vel];
         //colPackage->foundCollision = true;
         //[lineToCheese normalize];
-        lineToCheese = [lineToCheese multiply:diff];
+        lineToCheese = [slidingLine->normal multiply:diff];
         return [position add:lineToCheese];
     }
     /*if (colPackage->state== COLLISION_SLIDE) {
