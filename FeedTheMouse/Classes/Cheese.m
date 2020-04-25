@@ -1349,9 +1349,18 @@
         isPastBottomLine = [self pastLine:bottomLine];
         isPastLeftLine = [self pastLine:leftLine];
         isPastRightLine = [self pastLine:rightLine];
+        Vector *topLeftVector = [[Vector alloc] init];
+        [topLeftVector initializeVectorX:topLeft.x andY:topLeft.y];
+        isPastTopLeft = [self pastVertex:topLeftVector];
         Vector *topRightVector = [[Vector alloc] init];
         [topRightVector initializeVectorX:topRight.x andY:topRight.y];
         isPastTopRight = [self pastVertex:topRightVector];
+        Vector *bottomRightVector = [[Vector alloc] init];
+        [bottomRightVector initializeVectorX:bottomRight.x andY:bottomRight.y];
+        isPastBottomRight = [self pastVertex:bottomRightVector];
+        Vector *bottomLeftVector = [[Vector alloc] init];
+        [bottomLeftVector initializeVectorX:bottomLeft.x andY:bottomLeft.y];
+        isPastBottomLeft = [self pastVertex:bottomLeftVector];
         bool collidedWithTop = [self collideWithLine:topLine]; // self->y < 910 && self->y > 100
         bool collidedWithBottom = [self collideWithLine:bottomLine];
         float collidedWithLeft = [self collideWithLineF:leftLine];
@@ -1381,7 +1390,7 @@
             colPackage->state == COLLISION_BOUNCE;
         
         
-        if ((isPastTopLine || isPastTopRight ) &&
+        if ((isPastTopLine || isPastTopRight || isPastBottomRight || isPastTopLeft || isPastBottomLeft ) &&
             (shortestDistance != FLT_MAX || shortestDistance!=-1))
         {
             if (diff < veryCloseDistance)
@@ -1396,8 +1405,14 @@
             [slidingLine initializeLineWithPoint1:p1 andPoint2:p2];
             if (isPastTopLine)
                 normal = [topLine normal];
+            else if (isPastTopLeft)
+                normal = [self->pos  subtract:topLeftVector];
             else if (isPastTopRight)
                 normal = [self->pos subtract:topRightVector];
+            else if (isPastBottomRight)
+                normal = [self->pos subtract:bottomRightVector];
+            else if (isPastBottomLeft)
+                normal = [self->pos subtract:bottomLeftVector];
             colPackage->collidedObj = f;
             foundCollision = true;
             slidingLine->normal = normal;
@@ -2452,7 +2467,7 @@ const float unitsPerMeter = 1000.0f;
     }
     else if (colPackage->state == COLLISION_BOUNCE &&
              ([colPackage->collidedObj class] == [Drum class] || [colPackage->collidedObj class] == [Flipper class]) &&
-             (isPastTopLine || isPastTopRight || isPastBottomRight || isPastBottomLeft))
+             (isPastTopLine || isPastTopRight || isPastBottomRight || isPastBottomLeft || isPastTopLeft))
     {
         initVel = bounceVel;
         vel = bounceVel;

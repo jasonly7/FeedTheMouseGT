@@ -78,6 +78,7 @@
         bool isPastBottomLine;
         bool isPastLeftLine;
         bool isPastRightLine;
+        bool isPastTopLeft;
         bool isPastTopRight;
         bool isPastBottomRight;
         bool isPastBottomLeft;
