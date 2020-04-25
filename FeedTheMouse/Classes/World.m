@@ -103,6 +103,8 @@
     }
     
     cheese->isPastTopRight = false;
+    cheese->isPastBottomRight = false;
+    cheese->isPastBottomLeft = false;
     if (cheese->colPackage->foundCollision==false)
     {
         

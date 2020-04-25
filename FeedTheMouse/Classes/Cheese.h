@@ -79,6 +79,8 @@
         bool isPastLeftLine;
         bool isPastRightLine;
         bool isPastTopRight;
+        bool isPastBottomRight;
+        bool isPastBottomLeft;
         float diff;
 }
 
