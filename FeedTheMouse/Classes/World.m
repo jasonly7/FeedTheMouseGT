@@ -102,6 +102,7 @@
         }
     }
     
+    cheese->isPastTopRight = false;
     if (cheese->colPackage->foundCollision==false)
     {
         
@@ -156,7 +157,7 @@
         }
     }
     
-    cheese->isPastTopRight = false;
+    
     if (cheese->colPackage->foundCollision==false)
     {
         //printf("# of teeter totters: %d", [lvl->teeterTotters count] );

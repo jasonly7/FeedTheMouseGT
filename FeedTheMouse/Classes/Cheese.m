@@ -1336,6 +1336,9 @@
         isPastBottomLine = [self pastLine:bottomLine];
         isPastLeftLine = [self pastLine:leftLine];
         isPastRightLine = [self pastLine:rightLine];
+        Vector *topRightVector = [[Vector alloc] init];
+        [topRightVector initializeVectorX:topRight.x andY:topRight.y];
+        isPastTopRight = [self pastVertex:topRightVector];
         bool collidedWithTop = [self collideWithLine:topLine]; // self->y < 910 && self->y > 100
         bool collidedWithBottom = [self collideWithLine:bottomLine];
         float collidedWithLeft = [self collideWithLineF:leftLine];
@@ -1364,9 +1367,12 @@
         if (shortestDistance != FLT_MAX || shortestDistance!=-1)
             colPackage->state == COLLISION_BOUNCE;
         
-        if (isPastTopLine  &&
+        
+        if ((isPastTopLine || isPastTopRight ) &&
             (shortestDistance != FLT_MAX || shortestDistance!=-1))
         {
+            if (diff < veryCloseDistance)
+                diff = veryCloseDistance;
             Vector *I = [[[Vector alloc] init] autorelease];
             [I initializeVectorX:vel->x andY:vel->y];
             Vector *negativeI = [[[Vector alloc] init] autorelease];
@@ -1375,7 +1381,10 @@
             CGPoint p1 = CGPointMake( topLine->p1.x/r, topLine->p1.y/r);
             CGPoint p2 = CGPointMake( topLine->p2.x/r, topLine->p2.y/r);
             [slidingLine initializeLineWithPoint1:p1 andPoint2:p2];
-            normal = [topLine normal];
+            if (isPastTopLine)
+                normal = [topLine normal];
+            else if (isPastTopRight)
+                normal = [self->pos subtract:topRightVector];
             colPackage->collidedObj = f;
             foundCollision = true;
             slidingLine->normal = normal;
@@ -1476,7 +1485,7 @@
                scaler = -scaler;
             // projection of the normal along I (initial velocity vector going towards the line)
             N = [normal multiply:scaler];
-            [I normalize];
+           // [I normalize];
             bounceVel = [[N multiply:2] add:I];
 
             [bounceVel normalize];
@@ -1505,7 +1514,7 @@
                scaler = -scaler;
             // projection of the normal along I (initial velocity vector going towards the line)
             N = [normal multiply:scaler];
-            [I normalize];
+            //[I normalize];
             bounceVel = [[N multiply:2] add:I];
                
             [bounceVel normalize];
@@ -1840,9 +1849,13 @@
 {
     Vector *distanceVector = [[Vector alloc] init];
     distanceVector = [self->pos subtract:vertex];
-    diff = self->r - distanceVector->length;
-    diff = diff/self->r;
-    return distanceVector->length < self->r;
+    if (distanceVector->length < self->r)
+    {
+        diff = self->r - distanceVector->length;
+        diff = diff/self->r;
+        return true;
+    }
+    return false;
 }
 
 - (bool) pastLine: (Line *)line
@@ -2426,7 +2439,7 @@ const float unitsPerMeter = 1000.0f;
     }
     else if (colPackage->state == COLLISION_BOUNCE &&
              ([colPackage->collidedObj class] == [Drum class] || [colPackage->collidedObj class] == [Flipper class]) &&
-             isPastTopLine)
+             (isPastTopLine || isPastTopRight))
     {
         initVel = bounceVel;
         vel = bounceVel;
