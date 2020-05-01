@@ -82,6 +82,7 @@
         bool isPastTopRight;
         bool isPastBottomRight;
         bool isPastBottomLeft;
+        bool isNearTopRight, isNearTopLeft;
         float diff;
 }
 

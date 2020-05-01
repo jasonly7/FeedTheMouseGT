@@ -546,11 +546,17 @@
         [N initializeVectorX:0 andY:0];
         
         bool isCollidedWithTopLeft = [self collideWithVertex:topLeft];
-        
         bool isCollidedWithTopRight = [self collideWithVertex:topRight];
+        Vector *bottomLeftVector = [[[Vector alloc] init] autorelease];
+        [bottomLeftVector initializeVectorX:bottomLeft.x andY:bottomLeft.y];
+        isPastBottomLeft = [self pastVertex:bottomLeftVector];
+        Vector *bottomRightVector = [[[Vector alloc] init] autorelease];
+        [bottomRightVector initializeVectorX:bottomRight.x andY:bottomRight.y];
+        isPastBottomLeft = [self pastVertex:bottomLeftVector];
+        isPastBottomRight = [self pastVertex:bottomRightVector];
         
-        bool isNearTopLeft = [self nearVertex:topLeft];
-        bool isNearTopRight = [self nearVertex:topRight];
+        isNearTopLeft = [self nearVertex:topLeft];
+        isNearTopRight = [self nearVertex:topRight];
         bool isNearTopLine = [self nearLine:topLine];
         float collidedWithTop = [self collideWithLineF:topLine];
         float collidedWithBottom = [self collideWithLineF:bottomLine];
@@ -581,7 +587,7 @@
         
         if ( collidedWithTopLeft == shortestDistance || isNearTopLeft)
         {
-            [self collideWithVertex:topLeft];
+            //[self collideWithVertex:topLeft];
             Vector *topLeftVector = [[[Vector alloc] init] autorelease];
             [topLeftVector initializeVectorX:topLeft.x andY:topLeft.y];
               
@@ -591,7 +597,6 @@
             foundCollision = true;
             slidingLine->normal = normal;
             colPackage->state = COLLISION_SLIDE;
-            
             
             if (isNearTopLeft && !isCollidedWithTopLeft)
             {
@@ -604,9 +609,12 @@
                 }
                 else if (vel->x >= 0)
                 {
-                   // isPastTopRight = [self pastLine:leftLine];
-                    
+                    isPastTopLeft = [self pastVertex:topLeftVector];
+                  //  isPastLeftLine = [self pastLine:leftLine];
+                    if (!isPastTopLeft)
+                        isPastLeftLine = [self pastLine:leftLine];
                     colPackage->state = COLLISION_BOUNCE;
+                    foundCollision = true;
                     Vector *I = [[[Vector alloc] init] autorelease];
                     [I initializeVectorX:vel->x andY:vel->y];
                     Vector *negativeI = [[[Vector alloc] init] autorelease];
@@ -688,7 +696,9 @@
                 }
                 else if (vel->x <= 0)
                 {
-                    isPastTopRight = [self pastVertex:topRightVector];                    //isPastRightLine = [self pastLine:rightLine];
+                    isPastTopRight = [self pastVertex:topRightVector];
+                    if (!isPastTopRight)
+                        isPastRightLine = [self pastLine:rightLine];
                     
                     colPackage->state = COLLISION_BOUNCE;
                     foundCollision = true;
@@ -851,7 +861,7 @@
             foundCollision = true;
             colPackage->state = COLLISION_BOUNCE;
         }
-        else if (collidedWithBottomLeft == shortestDistance)
+        else if (collidedWithBottomLeft == shortestDistance || isPastBottomLeft)
         {
             [self collideWithVertex:bottomLeft];
             Vector *bottomLeftVector = [[[Vector alloc] init] autorelease];
@@ -866,7 +876,7 @@
             [normal normalize];
             // projection of the normal along I (initial velocity vector going towards the line)
             N = [normal multiply:scaler];
-            [I normalize];
+           // [I normalize];
             bounceVel = [[N multiply:2] add:I];
             [bounceVel normalize];
             bounceVel = [[bounceVel multiply:vel.length] add:gravity];
@@ -874,7 +884,7 @@
             colPackage->state = COLLISION_BOUNCE;
             slidingLine->normal = normal;
         }
-        else if (collidedWithBottomRight == shortestDistance)
+        else if (collidedWithBottomRight == shortestDistance || isPastBottomRight)
         {
             [self collideWithVertex:bottomRight];
             Vector *bottomRightVector = [[[Vector alloc] init] autorelease];
@@ -888,7 +898,7 @@
             if (scaler < 0)
                 scaler = -scaler;
             N = [normal multiply:scaler];
-            [I normalize];
+         //  [I normalize];
             bounceVel = [[N multiply:2] add:I];
             [bounceVel normalize];
             bounceVel = [[bounceVel multiply:vel.length] add:gravity];
@@ -1317,17 +1327,43 @@
     topRightX = f->x + cos(radAngle)*f->sprite.width/2 + cos(radAngle+M_PI_2)*f->sprite.height/2;
     topRightY = f->y + sin(radAngle)*f->sprite.width/2 + sin(radAngle+M_PI_2)*f->sprite.height/2;
     topRightPt = CGPointMake(topRightX,topRightY);
+    double xHalfWidth,xHalfHeight,yHalfWidth,yHalfHeight;
     // get bottom left of rectangle
-    bottomLeftX = f->x - cos(radAngle)*f->sprite.width/2 + cos(radAngle-M_PI_2)*f->sprite.height/2;
-    bottomLeftY = f->y - sin(radAngle)*f->sprite.width/2 + sin(radAngle-M_PI_2)*f->sprite.height/2;
+    if (radAngle > (M_PI_2 + M_PI))
+    {
+        xHalfWidth = cos(radAngle)*f->sprite.width/2;
+        xHalfHeight = cos(radAngle+M_PI_2)*f->sprite.height/2;
+        yHalfWidth = sin(radAngle)*f->sprite.width/2;
+        yHalfHeight = sin(radAngle+M_PI_2)*f->sprite.height/2;
+        bottomLeftX = f->x - xHalfWidth - xHalfHeight;
+        bottomLeftY = f->y - yHalfWidth - yHalfHeight;
+    }
+    else
+    {
+        bottomLeftX = f->x - cos(radAngle)*f->sprite.width/2 + cos(radAngle-M_PI_2)*f->sprite.height/2;
+        bottomLeftY = f->y - sin(radAngle)*f->sprite.width/2 + sin(radAngle-M_PI_2)*f->sprite.height/2;
+    }
     bottomLeftPt = CGPointMake(bottomLeftX, bottomLeftY);
+    
     // get bottom right of rectangle
-    bottomRightX = f->x + cos(radAngle)*f->sprite.width/2 + cos(radAngle-M_PI_2)*f->sprite.height/2;
-    bottomRightY = f->y + sin(radAngle)*f->sprite.width/2 + sin(radAngle-M_PI_2)*f->sprite.height/2;
+    if (radAngle > (M_PI_2 + M_PI))
+    {
+        xHalfWidth = cos(radAngle)*f->sprite.width/2;
+        xHalfHeight = cos(radAngle+M_PI_2)*f->sprite.height/2;
+        yHalfWidth = sin(radAngle)*f->sprite.width/2;
+        yHalfHeight = sin(radAngle+M_PI_2)*f->sprite.height/2;
+        bottomRightX = f->x + xHalfWidth + xHalfHeight;
+        bottomRightY = f->y + yHalfWidth  - yHalfHeight;
+    }
+    else
+    {
+        bottomRightX = f->x + cos(radAngle)*f->sprite.width/2 + cos(radAngle-M_PI_2)*f->sprite.height/2;
+        bottomRightY = f->y + sin(radAngle)*f->sprite.width/2 + sin(radAngle-M_PI_2)*f->sprite.height/2;
+    }
     bottomRightPt = CGPointMake(bottomRightX,bottomRightY);
     
     topLine = [topLine initializeLineWithPoint1:topLeftPt andPoint2:topRightPt];
-    bottomLine = [bottomLine initializeLineWithPoint1:bottomRightPt andPoint2:bottomLeftPt];
+    bottomLine = [bottomLine initializeLineWithPoint1:bottomLeftPt andPoint2:bottomRightPt];
     leftLine = [leftLine initializeLineWithPoint1:bottomLeftPt andPoint2:topLeftPt];
     rightLine = [rightLine initializeLineWithPoint1:topRightPt andPoint2:bottomRightPt];
     
@@ -1386,12 +1422,12 @@
             shortestDistance = collidedWithBottomLeft;
         if (collidedWithBottomRight < shortestDistance && collidedWithBottomRight > 0)
             shortestDistance = collidedWithBottomRight;
-        if (shortestDistance != FLT_MAX || shortestDistance!=-1)
+        if (shortestDistance != FLT_MAX && shortestDistance!=-1)
             colPackage->state == COLLISION_BOUNCE;
         
         
-        if ((isPastTopLine || isPastTopRight || isPastBottomRight || isPastTopLeft || isPastBottomLeft ) &&
-            (shortestDistance != FLT_MAX || shortestDistance!=-1))
+        if ((isPastTopLine || isPastLeftLine || isPastBottomLine || isPastTopRight || isPastBottomRight || isPastTopLeft || isPastBottomLeft ) &&
+            (shortestDistance != FLT_MAX && shortestDistance!=-1))
         {
             if (diff < veryCloseDistance)
                 diff = veryCloseDistance;
@@ -1405,6 +1441,10 @@
             [slidingLine initializeLineWithPoint1:p1 andPoint2:p2];
             if (isPastTopLine)
                 normal = [topLine normal];
+            else if (isPastLeftLine)
+                normal = [leftLine normal];
+            else if (isPastBottomLine)
+                [normal initializeVectorX:-bottomLine->normal->x andY: -bottomLine->normal->y];
             else if (isPastTopLeft)
                 normal = [self->pos  subtract:topLeftVector];
             else if (isPastTopRight)
@@ -1417,7 +1457,10 @@
             foundCollision = true;
             slidingLine->normal = normal;
             [normal normalize];
-            N = [normal multiply:[negativeI dotProduct:normal]];
+            double scaler = [negativeI dotProduct:normal];
+            if (scaler < 0)
+                scaler = -scaler;
+            N = [normal multiply:scaler];
             bounceVel = [[N multiply:2] add:I];
             // initVel = bounceVel; will be done in bounceoffdrum
             if (bounceVel->y < 0.000000001)
@@ -1461,30 +1504,33 @@
             else*/ if (collidedWithTop == shortestDistance)
             {
                 [self collideWithLine:topLine];
-                if ([topLine isFrontFacingTo:vel])
-                {
+               // if ([topLine isFrontFacingTo:vel])
+               // {
                     normal = [topLine normal];
-                }
+                /*}
                 else
-                {
-                    [normal initializeVectorX:-topLine->normal->x andY: -topLine->normal->y];
-                }
+                {*/
+                   // [normal initializeVectorX:-topLine->normal->x andY: -topLine->normal->y];
+                //}
             }
             else if (collidedWithBottom == shortestDistance)
             {
                 [self collideWithLine:bottomLine];
                 //if ([bottomLine isFrontFacingTo:vel])
                 //{
-                    normal = [bottomLine normal];
+                  //  normal = [bottomLine normal];
                 //}
                //else
                 //{
-                   // [normal initializeVectorX:-bottomLine->normal->x andY: -bottomLine->normal->y];
+                    [normal initializeVectorX:-bottomLine->normal->x andY: -bottomLine->normal->y];
                // }
             }
             [normal normalize];
             // projection of the normal along I (initial velocity vector going towards the line)
-            N = [normal multiply:[negativeI dotProduct:normal]];
+            double scaler = [negativeI dotProduct:normal];
+            if (scaler < 0)
+                scaler = -scaler;
+            N = [normal multiply:scaler];
             bounceVel = [[N multiply:2] add:I];
             [bounceVel normalize];
             bounceVel = [bounceVel multiply:vel.length];
@@ -1799,9 +1845,7 @@
 
 - (void) bounceOffTeeterTotter
 {
-    initVel->x = bounceVel->x;
-    initVel->y = bounceVel->y;
- //   t = 0;
+    [initVel initializeVectorX:bounceVel->x andY:bounceVel->y];
 
 }
 
@@ -2460,14 +2504,14 @@ const float unitsPerMeter = 1000.0f;
         else
             return position;
     }
-    else if (colPackage->state == COLLISION_SLIDE && [colPackage->collidedObj class] == [TeeterTotter class] && isPastTopRight)
+    else if ((colPackage->state == COLLISION_SLIDE || colPackage->state == COLLISION_BOUNCE) && [colPackage->collidedObj class] == [TeeterTotter class] && (isPastTopRight || isPastBottomLeft || isPastBottomRight || isPastRightLine || isPastLeftLine))
     {
         lineToCheese = [slidingLine->normal multiply:diff];
         return [position add:lineToCheese];
     }
     else if (colPackage->state == COLLISION_BOUNCE &&
              ([colPackage->collidedObj class] == [Drum class] || [colPackage->collidedObj class] == [Flipper class]) &&
-             (isPastTopLine || isPastTopRight || isPastBottomRight || isPastBottomLeft || isPastTopLeft))
+             (isPastTopLine || isPastBottomLine || isPastLeftLine || isPastTopRight || isPastBottomRight || isPastBottomLeft || isPastTopLeft))
     {
         initVel = bounceVel;
         vel = bounceVel;

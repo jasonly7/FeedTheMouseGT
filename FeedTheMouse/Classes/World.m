@@ -60,7 +60,7 @@
     if ([lvl->teeterTotters count] > 0)
         topTeeterTotter = [lvl->teeterTotters objectAtIndex:0];
     
-    cheese->isPastTopLine = false;
+    
     if (cheese->colPackage->foundCollision==false)
     {
         for (int i = 0; i< [lvl->coins count]; i++)
@@ -106,6 +106,9 @@
     cheese->isPastTopRight = false;
     cheese->isPastBottomRight = false;
     cheese->isPastBottomLeft = false;
+    cheese->isPastBottomLine = false;
+    cheese->isPastTopLine = false;
+    cheese->isPastLeftLine = false;
     
     if (cheese->colPackage->foundCollision==false)
     {
@@ -142,7 +145,7 @@
         {
             Flipper *flipper = [lvl->flippers objectAtIndex:i];
             cheese->colPackage->foundCollision = [cheese checkFlipper:flipper];
-            if (cheese->colPackage->foundCollision)
+            if (cheese->colPackage->foundCollision )
             {
                 cheese->colPackage->collidedObj = flipper;
                 /*if ( [cheese->bounceVel length] < 1)
@@ -170,8 +173,8 @@
             TeeterTotter *teeterTotter = [lvl->teeterTotters objectAtIndex:i];
             cheese->colPackage->foundCollision = [cheese checkTeeterTotter:teeterTotter];
             bool isNearTopLine = [cheese nearLine:teeterTotter->topLine];
-             
-            if (cheese->colPackage->foundCollision || isNearTopLine || [cheese nearVertex:teeterTotter->topLine->p1] || [cheese nearVertex:teeterTotter->topLine->p2])
+           
+            if (cheese->colPackage->foundCollision || (isNearTopLine || cheese->isNearTopRight || cheese->isNearTopLeft) || [cheese nearVertex:teeterTotter->topLine->p1] || [cheese nearVertex:teeterTotter->topLine->p2])
             {
                 float topLeftX, topLeftY, topRightX, topRightY;
                 CGPoint topLeftPt,topRightPt;
@@ -191,8 +194,7 @@
                     //cheese->colPackage->foundCollision = true;
                 }
                 
-                
-                if ([cheese nearLine:teeterTotter->topLine])// && (cheese->colPackage->state != COLLISION_BOUNCE && //!cheese->isPastTopRight))
+                if (isNearTopLine && !cheese->isNearTopLeft && !cheese->isNearTopRight)// && (cheese->colPackage->state != COLLISION_BOUNCE && //!cheese->isPastTopRight))
                     cheese->colPackage->state = COLLISION_SLIDE;
 
                 if (cheese->colPackage->state == COLLISION_SLIDE )

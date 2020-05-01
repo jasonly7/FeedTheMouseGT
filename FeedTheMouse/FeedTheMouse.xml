@@ -324,8 +324,8 @@
             <Color>orange</Color>
         </Flipper>
         <Flipper>
-            <X>181</X>
-            <Y>580</Y>
+            <X>180</X>
+            <Y>621</Y>
             <ANGLE>-30.701874</ANGLE>
             <ISFLIPPED>true</ISFLIPPED>
             <Color>orange</Color>
@@ -339,7 +339,7 @@
         </Flipper>
         <Flipper>
             <X>181</X>
-            <Y>277</Y>
+            <Y>293</Y>
             <ANGLE>-30.901886</ANGLE>
             <ISFLIPPED>true</ISFLIPPED>
             <Color>orange</Color>
