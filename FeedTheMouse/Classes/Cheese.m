@@ -725,7 +725,7 @@
                     bounceVel = [[N multiply:2] add:I];
                             
                     [bounceVel normalize];
-                    bounceVel = [bounceVel multiply:vel.length];//[[bounceVel multiply:vel.length] add:gravity];
+                    bounceVel = [bounceVel multiply:(vel.length/2.0f)];//[[bounceVel multiply:vel.length] add:gravity];
 
                     slidingLine->normal = normal;
                 }
@@ -755,7 +755,7 @@
                     bounceVel = [[N multiply:2] add:I];
                                
                     [bounceVel normalize];
-                    bounceVel = [[normal multiply:vel.length] add:gravity];
+                    bounceVel = [normal multiply:(vel.length/2.0f)];// [[normal multiply:vel.length] add:gravity];
                    
                     slidingLine->normal = normal;
                 }
@@ -826,7 +826,7 @@
                   //  [I normalize];
                     bounceVel = [[N multiply:2] add:I];
                     [bounceVel normalize];
-                    bounceVel = [bounceVel multiply:vel.length];
+                    bounceVel = [bounceVel multiply:(vel.length/2.0f)];
                     //double diff = self->x - topRight.x;
                     //lineToCheese = [self->pos subtract:rightLine];
                     //if (bounceVel->x < diff)
@@ -860,7 +860,7 @@
                     [I normalize];
                     bounceVel = [[N multiply:2] add:I];
                     [bounceVel normalize];
-                    bounceVel = [[bounceVel multiply:vel.length] add:gravity];
+                    bounceVel = [bounceVel multiply:(vel.length/2.0f)];// [[bounceVel multiply:vel.length] add:gravity];
     
                     slidingLine->normal = normal;
                 }
@@ -928,7 +928,7 @@
             N = [normal multiply:[negativeI dotProduct:normal]];
             bounceVel = [[N multiply:2] add:I];
             [bounceVel normalize];
-            bounceVel = [[bounceVel multiply:vel.length] add:gravity];
+            bounceVel = [bounceVel multiply:(vel.length/2.0f)];//[[bounceVel multiply:vel.length] add:gravity];
             foundCollision = true;
             colPackage->state = COLLISION_BOUNCE;
         }
@@ -953,7 +953,7 @@
             N = [normal multiply:[negativeI dotProduct:normal]];
             bounceVel = [[N multiply:2] add:I];
             [bounceVel normalize];
-            bounceVel = [[bounceVel multiply:vel.length] add:gravity];
+            bounceVel = [bounceVel multiply:(vel.length/2.0f)]; //[[bounceVel multiply:vel.length] add:gravity];
             foundCollision = true;
             colPackage->state = COLLISION_BOUNCE;
         }
@@ -975,7 +975,7 @@
            // [I normalize];
             bounceVel = [[N multiply:2] add:I];
             [bounceVel normalize];
-            bounceVel = [bounceVel multiply:vel.length];//[[bounceVel multiply:vel.length] add:gravity];
+            bounceVel = [bounceVel multiply:(vel.length/2.0f)];//[[bounceVel multiply:vel.length] add:gravity];
             foundCollision = true;
             colPackage->state = COLLISION_BOUNCE;
             slidingLine->normal = normal;
@@ -998,7 +998,7 @@
          //  [I normalize];
             bounceVel = [[N multiply:2] add:I];
             [bounceVel normalize];
-            bounceVel = [bounceVel multiply:vel.length];// [[bounceVel multiply:vel.length] add:gravity];
+            bounceVel = [bounceVel multiply:(vel.length/2.0f)];// [[bounceVel multiply:vel.length] add:gravity];
             foundCollision = true;
             colPackage->state = COLLISION_BOUNCE;
             slidingLine->normal = normal;
@@ -1021,7 +1021,7 @@
             [I normalize];
             bounceVel = [[N multiply:2] add:I];
             [bounceVel normalize];
-            bounceVel = [[bounceVel multiply:vel.length] add:gravity];
+            bounceVel = [bounceVel multiply:(vel.length/2.0f)];//[[bounceVel multiply:vel.length] add:gravity];
             foundCollision = true;
             slidingLine->normal = normal;
             colPackage->state = COLLISION_BOUNCE;

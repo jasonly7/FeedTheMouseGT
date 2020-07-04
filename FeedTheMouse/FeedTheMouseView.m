@@ -172,6 +172,8 @@
     
     if (screenHeight == 960)
         t0 = CGAffineTransformScale(t0, 1, 1/sy);
+    
+    
     if (screenWidth == 750 )
         t0 = CGAffineTransformScale(t0, 1/sx, 1/sy);
     
