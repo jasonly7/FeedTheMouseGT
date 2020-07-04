@@ -6,14 +6,9 @@
             <Y>127</Y>
         </Mouse>
         <Drum>
-            <X>178</X>
-            <Y>708</Y>
-            <ANGLE>319.797546</ANGLE>
-        </Drum>
-        <Drum>
-            <X>173</X>
-            <Y>446</Y>
-            <ANGLE>323.497772</ANGLE>
+            <X>182</X>
+            <Y>709</Y>
+            <ANGLE>360</ANGLE>
         </Drum>
         <TeeterTotter>
             <X>449</X>
@@ -66,8 +61,8 @@
             <Y>150</Y>
         </Mouse>
         <Gear>
-            <X>173</X>
-            <Y>693</Y>
+            <X>209</X>
+            <Y>702</Y>
             <Color>orange</Color>
         </Gear>
         <Gear>

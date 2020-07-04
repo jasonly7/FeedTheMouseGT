@@ -41,6 +41,7 @@ typedef enum {
     int collisionRecursionDepth;
     TeeterTotter *collidedTotter;
     Vector *closestPt;
-}
+    Vector *closestPoint;
+};
 
 @end

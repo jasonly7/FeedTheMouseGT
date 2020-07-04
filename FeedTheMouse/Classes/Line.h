@@ -24,6 +24,7 @@
 - (Line*) initializeLineWithPoint1:(CGPoint)pt1 andPoint2:(CGPoint)pt2;
 - (Vector*) normal;
 - (double) signedDistanceTo:(Vector *) point;
+//- (double) signedDistanceTo:(Vector *) point and:(NSNumber **) ClosestPtX and:(NSNumber **) ClosestPtY;
 - (bool) isFrontFacingTo:(Vector *) direction;
 - (float) getOriginX;
 - (float) getOriginY;
@@ -32,4 +33,5 @@
 - (void) setNormal: (Vector *) n;
 - (bool) intersect:(Line *)line andRoot:(NSNumber **) root;// andIntersection:(Vector *) point;
 - (bool) collideWithPtX: (int) x andY: (int) y;
+- (Vector *) closestPoint:(Vector *)point on:(Line *)line;
 @end

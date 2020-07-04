@@ -5,7 +5,8 @@
 //  Created by Jason Ly on 2012-12-02.
 //  Copyright (c) 2012 Jason Ly. All rights reserved.
 //
-
+#import <sys/utsname.h>
+#include <sys/sysctl.h>
 #import "Picture.h"
 #import "Circle.h"
 #import "Mouse.h"
@@ -20,6 +21,8 @@
 #import "Quadratic.h"
 #import "CollisionPacket.h"
 #import "World.h"
+
+
 @class World;
 
 @interface Cheese : Circle
@@ -82,10 +85,16 @@
         bool isPastTopRight;
         bool isPastBottomRight;
         bool isPastBottomLeft;
-        bool isNearTopRight, isNearTopLeft;
+        bool isNearTopRight, isNearTopLeft, isNearTopLine;
+        bool isCollidedWithTop;
         float diff;
+        CGFloat screenScale;
+        CGFloat sx,sy;
+        float screenWidth, screenHeight;
+        Vector *prevVelocity;
 }
 
+- (NSString*) deviceName;
 - (bool) pastVertex: (Vector *)vertex;
 - (bool) pastLine: (Line *)line;
 - (void) draw: (CGContextRef) context;

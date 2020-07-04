@@ -128,9 +128,9 @@
    // if (![line collideWithPtX:closestX andY:closestY])
      //   return false;
     
-    double distX = closestX - cx;
-    double distY = closestY - cy;
-    double distance = sqrt( (distX*distX) + (distY*distY) );
+   // double distX = closestX - cx;
+   // double distY = closestY - cy;
+    double distance = [perpUonV length];//sqrt( (distX*distX) + (distY*distY) );
     return distance;
    /* double distX = point->x - origin->x;
     double distY = point->y - origin->y;
@@ -145,6 +145,95 @@
         d = -d;
     //d = d / [normal length];
     return d;*/
+}
+
+- (double) signedDistanceTo:(Vector *) point and:(NSNumber **)ClosestPtX and:(NSNumber **)ClosestPtY
+{
+    Vector *U = [[Vector alloc] init];
+    Vector *V = [[Vector alloc] init];
+    // center of circle
+    double cx = point->x;
+    double cy = point->y;
+    
+    // end points of the line
+    double x1 = p1.x;
+    double y1 = p1.y;
+    double x2 = p2.x;
+    double y2 = p2.y;
+    
+    double ux = cx - x1;
+    double uy = cy - y1;
+    [U initializeVectorX:ux andY:uy];
+   // [U normalize];
+    
+    dx = x2 - x1;
+    dy = y2 - y1;
+    double vx = dx;
+    double vy = dy;
+    [V initializeVectorX:vx andY:vy];
+    [V normalize];
+    
+    double dot = [U dotProduct:V];
+    Vector *projUonV = [[Vector alloc] init];
+    
+    projUonV = [V multiply:dot];
+    double closestX = x1 + projUonV->x;
+    double closestY = y1 + projUonV->y;
+    Vector *perpUonV = [U subtract:projUonV]; // distance from circle to the line
+   
+   // [ClosestPoint initializeVectorX:closestX andY:closestY];
+   // if (![line collideWithPtX:closestX andY:closestY])
+     //   return false;
+    *ClosestPtX = [NSNumber numberWithDouble:closestX];
+    *ClosestPtY = [NSNumber numberWithDouble:closestY];
+    double distX = closestX - cx;
+    double distY = closestY - cy;
+    double distance = sqrt( (distX*distX) + (distY*distY) );
+    return [perpUonV length];
+}
+
+- (Vector*) closestPoint:(Vector *)point on:(Line *)line
+{
+    Vector *U = [[Vector alloc] init];
+     Vector *V = [[Vector alloc] init];
+     // center of circle
+     double cx = point->x;
+     double cy = point->y;
+     
+     // end points of the line
+     double x1 = p1.x;
+     double y1 = p1.y;
+     double x2 = p2.x;
+     double y2 = p2.y;
+     
+     double ux = cx - x1;
+     double uy = cy - y1;
+     [U initializeVectorX:ux andY:uy];
+     [U normalize];
+     
+     dx = x2 - x1;
+     dy = y2 - y1;
+     double vx = dx;
+     double vy = dy;
+     [V initializeVectorX:vx andY:vy];
+     [V normalize];
+     
+     double dot = [U dotProduct:V];
+     Vector *projUonV = [[Vector alloc] init];
+     
+     projUonV = [V multiply:dot];
+     double closestX = x1 + projUonV->x;
+     double closestY = y1 + projUonV->y;
+     //Vector *perpUonV = [U subtract:projUonV]; // distance from circle to the line
+    
+    
+    // if (![line collideWithPtX:closestX andY:closestY])
+      //   return false;
+   //  *ClosestPtX = [NSNumber numberWithDouble:closestX];
+   //  *ClosestPtY = [NSNumber numberWithDouble:closestY];
+    Vector *ClosestPoint = [[Vector alloc] init];
+    [ClosestPoint initializeVectorX:cx andY:cy];
+    return ClosestPoint;
 }
 
 - (float) getOriginX

@@ -18,6 +18,9 @@
     Level *lvl;
     Cheese *cheese;
     Mouse *mouse;
+    CGFloat sx,sy;
+    CGFloat screenScale;
+    float screenWidth, screenHeight;
 }
 
 - (void)checkCollision :( CollisionPacket **) colPackage;

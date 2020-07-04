@@ -68,6 +68,9 @@ const int MOUSE_WIDTH = 256;
     int loops;
     float interpolation;
     TitleView *titleView;
+    CGFloat sx,sy;
+    float screenWidth, screenHeight;
+    CGFloat screenScale;
 }
 
 - (void) doParse:(NSData *) data;
