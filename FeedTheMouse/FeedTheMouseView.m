@@ -10,7 +10,7 @@
 
 
 #define kDirForward 0
-#define kFPS 30.0
+#define kFPS 60.0
 #define TICKS_PER_SECOND 25
 #define SKIP_TICKS 1.0 / TICKS_PER_SECOND
 #define MAX_FRAMESKIP 5
@@ -62,7 +62,9 @@
         cheese->teeterTotter = teeterTotter;*/
         next_game_tick = -[lastDate timeIntervalSinceNow];
 		direction = kDirForward;
-		timer = [NSTimer scheduledTimerWithTimeInterval: 1.0/kFPS
+        screenScale = [[UIScreen mainScreen] scale];
+        
+        timer = [NSTimer scheduledTimerWithTimeInterval: 1.0/pow(kFPS, screenScale)
 												 target:self
 											   selector:@selector(gameLoop)
 											   userInfo:nil
@@ -70,7 +72,7 @@
         game_is_running = true;
         animationNumber = 0;
         parser = [[XMLParser alloc] initXMLParser];
-        screenScale = [[UIScreen mainScreen] scale];
+        
         NSData *data = [[NSData alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"FeedTheMouse.xml" ofType:nil]];
         [self doParse:data];
         [data release];
@@ -871,7 +873,7 @@
         {
             interpolation = SKIP_TICKS;
         }
-        printf("interp: %f", interpolation);
+        printf("interp: %f\n", interpolation);
         next_game_tick = cur_game_tick;
         [cheese collideAndSlide:interpolation];
         [cheese fall:interpolation];
