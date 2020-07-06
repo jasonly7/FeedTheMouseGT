@@ -10,8 +10,8 @@
 
 
 #define kDirForward 0
-#define kFPS 60.0
-#define TICKS_PER_SECOND 25
+#define kFPS 40.0
+#define TICKS_PER_SECOND 13
 #define SKIP_TICKS 1.0 / TICKS_PER_SECOND
 #define MAX_FRAMESKIP 5
 
@@ -64,7 +64,7 @@
 		direction = kDirForward;
         screenScale = [[UIScreen mainScreen] scale];
         
-        timer = [NSTimer scheduledTimerWithTimeInterval: 1.0/pow(kFPS, screenScale)
+        timer = [NSTimer scheduledTimerWithTimeInterval: 1.0/(kFPS*screenScale)
 												 target:self
 											   selector:@selector(gameLoop)
 											   userInfo:nil
