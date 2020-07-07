@@ -228,8 +228,8 @@
             {
                 if ([colPackage->collidedObj class] == [Gear class])
                 {
-                    x = pos->x + justTouchVelocity->x*time;
-                    y = pos->y + justTouchVelocity->y*time;
+                    x = pos->x + justTouchVelocity->x;//*time;
+                    y = pos->y + justTouchVelocity->y;//*time;
                     vel->y = initVel->y;
                   /*  if (vel->x <= 1 && vel->x >=-1)
                     {
