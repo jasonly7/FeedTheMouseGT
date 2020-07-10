@@ -2,13 +2,21 @@
 <FeedTheMouse>
     <Level>
         <Mouse>
-            <X>431</X>
-            <Y>127</Y>
+            <X>493</X>
+            <Y>109</Y>
         </Mouse>
+        <Coin>
+            <X>286</X>
+            <Y>801</Y>
+        </Coin>
+        <Coin>
+            <X>449</X>
+            <Y>614</Y>
+        </Coin>
         <Drum>
-            <X>182</X>
-            <Y>709</Y>
-            <ANGLE>360</ANGLE>
+            <X>145</X>
+            <Y>692</Y>
+            <ANGLE>326.259155</ANGLE>
         </Drum>
         <TeeterTotter>
             <X>449</X>
@@ -21,6 +29,10 @@
             <X>500</X>
             <Y>150</Y>
         </Mouse>
+        <Coin>
+            <X>322</X>
+            <Y>642</Y>
+        </Coin>
         <Gear>
             <X>318</X>
             <Y>479</Y>
@@ -41,9 +53,17 @@
     </Level>
     <Level>
         <Mouse>
-            <X>193</X>
-            <Y>142</Y>
+            <X>156</X>
+            <Y>141</Y>
         </Mouse>
+        <Coin>
+            <X>354</X>
+            <Y>806</Y>
+        </Coin>
+        <Coin>
+            <X>327</X>
+            <Y>511</Y>
+        </Coin>
         <Gear>
             <X>454</X>
             <Y>377</Y>
@@ -57,9 +77,21 @@
     </Level>
     <Level>
         <Mouse>
-            <X>500</X>
-            <Y>150</Y>
+            <X>511</X>
+            <Y>114</Y>
         </Mouse>
+        <Coin>
+            <X>337</X>
+            <Y>801</Y>
+        </Coin>
+        <Coin>
+            <X>369</X>
+            <Y>571</Y>
+        </Coin>
+        <Coin>
+            <X>255</X>
+            <Y>421</Y>
+        </Coin>
         <Gear>
             <X>209</X>
             <Y>702</Y>
@@ -81,6 +113,14 @@
             <X>171</X>
             <Y>148</Y>
         </Mouse>
+        <Coin>
+            <X>176</X>
+            <Y>587</Y>
+        </Coin>
+        <Coin>
+            <X>478</X>
+            <Y>440</Y>
+        </Coin>
         <Gear>
             <X>177</X>
             <Y>718</Y>
@@ -107,6 +147,14 @@
             <X>163</X>
             <Y>148</Y>
         </Mouse>
+        <Coin>
+            <X>427</X>
+            <Y>492</Y>
+        </Coin>
+        <Coin>
+            <X>174</X>
+            <Y>701</Y>
+        </Coin>
         <Drum>
             <X>126</X>
             <Y>654</Y>
@@ -123,6 +171,18 @@
             <X>451</X>
             <Y>151</Y>
         </Mouse>
+        <Coin>
+            <X>185</X>
+            <Y>356</Y>
+        </Coin>
+        <Coin>
+            <X>436</X>
+            <Y>551</Y>
+        </Coin>
+        <Coin>
+            <X>213</X>
+            <Y>705</Y>
+        </Coin>
         <Drum>
             <X>172</X>
             <Y>648</Y>
@@ -144,6 +204,22 @@
             <X>173</X>
             <Y>150</Y>
         </Mouse>
+        <Coin>
+            <X>431</X>
+            <Y>381</Y>
+        </Coin>
+        <Coin>
+            <X>397</X>
+            <Y>661</Y>
+        </Coin>
+        <Coin>
+            <X>178</X>
+            <Y>443</Y>
+        </Coin>
+        <Coin>
+            <X>175</X>
+            <Y>744</Y>
+        </Coin>
         <Drum>
             <X>141</X>
             <Y>393</Y>
@@ -170,6 +246,18 @@
             <X>431</X>
             <Y>127</Y>
         </Mouse>
+        <Coin>
+            <X>225</X>
+            <Y>610</Y>
+        </Coin>
+        <Coin>
+            <X>409</X>
+            <Y>761</Y>
+        </Coin>
+        <Coin>
+            <X>425</X>
+            <Y>502</Y>
+        </Coin>
         <Drum>
             <X>462</X>
             <Y>708</Y>
@@ -191,6 +279,18 @@
             <X>175</X>
             <Y>141</Y>
         </Mouse>
+        <Coin>
+            <X>207</X>
+            <Y>594</Y>
+        </Coin>
+        <Coin>
+            <X>421</X>
+            <Y>433</Y>
+        </Coin>
+        <Coin>
+            <X>300</X>
+            <Y>783</Y>
+        </Coin>
         <TeeterTotter>
             <X>335</X>
             <Y>731</Y>
@@ -212,35 +312,25 @@
             <X>446</X>
             <Y>165</Y>
         </Mouse>
+        <Coin>
+            <X>213</X>
+            <Y>608</Y>
+        </Coin>
+        <Coin>
+            <X>386</X>
+            <Y>605</Y>
+        </Coin>
+        <Coin>
+            <X>309</X>
+            <Y>446</Y>
+        </Coin>
+        <Coin>
+            <X>306</X>
+            <Y>805</Y>
+        </Coin>
         <TeeterTotter>
-            <X>338</X>
-            <Y>771</Y>
-            <Color>orange</Color>
-        </TeeterTotter>
-        <TeeterTotter>
-            <X>454</X>
-            <Y>555</Y>
-            <Color>orange</Color>
-        </TeeterTotter>
-        <TeeterTotter>
-            <X>221</X>
-            <Y>551</Y>
-            <Color>orange</Color>
-        </TeeterTotter>
-        <TeeterTotter>
-            <X>326</X>
-            <Y>357</Y>
-            <Color>orange</Color>
-        </TeeterTotter>
-    </Level>
-    <Level>
-        <Mouse>
-            <X>446</X>
-            <Y>165</Y>
-        </Mouse>
-        <TeeterTotter>
-            <X>302</X>
-            <Y>771</Y>
+            <X>307</X>
+            <Y>742</Y>
             <Color>orange</Color>
         </TeeterTotter>
         <TeeterTotter>
@@ -264,19 +354,27 @@
             <X>350</X>
             <Y>146</Y>
         </Mouse>
+        <Coin>
+            <X>329</X>
+            <Y>781</Y>
+        </Coin>
+        <Coin>
+            <X>333</X>
+            <Y>384</Y>
+        </Coin>
         <Gear>
             <X>339</X>
             <Y>500</Y>
             <Color>orange</Color>
         </Gear>
         <TeeterTotter>
-            <X>331</X>
-            <Y>731</Y>
+            <X>328</X>
+            <Y>725</Y>
             <Color>orange</Color>
         </TeeterTotter>
         <TeeterTotter>
-            <X>327</X>
-            <Y>337</Y>
+            <X>336</X>
+            <Y>320</Y>
             <Color>orange</Color>
         </TeeterTotter>
     </Level>
@@ -285,6 +383,18 @@
             <X>485</X>
             <Y>135</Y>
         </Mouse>
+        <Coin>
+            <X>259</X>
+            <Y>349</Y>
+        </Coin>
+        <Coin>
+            <X>285</X>
+            <Y>678</Y>
+        </Coin>
+        <Coin>
+            <X>480</X>
+            <Y>567</Y>
+        </Coin>
         <Gear>
             <X>485</X>
             <Y>425</Y>
@@ -311,6 +421,22 @@
             <X>478</X>
             <Y>114</Y>
         </Mouse>
+        <Coin>
+            <X>207</X>
+            <Y>717</Y>
+        </Coin>
+        <Coin>
+            <X>426</X>
+            <Y>464</Y>
+        </Coin>
+        <Coin>
+            <X>236</X>
+            <Y>380</Y>
+        </Coin>
+        <Coin>
+            <X>438</X>
+            <Y>769</Y>
+        </Coin>
         <Flipper>
             <X>466</X>
             <Y>694</Y>
@@ -345,6 +471,18 @@
             <X>500</X>
             <Y>150</Y>
         </Mouse>
+        <Coin>
+            <X>468</X>
+            <Y>563</Y>
+        </Coin>
+        <Coin>
+            <X>205</X>
+            <Y>598</Y>
+        </Coin>
+        <Coin>
+            <X>356</X>
+            <Y>349</Y>
+        </Coin>
         <Gear>
             <X>336</X>
             <Y>700</Y>
@@ -375,6 +513,14 @@
             <X>333</X>
             <Y>123</Y>
         </Mouse>
+        <Coin>
+            <X>132</X>
+            <Y>400</Y>
+        </Coin>
+        <Coin>
+            <X>524</X>
+            <Y>409</Y>
+        </Coin>
         <Gear>
             <X>324</X>
             <Y>713</Y>
@@ -411,9 +557,21 @@
     </Level>
     <Level>
         <Mouse>
-            <X>500</X>
-            <Y>150</Y>
+            <X>551</X>
+            <Y>97</Y>
         </Mouse>
+        <Coin>
+            <X>401</X>
+            <Y>758</Y>
+        </Coin>
+        <Coin>
+            <X>230</X>
+            <Y>593</Y>
+        </Coin>
+        <Coin>
+            <X>323</X>
+            <Y>331</Y>
+        </Coin>
         <Gear>
             <X>467</X>
             <Y>406</Y>

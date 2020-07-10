@@ -371,14 +371,17 @@
 
 - (bool) checkCoin:(Coin *)c
 {
-   // Vector *coinPosition = [[Vector alloc] init];
-    //[coinPosition initializeVectorX:->x andY:c->pos->y];
-    double dist = [c->pos subtract:pos]->length;
-    double sumRadii = (c->r + r);
+    Vector *coinPosition = [[Vector alloc] init];
+    
+    float cx = c->pos->x * sx;// + c->coinSprite.width*sx/2;
+    float cy = c->pos->y * sy;// + c->coinSprite.height*sy/2;
+    [coinPosition initializeVectorX:cx andY:cy];
+    double dist = [coinPosition subtract:pos]->length;
+    double sumRadii = (c->r*sy + r*sy);
     dist -= sumRadii;
    // NSLog(@"Distance from cheese to coin: %f", dist);
   //  NSLog(@"vel length: %f", [vel length]);
-    if( [vel length] < dist){
+    if( [vel length]*time < dist){
         return false;
     }
     
@@ -395,11 +398,6 @@
     [C initializeVectorX:0 andY:0];
     C = [c->pos subtract:pos];
    // NSLog(@"C: (%f,%f)", C->x, C->y);
-    
-    /* Vector *Friction = [[Vector alloc] init];
-     [Friction initializeVectorX:-C->x andY:C->y];
-     [Friction normalize];
-     bounceVel = [bounceVel add:Friction];*/
     
     // D = N . C = ||C|| * cos(angle between N and C)
     // D, the distance between the center of A and the closest point on V to B

@@ -438,8 +438,8 @@
     CGFloat white[4] = {1.0f, 1.0f, 1.0f, 1.0f};
     CGContextSetFillColor(context, black);
    // CGContextFillRect(context, CGRectMake( 0,self.bounds.size.height - 960 /34 * 15/2.0f, 640 / 34 * 15 / 2, 960 /34 * 15 /2.0f));
-    CGContextFillRect(context, CGRectMake( 0,self.bounds.size.height - sy*(960.0f/34.0f * 10.0f/screenScale),
-                                         (640.0f / 34.0f * 10.0f / screenScale)*sx, sy*(960.0f/34.0f * 10.0f /screenScale))) ;
+   // CGContextFillRect(context, CGRectMake( 0,self.bounds.size.height - sy*(960.0f/34.0f * 10.0f/screenScale),
+     //                                    (640.0f / 34.0f * 10.0f / screenScale)*sx, sy*(960.0f/34.0f * 10.0f /screenScale))) ;
     
     for (int i = 0; i < [gears count]; i++)
     {
@@ -459,7 +459,18 @@
         [arc stroke];
     }
     
-
+    for (int i = 0; i < [coins count]; i++)
+    {
+     
+        coin = [coins objectAtIndex:i];
+        float coinX = coin->pos->x/screenScale*sx-coin->coinSprite.width/screenScale*sx/2.0f;
+        float coinY = self.bounds.size.height-coin->pos->y/screenScale*sy - coin->coinSprite.height/screenScale*sy/2;
+        float width = coin->coinSprite.width/screenScale*sx;
+        float height = coin->coinSprite.height/screenScale*sy;
+        UIBezierPath *arc = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(coinX, coinY, width, height)];
+        [[UIColor blackColor] setStroke];
+        [arc stroke];
+    }
 
    
 

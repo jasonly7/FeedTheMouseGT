@@ -30,7 +30,7 @@ const int MOUSE_WIDTH = 256;
     
     Sprite *mouseSprite;
     Sprite *backgroundSprite;
-
+    
     Cheese *cheese;
     Mouse *mouse;
     Gear *gear;

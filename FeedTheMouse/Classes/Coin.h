@@ -16,7 +16,7 @@
 
 }
 
-- (Coin*) initializeCoinAtX:(float) xLocation andY: (float)yLocation;
+- (void) initializeCoinAtX:(float) xLocation andY: (float)yLocation;
 - (int)getX;
 - (int)getY;
 - (int)getRadius;

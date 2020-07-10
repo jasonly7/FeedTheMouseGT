@@ -29,7 +29,7 @@
     return self;
 }
 
-- (Coin*) initializeCoinAtX:(float)xLocation andY:(float)yLocation
+- (void) initializeCoinAtX:(float)xLocation andY:(float)yLocation
 {
     coinSprite = [Picture fromFile:@"coin.png"];
     [self setX:0];
@@ -41,14 +41,14 @@
     r = coinSprite.width/2;
     [self setX:xLocation];
     [self setY:yLocation];
-    pos->x = x;
-    pos->y = y;
+    //pos->x = x;
+    //pos->y = y;
 
    
   //  x = xLocation;
    // y = yLocation;
-    r = 29;
-    return self;
+   // r = 29;
+  //  return self;
 }
 
 - (int)getX
@@ -64,13 +64,15 @@
 - (void)setX:(int)value
 {
     coinSprite.x = value;
-    x = value;
+    x = coinSprite.x + coinSprite.width/2;
+    pos->x = x;
 }
 
 - (void)setY:(int)value
 {
     coinSprite.y = value;
-    y = value;
+    y = coinSprite.y + coinSprite.height/2;
+    pos->y = y;
 }
 
 - (int)getRadius
