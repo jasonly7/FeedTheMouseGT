@@ -1004,18 +1004,21 @@
         else if (collidedWithBottom == shortestDistance)
         {
             [self collideWithLine:bottomLine];
-            if ([bottomLine isFrontFacingTo:vel])
-            {
+           // if ([bottomLine isFrontFacingTo:vel])
+            //{
                 normal = [bottomLine normal];
-            }
-            else
-            {
-                [normal initializeVectorX:-bottomLine->normal->x andY: -bottomLine->normal->y];
-            }
+            //}
+            //else
+           // {
+             //   [normal initializeVectorX:-bottomLine->normal->x andY: -bottomLine->normal->y];
+           // }
+            double scaler = [negativeI dotProduct:normal];
+            if (scaler < 0)
+                scaler = -scaler;
             [normal normalize];
             // projection of the normal along I (initial velocity vector going towards the line)
-           
-            [N setVector: [normal multiply:[negativeI dotProduct:normal]]];
+            N = [normal multiply:scaler];
+            //[N setVector: [normal multiply:[negativeI dotProduct:normal]]];
             [I normalize];
             bounceVel = [[N multiply:2] add:I];
             [bounceVel normalize];

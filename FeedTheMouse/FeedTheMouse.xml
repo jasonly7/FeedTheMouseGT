@@ -34,9 +34,9 @@
             <Y>642</Y>
         </Coin>
         <Gear>
-            <X>318</X>
-            <Y>479</Y>
-            <Color>orange</Color>
+            <X>325</X>
+            <Y>472</Y>
+            <Color>purple</Color>
         </Gear>
         <Drum>
             <X>468</X>
@@ -44,11 +44,11 @@
             <ANGLE>-42.316956</ANGLE>
         </Drum>
         <Flipper>
-            <X>164</X>
-            <Y>763</Y>
+            <X>186</X>
+            <Y>777</Y>
             <ANGLE>45.000000</ANGLE>
             <ISFLIPPED>false</ISFLIPPED>
-            <Color>orange</Color>
+            <Color>yellow</Color>
         </Flipper>
     </Level>
     <Level>
@@ -484,28 +484,28 @@
             <Y>349</Y>
         </Coin>
         <Gear>
-            <X>336</X>
-            <Y>700</Y>
-            <Color>orange</Color>
+            <X>340</X>
+            <Y>701</Y>
+            <Color>purple</Color>
         </Gear>
         <Gear>
-            <X>213</X>
-            <Y>289</Y>
+            <X>212</X>
+            <Y>295</Y>
             <Color>orange</Color>
         </Gear>
         <Flipper>
-            <X>142</X>
-            <Y>510</Y>
+            <X>105</X>
+            <Y>535</Y>
             <ANGLE>-30.301849</ANGLE>
             <ISFLIPPED>true</ISFLIPPED>
-            <Color>orange</Color>
+            <Color>green</Color>
         </Flipper>
         <Flipper>
-            <X>476</X>
-            <Y>431</Y>
+            <X>499</X>
+            <Y>441</Y>
             <ANGLE>33.402039</ANGLE>
             <ISFLIPPED>false</ISFLIPPED>
-            <Color>orange</Color>
+            <Color>blue</Color>
         </Flipper>
     </Level>
     <Level>
