@@ -6883,8 +6883,8 @@
             timestampString = "592698419.386698"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "78"
-            endingLineNumber = "78"
+            startingLineNumber = "82"
+            endingLineNumber = "82"
             landmarkName = "-initializeTeeterTotterAtX:andY:andColor:"
             landmarkType = "7">
          </BreakpointContent>
@@ -14965,8 +14965,8 @@
             filePath = "FeedTheMouse/Classes/TeeterTotter.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "64"
-            endingLineNumber = "64"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
             landmarkName = "-initializeTeeterTotterAtX:andY:andColor:"
             landmarkType = "7">
          </BreakpointContent>

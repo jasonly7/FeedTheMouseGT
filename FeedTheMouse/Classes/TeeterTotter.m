@@ -56,8 +56,12 @@
         totterSprite = [Picture fromFile:@"teeter_totter_purple.png"];
     else if (c == [UIColor yellowColor])
         totterSprite = [Picture fromFile:@"teeter_totter_yellow.png"];
-    else
+    else if (c == [UIColor redColor])
+        totterSprite = [Picture fromFile:@"teeter_totter_red.png"];
+    else if (c == [UIColor orangeColor])
         totterSprite = [Picture fromFile:@"teeter_totter_orange.png"];
+    else
+        totterSprite = [Picture fromFile:@"teeter_totter.png"];
     [self setX:tx];
     [self setY:ty];
    // [self setAngle:45];

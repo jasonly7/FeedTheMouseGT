@@ -13,6 +13,8 @@
 		8647A0D3212C634000DE7685 /* FinishGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8647A0D2212C634000DE7685 /* FinishGameViewController.m */; };
 		868A774D212B3A62003B5205 /* TitleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 868A774C212B3A62003B5205 /* TitleViewController.m */; };
 		868A7750212B3C24003B5205 /* TitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 868A774F212B3C24003B5205 /* TitleView.m */; };
+		86D19BBC24C776C900241570 /* teeter_totter_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 86D19BBB24C776C900241570 /* teeter_totter_blue.png */; };
+		86D19BBE24C7776300241570 /* teeter_totter_yellow.png in Resources */ = {isa = PBXBuildFile; fileRef = 86D19BBD24C7776300241570 /* teeter_totter_yellow.png */; };
 		86E074AD1E4412B400E92CB9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 86E074AC1E4412B400E92CB9 /* main.m */; };
 		86E074B01E4412B400E92CB9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 86E074AF1E4412B400E92CB9 /* AppDelegate.m */; };
 		86E074B31E4412B400E92CB9 /* FeedTheMouseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86E074B21E4412B400E92CB9 /* FeedTheMouseViewController.m */; };
@@ -95,22 +97,12 @@
 		86E075A11E44282700E92CB9 /* star_slider.png in Resources */ = {isa = PBXBuildFile; fileRef = 86E0759E1E44282700E92CB9 /* star_slider.png */; };
 		86E075A51E44285100E92CB9 /* star.mat in Resources */ = {isa = PBXBuildFile; fileRef = 86E075A31E44285100E92CB9 /* star.mat */; };
 		86E075A61E44285100E92CB9 /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = 86E075A41E44285100E92CB9 /* star.png */; };
-		86E075B81E44288900E92CB9 /* teeter_blue_grey.png in Resources */ = {isa = PBXBuildFile; fileRef = 86E075A81E44288900E92CB9 /* teeter_blue_grey.png */; };
-		86E075B91E44288900E92CB9 /* teeter_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 86E075A91E44288900E92CB9 /* teeter_blue.png */; };
-		86E075BA1E44288900E92CB9 /* teeter_green_grey.png in Resources */ = {isa = PBXBuildFile; fileRef = 86E075AA1E44288900E92CB9 /* teeter_green_grey.png */; };
-		86E075BB1E44288900E92CB9 /* teeter_green.png in Resources */ = {isa = PBXBuildFile; fileRef = 86E075AB1E44288900E92CB9 /* teeter_green.png */; };
-		86E075BC1E44288900E92CB9 /* teeter_purple_grey.png in Resources */ = {isa = PBXBuildFile; fileRef = 86E075AC1E44288900E92CB9 /* teeter_purple_grey.png */; };
-		86E075BD1E44288900E92CB9 /* teeter_purple.png in Resources */ = {isa = PBXBuildFile; fileRef = 86E075AD1E44288900E92CB9 /* teeter_purple.png */; };
-		86E075BE1E44288900E92CB9 /* teeter_totter_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 86E075AE1E44288900E92CB9 /* teeter_totter_blue.png */; };
 		86E075BF1E44288900E92CB9 /* teeter_totter_green.png in Resources */ = {isa = PBXBuildFile; fileRef = 86E075AF1E44288900E92CB9 /* teeter_totter_green.png */; };
 		86E075C01E44288900E92CB9 /* teeter_totter_grey.png in Resources */ = {isa = PBXBuildFile; fileRef = 86E075B01E44288900E92CB9 /* teeter_totter_grey.png */; };
 		86E075C11E44288900E92CB9 /* teeter_totter_orange.png in Resources */ = {isa = PBXBuildFile; fileRef = 86E075B11E44288900E92CB9 /* teeter_totter_orange.png */; };
 		86E075C21E44288900E92CB9 /* teeter_totter_purple.png in Resources */ = {isa = PBXBuildFile; fileRef = 86E075B21E44288900E92CB9 /* teeter_totter_purple.png */; };
 		86E075C31E44288900E92CB9 /* teeter_totter_red.png in Resources */ = {isa = PBXBuildFile; fileRef = 86E075B31E44288900E92CB9 /* teeter_totter_red.png */; };
-		86E075C41E44288900E92CB9 /* teeter_totter_yellow.png in Resources */ = {isa = PBXBuildFile; fileRef = 86E075B41E44288900E92CB9 /* teeter_totter_yellow.png */; };
 		86E075C51E44288900E92CB9 /* teeter_totter.png in Resources */ = {isa = PBXBuildFile; fileRef = 86E075B51E44288900E92CB9 /* teeter_totter.png */; };
-		86E075C61E44288900E92CB9 /* teeter_yellow_grey.png in Resources */ = {isa = PBXBuildFile; fileRef = 86E075B61E44288900E92CB9 /* teeter_yellow_grey.png */; };
-		86E075C71E44288900E92CB9 /* teeter_yellow.png in Resources */ = {isa = PBXBuildFile; fileRef = 86E075B71E44288900E92CB9 /* teeter_yellow.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -143,6 +135,8 @@
 		868A774E212B3C24003B5205 /* TitleView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TitleView.h; sourceTree = "<group>"; };
 		868A774F212B3C24003B5205 /* TitleView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TitleView.m; sourceTree = "<group>"; };
 		868A7751212B4BF8003B5205 /* FeedTheMouseView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FeedTheMouseView.h; sourceTree = "<group>"; };
+		86D19BBB24C776C900241570 /* teeter_totter_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = teeter_totter_blue.png; path = "../../../FeedTheMouse copy/FeedTheMouse/FeedTheMouse/Images/Triggers/TeeterTotters/teeter_totter_blue.png"; sourceTree = "<group>"; };
+		86D19BBD24C7776300241570 /* teeter_totter_yellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = teeter_totter_yellow.png; path = "../../../FeedTheMouse copy/FeedTheMouse/FeedTheMouse/Images/Triggers/TeeterTotters/teeter_totter_yellow.png"; sourceTree = "<group>"; };
 		86E074A81E4412B400E92CB9 /* FeedTheMouse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FeedTheMouse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86E074AC1E4412B400E92CB9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		86E074AE1E4412B400E92CB9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -256,22 +250,12 @@
 		86E0759E1E44282700E92CB9 /* star_slider.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = star_slider.png; path = Images/Triggers/Slider/star_slider.png; sourceTree = "<group>"; };
 		86E075A31E44285100E92CB9 /* star.mat */ = {isa = PBXFileReference; lastKnownFileType = file; name = star.mat; path = Images/Triggers/Star/star.mat; sourceTree = "<group>"; };
 		86E075A41E44285100E92CB9 /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = star.png; path = Images/Triggers/Star/star.png; sourceTree = "<group>"; };
-		86E075A81E44288900E92CB9 /* teeter_blue_grey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = teeter_blue_grey.png; path = Images/Triggers/TeeterTotters/teeter_blue_grey.png; sourceTree = "<group>"; };
-		86E075A91E44288900E92CB9 /* teeter_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = teeter_blue.png; path = Images/Triggers/TeeterTotters/teeter_blue.png; sourceTree = "<group>"; };
-		86E075AA1E44288900E92CB9 /* teeter_green_grey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = teeter_green_grey.png; path = Images/Triggers/TeeterTotters/teeter_green_grey.png; sourceTree = "<group>"; };
-		86E075AB1E44288900E92CB9 /* teeter_green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = teeter_green.png; path = Images/Triggers/TeeterTotters/teeter_green.png; sourceTree = "<group>"; };
-		86E075AC1E44288900E92CB9 /* teeter_purple_grey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = teeter_purple_grey.png; path = Images/Triggers/TeeterTotters/teeter_purple_grey.png; sourceTree = "<group>"; };
-		86E075AD1E44288900E92CB9 /* teeter_purple.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = teeter_purple.png; path = Images/Triggers/TeeterTotters/teeter_purple.png; sourceTree = "<group>"; };
-		86E075AE1E44288900E92CB9 /* teeter_totter_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = teeter_totter_blue.png; path = Images/Triggers/TeeterTotters/teeter_totter_blue.png; sourceTree = "<group>"; };
 		86E075AF1E44288900E92CB9 /* teeter_totter_green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = teeter_totter_green.png; path = Images/Triggers/TeeterTotters/teeter_totter_green.png; sourceTree = "<group>"; };
 		86E075B01E44288900E92CB9 /* teeter_totter_grey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = teeter_totter_grey.png; path = Images/Triggers/TeeterTotters/teeter_totter_grey.png; sourceTree = "<group>"; };
 		86E075B11E44288900E92CB9 /* teeter_totter_orange.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = teeter_totter_orange.png; path = Images/Triggers/TeeterTotters/teeter_totter_orange.png; sourceTree = "<group>"; };
 		86E075B21E44288900E92CB9 /* teeter_totter_purple.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = teeter_totter_purple.png; path = Images/Triggers/TeeterTotters/teeter_totter_purple.png; sourceTree = "<group>"; };
 		86E075B31E44288900E92CB9 /* teeter_totter_red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = teeter_totter_red.png; path = Images/Triggers/TeeterTotters/teeter_totter_red.png; sourceTree = "<group>"; };
-		86E075B41E44288900E92CB9 /* teeter_totter_yellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = teeter_totter_yellow.png; path = Images/Triggers/TeeterTotters/teeter_totter_yellow.png; sourceTree = "<group>"; };
 		86E075B51E44288900E92CB9 /* teeter_totter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = teeter_totter.png; path = Images/Triggers/TeeterTotters/teeter_totter.png; sourceTree = "<group>"; };
-		86E075B61E44288900E92CB9 /* teeter_yellow_grey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = teeter_yellow_grey.png; path = Images/Triggers/TeeterTotters/teeter_yellow_grey.png; sourceTree = "<group>"; };
-		86E075B71E44288900E92CB9 /* teeter_yellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = teeter_yellow.png; path = Images/Triggers/TeeterTotters/teeter_yellow.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -566,22 +550,14 @@
 		86E075A71E44285C00E92CB9 /* TeeterTotters */ = {
 			isa = PBXGroup;
 			children = (
-				86E075A81E44288900E92CB9 /* teeter_blue_grey.png */,
-				86E075A91E44288900E92CB9 /* teeter_blue.png */,
-				86E075AA1E44288900E92CB9 /* teeter_green_grey.png */,
-				86E075AB1E44288900E92CB9 /* teeter_green.png */,
-				86E075AC1E44288900E92CB9 /* teeter_purple_grey.png */,
-				86E075AD1E44288900E92CB9 /* teeter_purple.png */,
-				86E075AE1E44288900E92CB9 /* teeter_totter_blue.png */,
+				86D19BBD24C7776300241570 /* teeter_totter_yellow.png */,
+				86D19BBB24C776C900241570 /* teeter_totter_blue.png */,
 				86E075AF1E44288900E92CB9 /* teeter_totter_green.png */,
 				86E075B01E44288900E92CB9 /* teeter_totter_grey.png */,
 				86E075B11E44288900E92CB9 /* teeter_totter_orange.png */,
 				86E075B21E44288900E92CB9 /* teeter_totter_purple.png */,
 				86E075B31E44288900E92CB9 /* teeter_totter_red.png */,
-				86E075B41E44288900E92CB9 /* teeter_totter_yellow.png */,
 				86E075B51E44288900E92CB9 /* teeter_totter.png */,
-				86E075B61E44288900E92CB9 /* teeter_yellow_grey.png */,
-				86E075B71E44288900E92CB9 /* teeter_yellow.png */,
 			);
 			name = TeeterTotters;
 			sourceTree = "<group>";
@@ -701,10 +677,8 @@
 				86E0756E1E4426D300E92CB9 /* small_gear_orange.png in Resources */,
 				86E0754B1E44254000E92CB9 /* MouseOpenMouth.png in Resources */,
 				86E0754C1E44254000E92CB9 /* MouseSad.png in Resources */,
-				86E075BD1E44288900E92CB9 /* teeter_purple.png in Resources */,
 				86E075971E44280500E92CB9 /* flipper_purple.png in Resources */,
 				86E0754F1E44254000E92CB9 /* newclosemouthsheet.png in Resources */,
-				86E075BB1E44288900E92CB9 /* teeter_green.png in Resources */,
 				86E075931E44280500E92CB9 /* flipper_magenta_game.png in Resources */,
 				86E075C31E44288900E92CB9 /* teeter_totter_red.png in Resources */,
 				86E075A11E44282700E92CB9 /* star_slider.png in Resources */,
@@ -723,7 +697,6 @@
 				86E074E81E441CD400E92CB9 /* FeedTheMouse.xml in Resources */,
 				86E0754D1E44254000E92CB9 /* MouseWait.png in Resources */,
 				86E0754E1E44254000E92CB9 /* MouseWaitOpen.png in Resources */,
-				86E075BA1E44288900E92CB9 /* teeter_green_grey.png in Resources */,
 				86E074B81E4412B400E92CB9 /* Assets.xcassets in Resources */,
 				86E0758E1E44280500E92CB9 /* flipper_blue_grey.png in Resources */,
 				86E074B61E4412B400E92CB9 /* Main.storyboard in Resources */,
@@ -732,14 +705,11 @@
 				86E075791E4427DA00E92CB9 /* drum_face_right.png in Resources */,
 				86E075941E44280500E92CB9 /* flipper_orange_game.png in Resources */,
 				86E075981E44280500E92CB9 /* flipper_yellow_game.png in Resources */,
-				86E075BC1E44288900E92CB9 /* teeter_purple_grey.png in Resources */,
-				86E075B91E44288900E92CB9 /* teeter_blue.png in Resources */,
 				86E0756C1E4426D300E92CB9 /* gear_red.png in Resources */,
-				86E075B81E44288900E92CB9 /* teeter_blue_grey.png in Resources */,
+				86D19BBE24C7776300241570 /* teeter_totter_yellow.png in Resources */,
 				86E075961E44280500E92CB9 /* flipper_purple_grey.png in Resources */,
 				86E0757D1E4427DA00E92CB9 /* DrumsSheet.png in Resources */,
 				86E0756A1E4426D300E92CB9 /* gear_orange.png in Resources */,
-				86E075BE1E44288900E92CB9 /* teeter_totter_blue.png in Resources */,
 				86E0759A1E44280500E92CB9 /* flipper_yellow.png in Resources */,
 				86E075781E4427DA00E92CB9 /* drum_face_left.png in Resources */,
 				86E075901E44280500E92CB9 /* flipper_green_game.png in Resources */,
@@ -747,19 +717,17 @@
 				86E075C51E44288900E92CB9 /* teeter_totter.png in Resources */,
 				86E075701E4426D300E92CB9 /* small_gear_red.png in Resources */,
 				86E075591E44263400E92CB9 /* background_3.png in Resources */,
-				86E075C41E44288900E92CB9 /* teeter_totter_yellow.png in Resources */,
+				86D19BBC24C776C900241570 /* teeter_totter_blue.png in Resources */,
 				86E075481E44254000E92CB9 /* MouseBlink.png in Resources */,
 				86E075571E44263400E92CB9 /* background_1.png in Resources */,
 				86E0759F1E44282700E92CB9 /* small_star_flash.png in Resources */,
 				86E0758D1E44280500E92CB9 /* flipper_blue_game.png in Resources */,
 				86E075991E44280500E92CB9 /* flipper_yellow_grey.png in Resources */,
 				86E075911E44280500E92CB9 /* flipper_green_grey.png in Resources */,
-				86E075C71E44288900E92CB9 /* teeter_yellow.png in Resources */,
 				861A65E51E465CD80013918F /* coin.png in Resources */,
 				86E075A01E44282700E92CB9 /* small_star.png in Resources */,
 				86E075C01E44288900E92CB9 /* teeter_totter_grey.png in Resources */,
 				86E075C11E44288900E92CB9 /* teeter_totter_orange.png in Resources */,
-				86E075C61E44288900E92CB9 /* teeter_yellow_grey.png in Resources */,
 				86E0755A1E44263400E92CB9 /* background_4.png in Resources */,
 				86E075921E44280500E92CB9 /* flipper_green.png in Resources */,
 				86E075951E44280500E92CB9 /* flipper_purple_game.png in Resources */,
