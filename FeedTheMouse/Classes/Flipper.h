@@ -16,8 +16,12 @@
 @public
     int x,y;
     float angle;
+    float originalAngle;
+    float limitAngle;
     Sprite *sprite;
     bool isImgFlipped;
+    CGFloat sx, sy;
+    int angularAccel;
 }
 
 - (Flipper*) initializeFlipperAtX:(float) fx andY: (float)fy andAngle: (float)newAngle andColor: (UIColor*)c;
@@ -31,4 +35,6 @@
 - (void) setColor: (UIColor*) value;
 - (bool) pointIsInside: (CGPoint)pt;
 - (void) draw: (CGContextRef) context;
+- (void) rotate;
+- (void) unrotate;
 @end

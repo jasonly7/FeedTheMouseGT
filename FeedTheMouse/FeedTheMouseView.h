@@ -71,6 +71,9 @@ const int MOUSE_WIDTH = 256;
     CGFloat sx,sy;
     float screenWidth, screenHeight;
     CGFloat screenScale;
+    CGPoint mousePt;
+    CGPoint mouseTouchedPoint;
+    bool isTouched;
 }
 
 - (void) doParse:(NSData *) data;

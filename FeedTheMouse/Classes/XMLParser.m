@@ -199,6 +199,8 @@
             UIColor *c = [f getColor];
             float newAngle = [f getAngle];
             bool fIsFlipped = f->isImgFlipped;
+            if (newAngle < 0)
+                newAngle+=360;
             [newFlipper initializeFlipperAtX:fx andY:fy andAngle:newAngle andColor:c];
             newFlipper->isImgFlipped = fIsFlipped;
             [level addFlipper:newFlipper];

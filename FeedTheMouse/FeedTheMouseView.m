@@ -122,7 +122,9 @@
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect
 {
-   // t++;
+   CGFloat blue[4] = {0.0f,0.0f,1.0f, 1.0f};
+   CGFloat purple[4] = {1.0f,0.0f,1.0f, 1.0f};
+   CGFloat yellow[4] = {1.0f,1.0f,0.0f, 1.0f};
     // Drawing code
     // Get a graphics context, saving its state
     context = UIGraphicsGetCurrentContext();
@@ -356,15 +358,19 @@
     CGContextAddArc(context, x3, y3, cheese->r*sy/screenScale, 0, 2*M_PI, YES);
     CGContextStrokePath(context);
     
+
+    CGContextSetStrokeColor(context, blue);
+    CGContextBeginPath(context);
+    CGContextAddArc(context, mousePt.x, mousePt.y, 5, 0, 2*M_PI, YES);
+    CGContextStrokePath(context);
+    
     CGFloat green[4] = {0.0f, 1.0f, 0.0f, 1.0f};
     CGContextSetStrokeColor(context, green);
     CGContextBeginPath(context);
     CGContextAddArc(context, drumTopLeftX, drumTopLeftY, 5, 0, 2*M_PI,YES);
     CGContextStrokePath(context);
     
-    CGFloat blue[4] = {0.0f,0.0f,1.0f, 1.0f};
-    CGFloat purple[4] = {1.0f,0.0f,1.0f, 1.0f};
-    CGFloat yellow[4] = {1.0f,1.0f,0.0f, 1.0f};
+    
     
 
     CGContextSetStrokeColor(context, red);
@@ -543,10 +549,22 @@
         bottomRightX = sx * (flipper->x + cos(radAngle)*flipper->sprite.width/2 + cos(radAngle-M_PI_2)*flipper->sprite.height/2);
         bottomRightY = sy * (flipper->y + sin(radAngle)*flipper->sprite.width/2 + sin(radAngle-M_PI_2)*flipper->sprite.height/2);
         
-        CGContextSetStrokeColor(context, blue);
-        CGContextMoveToPoint(context, topLeftX/screenScale, self.bounds.size.height - topLeftY/screenScale);
-        CGContextAddLineToPoint(context,topRightX/screenScale, self.bounds.size.height - topRightY/screenScale);
-        CGContextStrokePath(context);
+        //CGContextSetStrokeColor(context, [[UIColor redColor] CGColor]);
+        //CGContextSetLineWidth(context, 3.0);
+        float tlx = topLeftX/screenScale;
+        float tly = self.bounds.size.height - topLeftY/screenScale;
+        float trx = topRightX/screenScale;
+        float try = self.bounds.size.height - topRightY/screenScale;
+        UIBezierPath *path = [UIBezierPath bezierPath];
+        [[UIColor redColor] setStroke];
+        path.lineWidth = 1;
+        [path moveToPoint:CGPointMake(tlx, tly)];
+        [path addLineToPoint:CGPointMake(trx, try)];
+        [path stroke];
+        //CGContextMoveToPoint(context,tlx ,tly );
+        //CGContextAddLineToPoint(context, trx, try);
+        //CGContextDrawPath(context, 2);
+       // CGContextStrokePath(context);
         CGContextMoveToPoint(context, bottomLeftX/screenScale, self.bounds.size.height - bottomLeftY/screenScale);
         CGContextAddLineToPoint(context,bottomRightX/screenScale, self.bounds.size.height - bottomRightY/screenScale);
         CGContextStrokePath(context);
@@ -807,9 +825,17 @@
         teeterTotter = (TeeterTotter*)[teeterTotters objectAtIndex:i];
         [teeterTotter update];
     }
+    
     for (int i=0; i < [flippers count]; i++)
     {
         flipper = (Flipper*)[flippers objectAtIndex:i];
+        flipper->sx = sx;
+        flipper->sy = sy;
+
+        if ([flipper pointIsInside:mouseTouchedPoint] && isTouched)
+            [flipper rotate];
+        else
+            [flipper unrotate];
         
     }
     [mouse update];
@@ -942,27 +968,48 @@ void cleanRemoveFromSuperview( UIView * view ) {
 }*/
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
+    isTouched = true;
     UITouch *touch = [[event allTouches] anyObject];
     animationNumber = (animationNumber+1)%4;
     float touchX = [touch locationInView:touch.view].x;
     float touchY = [touch locationInView:touch.view].y;
-    
+    mousePt = CGPointMake(touchX, touchY);
     //CGRect screenBounds = [[UIScreen mainScreen] bounds];
     //float sx = screenBounds.size.width/640.0f;
     sx = screenWidth/640.0f;
     sy = screenHeight/1136.0f;
     float x = touchX * screenScale ;
     
-    float y = 1136*sy-touchY*screenScale;// - sy*(cheese->cheeseSprite.height/2);//960*sy - cheese->cheeseSprite.height/2
+    float y = 1136*sy-touchY*screenScale;
     if (x > screenWidth*sx - cheese->cheeseSprite->width/2)
         x = screenWidth*sx - cheese->cheeseSprite->width/2;
     else if (x < cheese->cheeseSprite->width/2)
         x = cheese->cheeseSprite->width/2;
     CGPoint pt = CGPointMake(x,y);
+    mouseTouchedPoint = pt;
     printf("drop (x,y): (%f, %f)\n",pt.x,pt.y);
-    [cheese dropAt:pt];
+    bool found = false;
+    for (int i=0; i < [flippers count]; i++)
+    {
+        flipper = (Flipper*)[flippers objectAtIndex:i];
+        flipper->sx = sx;
+        flipper->sy = sy;
+
+        if ([flipper pointIsInside:mouseTouchedPoint])
+            found = true;
+    }
+    if (!found)
+        [cheese dropAt:pt];
     lastDate = [[NSDate date] retain];
     next_game_tick = -[lastDate timeIntervalSinceNow];//+SKIP_TICKS;
+   /* for (int i=0; i < [flippers count]; i++)
+    {
+        flipper = (Flipper*)[flippers objectAtIndex:i];
+        flipper->sx = sx;
+        flipper->sy = sy;
+        if ([flipper pointIsInside:pt])
+            [flipper rotate];
+    }*/
    /* switch (animationNumber)
     {
         case 0:
@@ -990,6 +1037,12 @@ void cleanRemoveFromSuperview( UIView * view ) {
             mouseSprite = [AtlasSprite fromFile: @"MouseSad.png" withRows: 1 withColumns: steps];
             break;
     }*/
+}
+
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    isTouched = false;
+    mousePt = CGPointMake(0, 0);
 }
 
 - (void) dealloc
