@@ -16340,8 +16340,8 @@
             filePath = "FeedTheMouse/Classes/Flipper.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "127"
-            endingLineNumber = "127"
+            startingLineNumber = "131"
+            endingLineNumber = "131"
             landmarkName = "-rotate"
             landmarkType = "7">
          </BreakpointContent>
@@ -16381,22 +16381,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "EBB32989-20B8-4A11-95D1-6C250A4C72ED"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FeedTheMouse/Classes/Flipper.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "158"
-            endingLineNumber = "158"
-            landmarkName = "-unrotate"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "4C83B329-0C2A-48A7-9B61-72F188136B33"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -16421,8 +16405,8 @@
             filePath = "FeedTheMouse/Classes/Flipper.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "140"
-            endingLineNumber = "140"
+            startingLineNumber = "158"
+            endingLineNumber = "158"
             landmarkName = "-rotate"
             landmarkType = "7">
          </BreakpointContent>
@@ -16437,8 +16421,8 @@
             filePath = "FeedTheMouse/Classes/Flipper.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "122"
-            endingLineNumber = "122"
+            startingLineNumber = "126"
+            endingLineNumber = "126"
             landmarkName = "-rotate"
             landmarkType = "7">
          </BreakpointContent>
@@ -16454,25 +16438,9 @@
             filePath = "FeedTheMouse/Classes/Flipper.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "125"
-            endingLineNumber = "125"
+            startingLineNumber = "129"
+            endingLineNumber = "129"
             landmarkName = "-rotate"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "7ABFC46B-B2B8-4FB5-88BF-6CA7E01466CC"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FeedTheMouse/Classes/Flipper.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "44"
-            endingLineNumber = "44"
-            landmarkName = "-initializeFlipperAtX:andY:andAngle:andColor:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -16486,8 +16454,8 @@
             filePath = "FeedTheMouse/Classes/Flipper.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "146"
-            endingLineNumber = "146"
+            startingLineNumber = "164"
+            endingLineNumber = "164"
             landmarkName = "-rotate"
             landmarkType = "7">
          </BreakpointContent>
@@ -16502,24 +16470,8 @@
             filePath = "FeedTheMouse/Classes/Flipper.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "155"
-            endingLineNumber = "155"
-            landmarkName = "-unrotate"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "CA6BC689-1792-497F-9FC5-8F56B9DE62D9"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FeedTheMouse/Classes/Flipper.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "157"
-            endingLineNumber = "157"
+            startingLineNumber = "173"
+            endingLineNumber = "173"
             landmarkName = "-unrotate"
             landmarkType = "7">
          </BreakpointContent>
@@ -16534,8 +16486,8 @@
             filePath = "FeedTheMouse/Classes/Flipper.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "176"
-            endingLineNumber = "176"
+            startingLineNumber = "212"
+            endingLineNumber = "212"
             landmarkName = "-unrotate"
             landmarkType = "7">
          </BreakpointContent>
@@ -16550,8 +16502,8 @@
             filePath = "FeedTheMouse/Classes/Flipper.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "183"
-            endingLineNumber = "183"
+            startingLineNumber = "219"
+            endingLineNumber = "219"
             landmarkName = "-unrotate"
             landmarkType = "7">
          </BreakpointContent>
@@ -16566,8 +16518,8 @@
             filePath = "FeedTheMouse/Classes/Flipper.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "132"
-            endingLineNumber = "132"
+            startingLineNumber = "136"
+            endingLineNumber = "136"
             landmarkName = "-rotate"
             landmarkType = "7">
          </BreakpointContent>
@@ -16582,8 +16534,8 @@
             filePath = "FeedTheMouse/Classes/Flipper.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "120"
-            endingLineNumber = "120"
+            startingLineNumber = "124"
+            endingLineNumber = "124"
             landmarkName = "-rotate"
             landmarkType = "7">
          </BreakpointContent>
@@ -16598,8 +16550,8 @@
             filePath = "FeedTheMouse/Classes/Flipper.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "162"
-            endingLineNumber = "162"
+            startingLineNumber = "180"
+            endingLineNumber = "180"
             landmarkName = "-unrotate"
             landmarkType = "7">
          </BreakpointContent>
@@ -16614,8 +16566,8 @@
             filePath = "FeedTheMouse/Classes/Flipper.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "179"
-            endingLineNumber = "179"
+            startingLineNumber = "215"
+            endingLineNumber = "215"
             landmarkName = "-unrotate"
             landmarkType = "7">
          </BreakpointContent>
@@ -16630,8 +16582,8 @@
             filePath = "FeedTheMouse/Classes/Flipper.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "128"
-            endingLineNumber = "128"
+            startingLineNumber = "132"
+            endingLineNumber = "132"
             landmarkName = "-rotate"
             landmarkType = "7">
          </BreakpointContent>
@@ -16662,8 +16614,8 @@
             filePath = "FeedTheMouse/Classes/Flipper.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "121"
-            endingLineNumber = "121"
+            startingLineNumber = "125"
+            endingLineNumber = "125"
             landmarkName = "-rotate"
             landmarkType = "7">
          </BreakpointContent>
@@ -16678,9 +16630,89 @@
             filePath = "FeedTheMouse/Classes/Flipper.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "142"
-            endingLineNumber = "142"
+            startingLineNumber = "160"
+            endingLineNumber = "160"
             landmarkName = "-rotate"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "AF83C9CD-77FA-43AF-A700-F165D0510B8F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FeedTheMouse/Classes/Flipper.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "175"
+            endingLineNumber = "175"
+            landmarkName = "-unrotate"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B6EF9873-C440-4FFE-B9F0-AB52DF7FC055"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FeedTheMouse/Classes/Flipper.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "194"
+            endingLineNumber = "194"
+            landmarkName = "-unrotate"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DB57DA43-0602-432D-ADF7-E4E609C9BD74"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FeedTheMouse/Classes/Flipper.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "176"
+            endingLineNumber = "176"
+            landmarkName = "-unrotate"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4E4BFD1D-E5A7-4668-AECE-69862B27FBF4"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FeedTheMouse/Classes/Flipper.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "207"
+            endingLineNumber = "207"
+            landmarkName = "-unrotate"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B9A46888-E406-4C71-887B-CF24365ED07C"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FeedTheMouse/Classes/Flipper.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "202"
+            endingLineNumber = "202"
+            landmarkName = "-unrotate"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

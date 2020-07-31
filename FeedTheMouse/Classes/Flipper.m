@@ -41,7 +41,11 @@
     [self setX:fx];
     [self setY:fy];
     originalAngle = newAngle;
-    if (newAngle <= 180)
+    if ( angle > 90 && originalAngle < 180)
+    {
+        limitAngle = newAngle + 30;
+    }
+    if (newAngle <= 90)
         limitAngle = newAngle - 30;
     else
         limitAngle = newAngle + 30;
@@ -135,7 +139,21 @@
         }
         
     }
-    else if (originalAngle <= 180)
+    else if ( originalAngle > 90 && originalAngle < 180)
+    {
+        if ( angle >= limitAngle)
+        {
+            angle = limitAngle;
+            [self setAngle:angle];
+        }
+        else if (angle <= limitAngle)
+        {
+            angularAccel+=5;
+            angle+=angularAccel;
+            [self setAngle:angle];
+        }
+    }
+    else if (originalAngle <= 90)
     {
         if ( angle <= limitAngle || (angle < 360 && angle > 270))
         {
@@ -155,6 +173,24 @@
     if (originalAngle < 0)
         originalAngle+=360;
     if (originalAngle > 180 ) {
+        if (angle<=originalAngle)
+        {
+            angularAccel = 0;
+            [self setAngle:originalAngle];
+            
+        }
+        else
+        {
+            if (angularAccel > 1)
+                angularAccel-=1;
+            else
+                angularAccel = 1;
+            angle-=angularAccel;
+            [self setAngle:angle];
+        }
+    }
+    else if ( originalAngle > 90 && originalAngle < 180)
+    {
         if (angle<=originalAngle)
         {
             angularAccel = 0;
