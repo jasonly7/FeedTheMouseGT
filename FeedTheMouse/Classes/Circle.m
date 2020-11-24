@@ -147,4 +147,12 @@
     return false;
 }
 
+- (bool) pointIsInside: (CGPoint)pt
+{
+    float dist = sqrt((pt.x - x) * (pt.x - x) + (pt.y - y) * (pt.y - y));
+    if ( dist < r)
+        return true;
+    return false;
+}
+
 @end

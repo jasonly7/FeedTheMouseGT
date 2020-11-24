@@ -51,6 +51,7 @@
         Sprite *cheeseSprite;
         NSMutableArray *gears;
         NSMutableArray *drums;
+        NSMutableArray *bombs;
         NSMutableArray *teeterTotters;
         NSMutableArray *flippers;
         NSMutableArray *coins;
@@ -87,6 +88,7 @@
         bool isPastBottomLeft;
         bool isNearTopRight, isNearTopLeft, isNearTopLine;
         bool isCollidedWithTop;
+        
         float diff;
         CGFloat screenScale;
         CGFloat sx,sy;
@@ -105,6 +107,7 @@
 //- (void) onCollide: (NSObject *) obj;
 - (void) bounceOffGear: (Gear*) gear;
 - (void) bounceOffDrum;
+- (void) bounceOffBomb;
 - (void) bounceOffTeeterTotter;
 - (void) bounceOffFlipper;
 - (void) bounceOffTopWall;
@@ -114,8 +117,10 @@
 - (bool) checkCoin: (Coin*) c;
 - (bool) checkGear: (Gear*) g;
 - (bool) checkDrum: (Drum*) d;
+- (bool) checkBomb: (Bomb*) d;
 - (bool) checkTeeterTotter: (TeeterTotter*) totter;
 - (bool) checkFlipper: (Flipper*)flipper;
+- (bool) checkWall: (Line*)line;
 - (bool) collideWithLine: (Line *)line;
 - (float) collideWithLineF: (Line *)line;
 - (bool) nearLine: (Line *)line;

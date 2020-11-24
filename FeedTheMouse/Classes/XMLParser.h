@@ -16,6 +16,7 @@
 @class Flipper;
 @class Mouse;
 @class Coin;
+@class Bomb;
 
 #define DRUM_WIDTH 200;
 #define DRUM_HEIGHT = 37;
@@ -36,8 +37,10 @@
     Coin *coin;
     Gear *gear;
     Drum *drum;
+    Bomb *bomb;
     TeeterTotter *teeterTotter;
     Flipper *flipper;
+    NSString *backgroundFilename;
     Mouse *mouse;
     Level *level;
     int x, y;
@@ -48,15 +51,16 @@
     NSMutableArray *coins;
     NSMutableArray *gears;
     NSMutableArray *drums;
+    NSMutableArray *bombs;
     NSMutableArray *teeterTotters;
     NSMutableArray *flippers;
     NSMutableArray *levels;
 
 }
-
+@property (nonatomic, retain) Bomb *bomb;
 @property (nonatomic, retain) Gear *gear;
 @property (nonatomic, retain) Drum *drum;
-@property (nonatomic, retain) TeeterTotter *t;
+@property (nonatomic, retain) TeeterTotter *teeterTotter;
 @property (nonatomic, retain) Mouse *m;
 @property (nonatomic, retain) Level *level;
 @property (nonatomic, retain) NSMutableArray *gears;

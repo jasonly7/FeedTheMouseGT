@@ -14,11 +14,17 @@ static int kVibration[] = {0,1,2,3,4,5,6,7};
 
 - (id) init
 {
+    float screenWidth = [UIScreen.mainScreen bounds].size.width * [UIScreen.mainScreen scale];
+    float screenHeight = [UIScreen.mainScreen bounds].size.height * [UIScreen.mainScreen scale];
     self = [super init];
     if (self)
     {
+        
         drumSprite = [[AtlasSprite alloc] init];
-        [drumSprite fromFile:@"DrumsSheet.png" withRows: 1 withColumns: 8];
+        if (screenWidth == 1242)
+            [drumSprite fromFile:@"bigDrumsSheet.png" withRows: 1 withColumns: 8];
+        else
+            [drumSprite fromFile:@"DrumsSheet.png" withRows: 1 withColumns: 8];
         //[drumSprite setAngle:1.57];
         [self setX:0];
         [self setY:0];
@@ -30,6 +36,15 @@ static int kVibration[] = {0,1,2,3,4,5,6,7};
 
 - (Drum*) initializeDrumAtX:(float) xLocation andY: (float)yLocation andAngle: (float)newAngle
 {
+    float screenWidth = [UIScreen.mainScreen bounds].size.width * [UIScreen.mainScreen scale];
+    float screenHeight = [UIScreen.mainScreen bounds].size.height * [UIScreen.mainScreen scale];
+    float sx = screenWidth/640.0f;
+    float sy = screenHeight/1136.0f;
+    if (screenWidth == 1242)
+    {
+        xLocation = xLocation * sx;
+        yLocation = yLocation * sy;
+    }
     [self setX:xLocation];
     [self setY:yLocation];
     [self setAngle:newAngle];

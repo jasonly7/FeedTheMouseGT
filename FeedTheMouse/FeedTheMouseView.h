@@ -21,6 +21,7 @@
 #import "Level.h" 
 #import "TitleViewController.h"
 #import "TitleView.h"
+#import "TextSprite.h"
 
 const int MOUSE_HEIGHT = 322;
 const int MOUSE_WIDTH = 256;
@@ -35,6 +36,7 @@ const int MOUSE_WIDTH = 256;
     Mouse *mouse;
     Gear *gear;
     Drum *drum;
+    Bomb *bomb;
     TeeterTotter *teeterTotter;
     Flipper *flipper;
     Coin *coin;
@@ -45,10 +47,13 @@ const int MOUSE_WIDTH = 256;
     float t;
     int animationNumber;
     CGContextRef context;
+
     XMLParser *parser;
     NSMutableArray *coins;
+    
     NSMutableArray *gears;
     NSMutableArray *drums;
+    NSMutableArray *bombs;
     NSMutableArray *teeterTotters;
     NSMutableArray *flippers;
     NSMutableArray *levels;
@@ -74,6 +79,7 @@ const int MOUSE_WIDTH = 256;
     CGPoint mousePt;
     CGPoint mouseTouchedPoint;
     bool isTouched;
+   
 }
 
 - (void) doParse:(NSData *) data;

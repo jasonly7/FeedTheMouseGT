@@ -19,12 +19,19 @@ static int kChew[] = {0,1,2,3,4,5,6,7,8,9,10,11};
 
 - (id) init
 {
+    float screenWidth = [UIScreen.mainScreen bounds].size.width * [UIScreen.mainScreen scale];
+    float screenHeight = [UIScreen.mainScreen bounds].size.height * [UIScreen.mainScreen scale];
+    float sx = screenWidth/640.0f;
+    float sy = screenHeight/1136.0f;
     self = [super init];
     if (self)
     {
         steps = kSteps;
         mouseSprite = [[AtlasSprite alloc] init];
-        [mouseSprite fromFile: @"MouseWait.png" withRows: 1 withColumns: 1];
+        if (screenWidth == 1242)
+            [mouseSprite fromFile: @"bigMouseWait.png" withRows: 1 withColumns: 1];
+        else
+            [mouseSprite fromFile: @"MouseWait.png" withRows: 1 withColumns: 1];
         mouseSprite.angle = 0;
 		mouseSprite.speed = kSpeed;
         startBlinkDate = [[NSDate date] retain];
@@ -35,8 +42,20 @@ static int kChew[] = {0,1,2,3,4,5,6,7,8,9,10,11};
 
 - (Mouse*) initializeMouseAtX:(float) xLocation andY: (float)yLocation
 {
-    x = xLocation;
-    y = yLocation;
+    float screenWidth = [UIScreen.mainScreen bounds].size.width * [UIScreen.mainScreen scale];
+    float screenHeight = [UIScreen.mainScreen bounds].size.height * [UIScreen.mainScreen scale];
+    float sx = screenWidth/640.0f;
+    float sy = screenHeight/1136.0f;
+    if (screenWidth == 1242)
+    {
+        x = xLocation * sx;
+        y = yLocation * sy;
+    }
+    else
+    {
+        x = xLocation;
+        y = yLocation;
+    }
     return self;
 }
 
@@ -66,8 +85,12 @@ static int kChew[] = {0,1,2,3,4,5,6,7,8,9,10,11};
 
 - (void) updateWait
 {
-    steps = 1;
     
+    float screenWidth = [UIScreen.mainScreen bounds].size.width * [UIScreen.mainScreen scale];
+    float screenHeight = [UIScreen.mainScreen bounds].size.height * [UIScreen.mainScreen scale];
+    float sx = screenWidth/640.0f;
+    float sy = screenHeight/1136.0f;
+    steps = 1;
     mouseSprite.frame = kWait[frame];
     thisFrameStartTime = [[NSDate date] timeIntervalSince1970];
     deltaTime = thisFrameStartTime - lastFrameStartTime;
@@ -76,20 +99,30 @@ static int kChew[] = {0,1,2,3,4,5,6,7,8,9,10,11};
     if (timeSinceLastBlink >= 20)
     {
         state = MOUSE_BLINK;
-        [mouseSprite fromFile: @"MouseBlink.png" withRows: 1 withColumns: MOUSE_BLINK_FRAMES];
+        if (screenWidth == 1242)
+            [mouseSprite fromFile: @"bigMouseBlink.png" withRows: 1 withColumns: MOUSE_BLINK_FRAMES];
+        else
+            [mouseSprite fromFile: @"MouseBlink.png" withRows: 1 withColumns: MOUSE_BLINK_FRAMES];
     }
     frame = (frame+1)%steps;
 }
 
 - (void) updateBlink
 {
+    float screenWidth = [UIScreen.mainScreen bounds].size.width * [UIScreen.mainScreen scale];
+    float screenHeight = [UIScreen.mainScreen bounds].size.height * [UIScreen.mainScreen scale];
+    float sx = screenWidth/640.0f;
+    float sy = screenHeight/1136.0f;
     int lastFrame = MOUSE_BLINK_FRAMES-1;
     if (mouseSprite.frame >= lastFrame)
     {
         state = MOUSE_WAIT;
         
         //printf("mouseSprite retainCount is %d\n",[mouseSprite retainCount]);
-        [mouseSprite fromFile: @"MouseWait.png" withRows: 1 withColumns: 1];
+        if (screenWidth == 1242)
+            [mouseSprite fromFile: @"bigMouseWait.png" withRows: 1 withColumns: 1];
+        else
+            [mouseSprite fromFile: @"MouseWait.png" withRows: 1 withColumns: 1];
         
         timeSinceLastBlink = 0;
         
@@ -163,17 +196,31 @@ static int kChew[] = {0,1,2,3,4,5,6,7,8,9,10,11};
 
 - (void) openMouth
 {
+    float screenWidth = [UIScreen.mainScreen bounds].size.width * [UIScreen.mainScreen scale];
+    float screenHeight = [UIScreen.mainScreen bounds].size.height * [UIScreen.mainScreen scale];
+    float sx = screenWidth/640.0f;
+    float sy = screenHeight/1136.0f;
     state = MOUSE_OPEN_MOUTH;
     steps = MOUSE_OPENMOUTH_FRAMES;
-    [mouseSprite fromFile: @"MouseOpenMouth.png" withRows: 1 withColumns: steps];
+    if (screenWidth == 1242)
+        [mouseSprite fromFile: @"bigMouseOpenMouth.png" withRows: 1 withColumns: steps];
+    else
+        [mouseSprite fromFile: @"MouseOpenMouth.png" withRows: 1 withColumns: steps];
 }
 
 - (void) chew
 {
+    float screenWidth = [UIScreen.mainScreen bounds].size.width * [UIScreen.mainScreen scale];
+    float screenHeight = [UIScreen.mainScreen bounds].size.height * [UIScreen.mainScreen scale];
+    float sx = screenWidth/640.0f;
+    float sy = screenHeight/1136.0f;
     state = MOUSE_CHEW;
     steps = MOUSE_CHEW_FRAMES;
     mouseSprite.frame = 0;
-    [mouseSprite fromFile: @"MouseChew.png" withRows: 1 withColumns: steps ];
+    if (screenWidth == 1242)
+        [mouseSprite fromFile: @"bigMouseChew.png" withRows: 1 withColumns: steps ];
+    else
+        [mouseSprite fromFile: @"MouseChew.png" withRows: 1 withColumns: steps ];
 
 }
 

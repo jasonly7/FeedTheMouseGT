@@ -28,5 +28,5 @@
 - (bool) collideWithSprite :(Sprite *)sprite;
 - (bool) collideWithRectangle: (CGRect ) rect andAngle: (float) angle;
 - (bool) collideWithLine: (Line *) line andSpeed: (double) speed andRoot:(NSNumber**) root;
-
+- (bool) pointIsInside: (CGPoint)pt;
 @end

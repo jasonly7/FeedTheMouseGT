@@ -12,7 +12,7 @@
 {
     @public
         Sprite *coinSprite;
-
+        float lifespan;
 
 }
 

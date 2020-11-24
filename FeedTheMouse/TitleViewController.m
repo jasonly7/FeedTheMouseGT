@@ -16,9 +16,17 @@
 - (id) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    
     if (self)
     {
         NSLog(@"Title view controller created");
+        
+       /* CGRect buttonFrame = _playButton.frame;
+         buttonFrame.size = CGSizeMake(10,10);
+         [_playButton setFrame:buttonFrame];*/
+        
+        
+        
     }
     return self;
 }
@@ -31,6 +39,12 @@
 - (IBAction)btnClicked:(id)sender
 {
     NSLog(@"Button Clicked");
+    float x =  self.view.center.x - _playButton.frame.size.width/2;
+    float y = self.view.center.y;
+    CGRect playRect = CGRectMake(0, y, _playButton.frame.size.width, _playButton.frame.size.height);
+    //_playButton.frame = CGRectMake(0, y, _playButton.frame.size.width, _playButton.frame.size.height);
+    //_playButton.center = self.view.center;
+    //[_playButton.imageView setFrame:playRect];
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
     
     UIViewController *feedTheMouseViewController = [sb instantiateViewControllerWithIdentifier:@"FeedTheMouseViewController"];
@@ -39,9 +53,70 @@
     
 }
 
+-(void)animationCompleted{
+
+   // Whatever you want to do after finish animation
+
+    NSLog(@"Animation Completed");
+
+}
+
+- (void) splashLoop
+{
+    NSLog(@"Count: %d", count);
+    count--;
+    if (count<=0)
+    {
+
+        NSLog(@"Titleview added");
+        timer = [NSTimer scheduledTimerWithTimeInterval: 0.1
+            target:self
+            selector:@selector(transitionLoop)
+            userInfo:nil
+            repeats:YES];
+        UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+      //  UIViewController *titleViewController = [sb instantiateViewControllerWithIdentifier:@"TitleViewController"];
+        //titleViewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+       // [self presentViewController:titleViewController animated:YES completion:NULL];
+        [splashTimer invalidate];
+        splashTimer = nil;
+        
+    }
+}
+
+- (void) transitionLoop
+{
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+    
+    
+    
+    if (splashImageView.alpha > 0)
+    {
+        splashImageView.alpha -=0.1;
+    }
+    else
+    {
+        [timer invalidate];
+        timer = nil;
+    }
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    CGRect screenBounds = [[UIScreen mainScreen] bounds];
+    [splashImageView setFrame:(CGRectMake(splashImageView.frame.origin.x, splashImageView.frame.origin.y, screenBounds.size.width,screenBounds.size.height))];
+    [titleImageView setFrame:(CGRectMake(titleImageView.frame.origin.x, titleImageView.frame.origin.y, screenBounds.size.width,screenBounds.size.height))];
+    float x =  self.view.center.x;// - _playButton.frame.size.width/2;
+    float y = self.view.center.y + screenBounds.size.height/4;
+   
+    [_playButton setCenter:CGPointMake(x, y)];
+    count = 5;
+    splashTimer = [NSTimer scheduledTimerWithTimeInterval: 1
+        target:self
+        selector:@selector(splashLoop)
+        userInfo:nil
+        repeats:YES];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -49,6 +124,14 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    NSLog(@"Play Clicked");
+   /* float x =  self.view.center.x - _playButton.frame.size.width/2;
+    float y = self.view.center.y;
+    CGRect playRect = CGRectMake(0, y, _playButton.frame.size.width, _playButton.frame.size.height);
+    [_playButton.imageView setFrame:playRect];*/
+}
 /*
 #pragma mark - Navigation
 

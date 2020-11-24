@@ -25,13 +25,21 @@
         r = coinSprite.width/2;
         pos->x = x;
         pos->y = y;
+        lifespan = 2;
     }
     return self;
 }
 
 - (void) initializeCoinAtX:(float)xLocation andY:(float)yLocation
 {
-    coinSprite = [Picture fromFile:@"coin.png"];
+    float screenWidth = [UIScreen.mainScreen bounds].size.width * [UIScreen.mainScreen scale];
+    float screenHeight = [UIScreen.mainScreen bounds].size.height * [UIScreen.mainScreen scale];
+    float sx = screenWidth/640.0f;
+    float sy = screenHeight/1136.0f;
+    if (screenWidth == 1242)
+        coinSprite = [Picture fromFile:@"bigCoin.png"];
+    else
+        coinSprite = [Picture fromFile:@"coin.png"];
     [self setX:0];
     [self setY:0];
     /* coinSprite.x = 0;
@@ -39,6 +47,11 @@
      coinSprite.y = 0;
      y = coinSprite.y + coinSprite.height/2;*/
     r = coinSprite.width/2;
+    if (screenWidth == 1242)
+    {
+        xLocation = xLocation * sx;
+        yLocation = yLocation * sy;
+    }
     [self setX:xLocation];
     [self setY:yLocation];
     //pos->x = x;

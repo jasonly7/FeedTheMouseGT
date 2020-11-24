@@ -1,30 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <FeedTheMouse>
     <Level>
-        <Mouse>
-            <X>493</X>
-            <Y>109</Y>
-        </Mouse>
-        <Coin>
-            <X>286</X>
-            <Y>801</Y>
-        </Coin>
-        <Coin>
-            <X>449</X>
-            <Y>614</Y>
-        </Coin>
-        <Drum>
-            <X>145</X>
-            <Y>692</Y>
-            <ANGLE>326.259155</ANGLE>
-        </Drum>
-        <TeeterTotter>
-            <X>449</X>
-            <Y>537</Y>
-            <Color>orange</Color>
-        </TeeterTotter>
-    </Level>
-    <Level>
+        <Background>background_1.png</Background>
         <Mouse>
             <X>500</X>
             <Y>150</Y>
@@ -36,7 +13,7 @@
         <Gear>
             <X>325</X>
             <Y>472</Y>
-            <Color>purple</Color>
+            <Color>orange</Color>
         </Gear>
         <Drum>
             <X>468</X>
@@ -44,14 +21,15 @@
             <ANGLE>-42.316956</ANGLE>
         </Drum>
         <Flipper>
-            <X>186</X>
-            <Y>777</Y>
+            <X>192</X>
+            <Y>788</Y>
             <ANGLE>45.000000</ANGLE>
             <ISFLIPPED>false</ISFLIPPED>
-            <Color>yellow</Color>
+            <Color>orange</Color>
         </Flipper>
     </Level>
     <Level>
+        <Background>background_1.png</Background>
         <Mouse>
             <X>156</X>
             <Y>141</Y>
@@ -65,17 +43,18 @@
             <Y>511</Y>
         </Coin>
         <Gear>
-            <X>454</X>
-            <Y>377</Y>
-            <Color>orange</Color>
+            <X>457</X>
+            <Y>403</Y>
+            <Color>red</Color>
         </Gear>
         <Gear>
-            <X>263</X>
-            <Y>673</Y>
-            <Color>orange</Color>
+            <X>258</X>
+            <Y>669</Y>
+            <Color>purple</Color>
         </Gear>
     </Level>
     <Level>
+        <Background>background_1.png</Background>
         <Mouse>
             <X>511</X>
             <Y>114</Y>
@@ -93,22 +72,23 @@
             <Y>421</Y>
         </Coin>
         <Gear>
-            <X>209</X>
+            <X>194</X>
             <Y>702</Y>
             <Color>orange</Color>
         </Gear>
         <Gear>
-            <X>517</X>
-            <Y>504</Y>
-            <Color>orange</Color>
+            <X>513</X>
+            <Y>487</Y>
+            <Color>purple</Color>
         </Gear>
         <Gear>
-            <X>183</X>
-            <Y>280</Y>
-            <Color>orange</Color>
+            <X>168</X>
+            <Y>307</Y>
+            <Color>blue</Color>
         </Gear>
     </Level>
     <Level>
+        <Background>background_1.png</Background>
         <Mouse>
             <X>171</X>
             <Y>148</Y>
@@ -122,27 +102,28 @@
             <Y>440</Y>
         </Coin>
         <Gear>
-            <X>177</X>
-            <Y>718</Y>
-            <Color>orange</Color>
+            <X>178</X>
+            <Y>712</Y>
+            <Color>blue</Color>
         </Gear>
         <Gear>
-            <X>483</X>
-            <Y>560</Y>
-            <Color>orange</Color>
+            <X>490</X>
+            <Y>558</Y>
+            <Color>red</Color>
         </Gear>
         <Gear>
             <X>181</X>
             <Y>458</Y>
-            <Color>orange</Color>
+            <Color>purple</Color>
         </Gear>
         <Gear>
-            <X>475</X>
-            <Y>315</Y>
+            <X>459</X>
+            <Y>309</Y>
             <Color>orange</Color>
         </Gear>
     </Level>
     <Level>
+        <Background>background_2.png</Background>
         <Mouse>
             <X>163</X>
             <Y>148</Y>
@@ -167,6 +148,7 @@
         </Drum>
     </Level>
     <Level>
+        <Background>background_2.png</Background>
         <Mouse>
             <X>451</X>
             <Y>151</Y>
@@ -200,6 +182,7 @@
         </Drum>
     </Level>
     <Level>
+        <Background>background_2.png</Background>
         <Mouse>
             <X>173</X>
             <Y>150</Y>
@@ -242,6 +225,7 @@
         </Drum>
     </Level>
     <Level>
+        <Background>background_2.png</Background>
         <Mouse>
             <X>431</X>
             <Y>127</Y>
@@ -269,12 +253,13 @@
             <ANGLE>36.502228</ANGLE>
         </Drum>
         <TeeterTotter>
-            <X>191</X>
-            <Y>537</Y>
-            <Color>orange</Color>
+            <X>226</X>
+            <Y>531</Y>
+            <Color>blue</Color>
         </TeeterTotter>
     </Level>
     <Level>
+        <Background>background_3.png</Background>
         <Mouse>
             <X>175</X>
             <Y>141</Y>
@@ -292,22 +277,23 @@
             <Y>783</Y>
         </Coin>
         <TeeterTotter>
-            <X>335</X>
-            <Y>731</Y>
+            <X>311</X>
+            <Y>730</Y>
             <Color>orange</Color>
         </TeeterTotter>
         <TeeterTotter>
-            <X>211</X>
-            <Y>528</Y>
-            <Color>orange</Color>
+            <X>217</X>
+            <Y>526</Y>
+            <Color>purple</Color>
         </TeeterTotter>
         <TeeterTotter>
-            <X>422</X>
-            <Y>370</Y>
-            <Color>orange</Color>
+            <X>437</X>
+            <Y>363</Y>
+            <Color>green</Color>
         </TeeterTotter>
     </Level>
     <Level>
+        <Background>background_3.png</Background>
         <Mouse>
             <X>446</X>
             <Y>165</Y>
@@ -329,18 +315,18 @@
             <Y>805</Y>
         </Coin>
         <TeeterTotter>
-            <X>307</X>
-            <Y>742</Y>
-            <Color>orange</Color>
+            <X>322</X>
+            <Y>733</Y>
+            <Color>green</Color>
         </TeeterTotter>
         <TeeterTotter>
-            <X>186</X>
-            <Y>555</Y>
-            <Color>orange</Color>
+            <X>202</X>
+            <Y>554</Y>
+            <Color>yellow</Color>
         </TeeterTotter>
         <TeeterTotter>
-            <X>419</X>
-            <Y>551</Y>
+            <X>472</X>
+            <Y>546</Y>
             <Color>orange</Color>
         </TeeterTotter>
         <TeeterTotter>
@@ -350,6 +336,7 @@
         </TeeterTotter>
     </Level>
     <Level>
+        <Background>background_3.png</Background>
         <Mouse>
             <X>350</X>
             <Y>146</Y>
@@ -368,17 +355,18 @@
             <Color>orange</Color>
         </Gear>
         <TeeterTotter>
-            <X>328</X>
-            <Y>725</Y>
-            <Color>orange</Color>
+            <X>333</X>
+            <Y>719</Y>
+            <Color>blue</Color>
         </TeeterTotter>
         <TeeterTotter>
-            <X>336</X>
-            <Y>320</Y>
-            <Color>orange</Color>
+            <X>328</X>
+            <Y>316</Y>
+            <Color>green</Color>
         </TeeterTotter>
     </Level>
     <Level>
+        <Background>background_3.png</Background>
         <Mouse>
             <X>485</X>
             <Y>135</Y>
@@ -417,6 +405,7 @@
         </TeeterTotter>
     </Level>
     <Level>
+        <Background>background_4.png</Background>
         <Mouse>
             <X>478</X>
             <Y>114</Y>
@@ -442,31 +431,32 @@
             <Y>694</Y>
             <ANGLE>36.402222</ANGLE>
             <ISFLIPPED>false</ISFLIPPED>
-            <Color>orange</Color>
+            <Color>purple</Color>
         </Flipper>
         <Flipper>
-            <X>180</X>
-            <Y>621</Y>
+            <X>183</X>
+            <Y>627</Y>
             <ANGLE>-30.701874</ANGLE>
             <ISFLIPPED>true</ISFLIPPED>
-            <Color>orange</Color>
+            <Color>green</Color>
         </Flipper>
         <Flipper>
-            <X>460</X>
-            <Y>397</Y>
+            <X>471</X>
+            <Y>400</Y>
             <ANGLE>36.002197</ANGLE>
             <ISFLIPPED>false</ISFLIPPED>
-            <Color>orange</Color>
+            <Color>yellow</Color>
         </Flipper>
         <Flipper>
-            <X>181</X>
-            <Y>293</Y>
+            <X>168</X>
+            <Y>307</Y>
             <ANGLE>-30.901886</ANGLE>
             <ISFLIPPED>true</ISFLIPPED>
-            <Color>orange</Color>
+            <Color>magenta</Color>
         </Flipper>
     </Level>
     <Level>
+        <Background>background_4.png</Background>
         <Mouse>
             <X>500</X>
             <Y>150</Y>
@@ -486,7 +476,7 @@
         <Gear>
             <X>340</X>
             <Y>701</Y>
-            <Color>purple</Color>
+            <Color>orange</Color>
         </Gear>
         <Gear>
             <X>212</X>
@@ -498,17 +488,18 @@
             <Y>535</Y>
             <ANGLE>-30.301849</ANGLE>
             <ISFLIPPED>true</ISFLIPPED>
-            <Color>green</Color>
+            <Color>orange</Color>
         </Flipper>
         <Flipper>
             <X>499</X>
             <Y>441</Y>
             <ANGLE>33.402039</ANGLE>
             <ISFLIPPED>false</ISFLIPPED>
-            <Color>blue</Color>
+            <Color>orange</Color>
         </Flipper>
     </Level>
     <Level>
+        <Background>background_4.png</Background>
         <Mouse>
             <X>333</X>
             <Y>123</Y>
@@ -526,6 +517,11 @@
             <Y>713</Y>
             <Color>orange</Color>
         </Gear>
+        <Bomb>
+            <X>330</X>
+            <Y>369</Y>
+            <ANGLE>0.000000</ANGLE>
+        </Bomb>
         <Flipper>
             <X>252</X>
             <Y>506</Y>
@@ -556,6 +552,7 @@
         </Flipper>
     </Level>
     <Level>
+        <Background>background_4.png</Background>
         <Mouse>
             <X>551</X>
             <Y>97</Y>
@@ -569,14 +566,24 @@
             <Y>593</Y>
         </Coin>
         <Coin>
-            <X>323</X>
-            <Y>331</Y>
+            <X>311</X>
+            <Y>347</Y>
         </Coin>
         <Gear>
             <X>467</X>
             <Y>406</Y>
             <Color>orange</Color>
         </Gear>
+        <Bomb>
+            <X>508</X>
+            <Y>581</Y>
+            <ANGLE>0.000000</ANGLE>
+        </Bomb>
+        <Bomb>
+            <X>85</X>
+            <Y>232</Y>
+            <ANGLE>0.000000</ANGLE>
+        </Bomb>
         <Flipper>
             <X>456</X>
             <Y>682</Y>

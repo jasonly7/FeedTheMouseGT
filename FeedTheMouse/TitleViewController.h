@@ -7,8 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PlayImageView.h"
 
 @interface TitleViewController : UIViewController
+{
+     IBOutlet UIImageView *titleImageView;
+     IBOutlet UIImageView *splashImageView;
+     NSTimer *timer, *splashTimer;
+     int count;
+}
 @property (nonatomic, retain) IBOutlet UIButton *playButton;
 
+- (void) splashLoop;
+- (void) transitionLoop;
 @end

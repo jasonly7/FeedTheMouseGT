@@ -10,6 +10,8 @@
 #import "CollisionPacket.h"
 #import "Level.h"
 #import "Cheese.h"
+#import "Wall.h"
+
 @class Cheese;
 
 @interface World : NSObject
@@ -18,6 +20,7 @@
     Level *lvl;
     Cheese *cheese;
     Mouse *mouse;
+    NSMutableArray *removedCoins;
     CGFloat sx,sy;
     CGFloat screenScale;
     float screenWidth, screenHeight;

@@ -46,22 +46,65 @@
 {
     float topLeftX, topLeftY, topRightX, topRightY;
     CGPoint topLeftPt,topRightPt;
+    float screenWidth = [UIScreen.mainScreen bounds].size.width * [UIScreen.mainScreen scale];
+    float screenHeight = [UIScreen.mainScreen bounds].size.height * [UIScreen.mainScreen scale];
     if (c == [UIColor blueColor])
-        totterSprite = [Picture fromFile:@"teeter_totter_blue.png"];
+    {
+        if (screenWidth == 1242)
+            totterSprite = [Picture fromFile:@"big_teeter_totter_blue.png"];
+        else
+            totterSprite = [Picture fromFile:@"teeter_totter_blue.png"];
+    }
     else if (c == [UIColor greenColor])
-        totterSprite = [Picture fromFile:@"teeter_totter_green.png"];
-    else if (c == [UIColor magentaColor])
-        totterSprite = [Picture fromFile:@"teeter_totter_magenta.png"];
+    {
+        if (screenWidth == 1242)
+            totterSprite = [Picture fromFile:@"big_teeter_totter_green.png"];
+        else
+            totterSprite = [Picture fromFile:@"teeter_totter_green.png"];
+    }
     else if (c == [UIColor purpleColor])
-        totterSprite = [Picture fromFile:@"teeter_totter_purple.png"];
+    {
+        if (screenWidth == 1242)
+            totterSprite = [Picture fromFile:@"big_teeter_totter_purple.png"];
+        else
+            totterSprite = [Picture fromFile:@"teeter_totter_purple.png"];
+    }
     else if (c == [UIColor yellowColor])
-        totterSprite = [Picture fromFile:@"teeter_totter_yellow.png"];
+    {
+        if (screenWidth == 1242)
+            totterSprite = [Picture fromFile:@"big_teeter_totter_yellow.png"];
+        else
+            totterSprite = [Picture fromFile:@"teeter_totter_yellow.png"];
+    }
     else if (c == [UIColor redColor])
-        totterSprite = [Picture fromFile:@"teeter_totter_red.png"];
+    {
+        if (screenWidth == 1242)
+            totterSprite = [Picture fromFile:@"big_teeter_totter_red.png"];
+        else
+            totterSprite = [Picture fromFile:@"teeter_totter_red.png"];
+    }
     else if (c == [UIColor orangeColor])
-        totterSprite = [Picture fromFile:@"teeter_totter_orange.png"];
+    {
+        
+        if (screenWidth == 1242)
+            totterSprite = [Picture fromFile:@"big_teeter_totter_orange.png"];
+        else
+            totterSprite = [Picture fromFile:@"teeter_totter_orange.png"];
+    }
     else
-        totterSprite = [Picture fromFile:@"teeter_totter.png"];
+    {
+        if (screenWidth == 1242)
+            totterSprite = [Picture fromFile:@"big_teeter_totter.png"];
+        else
+            totterSprite = [Picture fromFile:@"teeter_totter.png"];
+    }
+    float sx = screenWidth/640.0f;
+    float sy = screenHeight/1136.0f;
+    if (screenWidth == 1242)
+    {
+        tx = tx * sx;
+        ty = ty * sy;
+    }
     [self setX:tx];
     [self setY:ty];
    // [self setAngle:45];

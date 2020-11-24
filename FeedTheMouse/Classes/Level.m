@@ -14,11 +14,13 @@
     num = number;
     coins = [[NSMutableArray alloc] initWithCapacity:10];
     gears = [[NSMutableArray alloc] initWithCapacity:10];
+    bombs = [[NSMutableArray alloc] initWithCapacity:10];
     drums = [[NSMutableArray alloc] initWithCapacity:10];
     teeterTotters = [[NSMutableArray alloc] initWithCapacity:10];
     flippers = [[NSMutableArray alloc] initWithCapacity:10];
     mouse = [[Mouse alloc] init];
     [mouse initializeMouseAtX:500 andY:150];
+    backgroundFilename = [[NSString alloc] init];
 }
 
 -(void) setMouse:(Mouse *)m
@@ -41,6 +43,11 @@
     [drums addObject:d];
 }
 
+-(void) addBomb:(Bomb*) b
+{
+    [bombs addObject:b];
+}
+
 -(void) addTeeterTotter:(TeeterTotter *)t
 {
     [teeterTotters addObject:t];
@@ -50,7 +57,10 @@
 {
     [flippers addObject:f];
 }
-
+-(NSMutableArray*) getBombs
+{
+    return bombs;
+}
 -(NSMutableArray*) getCoins
 {
     return coins;

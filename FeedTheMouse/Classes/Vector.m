@@ -113,4 +113,13 @@
     length = [self length];
 }
 
+- (float) getAngle
+{
+    float angle = 0;
+   
+    angle = atan2f(y, x);
+    
+    return angle;
+}
+
 @end

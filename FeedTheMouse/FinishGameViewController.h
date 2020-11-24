@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface FinishGameViewController : UIViewController
-
+{
+    IBOutlet UIImageView *scoreboardImageView;
+    
+}
 @end

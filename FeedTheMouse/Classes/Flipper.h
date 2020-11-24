@@ -13,6 +13,8 @@
 @interface Flipper : NSObject
 {
     UIColor *color;
+    float screenWidth; 
+    float screenHeight;
 @public
     int x,y;
     float angle;

@@ -17,6 +17,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    CGRect screenBounds = [[UIScreen mainScreen] bounds];
+    [scoreboardImageView setFrame:(CGRectMake(scoreboardImageView.frame.origin.x, scoreboardImageView.frame.origin.y, screenBounds.size.width,screenBounds.size.height))];
 }
 
 - (void)didReceiveMemoryWarning {

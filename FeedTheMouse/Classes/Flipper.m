@@ -12,6 +12,8 @@
 
 - (id) init
 {
+    screenWidth = [UIScreen.mainScreen bounds].size.width * [UIScreen.mainScreen scale];
+    screenHeight = [UIScreen.mainScreen bounds].size.height * [UIScreen.mainScreen scale];
     self = [super init];
     if (self)
     {
@@ -26,18 +28,45 @@
 
 - (Flipper*) initializeFlipperAtX:(float) fx andY: (float)fy andAngle: (float)newAngle andColor:(UIColor *)c
 {
-    if (c == [UIColor blueColor])
-        sprite = [Picture fromFile:@"flipper_blue_game.png"];
-    else if (c == [UIColor greenColor])
-        sprite = [Picture fromFile:@"flipper_green_game.png"];
-    else if (c == [UIColor magentaColor])
-        sprite = [Picture fromFile:@"flipper_magenta_game.png"];
-    else if (c == [UIColor purpleColor])
-        sprite = [Picture fromFile:@"flipper_purple_game.png"];
-    else if (c == [UIColor yellowColor])
-        sprite = [Picture fromFile:@"flipper_yellow_game.png"];
-    else
-        sprite = [Picture fromFile:@"flipper_orange_game.png"];
+    screenWidth = [UIScreen.mainScreen bounds].size.width * [UIScreen.mainScreen scale];
+    screenHeight = [UIScreen.mainScreen bounds].size.height * [UIScreen.mainScreen scale];
+    sx = screenWidth/640.0f;
+    sy = screenHeight/1136.0f;
+    if (screenWidth == 1242)
+    {
+        if (c == [UIColor blueColor])
+            sprite = [Picture fromFile:@"big/big_flipper_blue.png"];
+        else if (c == [UIColor greenColor])
+            sprite = [Picture fromFile:@"big/big_flipper_green.png"];
+        else if (c == [UIColor magentaColor])
+            sprite = [Picture fromFile:@"big/big_flipper_magenta.png"];
+        else if (c == [UIColor purpleColor])
+            sprite = [Picture fromFile:@"big/big_flipper_purple.png"];
+        else if (c == [UIColor yellowColor])
+            sprite = [Picture fromFile:@"big/big_flipper_yellow.png"];
+        else
+            sprite = [Picture fromFile:@"big/big_flipper_orange.png"];
+        
+    }
+    else {
+        if (c == [UIColor blueColor])
+            sprite = [Picture fromFile:@"flipper_blue_game.png"];
+        else if (c == [UIColor greenColor])
+            sprite = [Picture fromFile:@"flipper_green_game.png"];
+        else if (c == [UIColor magentaColor])
+            sprite = [Picture fromFile:@"flipper_magenta_game.png"];
+        else if (c == [UIColor purpleColor])
+            sprite = [Picture fromFile:@"flipper_purple_game.png"];
+        else if (c == [UIColor yellowColor])
+            sprite = [Picture fromFile:@"flipper_yellow_game.png"];
+        else
+            sprite = [Picture fromFile:@"flipper_orange_game.png"];
+    }
+    if (screenWidth == 1242)
+    {
+        fx = fx * sx;
+        fy = fy * sy;
+    }
     [self setX:fx];
     [self setY:fy];
     originalAngle = newAngle;
@@ -104,14 +133,28 @@
 
 - (bool) pointIsInside: (CGPoint)pt
 {
-    if (pt.x < sx*(x - 84))
-        return false;
-    if (pt.x > sx*(x + 84))
-        return false;
-    if (pt.y > sy*(y + 84))
-        return false;
-    if (pt.y < sy*(y - 84))
-        return false;
+    if (screenWidth == 1242)
+    {
+        if (pt.x < (x - sprite->width/2))
+            return false;
+        if (pt.x > (x + sprite->width/2))
+            return false;
+        if (pt.y > (y + sprite->width/2))
+            return false;
+        if (pt.y < (y - sprite->width/2))
+            return false;
+    }
+    else
+    {
+        if (pt.x < sx*(x - 84))
+            return false;
+        if (pt.x > sx*(x + 84))
+            return false;
+        if (pt.y > sy*(y + 84))
+            return false;
+        if (pt.y < sy*(y - 84))
+            return false;
+    }
     return true;
 }
 

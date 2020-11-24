@@ -42,6 +42,7 @@ typedef enum {
     TeeterTotter *collidedTotter;
     Vector *closestPt;
     Vector *closestPoint;
+    int collisionCount;
 };
 
 @end

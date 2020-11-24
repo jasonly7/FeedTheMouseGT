@@ -25,4 +25,5 @@
 - (void) setLength:(float) length;
 - (void) setVector:(Vector*)v;
 - (Vector*) project: (Vector*) b onto: (Vector*)a;
+- (float) getAngle;
 @end

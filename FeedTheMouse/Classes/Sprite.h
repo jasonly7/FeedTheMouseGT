@@ -14,6 +14,7 @@
     CGFloat r;                  // red tint
     CGFloat g;                  // green tint
     CGFloat b;                  // blue tint
+    
     CGFloat alpha;              // alpha value, for transparency
     CGFloat speed;              // speed of movement in pixels/frame
     CGFloat angle;              // angle of movement in degrees

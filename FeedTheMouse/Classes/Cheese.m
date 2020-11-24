@@ -87,10 +87,23 @@
         sy = screenHeight/1136.0f;
         vel = [[Vector alloc] init];
         justTouchVelocity = [[Vector alloc] init];
-        accel = -10*UNIT*sy;
-        cheeseSprite = [Picture fromFile:@"cheese.png"];
-        x = sx * (cheeseSprite.x + cheeseSprite.width/2);
-        y = sy * (cheeseSprite.y + cheeseSprite.height/2);
+        
+        
+        if (screenWidth == 1242)
+        {
+            cheeseSprite = [Picture fromFile:@"bigCheese.png"];
+            accel = -10*UNIT;
+            x = (cheeseSprite.x + cheeseSprite.width/2);
+            y = (cheeseSprite.y + cheeseSprite.height/2);
+        }
+        else
+        {
+            cheeseSprite = [Picture fromFile:@"cheese.png"];
+            accel = -10*UNIT*sy;
+            x = sx * (cheeseSprite.x + cheeseSprite.width/2);
+            y = sy * (cheeseSprite.y + cheeseSprite.height/2);
+        }
+        
         r = cheeseSprite.width/2;
         
         Vector *accelVector = [[Vector alloc] init];
@@ -100,8 +113,10 @@
         gravityForce->a = accelVector;
         gravityForce->m = 1;
         gravity = [[Vector alloc] init];
-        
-        [gravity initializeVectorX:0 andY:(-10*UNIT*sy*screenScale) ];
+        if (screenWidth == 1242)
+            [gravity initializeVectorX:0 andY:(-10*UNIT*screenScale) ];
+        else
+            [gravity initializeVectorX:0 andY:(-10*UNIT*sy*screenScale) ];
         
         normalForce = [[Force alloc] init];
         normalForce->m = 1;
@@ -155,8 +170,16 @@
     vel->y = 0;
     acceleration->x = 0;
     acceleration->y = gravity->y;
-    cheeseSprite.x = pt.x/screenScale - cheeseSprite.width/2;
-    cheeseSprite.y = pt.y/screenScale - cheeseSprite.height/2;
+    if (screenWidth == 1242)
+    {
+        cheeseSprite.x = pt.x - cheeseSprite.width/2;
+        cheeseSprite.y = pt.y - cheeseSprite.height/2;
+    }
+    else
+    {
+        cheeseSprite.x = pt.x/screenScale - cheeseSprite.width/2;
+        cheeseSprite.y = pt.y/screenScale - cheeseSprite.height/2;
+    }
     x = pt.x;
     y = pt.y;
     pos->x = x;
@@ -169,23 +192,36 @@
     bounceForce->a->y = 0;
     normalForce->a->x = 0;
     normalForce->a->y = 0;
+    angularVelocity = angularDisplacement = 1;
 }
 
 - (void) fall:(float) interpolation
 {
+    double leftLimitX = 0;
+    double rightLimitX = 0;
+    bool isBouncingOffWall = false;
     if ( cheeseSprite.y + cheeseSprite.height > 0)
     {
-       // colPackage->velocity = vel;
-        if (pos->x > (640*sx - cheeseSprite.width/2*sx ))
+        if (screenWidth == 1242)
         {
-            pos->x = 640*sx - cheeseSprite.width/2*sx;
+            leftLimitX = cheeseSprite.width/2;
+            rightLimitX = screenWidth - cheeseSprite.width/2;
+        }
+        else
+        {
+            leftLimitX = cheeseSprite.width/2*sx;
+            rightLimitX = 640*sx - cheeseSprite.width/2*sx;
+        }
+        if (pos->x > rightLimitX)
+        {
+            pos->x = rightLimitX;
             x = pos->x;
             [self bounceOffRightWall];
             
         }
-        else if (pos->x < (cheeseSprite.width/2*sx))
+        else if (pos->x < leftLimitX)
         {
-            pos->x = cheeseSprite.width/2*sx;
+            pos->x = leftLimitX;
             x = pos->x;
             [self bounceOffLeftWall];
         }
@@ -226,10 +262,15 @@
             // set x and y to just touch the object
             if (colPackage->collidedObj!=nil)
             {
-                if ([colPackage->collidedObj class] == [Gear class])
+                /*if ([colPackage->collidedObj class] == [Wall class])
                 {
-                    x = pos->x + justTouchVelocity->x;//*time;
-                    y = pos->y + justTouchVelocity->y;//*time;
+                    x = pos->x + justTouchVelocity->x;
+                    y = pos->y + justTouchVelocity->y;
+                }
+                else*/ if ([colPackage->collidedObj class] == [Gear class])
+                {
+                    x = pos->x;// + justTouchVelocity->x;//*time;
+                    y = pos->y;// + justTouchVelocity->y;//*time;
                     vel->y = initVel->y;
                   /*  if (vel->x <= 1 && vel->x >=-1)
                     {
@@ -255,6 +296,7 @@
                             vyt = vel->y*time;
                         //else
                          //   vyt = roundf(vel->y*time);
+                        
                         x = pos->x + vxt;
                         y = pos->y + vyt;
                     }
@@ -371,13 +413,25 @@
 
 - (bool) checkCoin:(Coin *)c
 {
+    float cx = 0;
+    float cy = 0;
     Vector *coinPosition = [[Vector alloc] init];
-    
-    float cx = c->pos->x * sx;// + c->coinSprite.width*sx/2;
-    float cy = c->pos->y * sy;// + c->coinSprite.height*sy/2;
+    if (screenWidth == 1242)
+    {
+        cx = c->pos->x;
+        cy = c->pos->y;
+    }
+    else
+    {
+        cx = c->pos->x * sx;// + c->coinSprite.width*sx/2;
+        cy = c->pos->y * sy;// + c->coinSprite.height*sy/2;
+    }
     [coinPosition initializeVectorX:cx andY:cy];
     double dist = [coinPosition subtract:pos]->length;
     double sumRadii = (c->r*sy + r*sy);
+    
+    if (screenWidth == 1242)
+        sumRadii = c->r + r;
     dist -= sumRadii;
    // NSLog(@"Distance from cheese to coin: %f", dist);
   //  NSLog(@"vel length: %f", [vel length]);
@@ -470,12 +524,23 @@
 {    // Early Escape test: if the length of the movevec is less
     // than distance between the centers of these circles minus
     // their radii, there's no way they can hit.
+    float screenWidth = [UIScreen.mainScreen bounds].size.width * [UIScreen.mainScreen scale];
+    float screenHeight = [UIScreen.mainScreen bounds].size.height * [UIScreen.mainScreen scale];
     Vector *gearPosition = [[[Vector alloc] init] autorelease];
     float gx = g->pos->x * sx;
     float gy = g->pos->y * sy;
+    if (screenWidth == 1242)
+    {
+        gx = g->pos->x;
+        gy = g->pos->y;
+    }
     [gearPosition initializeVectorX:gx andY:gy];
     double dist = [gearPosition subtract:pos]->length;
-    double sumRadii = (g->r*sy + r*sx);
+    double sumRadii = (g->r*sy + r*sy);
+    if (screenWidth == 1242)
+    {
+        sumRadii = g->r + r;
+    }
     dist -= sumRadii;
     if( [vel length]*time < dist){
         return false;
@@ -507,8 +572,8 @@
     }
     // Find the length of the vector C
     double lengthC = C->length;
-    
-    double F = (lengthC * lengthC) - (D * D);
+    double cSquared = lengthC * lengthC;
+    double F = cSquared - (D * D);
     
     // Escape test: if the closest that A will get to B
     // is more than the sum of their radii, there's no
@@ -517,6 +582,8 @@
     if(F >= sumRadiiSquared){
         return false;
     }
+        
+    
     
     // We now have F and sumRadii, two sides of a right triangle.
     // Use these to find the third side, sqrt(T)
@@ -552,11 +619,21 @@
     justTouchVelocity = [justTouchVelocity multiply:distance];
     
     bounceVel = [[Vector alloc] init];
-    bounceVel->x = sx*(x - gearPosition->x);//(x - g->x);
-    bounceVel->y = sy*(y - gearPosition->y);//(y - g->y);
+    if (screenWidth == 1242)
+    {
+        bounceVel->x = (x - gearPosition->x);
+        bounceVel->y = (y - gearPosition->y);
+    }
+    else
+    {
+        bounceVel->x = sx*(x - gearPosition->x);//(x - g->x);
+        bounceVel->y = sy*(y - gearPosition->y);//(y - g->y);
+    }
     //printf("bounceVel retain count: %lu", (unsigned long)[bounceVel length]);
    // printf("bounceVel retain count: %lu", (unsigned long)[bounceVel retainCount]);
     [bounceVel normalize];
+    
+    
     
    /* Vector *normal = [[Vector alloc] init];
     [normal initializeVectorX:0 andY:0];
@@ -564,6 +641,166 @@
     normal = [[C multiply:-1] multiply:gravity->length];*/
     double length = [vel length];
     bounceVel = [bounceVel multiply:length];// add:gravity] add:normal];
+    
+    if (cSquared < sumRadiiSquared) // if cheese goes into the gear
+    {
+        
+        justTouchVelocity = bounceVel;
+        [justTouchVelocity normalize];
+        distance = sumRadii - lengthC;
+        justTouchVelocity = [justTouchVelocity multiply:distance];
+        /*if (x + justTouchVelocity->x > screenWidth - cheeseSprite.width/2)
+        {
+            double newPosX = x + justTouchVelocity->x;
+            double diffX = newPosX - (screenWidth - cheeseSprite.width/2);
+            justTouchVelocity->x -= diffX;
+            double newPosY = y + justTouchVelocity->y;
+            double diffY =  y + (sumRadii) - newPosY;
+            justTouchVelocity->y += diffY;
+        }*/
+    }
+    /*double theta = M_PI_2;
+    double fx = C->x * cos(theta) - C->y * sin(theta);
+    double fy = C->x * sin(theta) - C->y * cos(theta);
+    Vector *Friction = [[Vector alloc] init];
+    [Friction initializeVectorX:fx andY:fy];
+    [Friction normalize];
+    Friction = [Friction multiply:(UNIT*10)];
+    bounceVel = [bounceVel add:Friction];*/
+    return true;
+}
+
+
+- (bool) checkBomb:(Bomb *)b
+{    // Early Escape test: if the length of the movevec is less
+    // than distance between the centers of these circles minus
+    // their radii, there's no way they can hit.
+    float screenWidth = [UIScreen.mainScreen bounds].size.width * [UIScreen.mainScreen scale];
+    float screenHeight = [UIScreen.mainScreen bounds].size.height * [UIScreen.mainScreen scale];
+    Vector *bombPosition = [[[Vector alloc] init] autorelease];
+    float bx = b->pos->x * sx;
+    float by = b->pos->y * sy;
+    if (screenWidth == 1242)
+    {
+        bx = b->pos->x;
+        by = b->pos->y;
+    }
+    [bombPosition initializeVectorX:bx andY:by];
+    double dist = [bombPosition subtract:pos]->length;
+    double sumRadii = (b->r*sy + r*sy);
+    if (screenWidth == 1242)
+    {
+        sumRadii = b->r + r;
+    }
+    dist -= sumRadii;
+    if( [vel length]*time < dist){
+        return false;
+    }
+    
+    // Normalize the movevec
+    Vector *N = [[Vector alloc] init];
+    [N initializeVectorX:vel->x andY:vel->y];
+    [N normalize];
+    
+    // Find C, the vector from the center of the moving
+    // circle A to the center of B
+    Vector *C = [[[Vector alloc] init] autorelease];
+    [C initializeVectorX:0 andY:0];
+    C = [bombPosition subtract:pos];
+
+   
+    
+    // D = N . C = ||C|| * cos(angle between N and C)
+    double D = [N dotProduct:C];
+    [N release];
+    
+    // Another early escape: Make sure that A is moving
+    // towards B! If the dot product between the movevec and
+    // B.center - A.center is less that or equal to 0,
+    // A isn't moving towards B
+    if(D <= 0){
+        return false;
+    }
+    // Find the length of the vector C
+    double lengthC = C->length;
+    double cSquared = lengthC * lengthC;
+    double F = cSquared - (D * D);
+    
+    // Escape test: if the closest that A will get to B
+    // is more than the sum of their radii, there's no
+    // way they are going collide
+    double sumRadiiSquared = sumRadii * sumRadii;
+    if(F >= sumRadiiSquared){
+        return false;
+    }
+        
+    
+    
+    // We now have F and sumRadii, two sides of a right triangle.
+    // Use these to find the third side, sqrt(T)
+    double T = sumRadiiSquared - F;
+    
+    // If there is no such right triangle with sides length of
+    // sumRadii and sqrt(f), T will probably be less than 0.
+    // Better to check now than perform a square root of a
+    // negative number.
+    if(T < 0){
+        return false;
+    }
+    
+    // Therefore the distance the circle has to travel along
+    // movevec is D - sqrt(T)
+    double distance = D - sqrt(T);
+    
+    // Get the magnitude of the movement vector
+    double mag = [vel length];
+    
+    // Finally, make sure that the distance A has to move
+    // to touch B is not greater than the magnitude of the
+    // movement vector.
+    if(mag < distance){
+        return false;
+    }
+    
+    // Set the length of the movevec so that the circles will just
+    // touch
+    justTouchVelocity = [[Vector alloc] init];
+    [justTouchVelocity initializeVectorX:vel->x andY:vel->y];
+    [justTouchVelocity normalize];
+    justTouchVelocity = [justTouchVelocity multiply:distance];
+    
+    bounceVel = [[Vector alloc] init];
+    if (screenWidth == 1242)
+    {
+        bounceVel->x = (x - bombPosition->x);
+        bounceVel->y = (y - bombPosition->y);
+    }
+    else
+    {
+        bounceVel->x = sx*(x - bombPosition->x);//(x - g->x);
+        bounceVel->y = sy*(y - bombPosition->y);//(y - g->y);
+    }
+    //printf("bounceVel retain count: %lu", (unsigned long)[bounceVel length]);
+   // printf("bounceVel retain count: %lu", (unsigned long)[bounceVel retainCount]);
+    [bounceVel normalize];
+    
+    
+    
+   /* Vector *normal = [[Vector alloc] init];
+    [normal initializeVectorX:0 andY:0];
+    [C normalize];
+    normal = [[C multiply:-1] multiply:gravity->length];*/
+    double length = [vel length];
+    bounceVel = [bounceVel multiply:length];// add:gravity] add:normal];
+    
+    if (cSquared < sumRadiiSquared)
+    {
+        
+        justTouchVelocity = bounceVel;
+        [justTouchVelocity normalize];
+        distance = sumRadii - lengthC;
+        justTouchVelocity = [justTouchVelocity multiply:distance];
+    }
     /*double theta = M_PI_2;
     double fx = C->x * cos(theta) - C->y * sin(theta);
     double fy = C->x * sin(theta) - C->y * cos(theta);
@@ -585,7 +822,7 @@
     Line *leftLine = [[[Line alloc] init] autorelease];
     Line *rightLine = [[[Line alloc] init] autorelease];
 
-    
+
     bool foundCollision = false;
     while (totter->angle <= 0 || totter->angle > 360) {
         if (totter->angle <= 0)
@@ -594,20 +831,53 @@
             totter->angle-=360;
     }
     double radAngle = totter->angle*M_PI/180.0f;    // get top left of rectangle
-    topLeftX = sx * (totter->x - cos(radAngle)*totter->totterSprite.width/2 + cos(radAngle+M_PI_2)*totter->totterSprite.height/2);
-    topLeftY = sy * (totter->y - sin(radAngle)*totter->totterSprite.width/2 + sin(radAngle+M_PI_2)*totter->totterSprite.height/2);
+    
+    if (screenWidth == 1242)
+    {
+        topLeftX = (totter->x - cos(radAngle)*totter->totterSprite.width/2 + cos(radAngle+M_PI_2)*totter->totterSprite.height/2);
+        topLeftY = (totter->y - sin(radAngle)*totter->totterSprite.width/2 + sin(radAngle+M_PI_2)*totter->totterSprite.height/2);
+    }
+    else
+    {
+        topLeftX = sx * (totter->x - cos(radAngle)*totter->totterSprite.width/2 + cos(radAngle+M_PI_2)*totter->totterSprite.height/2);
+        topLeftY = sy * (totter->y - sin(radAngle)*totter->totterSprite.width/2 + sin(radAngle+M_PI_2)*totter->totterSprite.height/2);
+    }
     topLeftPt = CGPointMake(topLeftX, topLeftY);
     // get top right of rectangle
-    topRightX = sx * (totter->x + cos(radAngle)*totter->totterSprite.width/2 + cos(radAngle+M_PI_2)*totter->totterSprite.height/2);
-    topRightY = sy * (totter->y + sin(radAngle)*totter->totterSprite.width/2 + sin(radAngle+M_PI_2)*totter->totterSprite.height/2);
+    if (screenWidth == 1242)
+    {
+        topRightX = (totter->x + cos(radAngle)*totter->totterSprite.width/2 + cos(radAngle+M_PI_2)*totter->totterSprite.height/2);
+        topRightY = (totter->y + sin(radAngle)*totter->totterSprite.width/2 + sin(radAngle+M_PI_2)*totter->totterSprite.height/2);
+    }
+    else
+    {
+        topRightX = sx * (totter->x + cos(radAngle)*totter->totterSprite.width/2 + cos(radAngle+M_PI_2)*totter->totterSprite.height/2);
+        topRightY = sy * (totter->y + sin(radAngle)*totter->totterSprite.width/2 + sin(radAngle+M_PI_2)*totter->totterSprite.height/2);
+    }
     topRightPt = CGPointMake(topRightX,topRightY);
     // get bottom left of rectangle
-    bottomLeftX = sx * (totter->x - cos(radAngle)*totter->totterSprite.width/2 + cos(radAngle-M_PI_2)*totter->totterSprite.height/2);
-    bottomLeftY = sy * (totter->y - sin(radAngle)*totter->totterSprite.width/2 + sin(radAngle-M_PI_2)*totter->totterSprite.height/2);
+    if (screenWidth == 1242)
+    {
+        bottomLeftX = (totter->x - cos(radAngle)*totter->totterSprite.width/2 + cos(radAngle-M_PI_2)*totter->totterSprite.height/2);
+        bottomLeftY = (totter->y - sin(radAngle)*totter->totterSprite.width/2 + sin(radAngle-M_PI_2)*totter->totterSprite.height/2);
+    }
+    else
+    {
+        bottomLeftX = sx * (totter->x - cos(radAngle)*totter->totterSprite.width/2 + cos(radAngle-M_PI_2)*totter->totterSprite.height/2);
+        bottomLeftY = sy * (totter->y - sin(radAngle)*totter->totterSprite.width/2 + sin(radAngle-M_PI_2)*totter->totterSprite.height/2);
+    }
     bottomLeftPt = CGPointMake(bottomLeftX, bottomLeftY);
     // get bottom right of rectangle
-    bottomRightX = sx * (totter->x + cos(radAngle)*totter->totterSprite.width/2 + cos(radAngle-M_PI_2)*totter->totterSprite.height/2);
-    bottomRightY = sy * (totter->y + sin(radAngle)*totter->totterSprite.width/2 + sin(radAngle-M_PI_2)*totter->totterSprite.height/2);
+    if (screenWidth == 1242)
+    {
+        bottomRightX = (totter->x + cos(radAngle)*totter->totterSprite.width/2 + cos(radAngle-M_PI_2)*totter->totterSprite.height/2);
+        bottomRightY = (totter->y + sin(radAngle)*totter->totterSprite.width/2 + sin(radAngle-M_PI_2)*totter->totterSprite.height/2);
+    }
+    else
+    {
+        bottomRightX = sx * (totter->x + cos(radAngle)*totter->totterSprite.width/2 + cos(radAngle-M_PI_2)*totter->totterSprite.height/2);
+        bottomRightY = sy * (totter->y + sin(radAngle)*totter->totterSprite.width/2 + sin(radAngle-M_PI_2)*totter->totterSprite.height/2);
+    }
     bottomRightPt = CGPointMake(bottomRightX,bottomRightY);
     
     topLine = [topLine initializeLineWithPoint1:topLeftPt andPoint2:topRightPt];
@@ -634,14 +904,22 @@
         
         //bool isCollidedWithTopLeft = [self collideWithVertex:topLeft];
         //bool isCollidedWithTopRight = [self collideWithVertex:topRight];
+        Vector *topLeftVector = [[Vector alloc] init];
+        [topLeftVector initializeVectorX:topLeft.x andY:topLeft.y];
+        Vector *topRightVector = [[Vector alloc] init];
+        [topRightVector initializeVectorX:topRight.x andY:topRight.y];
         Vector *bottomLeftVector = [[[Vector alloc] init] autorelease];
-        [bottomLeftVector initializeVectorX:bottomLeft.x andY:bottomLeft.y];
-        isPastBottomLeft = [self pastVertex:bottomLeftVector];
+        [bottomLeftVector initializeVectorX:bottomLeft.x andY:bottomLeft.y];        
         Vector *bottomRightVector = [[[Vector alloc] init] autorelease];
         [bottomRightVector initializeVectorX:bottomRight.x andY:bottomRight.y];
+        isPastTopLeft = [self pastVertex:topLeftVector];
+        isPastTopRight = [self pastVertex:topRightVector];
+        isPastBottomLeft = [self pastVertex:bottomLeftVector];
+        isPastBottomRight = [self pastVertex:bottomRightVector];
         isPastBottomLeft = [self pastVertex:bottomLeftVector];
         isPastBottomRight = [self pastVertex:bottomRightVector];
         isPastTopLine = [self pastLine:topLine];
+        isPastBottomLine = [self pastLine:bottomLine];
         isNearTopLeft = [self nearVertex:topLeft];
         isNearTopRight = [self nearVertex:topRight];
         isNearTopLine = [self nearLine:topLine];
@@ -672,7 +950,56 @@
         if (collidedWithBottomRight < shortestDistance && collidedWithBottomRight > 0)
             shortestDistance = collidedWithBottomRight;
         
-        if ( collidedWithTopLeft == shortestDistance || isNearTopLeft)
+        if ((isPastTopLine || isPastBottomLine || isPastBottomRight || isPastBottomLeft || isPastTopLeft || isPastTopRight)) //&& (shortestDistance == FLT_MAX || shortestDistance==-1))
+        {
+            if (diff < veryCloseDistance)
+                diff = veryCloseDistance;
+            Vector *I = [[[Vector alloc] init] autorelease];
+            [I initializeVectorX:vel->x andY:vel->y];
+            Vector *negativeI = [[[Vector alloc] init] autorelease];
+            [negativeI initializeVectorX:-vel->x andY:-vel->y];
+            colPackage->state = COLLISION_BOUNCE;
+            double cheeseRadius = r*sy;
+            if ( screenWidth == 1242)
+                cheeseRadius = r;
+            
+            if (isPastTopLeft)
+                normal = [self->pos subtract:topLeftVector];
+            else if (isPastTopRight)
+                normal = [self->pos subtract:topRightVector];
+            else if (isPastBottomRight)
+                normal = [self->pos subtract:bottomRightVector];
+            else if (isPastBottomLeft)
+                normal = [self->pos subtract:bottomLeftVector];
+            else if (isPastTopLine)
+            {
+                CGPoint p1 = CGPointMake( topLine->p1.x/cheeseRadius, topLine->p1.y/cheeseRadius);
+                CGPoint p2 = CGPointMake( topLine->p2.x/cheeseRadius, topLine->p2.y/cheeseRadius);
+                [slidingLine initializeLineWithPoint1:p1 andPoint2:p2];
+                normal = [topLine normal];
+            }
+            else if (isPastBottomLine)
+            {
+                CGPoint p1 = CGPointMake( bottomLine->p1.x/cheeseRadius, bottomLine->p1.y/cheeseRadius);
+                CGPoint p2 = CGPointMake( bottomLine->p2.x/cheeseRadius, bottomLine->p2.y/cheeseRadius);
+                [slidingLine initializeLineWithPoint1:p1 andPoint2:p2];
+                normal = [bottomLine normal];
+            }
+            colPackage->collidedObj = totter;
+            foundCollision = true;
+            //colPackage->foundCollision = true;
+            slidingLine->normal = normal;
+            [normal normalize];
+            double scaler = [negativeI dotProduct:normal];
+            if (scaler < 0)
+               scaler = -scaler;
+            N = [normal multiply:scaler];
+            bounceVel = [[N multiply:2] add:I];
+            // initVel = bounceVel; will be done in bounceoffdrum
+            [bounceVel normalize];
+            bounceVel = [bounceVel multiply:vel.length];
+        }
+        else if ( collidedWithTopLeft == shortestDistance || isNearTopLeft)
         {
             bool isCollidedWithTopLeft = [self collideWithVertex:topLeft];
             Vector *topLeftVector = [[[Vector alloc] init] autorelease];
@@ -723,7 +1050,7 @@
                     bounceVel = [[N multiply:2] add:I];
                             
                     [bounceVel normalize];
-                    bounceVel = [bounceVel multiply:(vel.length/2.0f)];//[[bounceVel multiply:vel.length] add:gravity];
+                    bounceVel = [bounceVel multiply:(vel.length/screenScale)];//[[bounceVel multiply:vel.length] add:gravity];
 
                     slidingLine->normal = normal;
                 }
@@ -753,7 +1080,7 @@
                     bounceVel = [[N multiply:2] add:I];
                                
                     [bounceVel normalize];
-                    bounceVel = [normal multiply:(vel.length/2.0f)];// [[normal multiply:vel.length] add:gravity];
+                    bounceVel = [normal multiply:(vel.length/screenScale)];// [[normal multiply:vel.length] add:gravity];
                    
                     slidingLine->normal = normal;
                 }
@@ -824,7 +1151,7 @@
                   //  [I normalize];
                     bounceVel = [[N multiply:2] add:I];
                     [bounceVel normalize];
-                    bounceVel = [bounceVel multiply:(vel.length/2.0f)];
+                    bounceVel = [bounceVel multiply:(vel.length/screenScale)];
                     //double diff = self->x - topRight.x;
                     //lineToCheese = [self->pos subtract:rightLine];
                     //if (bounceVel->x < diff)
@@ -858,7 +1185,7 @@
                     [I normalize];
                     bounceVel = [[N multiply:2] add:I];
                     [bounceVel normalize];
-                    bounceVel = [bounceVel multiply:(vel.length/2.0f)];// [[bounceVel multiply:vel.length] add:gravity];
+                    bounceVel = [bounceVel multiply:(vel.length/screenScale)];// [[bounceVel multiply:vel.length] add:gravity];
     
                     slidingLine->normal = normal;
                 }
@@ -903,6 +1230,12 @@
             slidingLine->normal = normal;
             slidingLine->p1 = CGPointMake( topLine->p1.x/(r*sx), topLine->p1.y/(r*sy));
             slidingLine->p2 = CGPointMake( topLine->p2.x/(r*sx), topLine->p2.y/(r*sy));
+            if (screenWidth == 1242)
+            {
+                slidingLine->p1 = CGPointMake( topLine->p1.x/(r), topLine->p1.y/(r));
+                slidingLine->p2 = CGPointMake( topLine->p2.x/(r), topLine->p2.y/(r));
+                
+            }
                
             if (collidedWithTop == shortestDistance)
                 foundCollision = true;
@@ -951,7 +1284,7 @@
             N = [normal multiply:[negativeI dotProduct:normal]];
             bounceVel = [[N multiply:2] add:I];
             [bounceVel normalize];
-            bounceVel = [bounceVel multiply:(vel.length/2.0f)]; //[[bounceVel multiply:vel.length] add:gravity];
+            bounceVel = [bounceVel multiply:(vel.length/screenScale)]; //[[bounceVel multiply:vel.length] add:gravity];
             foundCollision = true;
             colPackage->state = COLLISION_BOUNCE;
         }
@@ -960,7 +1293,8 @@
             [self collideWithVertex:bottomLeft];
             Vector *bottomLeftVector = [[[Vector alloc] init] autorelease];
             [bottomLeftVector initializeVectorX:bottomLeft.x andY:bottomLeft.y];
-            
+            Vector *negativeI = [[[Vector alloc] init] autorelease];
+            [negativeI initializeVectorX:-vel->x andY:-vel->y];
             normal = [self->pos subtract:bottomLeftVector];
             
             [normal normalize];
@@ -973,7 +1307,7 @@
            // [I normalize];
             bounceVel = [[N multiply:2] add:I];
             [bounceVel normalize];
-            bounceVel = [bounceVel multiply:(vel.length/2.0f)];//[[bounceVel multiply:vel.length] add:gravity];
+            bounceVel = [bounceVel multiply:(vel.length/screenScale)];//[[bounceVel multiply:vel.length] add:gravity];
             foundCollision = true;
             colPackage->state = COLLISION_BOUNCE;
             slidingLine->normal = normal;
@@ -996,7 +1330,7 @@
          //  [I normalize];
             bounceVel = [[N multiply:2] add:I];
             [bounceVel normalize];
-            bounceVel = [bounceVel multiply:(vel.length/2.0f)];// [[bounceVel multiply:vel.length] add:gravity];
+            bounceVel = [bounceVel multiply:(vel.length/screenScale)];// [[bounceVel multiply:vel.length] add:gravity];
             foundCollision = true;
             colPackage->state = COLLISION_BOUNCE;
             slidingLine->normal = normal;
@@ -1022,11 +1356,12 @@
             [I normalize];
             bounceVel = [[N multiply:2] add:I];
             [bounceVel normalize];
-            bounceVel = [bounceVel multiply:(vel.length/2.0f)];//[[bounceVel multiply:vel.length] add:gravity];
+            bounceVel = [bounceVel multiply:(vel.length/screenScale)];//[[bounceVel multiply:vel.length] add:gravity];
             foundCollision = true;
             slidingLine->normal = normal;
             colPackage->state = COLLISION_BOUNCE;
         }
+        
     }
 
     return foundCollision;
@@ -1052,20 +1387,52 @@
     }
     
     // get top left of rectangle
-    topLeftX = sx * (d->x - cos(radAngle)*d->drumSprite.width/2 + cos(radAngle+M_PI_2)*d->drumSprite.height/2);
-    topLeftY = sy * (d->y - sin(radAngle)*d->drumSprite.width/2 + sin(radAngle+M_PI_2)*d->drumSprite.height/2);
+    if (screenWidth == 1242)
+    {
+        topLeftX = (d->x - cos(radAngle)*d->drumSprite.width/2 + cos(radAngle+M_PI_2)*d->drumSprite.height/2);
+        topLeftY = (d->y - sin(radAngle)*d->drumSprite.width/2 + sin(radAngle+M_PI_2)*d->drumSprite.height/2);
+    }
+    else
+    {
+        topLeftX = sx * (d->x - cos(radAngle)*d->drumSprite.width/2 + cos(radAngle+M_PI_2)*d->drumSprite.height/2);
+        topLeftY = sy * (d->y - sin(radAngle)*d->drumSprite.width/2 + sin(radAngle+M_PI_2)*d->drumSprite.height/2);
+    }
     topLeftPt = CGPointMake(topLeftX, topLeftY);
     // get top right of rectangle
-    topRightX = sx * (d->x + cos(radAngle)*d->drumSprite.width/2 + cos(radAngle+M_PI_2)*d->drumSprite.height/2);
-    topRightY = sy * (d->y + sin(radAngle)*d->drumSprite.width/2 + sin(radAngle+M_PI_2)*d->drumSprite.height/2);
+    if (screenWidth == 1242)
+    {
+        topRightX = (d->x + cos(radAngle)*d->drumSprite.width/2 + cos(radAngle+M_PI_2)*d->drumSprite.height/2);
+        topRightY = (d->y + sin(radAngle)*d->drumSprite.width/2 + sin(radAngle+M_PI_2)*d->drumSprite.height/2);
+    }
+    else
+    {
+        topRightX = sx * (d->x + cos(radAngle)*d->drumSprite.width/2 + cos(radAngle+M_PI_2)*d->drumSprite.height/2);
+        topRightY = sy * (d->y + sin(radAngle)*d->drumSprite.width/2 + sin(radAngle+M_PI_2)*d->drumSprite.height/2);
+    }
     topRightPt = CGPointMake(topRightX,topRightY);
     // get bottom left of rectangle
-    bottomLeftX = sx * (d->x - cos(radAngle)*d->drumSprite.width/2 + cos(radAngle-M_PI_2)*d->drumSprite.height/2);
-    bottomLeftY = sy * (d->y - sin(radAngle)*d->drumSprite.width/2 + sin(radAngle-M_PI_2)*d->drumSprite.height/2);
+    if (screenWidth == 1242)
+    {
+        bottomLeftX = (d->x - cos(radAngle)*d->drumSprite.width/2 + cos(radAngle-M_PI_2)*d->drumSprite.height/2);
+        bottomLeftY = (d->y - sin(radAngle)*d->drumSprite.width/2 + sin(radAngle-M_PI_2)*d->drumSprite.height/2);
+    }
+    else
+    {
+        bottomLeftX = sx * (d->x - cos(radAngle)*d->drumSprite.width/2 + cos(radAngle-M_PI_2)*d->drumSprite.height/2);
+        bottomLeftY = sy * (d->y - sin(radAngle)*d->drumSprite.width/2 + sin(radAngle-M_PI_2)*d->drumSprite.height/2);
+    }
     bottomLeftPt = CGPointMake(bottomLeftX, bottomLeftY);
     // get bottom right of rectangle
-    bottomRightX = sx * (d->x + cos(radAngle)*d->drumSprite.width/2 + cos(radAngle-M_PI_2)*d->drumSprite.height/2);
-    bottomRightY = sy * (d->y + sin(radAngle)*d->drumSprite.width/2 + sin(radAngle-M_PI_2)*d->drumSprite.height/2);
+    if (screenWidth == 1242)
+    {
+        bottomRightX = (d->x + cos(radAngle)*d->drumSprite.width/2 + cos(radAngle-M_PI_2)*d->drumSprite.height/2);
+        bottomRightY = (d->y + sin(radAngle)*d->drumSprite.width/2 + sin(radAngle-M_PI_2)*d->drumSprite.height/2);
+    }
+    else
+    {
+        bottomRightX = sx * (d->x + cos(radAngle)*d->drumSprite.width/2 + cos(radAngle-M_PI_2)*d->drumSprite.height/2);
+        bottomRightY = sy * (d->y + sin(radAngle)*d->drumSprite.width/2 + sin(radAngle-M_PI_2)*d->drumSprite.height/2);
+    }
     bottomRightPt = CGPointMake(bottomRightX,bottomRightY);
     
     topLine = [topLine initializeLineWithPoint1:topLeftPt andPoint2:topRightPt];
@@ -1132,7 +1499,7 @@
         if (shortestDistance != FLT_MAX || shortestDistance!=-1)
             colPackage->state == COLLISION_BOUNCE;
             
-        /*if ((isPastTopLine || isPastBottomLine || isPastBottomRight || isPastBottomLeft || isPastTopLeft || isPastTopRight) && (shortestDistance == FLT_MAX || shortestDistance==-1))
+        if ((isPastTopLine || isPastBottomLine || isPastBottomRight || isPastBottomLeft || isPastTopLeft || isPastTopRight) && (shortestDistance == FLT_MAX || shortestDistance==-1))
         {
             if (diff < veryCloseDistance)
                 diff = veryCloseDistance;
@@ -1141,18 +1508,20 @@
             Vector *negativeI = [[[Vector alloc] init] autorelease];
             [negativeI initializeVectorX:-vel->x andY:-vel->y];
             colPackage->state = COLLISION_BOUNCE;
-            
+            double cheeseRadius = r*sy;
+            if ( screenWidth == 1242)
+                cheeseRadius = r;
             if (isPastTopLine)
             {
-                CGPoint p1 = CGPointMake( topLine->p1.x/(r*sx), topLine->p1.y/(r*sy));
-                CGPoint p2 = CGPointMake( topLine->p2.x/(r*sx), topLine->p2.y/(r*sy));
+                CGPoint p1 = CGPointMake( topLine->p1.x/cheeseRadius, topLine->p1.y/cheeseRadius);
+                CGPoint p2 = CGPointMake( topLine->p2.x/cheeseRadius, topLine->p2.y/cheeseRadius);
                 [slidingLine initializeLineWithPoint1:p1 andPoint2:p2];
                 normal = [topLine normal];
             }
             else if (isPastBottomLine)
             {
-                CGPoint p1 = CGPointMake( bottomLine->p1.x/(r*sx), bottomLine->p1.y/(r*sy));
-                CGPoint p2 = CGPointMake( bottomLine->p2.x/(r*sx), bottomLine->p2.y/(r*sy));
+                CGPoint p1 = CGPointMake( bottomLine->p1.x/cheeseRadius, bottomLine->p1.y/cheeseRadius);
+                CGPoint p2 = CGPointMake( bottomLine->p2.x/cheeseRadius, bottomLine->p2.y/cheeseRadius);
                 [slidingLine initializeLineWithPoint1:p1 andPoint2:p2];
                 normal = [bottomLine normal];
             }
@@ -1169,13 +1538,16 @@
             //colPackage->foundCollision = true;
             slidingLine->normal = normal;
             [normal normalize];
-            N = [normal multiply:[negativeI dotProduct:normal]];
+            double scaler = [negativeI dotProduct:normal];
+            if (scaler < 0)
+               scaler = -scaler;
+            N = [normal multiply:scaler];
             bounceVel = [[N multiply:2] add:I];
             // initVel = bounceVel; will be done in bounceoffdrum
             [bounceVel normalize];
             bounceVel = [bounceVel multiply:vel.length];
         }
-        else*/ if (collidedWithTopLeft == shortestDistance)
+        else if (collidedWithTopLeft == shortestDistance)
         {
             [self collideWithVertex:topLeft];
             Vector *I = [[[Vector alloc] init] autorelease];
@@ -1228,7 +1600,7 @@
             bounceVel = [[N multiply:2] add:I];
 
             [bounceVel normalize];
-            bounceVel = [bounceVel multiply:vel.length];
+            bounceVel = [bounceVel multiply:(vel.length/screenScale)];
             foundCollision = true;
             slidingLine->normal = normal;
         }
@@ -1283,7 +1655,7 @@
             [I normalize];
             bounceVel = [[N multiply:2] add:I];
             [bounceVel normalize];
-            bounceVel = [bounceVel multiply:vel.length];
+            bounceVel = [bounceVel multiply:(vel.length/screenScale)];
             foundCollision = true;
             slidingLine->normal = normal;
         }
@@ -1439,13 +1811,29 @@
     }
     
     // get top left of rectangle
-    topLeftX = sx * (f->x - cos(radAngle)*f->sprite.width/2 + cos(radAngle+M_PI_2)*f->sprite.height/2);
-    topLeftY = sy * (f->y - sin(radAngle)*f->sprite.width/2 + sin(radAngle+M_PI_2)*f->sprite.height/2);
+    if (screenWidth == 1242)
+    {
+        topLeftX = (f->x - cos(radAngle)*f->sprite.width/2 + cos(radAngle+M_PI_2)*f->sprite.height/2);
+        topLeftY = (f->y - sin(radAngle)*f->sprite.width/2 + sin(radAngle+M_PI_2)*f->sprite.height/2);
+    }
+    else
+    {
+        topLeftX = sx * (f->x - cos(radAngle)*f->sprite.width/2 + cos(radAngle+M_PI_2)*f->sprite.height/2);
+        topLeftY = sy * (f->y - sin(radAngle)*f->sprite.width/2 + sin(radAngle+M_PI_2)*f->sprite.height/2);
+    }
     topLeftPt = CGPointMake(topLeftX, topLeftY);
     // get top right of rectangle
-    printf("top right radangle: %f \n", radAngle);
-    topRightX = sx * (f->x + cos(radAngle)*f->sprite.width/2 + cos(radAngle+M_PI_2)*f->sprite.height/2);
-    topRightY = sy * (f->y + sin(radAngle)*f->sprite.width/2 + sin(radAngle+M_PI_2)*f->sprite.height/2);
+    printf("flipper rad angle: %f \n", radAngle);
+    if (screenWidth == 1242)
+    {
+        topRightX = (f->x + cos(radAngle)*f->sprite.width/2 + cos(radAngle+M_PI_2)*f->sprite.height/2);
+        topRightY = (f->y + sin(radAngle)*f->sprite.width/2 + sin(radAngle+M_PI_2)*f->sprite.height/2);
+    }
+    else
+    {
+        topRightX = sx * (f->x + cos(radAngle)*f->sprite.width/2 + cos(radAngle+M_PI_2)*f->sprite.height/2);
+        topRightY = sy * (f->y + sin(radAngle)*f->sprite.width/2 + sin(radAngle+M_PI_2)*f->sprite.height/2);
+    }
     topRightPt = CGPointMake(topRightX,topRightY);
     double xHalfWidth,xHalfHeight,yHalfWidth,yHalfHeight;
     // get bottom left of rectangle
@@ -1455,13 +1843,29 @@
         xHalfHeight = cos(radAngle+M_PI_2)*f->sprite.height/2;
         yHalfWidth = sin(radAngle)*f->sprite.width/2;
         yHalfHeight = sin(radAngle+M_PI_2)*f->sprite.height/2;
-        bottomLeftX = sx * (f->x - xHalfWidth - xHalfHeight);
-        bottomLeftY = sy * (f->y - yHalfWidth - yHalfHeight);
+        if (screenWidth == 1242)
+        {
+            bottomLeftX = (f->x - xHalfWidth - xHalfHeight);
+            bottomLeftY = (f->y - yHalfWidth - yHalfHeight);
+        }
+        else
+        {
+            bottomLeftX = sx * (f->x - xHalfWidth - xHalfHeight);
+            bottomLeftY = sy * (f->y - yHalfWidth - yHalfHeight);
+        }
     }
     else
     {
-        bottomLeftX = sx * (f->x - cos(radAngle)*f->sprite.width/2 + cos(radAngle-M_PI_2)*f->sprite.height/2);
-        bottomLeftY = sy * (f->y - sin(radAngle)*f->sprite.width/2 + sin(radAngle-M_PI_2)*f->sprite.height/2);
+        if (screenWidth == 1242)
+        {
+            bottomLeftX = (f->x - cos(radAngle)*f->sprite.width/2 + cos(radAngle-M_PI_2)*f->sprite.height/2);
+            bottomLeftY = (f->y - sin(radAngle)*f->sprite.width/2 + sin(radAngle-M_PI_2)*f->sprite.height/2);
+        }
+        else
+        {
+            bottomLeftX = sx * (f->x - cos(radAngle)*f->sprite.width/2 + cos(radAngle-M_PI_2)*f->sprite.height/2);
+            bottomLeftY = sy * (f->y - sin(radAngle)*f->sprite.width/2 + sin(radAngle-M_PI_2)*f->sprite.height/2);
+        }
     }
     bottomLeftPt = CGPointMake(bottomLeftX, bottomLeftY);
     
@@ -1472,13 +1876,29 @@
         xHalfHeight = cos(radAngle+M_PI_2)*f->sprite.height/2;
         yHalfWidth = sin(radAngle)*f->sprite.width/2;
         yHalfHeight = sin(radAngle+M_PI_2)*f->sprite.height/2;
-        bottomRightX = sx * (f->x + xHalfWidth + xHalfHeight);
-        bottomRightY = sy * (f->y + yHalfWidth  - yHalfHeight);
+        if (screenWidth == 1242)
+        {
+            bottomRightX = (f->x + xHalfWidth + xHalfHeight);
+            bottomRightY = (f->y + yHalfWidth  - yHalfHeight);
+        }
+        else
+        {
+            bottomRightX = sx * (f->x + xHalfWidth + xHalfHeight);
+            bottomRightY = sy * (f->y + yHalfWidth  - yHalfHeight);
+        }
     }
     else
     {
-        bottomRightX = sx * (f->x + cos(radAngle)*f->sprite.width/2 + cos(radAngle-M_PI_2)*f->sprite.height/2);
-        bottomRightY = sy * (f->y + sin(radAngle)*f->sprite.width/2 + sin(radAngle-M_PI_2)*f->sprite.height/2);
+        if (screenWidth == 1242)
+        {
+            bottomRightX = (f->x + cos(radAngle)*f->sprite.width/2 + cos(radAngle-M_PI_2)*f->sprite.height/2);
+            bottomRightY = (f->y + sin(radAngle)*f->sprite.width/2 + sin(radAngle-M_PI_2)*f->sprite.height/2);
+        }
+        else
+        {
+            bottomRightX = sx * (f->x + cos(radAngle)*f->sprite.width/2 + cos(radAngle-M_PI_2)*f->sprite.height/2);
+            bottomRightY = sy * (f->y + sin(radAngle)*f->sprite.width/2 + sin(radAngle-M_PI_2)*f->sprite.height/2);
+        }
     }
     bottomRightPt = CGPointMake(bottomRightX,bottomRightY);
     
@@ -1899,11 +2319,20 @@
     [I normalize];
     bounceVel = [[N multiply:2] add:I];
     [bounceVel normalize];
-    bounceVel = [bounceVel multiply:(vel.length*0.75f)];
+    bounceVel = [bounceVel multiply:(vel.length/screenScale)];
   //  bounceVel = [bounceVel multiply:0.5];
     colPackage->foundCollision = true;
-    self->pos->x = 34*sx+1;
-    self->x = 34*sx+1;
+    
+    if (screenWidth == 1242)
+    {
+        self->pos->x = cheeseSprite->width/2 + 1;
+        self->x = self->pos->x;
+    }
+    else
+    {
+        self->pos->x = 34*sx+1;
+        self->x = 34*sx+1;
+    }
     [initVel initializeVectorX:bounceVel->x andY:bounceVel->y];
    // t = 0;
     colPackage->state = COLLISION_BOUNCE;
@@ -1928,7 +2357,7 @@
     [I normalize];
     bounceVel = [[N multiply:2] add:I];
     [bounceVel normalize];
-    bounceVel = [bounceVel multiply:(vel.length*0.75f)];
+    bounceVel = [bounceVel multiply:(vel.length/screenScale)];
    // bounceVel = [bounceVel multiply:0.1];
     colPackage->foundCollision = true;
     [initVel initializeVectorX:bounceVel->x andY:bounceVel->y];
@@ -1941,16 +2370,19 @@
 {
     if (colPackage->foundCollision)
     {
-      //  pos = colPackage->R3Position;
-      //  initVel->x = bounceVel->x;
-       // initVel->y = bounceVel->y;
-        
         [initVel initializeVectorX:bounceVel->x andY:bounceVel->y];
-        //initVel = [initVel add:gravityForce->a];
-        //initVel = [initVel add:normalForce->a];
-      //  t = 0;
+      
         cheeseSprite.rotation +=1;
-        //colPackage->foundCollision = false;
+    }
+}
+
+- (void) bounceOffBomb
+{
+    if (colPackage->foundCollision)
+    {
+        [initVel initializeVectorX:bounceVel->x andY:bounceVel->y];
+      
+        cheeseSprite.rotation +=1;
     }
 }
 
@@ -2004,8 +2436,28 @@
 
 - (void) bounceOffGear:(Gear *) gear
 {
-    initVel->x = bounceVel->x;
-    initVel->y = bounceVel->y;
+    Vector *tangent = [[Vector alloc] init];
+    float x = gear->x - self->x;
+    float y = gear->y - self->y;
+    
+    [tangent initializeVectorX:x andY:y];
+    [tangent normalize];
+    double radAngle = [tangent getAngle];
+    if (radAngle < 0)
+        radAngle+=2*M_PI;
+    if ([gear isRotatingClockwise])
+    {
+        tangent->x = cos(radAngle-M_PI_2);
+        tangent->y = sin(radAngle-M_PI_2);
+    }
+    else
+    {
+        tangent->x = cos(radAngle+M_PI_2);
+        tangent->y = sin(radAngle+M_PI_2);
+        
+    }
+    initVel->x = bounceVel->x + tangent->x*200;
+    initVel->y = bounceVel->y + tangent->y*200;
     initVel->length = [initVel length];
    // t = 0;
     cheeseSprite.rotation +=1;
@@ -2018,14 +2470,28 @@
 {
     if (mouse->mouseSprite->x!=0 && mouse->mouseSprite->y!=0)
     {
-        if ( x + r*sx < sx*(mouse->mouseSprite->x - mouse->mouseSprite->width/2))
-            return false;
-        else if ( x - r*sx > sx*(mouse->mouseSprite->x + mouse->mouseSprite->width/2))
-            return false;
-        if ( y + r*sy < sy*(mouse->mouseSprite->y - mouse->mouseSprite->height/4))
-            return false;
-        else if ( y - r*sy > sy*(mouse->mouseSprite->y + mouse->mouseSprite->height/4))
-            return false;
+        if (screenWidth == 1242)
+        {
+            if ( x + r < (mouse->mouseSprite->x - mouse->mouseSprite->width/2))
+                return false;
+            else if ( x - r > (mouse->mouseSprite->x + mouse->mouseSprite->width/2))
+                return false;
+            if ( y + r< (mouse->mouseSprite->y - mouse->mouseSprite->height/4))
+                return false;
+            else if ( y - r > (mouse->mouseSprite->y + mouse->mouseSprite->height/4))
+                return false;
+        }
+        else
+        {
+            if ( x + r*sx < sx*(mouse->mouseSprite->x - mouse->mouseSprite->width/2))
+                return false;
+            else if ( x - r*sx > sx*(mouse->mouseSprite->x + mouse->mouseSprite->width/2))
+                return false;
+            if ( y + r*sy < sy*(mouse->mouseSprite->y - mouse->mouseSprite->height/4))
+                return false;
+            else if ( y - r*sy > sy*(mouse->mouseSprite->y + mouse->mouseSprite->height/4))
+                return false;
+        }
     }
     else
         return false;
@@ -2039,6 +2505,8 @@
     Vector *distanceVector = [[Vector alloc] init];
     distanceVector = [self->pos subtract:vertex];
     float nearDist = self->r + (veryCloseDistance*self->r);
+    if (screenWidth == 1242)
+        nearDist = self->r + veryCloseDistance;
     return distanceVector.length < nearDist;
 }
 
@@ -2046,10 +2514,13 @@
 {
     Vector *distanceVector = [[Vector alloc] init];
     distanceVector = [self->pos subtract:vertex];
-    if (distanceVector->length < sx*self->r)
+    double cheeseRadius = sx*self->r;
+    if (screenWidth == 1242)
+        cheeseRadius = self->r;
+    if (distanceVector->length < cheeseRadius)
     {
-        diff = self->r - distanceVector->length;
-        diff = diff/self->r*sx;
+        diff = cheeseRadius - distanceVector->length;
+       // diff = diff/cheeseRadius;
         return true;
     }
     return false;
@@ -2066,6 +2537,13 @@
         float eSpaceP1Y = line->p1.y/(sy*r);
         float eSpaceP2X = line->p2.x/(sx*r);
         float eSpaceP2Y = line->p2.y/(sy*r);
+        if (screenWidth == 1242)
+        {
+            eSpaceP1X = line->p1.x/r;
+            eSpaceP1Y = line->p1.y/r;
+            eSpaceP2X = line->p2.x/r;
+            eSpaceP2Y = line->p2.y/r;
+        }
         CGPoint p1 = CGPointMake(eSpaceP1X, eSpaceP1Y);
         CGPoint p2 = CGPointMake(eSpaceP2X, eSpaceP2Y);
         [pt1 initializeVectorX:eSpaceP1X andY:eSpaceP1Y];
@@ -2074,6 +2552,11 @@
         [eLine initializeLineWithPoint1:p1 andPoint2:p2];
         float cx = self->x/(sx*r);
         float cy = self->y/(sy*r);
+        if (screenWidth == 1242)
+        {
+            cx = self->x/r;
+            cy = self->y/r;
+        }
         [cheeseToP1 initializeVectorX:cx-p1.x andY:cy-p1.y];
         vecLine = [pt2 subtract:pt1];
         // [vecLine normalize];
@@ -2130,10 +2613,17 @@
     Vector *pt2 = [[Vector alloc] init];
     Vector *vecLine = [[Vector alloc] init];
     
-    float eSpaceP1X = line->p1.x;
-    float eSpaceP1Y = line->p1.y;
-    float eSpaceP2X = line->p2.x;
-    float eSpaceP2Y = line->p2.y;
+    float eSpaceP1X = line->p1.x/(sx*r);
+    float eSpaceP1Y = line->p1.y/(sy*r);
+    float eSpaceP2X = line->p2.x/(sx*r);
+    float eSpaceP2Y = line->p2.y/(sy*r);
+    if (screenWidth == 1242)
+    {
+        eSpaceP1X = line->p1.x/r;
+        eSpaceP1Y = line->p1.y/r;
+        eSpaceP2X = line->p2.x/r;
+        eSpaceP2Y = line->p2.y/r;
+    }
     CGPoint p1 = CGPointMake(eSpaceP1X, eSpaceP1Y);
     CGPoint p2 = CGPointMake(eSpaceP2X, eSpaceP2Y);
     [pt1 initializeVectorX:eSpaceP1X andY:eSpaceP1Y];
@@ -2142,6 +2632,11 @@
     [eLine initializeLineWithPoint1:p1 andPoint2:p2];
     float cx = self->x/(r*sx);
     float cy = self->y/(r*sy);
+    if (screenWidth == 1242)
+    {
+        cx = self->x/r;
+        cy = self->y/r;
+    }
     [cheeseToP1 initializeVectorX:cx-p1.x andY:cy-p1.y];
     vecLine = [pt2 subtract:pt1];
    // [vecLine normalize];
@@ -2171,6 +2666,228 @@
     return false;
 }
 
+- (bool) checkWall: (Line*)line
+{
+    Vector *positionInESpace; // position in espace
+    float f0;
+    double numerator, denominator;
+    double M11, M12;
+    NSNumber *numX, *numY;
+    
+    positionInESpace = [[Vector alloc] init];
+    velocityInESpace = [[Vector alloc] init];
+    
+    //double eVx = (colPackage->velocity->x+acceleration->x)/r;
+    //double eVy = (colPackage->velocity->y+acceleration->y)/r;
+    double eVx = (colPackage->velocity->x)/(r*sx);
+    double eVy = (colPackage->velocity->y)/(r*sy);
+    if (screenWidth == 1242)
+    {
+        eVx = colPackage->velocity->x/r;
+        eVy = colPackage->velocity->y/r;
+    }
+    [positionInESpace initializeVectorX:colPackage->basePoint->x andY:colPackage->basePoint->y];
+    [velocityInESpace initializeVectorX:eVx andY:eVy];
+    
+    Matrix *CBM = [[[Matrix alloc] init] autorelease]; // multiply this to get into eSpace
+    NSNumber *num11 = [NSNumber numberWithDouble:1/(r*sx)];
+    NSNumber *num12 = [NSNumber numberWithDouble:0.0];
+    NSNumber *num21 = [NSNumber numberWithDouble:0.0];
+    NSNumber *num22 = [NSNumber numberWithDouble:1/(r*sy)];
+    if (screenWidth == 1242)
+    {
+        num11 = [NSNumber numberWithDouble:1/(r)];
+        num12 = [NSNumber numberWithDouble:0.0];
+        num21 = [NSNumber numberWithDouble:0.0];
+        num22 = [NSNumber numberWithDouble:1/(r)];
+    }
+    
+    CBM = [CBM initWithWidth:2 andHeight:2];
+    [[CBM->M objectAtIndex:0] addObject:num11];
+    [[CBM->M objectAtIndex:0] addObject:num12];
+    [[CBM->M objectAtIndex:1] addObject:num21];
+    [[CBM->M objectAtIndex:1] addObject:num22];
+    
+    float detCBM = [num11 floatValue] * [num22 floatValue] - [num12 floatValue] * [num21 floatValue];
+    Matrix *CBMInverse = [[Matrix alloc] init]; // multiply this to get back to R2 space
+    CBMInverse = [CBMInverse initWithWidth:2 andHeight:2];
+    CBMInverse = [Matrix scale:(1/detCBM) multiplyMatrix:CBM];
+    
+    /*Matrix *CBM2 = [[[Matrix alloc] init] autorelease]; // multiply this to get into eSpace
+    num11 = [NSNumber numberWithDouble:2/3];
+    num12 = [NSNumber numberWithDouble:0.0];
+    num21 = [NSNumber numberWithDouble:0.0];
+    num22 = [NSNumber numberWithDouble:2/3];
+    CBM2 = [CBM2 initWithWidth:2 andHeight:2];
+    [[CBM2->M objectAtIndex:0] addObject:num11];
+    [[CBM2->M objectAtIndex:0] addObject:num12];
+    [[CBM2->M objectAtIndex:1] addObject:num21];
+    [[CBM2->M objectAtIndex:1] addObject:num22];*/
+        
+    Vector *p1 = [[Vector alloc] init];
+    [p1 initializeVectorX:line->p1.x andY:line->p1.y];
+    // convert p1 to espace
+    Matrix *matrixP1 = [[[Matrix alloc] init] autorelease];
+    matrixP1 = [matrixP1 initWithWidth:2 andHeight:1];
+    numX = [NSNumber numberWithFloat:p1->x];
+    numY = [NSNumber numberWithFloat:p1->y];
+    [[matrixP1->M objectAtIndex:0] addObject:numX];
+    [[matrixP1->M objectAtIndex:0] addObject:numY];
+    matrixP1 = [Matrix matrixA:matrixP1 multiplyMatrixB:CBM];
+   // matrixP1 = [Matrix matrixA:matrixP1 multiplyMatrixB:CBM2];
+    M11 = [[[matrixP1->M objectAtIndex:0] objectAtIndex:0] floatValue];
+    M12 = [[[matrixP1->M objectAtIndex:0] objectAtIndex:1] floatValue];
+    [p1 initializeVectorX:M11 andY:M12];
+   // NSLog(@"p1: (%f,%f): ", p1->x, p1->y);
+
+    Vector *p2 = [[[Vector alloc] init] autorelease];
+    [p2 initializeVectorX:line->p2.x andY:line->p2.y];
+    
+    // convert p2 to espace
+    Matrix *matrixP2 = [[[Matrix alloc] init] autorelease];
+    matrixP2 = [matrixP2 initWithWidth:2 andHeight:1];
+    numX = [NSNumber numberWithFloat:p2->x];
+    numY = [NSNumber numberWithFloat:p2->y];
+    [[matrixP2->M objectAtIndex:0] addObject:numX];
+    [[matrixP2->M objectAtIndex:0] addObject:numY];
+    matrixP2 = [Matrix matrixA:matrixP2 multiplyMatrixB:CBM];
+    M11 = [[[matrixP2->M objectAtIndex:0] objectAtIndex:0] floatValue];
+    M12 = [[[matrixP2->M objectAtIndex:0] objectAtIndex:1] floatValue];
+    [p2 initializeVectorX:M11 andY:M12];
+   // NSLog(@"p2: (%f,%f): ", p2->x, p2->y);
+    
+    Vector *baseToVertex = [[[Vector alloc] init] autorelease];
+    baseToVertex = [p1 subtract:positionInESpace];
+    //NSLog(@"baseToVertex: (%f,%f)", baseToVertex->x, baseToVertex->y);
+    
+    Vector *edge = [[[Vector alloc] init] autorelease];
+    edge = [p2 subtract:p1];
+   // NSLog(@"edge (x,y): (%f,%f)", edge->x, edge->y);
+   // NSLog(@"edge's length: %f", [edge length]);
+  //  NSLog(@"edge.length: %f", edge.length);
+  //  NSLog(@"baseToVertex's length: %f", [baseToVertex length]);
+  //  NSLog(@"edge.baseToVertex: %f", [edge dotProduct:baseToVertex] );
+    
+    double edgeSquared = [edge length]*[edge length];
+    //NSLog(@"edge squared: %f", edgeSquared);
+    double A = edgeSquared*(-([velocityInESpace length]*[velocityInESpace length]))+[edge dotProduct:velocityInESpace]*[edge dotProduct:velocityInESpace];
+    double B = edgeSquared*(2*([velocityInESpace dotProduct:baseToVertex])) - 2*(([edge dotProduct:velocityInESpace])*([edge dotProduct:baseToVertex]));
+    double C = edgeSquared * (1 - [baseToVertex length]*[baseToVertex length]) + ([edge dotProduct:baseToVertex])*([edge dotProduct:baseToVertex]);
+    
+    x1 = [[NSNumber alloc] init];
+
+    //NSLog(@"t: %f", time);
+    //NSLog(@"vEspace: %f", velocityInESpace->y);
+    //NSLog(@"v normalized: (%f,%f)", colPackage->normalizedVelocity->x, colPackage->normalizedVelocity->y);
+
+    Line *cheeseLine = [[[Line alloc] init] autorelease];
+    Line *boundLine = [[[Line alloc] init] autorelease];
+    float max = time;
+    bool quadraticSuccess = [Quadratic getLowestRootA:A andB:B andC:C andMinThreshold:(veryCloseDistance) andMaxThreshold:max andRoot:&x1];
+    //bool quadraticSuccess = [Quadratic getLowestRootA:A andB:B andC:C andMinThreshold:(0) andMaxThreshold:time andRoot:&x1];
+    bool lineIntersects = false;
+    CGPoint pt0, pt1,pt2,pt3;
+    
+  
+     double speed = [vel length];
+   
+    if (!quadraticSuccess)
+        return false;
+
+    Vector *posInR3 = [[[Vector alloc] init] autorelease];
+    Matrix *matrixPosInR3 = [[[Matrix alloc] init] autorelease];
+    matrixPosInR3 = [matrixPosInR3 initWithWidth:2 andHeight:1];
+    numX = [NSNumber numberWithFloat:positionInESpace->x];
+    numY = [NSNumber numberWithFloat:positionInESpace->y];
+    [[matrixPosInR3->M objectAtIndex:0] addObject:numX];
+    [[matrixPosInR3->M objectAtIndex:0] addObject:numY];
+    matrixPosInR3 = [Matrix matrixA:matrixPosInR3 multiplyMatrixB:CBMInverse];
+    M11 = [[[matrixPosInR3->M objectAtIndex:0] objectAtIndex:0] floatValue];
+    M12 = [[[matrixPosInR3->M objectAtIndex:0] objectAtIndex:1] floatValue];
+   // NSLog(@"posInR3: %p", posInR3);
+    [posInR3 initializeVectorX:M11 andY:M12];
+   // NSLog(@"posInR3(x,y): (%f,%f)", posInR3->x, posInR3->y);
+   
+    NSLog(@"x1: %f", [x1 floatValue]);
+    numerator = ([edge dotProduct:velocityInESpace])*[x1 floatValue] - ([edge dotProduct:baseToVertex]);
+    denominator = edge.length*edge.length;
+    f0 = numerator/denominator;
+    
+    
+    //NSLog(@"f0: %f", f0);
+    if ( f0 >= 0 && f0 <=1)  {
+
+        collisionPoint = [[Vector alloc] init];
+        [collisionPoint initializeVectorX:0 andY:0];
+        collisionPoint = [p1 add:[edge multiply:f0]];
+       
+        time = [x1 floatValue];
+        
+        // convert collision point back to r3
+       /* Matrix *matrixCollisionPoint = [[[Matrix alloc] init] autorelease];
+        matrixCollisionPoint = [matrixCollisionPoint initWithWidth:2 andHeight:1];
+        numX = [NSNumber numberWithFloat:collisionPoint->x];
+        numY = [NSNumber numberWithFloat:collisionPoint->y];
+        [[matrixCollisionPoint->M objectAtIndex:0] addObject:numX];
+        [[matrixCollisionPoint->M objectAtIndex:0] addObject:numY];
+        matrixCollisionPoint = [Matrix matrixA:matrixCollisionPoint multiplyMatrixB:CBMInverse];
+        M11 = [[[matrixCollisionPoint->M objectAtIndex:0] objectAtIndex:0] floatValue];
+        M12 = [[[matrixCollisionPoint->M objectAtIndex:0] objectAtIndex:1] floatValue];*/
+        //NSLog(@"collisionPoint: %p", collisionPoint);
+        
+        double collisionPointX = collisionPoint->x;
+        double collisionPointY = collisionPoint->y;
+        [eSpaceIntersectionPt initializeVectorX:collisionPointX andY:collisionPointY];
+        
+        if (screenWidth == 1242)
+        {
+            collisionPointX = collisionPoint->x * r;
+            collisionPointY = collisionPoint->y * r;
+        }
+        else
+        {
+            collisionPointX = collisionPoint->x * (r*sx);
+            collisionPointY = collisionPoint->y * (r*sy);
+        }
+        //collisionPoint = [collisionPoint multiply:r];
+        [collisionPoint initializeVectorX:collisionPointX andY:collisionPointY];
+       // [collisionPoint initializeVectorX:M11 andY:M12];
+       // NSLog(@"collisionPoint(x,y): (%f,%f)", collisionPoint->x, collisionPoint->y);
+        colPackage->intersectionPoint = collisionPoint;
+        colPackage->R3Velocity = vel;
+        colPackage->nearestDistance = [vel length] * time;
+    
+        //double eSpaceIntersectionPtX = colPackage->intersectionPoint->x * (1.0f/(r*sx));
+        //double eSpaceIntersectionPtY = colPackage->intersectionPoint->y * (1.0f/(r*sy));
+        //eSpaceIntersectionPt->x = eSpaceIntersectionPtX;
+       // eSpaceIntersectionPt->y = eSpaceIntersectionPtY;
+       // [eSpaceIntersectionPt initializeVectorX:eSpaceIntersectionPtX andY:eSpaceIntersectionPtY];
+        //eSpaceIntersectionPt = [colPackage->intersectionPoint multiply:1/(r*sy)];
+       // eSpaceNearestDist = colPackage->nearestDistance * 1/(r*sy);
+        double eNearestDistX = colPackage->nearestDistance * 1/(r*sx);
+        double eNearestDistY = colPackage->nearestDistance * 1/(r*sy);
+        if (screenWidth == 1242)
+        {
+            eNearestDistX = colPackage->nearestDistance * 1/(r);
+            eNearestDistY = colPackage->nearestDistance * 1/(r);
+        }
+        Vector *eNearestDist = [[Vector alloc] init];
+        [eNearestDist initializeVectorX:eNearestDistX andY:eNearestDistY];
+        eSpaceNearestDist = [eNearestDist length];
+        Vector *normal = [[[Vector alloc] init] autorelease];
+        double cheeseRadius = r*sy;
+        if ( screenWidth == 1242)
+            cheeseRadius = r;
+        CGPoint p1 = CGPointMake( line->p1.x/cheeseRadius, line->p1.y/cheeseRadius);
+        CGPoint p2 = CGPointMake( line->p2.x/cheeseRadius, line->p2.y/cheeseRadius);
+        [slidingLine initializeLineWithPoint1:p1 andPoint2:p2];
+        normal = [line normal];
+        slidingLine->normal = normal;
+        return true;
+    }
+    return false;
+}
+
 - (bool) collideWithLine: (Line *)line
 {
    // NSLog(@"Checking line from (%f,%f) to (%f,%f)", line->p1.x, line->p1.y, line->p2.x, line->p2.y);
@@ -2188,6 +2905,11 @@
     //double eVy = (colPackage->velocity->y+acceleration->y)/r;
     double eVx = (colPackage->velocity->x)/(r*sx);
     double eVy = (colPackage->velocity->y)/(r*sy);
+    if (screenWidth == 1242)
+    {
+        eVx = colPackage->velocity->x/r;
+        eVy = colPackage->velocity->y/r;
+    }
     [positionInESpace initializeVectorX:colPackage->basePoint->x andY:colPackage->basePoint->y];
     [velocityInESpace initializeVectorX:eVx andY:eVy];
     
@@ -2196,6 +2918,14 @@
     NSNumber *num12 = [NSNumber numberWithDouble:0.0];
     NSNumber *num21 = [NSNumber numberWithDouble:0.0];
     NSNumber *num22 = [NSNumber numberWithDouble:1/(r*sy)];
+    if (screenWidth == 1242)
+    {
+        num11 = [NSNumber numberWithDouble:1/(r)];
+        num12 = [NSNumber numberWithDouble:0.0];
+        num21 = [NSNumber numberWithDouble:0.0];
+        num22 = [NSNumber numberWithDouble:1/(r)];
+    }
+    
     CBM = [CBM initWithWidth:2 andHeight:2];
     [[CBM->M objectAtIndex:0] addObject:num11];
     [[CBM->M objectAtIndex:0] addObject:num12];
@@ -2332,8 +3062,17 @@
         double collisionPointX = collisionPoint->x;
         double collisionPointY = collisionPoint->y;
         [eSpaceIntersectionPt initializeVectorX:collisionPointX andY:collisionPointY];
-        collisionPointX = collisionPoint->x * (r*sx);
-        collisionPointY = collisionPoint->y * (r*sy);
+        
+        if (screenWidth == 1242)
+        {
+            collisionPointX = collisionPoint->x * r;
+            collisionPointY = collisionPoint->y * r;
+        }
+        else
+        {
+            collisionPointX = collisionPoint->x * (r*sx);
+            collisionPointY = collisionPoint->y * (r*sy);
+        }
         //collisionPoint = [collisionPoint multiply:r];
         [collisionPoint initializeVectorX:collisionPointX andY:collisionPointY];
        // [collisionPoint initializeVectorX:M11 andY:M12];
@@ -2351,6 +3090,11 @@
        // eSpaceNearestDist = colPackage->nearestDistance * 1/(r*sy);
         double eNearestDistX = colPackage->nearestDistance * 1/(r*sx);
         double eNearestDistY = colPackage->nearestDistance * 1/(r*sy);
+        if (screenWidth == 1242)
+        {
+            eNearestDistX = colPackage->nearestDistance * 1/(r);
+            eNearestDistY = colPackage->nearestDistance * 1/(r);
+        }
         Vector *eNearestDist = [[Vector alloc] init];
         [eNearestDist initializeVectorX:eNearestDistX andY:eNearestDistY];
         eSpaceNearestDist = [eNearestDist length];
@@ -2376,6 +3120,11 @@
     //double eVy = (colPackage->velocity->y+acceleration->y)/r;
     double eVx = (colPackage->velocity->x)/(r*sx);
     double eVy = (colPackage->velocity->y)/(r*sy);
+    if (screenWidth == 1242)
+    {
+        eVx = (colPackage->velocity->x)/r;
+        eVy = (colPackage->velocity->y)/r;
+    }
     [positionInESpace initializeVectorX:colPackage->basePoint->x andY:colPackage->basePoint->y];
     [velocityInESpace initializeVectorX:eVx andY:eVy];
     
@@ -2384,6 +3133,11 @@
     NSNumber *num12 = [NSNumber numberWithDouble:0.0f];
     NSNumber *num21 = [NSNumber numberWithDouble:0.0f];
     NSNumber *num22 = [NSNumber numberWithDouble:1/(r*sy)];
+    if (screenWidth == 1242)
+    {
+        num11 = [NSNumber numberWithDouble:1/r];
+        num22 = [NSNumber numberWithDouble:1/r];
+    }
     CBM = [[CBM initWithWidth:2 andHeight:2] autorelease];
     [[CBM->M objectAtIndex:0] addObject:num11];
     [[CBM->M objectAtIndex:0] addObject:num12];
@@ -2424,8 +3178,18 @@
     colPackage->intersectionPoint = collisionPoint;
     colPackage->R3Velocity = vel;
     colPackage->nearestDistance = [x1 floatValue] * [vel length];
-    double eSpaceIntersectionPtX = colPackage->intersectionPoint->x * (1.0f/(r*sx));
-    double eSpaceIntersectionPtY = colPackage->intersectionPoint->y * (1.0f/(r*sy));
+    double eSpaceIntersectionPtX = 0;
+    double eSpaceIntersectionPtY = 0;
+    if (screenWidth == 1242)
+    {
+        eSpaceIntersectionPtX = colPackage->intersectionPoint->x * (1.0f/(r));
+        eSpaceIntersectionPtY = colPackage->intersectionPoint->y * (1.0f/(r));
+    }
+    else
+    {
+        eSpaceIntersectionPtX = colPackage->intersectionPoint->x * (1.0f/(r*sx));
+        eSpaceIntersectionPtY = colPackage->intersectionPoint->y * (1.0f/(r*sy));
+    }
     [eSpaceIntersectionPt initializeVectorX:eSpaceIntersectionPtX andY:eSpaceIntersectionPtY];
    // eSpaceIntersectionPt = [colPackage->intersectionPoint multiply:1/(r*sx)];
     eSpaceNearestDist = [x1 floatValue] * [velocityInESpace length];//colPackage->nearestDistance * 1/(r*sx);
@@ -2447,28 +3211,28 @@
     }
     
     
-     if (!colPackage->foundCollision)
+    if (!colPackage->foundCollision)
+    {
+       if (colPackage->state == COLLISION_SLIDE)
        {
-           if (colPackage->state == COLLISION_SLIDE)
-           {
-               NSLog(@"cheese sliding");
-               //Vector *velocityNormalized = [[Vector alloc] init];
-               //[velocityNormalized initializeVectorX:vel->x andY:vel->y];
-               //[velocityNormalized normalize];
-               //Vector *accel = [[Vector alloc] init];
-               //accel = [[velocityNormalized multiply:gravity->length] multiply:lerp];
-               //colPackage->R3Velocity = [vel add: accel];
-           }
-           else
-           {
-               Vector *gt = [[Vector alloc] init];
-               gt = [gravity multiply:lerp];
-               colPackage->R3Velocity = [vel add:gt];//[vel add:[vel add:[gravity multiply:0.00033]]];
-           }
+           NSLog(@"cheese sliding");
+           //Vector *velocityNormalized = [[Vector alloc] init];
+           //[velocityNormalized initializeVectorX:vel->x andY:vel->y];
+           //[velocityNormalized normalize];
+           //Vector *accel = [[Vector alloc] init];
+           //accel = [[velocityNormalized multiply:gravity->length] multiply:lerp];
+           //colPackage->R3Velocity = [vel add: accel];
        }
-       
-       vel = colPackage->R3Velocity;
-       colPackage->velocity = vel;
+       else
+       {
+           Vector *gt = [[Vector alloc] init];
+           gt = [gravity multiply:lerp];
+           colPackage->R3Velocity = [vel add:gt];//[vel add:[vel add:[gravity multiply:0.00033]]];
+       }
+    }
+
+    vel = colPackage->R3Velocity;
+    colPackage->velocity = vel;
     
     // calculate position and velocity in eSpace
     Vector *eSpacePosition = [[[Vector alloc] init] autorelease];
@@ -2478,9 +3242,19 @@
     //eSpacePosition = [colPackage->R3Position multiply:(1.0f/(colPackage->eRadius*sy))];
     double ePosX = colPackage->R3Position->x * (1.0f/(colPackage->eRadius*sx));
     double ePosY = colPackage->R3Position->y * (1.0f/(colPackage->eRadius*sy));
+    if (screenWidth == 1242)
+    {
+        ePosX = colPackage->R3Position->x * (1.0f/(colPackage->eRadius));
+        ePosY = colPackage->R3Position->y * (1.0f/(colPackage->eRadius));
+    }
     [eSpacePosition initializeVectorX:ePosX andY:ePosY];
     double eVelX = colPackage->R3Velocity->x * (1.0f/(colPackage->eRadius*sx));
     double eVelY = colPackage->R3Velocity->y * (1.0f/(colPackage->eRadius*sy));
+    if (screenWidth == 1242)
+    {
+        eVelX = colPackage->R3Velocity->x * (1.0f/(colPackage->eRadius));
+        eVelY = colPackage->R3Velocity->y * (1.0f/(colPackage->eRadius));
+    }
     [eSpaceVelocity initializeVectorX:eVelX andY:eVelY];//= [colPackage->R3Velocity multiply:(1.0f/(colPackage->eRadius*sy))];
     // Iterate until we have our final position
     colPackage->collisionRecursionDepth = collisionRecursionDepth = 0;
@@ -2499,9 +3273,23 @@
     //float radius = colPackage->eRadius*sy;
     double radiusX = finalPosition->x*colPackage->eRadius*sx;
     double radiusY = finalPosition->y*colPackage->eRadius*sy;
+    if (screenWidth == 1242)
+    {
+        radiusX = finalPosition->x*colPackage->eRadius;
+        radiusY = finalPosition->y*colPackage->eRadius;
+    }
     [finalPosition initializeVectorX:radiusX andY:radiusY];
     //finalPosition = [finalPosition multiply:radius];
-    if (colPackage->foundCollision && !colPackage->isSlidingOff ) {
+    bool isSlidingOffTetterTotter = false;
+    if (colPackage->isSlidingOff)
+    {
+        
+        if ([colPackage->collidedObj class] == [TeeterTotter class] )
+        {
+            isSlidingOffTetterTotter = true;
+        }
+    }
+    if ( isSlidingOffTetterTotter || colPackage->foundCollision && !colPackage->isSlidingOff ) {
         // move the entity
         [self moveTo:finalPosition];
     }
@@ -2521,7 +3309,8 @@ const float unitsPerMeter = 1000.0f;
     {
         if (colPackage->state == COLLISION_SLIDE)
         {
-            originalSpeed += [acceleration length]*time;// - veryCloseDistance*[gravity length];
+            if (colPackage->collisionCount < 2 )
+                originalSpeed += [acceleration length]*time;// - veryCloseDistance*[gravity length];
         }
         else
             originalSpeed += [acceleration length]*time;
@@ -2546,7 +3335,8 @@ const float unitsPerMeter = 1000.0f;
     
     [world checkCollision:&(colPackage)];
     
-    if (colPackage->foundCollision == false ) {
+    if (colPackage->foundCollision == false )
+    {
         NSLog(@"slide velocity: %f", vel);
         if (colPackage->state== COLLISION_SLIDE) {
             NSLog(@"cheese sliding");
@@ -2557,6 +3347,17 @@ const float unitsPerMeter = 1000.0f;
             return position;
         }
     }
+    else if (colPackage->state == COLLISION_BOUNCE && [colPackage->collidedObj class] == [Gear class] )
+    {
+        double cheeseRadius = r*sy;
+        if ( screenWidth == 1242)
+            cheeseRadius = r;
+        double eJustTouchVelocityX = justTouchVelocity->x/cheeseRadius;
+        double eJustTouchVelocityY = justTouchVelocity->y/cheeseRadius;
+        [justTouchVelocity initializeVectorX:eJustTouchVelocityX andY:eJustTouchVelocityY];
+        position = [position add:justTouchVelocity];
+        return position;
+    }
     else if ((colPackage->state == COLLISION_SLIDE || colPackage->state == COLLISION_BOUNCE) && [colPackage->collidedObj class] == [TeeterTotter class] && (isPastTopRight || isPastBottomLeft || isPastBottomRight || isPastRightLine || isPastLeftLine ))
     {
         if (diff < 0)
@@ -2565,7 +3366,7 @@ const float unitsPerMeter = 1000.0f;
         return [position add:lineToCheese];
     }
     else if (colPackage->state == COLLISION_BOUNCE &&
-             ([colPackage->collidedObj class] == [Drum class] || [colPackage->collidedObj class] == [Flipper class]) &&
+             ([colPackage->collidedObj class] == [Drum class] || [colPackage->collidedObj class] == [Flipper class] ) &&
              (isPastTopLine || isPastBottomLine || isPastLeftLine || isPastRightLine || isPastTopRight || isPastBottomRight || isPastBottomLeft || isPastTopLeft))
     {
         initVel = bounceVel;
@@ -2576,6 +3377,20 @@ const float unitsPerMeter = 1000.0f;
         //return [position add:vel];
         //colPackage->foundCollision = true;
         //[lineToCheese normalize];
+        lineToCheese = [slidingLine->normal multiply:diff];
+        return [position add:lineToCheese];
+    }
+    else if ([colPackage->collidedObj class] == [TeeterTotter class] &&
+             (isPastTopLine || isPastBottomLine || isPastLeftLine || isPastRightLine || isPastTopRight || isPastBottomRight || isPastBottomLeft || isPastTopLeft))
+    {
+        if (colPackage->state == COLLISION_BOUNCE)
+        {
+            initVel = bounceVel;
+            vel = bounceVel;
+        }
+        colPackage->R3Velocity = vel;
+        colPackage->velocity = vel;
+        
         lineToCheese = [slidingLine->normal multiply:diff];
         return [position add:lineToCheese];
     }
@@ -2653,7 +3468,7 @@ const float unitsPerMeter = 1000.0f;
     [velocityNormalized initializeVectorX:velocity->x andY:velocity->y];
     [velocityNormalized normalize];
     [vr initializeVectorX:0 andY:0];
-    vr = [velocityNormalized multiply:2];
+    vr = [velocityNormalized multiply:2]; // for the sliding line?
     
     Vector *vt = [[Vector alloc] init];
     [vt initializeVectorX:0 andY:0];
@@ -2670,9 +3485,9 @@ const float unitsPerMeter = 1000.0f;
     //destinationPoint = [position add: times2];
     Vector *ePos = [[Vector alloc] init];
     [ePos initializeVectorX:0 andY:0];
-    if (colPackage->state == COLLISION_BOUNCE)
+    if (colPackage->state == COLLISION_BOUNCE || colPackage->state == COLLISION_NONE)
         ePos = position;
-    else
+    else if (colPackage->state == COLLISION_SLIDE)
         ePos = [position add: vr];
         //ePos = [destinationPoint add: vr];
     
@@ -2705,7 +3520,7 @@ const float unitsPerMeter = 1000.0f;
    // NSLog(@"veryCloseDistance: %f ", veryCloseDistance);
    // if (eSpaceNearestDist<0)
      //   eSpaceNearestDist = -eSpaceNearestDist;
-    if (eSpaceNearestDist >= veryCloseDistance  && colPackage->foundCollision
+    if (eSpaceNearestDist >= veryCloseDistance  && colPackage->foundCollision 
         //&& colPackage->state != COLLISION_BOUNCE
         //eSpaceIntersectionPt->x!= 0 && eSpaceIntersectionPt->y!=0 &&
         //!isnan(eSpaceIntersectionPt->x) && !isnan(eSpaceIntersectionPt->y) &&
@@ -2841,7 +3656,11 @@ const float unitsPerMeter = 1000.0f;
              //if (colPackage->collidedTotter->angle<0)
              //if (colPackage->collidedTotter->angle!=0)//<=3 || colPackage->collidedTotter->angle>=357)
              double speed = originalSpeed;
-             double eSpeed = originalSpeed/(34.0f*sy);
+             double eSpeed = 0;
+             if (screenWidth == 1242)
+                 eSpeed = originalSpeed/radius;
+             else
+                 eSpeed = originalSpeed/(34.0f*sy);
             // if(colPackage->foundCollision)
             // {
                   //   [vel setLength:initVel->length];
@@ -2853,13 +3672,22 @@ const float unitsPerMeter = 1000.0f;
                  NSLog(@"sin value %f",sin(angle));
                  double v2x = 0;
                  double v2y = 0;
-                 if (self->x < colPackage->collidedTotter->x*sx )//(vel->x < 0)
+                 double collidedTotterX;
+                 if (screenWidth == 1242)
+                 {
+                     collidedTotterX = colPackage->collidedTotter->x;
+                 }
+                 else
+                 {
+                     collidedTotterX = colPackage->collidedTotter->x*sx;
+                 }
+                 if (self->x < collidedTotterX )//(vel->x < 0)
                  {
                      v2x = -vel->length*cos(angle);
                      v2y = -vel->length*sin(angle);
                      [vel initializeVectorX:v2x andY:v2y];
                  }
-                 else if (self->x > colPackage->collidedTotter->x*sx )//vel->x > 0)
+                 else if (self->x > collidedTotterX)//vel->x > 0)
                  {
                      v2x = vel->length*cos(angle);
                      v2y = vel->length*sin(angle);
@@ -3006,6 +3834,12 @@ const float unitsPerMeter = 1000.0f;
       //double eVy = (colPackage->velocity->y)/(r*sy);
       double eVx = (colPackage->velocity->x)/(r*sx);
       double eVy = (colPackage->velocity->y)/(r*sy);
+    
+      if (screenWidth == 1242)
+      {
+          eVx = colPackage->velocity->x/r;
+          eVy = colPackage->velocity->y/r;
+      }
       [positionInESpace initializeVectorX:colPackage->basePoint->x andY:colPackage->basePoint->y];
       [velocityInESpace initializeVectorX:eVx andY:eVy];
       
@@ -3014,6 +3848,13 @@ const float unitsPerMeter = 1000.0f;
       NSNumber *num12 = [NSNumber numberWithDouble:0.0];
       NSNumber *num21 = [NSNumber numberWithDouble:0.0];
       NSNumber *num22 = [NSNumber numberWithDouble:1/(r*sy)];
+      if (screenWidth == 1242)
+      {
+          num11 = [NSNumber numberWithDouble:1/(r)];
+          num12 = [NSNumber numberWithDouble:0.0];
+          num21 = [NSNumber numberWithDouble:0.0];
+          num22 = [NSNumber numberWithDouble:1/(r)];
+      }
       CBM = [CBM initWithWidth:2 andHeight:2];
       [[CBM->M objectAtIndex:0] addObject:num11];
       [[CBM->M objectAtIndex:0] addObject:num12];
@@ -3151,10 +3992,19 @@ const float unitsPerMeter = 1000.0f;
           double collisionPointX = collisionPoint->x;
           double collisionPointY = collisionPoint->y;
           [eSpaceIntersectionPt initializeVectorX:collisionPointX andY:collisionPointY];
-          collisionPointX = collisionPoint->x * (r*sx);
-          collisionPointY = collisionPoint->y * (r*sy);
+          
+          if (screenWidth == 1242)
+          {
+              collisionPointX = collisionPoint->x * (r);
+              collisionPointY = collisionPoint->y * (r);
+          }
+          else
+          {
+              collisionPointX = collisionPoint->x * (r*sx);
+              collisionPointY = collisionPoint->y * (r*sy);
+          }
           //collisionPoint = [collisionPoint multiply:(r*sx)];
-         // [collisionPoint initializeVectorX:M11 andY:M12];
+          [collisionPoint initializeVectorX:collisionPointX andY:collisionPointY];
          // NSLog(@"collisionPoint(x,y): (%f,%f)", collisionPoint->x, collisionPoint->y);
           colPackage->intersectionPoint = collisionPoint;
           colPackage->R3Velocity = vel;
@@ -3164,8 +4014,18 @@ const float unitsPerMeter = 1000.0f;
          // NSLog(@"eSpaceIntersectionPt(x,y): (%f,%f)", eSpaceIntersectionPt->x, eSpaceIntersectionPt->y);
           
          // eSpaceIntersectionPt = [colPackage->intersectionPoint multiply:1/(r*sx)];
-          double eNearestDistX = colPackage->nearestDistance * 1/(r*sx);
-          double eNearestDistY = colPackage->nearestDistance * 1/(r*sy);
+          double eNearestDistX = 0;
+          double eNearestDistY = 0;
+          if (screenWidth == 1242)
+          {
+              eNearestDistX = colPackage->nearestDistance * 1/(r);
+              eNearestDistY = colPackage->nearestDistance * 1/(r);
+          }
+          else
+          {
+              eNearestDistX = colPackage->nearestDistance * 1/(r*sx);
+              eNearestDistY = colPackage->nearestDistance * 1/(r*sy);
+          }
           Vector *eNearestDist = [[Vector alloc] init];
           [eNearestDist initializeVectorX:eNearestDistX andY:eNearestDistY];
           eSpaceNearestDist = [eNearestDist length];
@@ -3176,7 +4036,9 @@ const float unitsPerMeter = 1000.0f;
     
 }
 
-- (float)collideWithVertexF:(CGPoint)pt { 
+- (float)collideWithVertexF:(CGPoint)pt {
+    double eVx = 0;
+    double eVy = 0;
     Vector *velocityInESpace; // velocity in espace
     Vector *positionInESpace; // position in espace
     Vector *p = [[[Vector alloc] init] autorelease];
@@ -3185,10 +4047,16 @@ const float unitsPerMeter = 1000.0f;
     velocityInESpace = [[[Vector alloc] init] autorelease];
     [p initializeVectorX:pt.x andY:pt.y];
     
-   // double eVx = (colPackage->velocity->x+acceleration->x)/r;
-  //  double eVy = (colPackage->velocity->y+acceleration->y)/r;
-    double eVx = (colPackage->velocity->x)/(r*sx);
-    double eVy = (colPackage->velocity->y)/(r*sy);
+    if (screenWidth == 1242)
+    {
+        eVx = (colPackage->velocity->x)/r;
+        eVy = (colPackage->velocity->y)/r;
+    }
+    else
+    {
+        eVx = (colPackage->velocity->x)/(r*sx);
+        eVy = (colPackage->velocity->y)/(r*sy);
+    }
     [positionInESpace initializeVectorX:colPackage->basePoint->x andY:colPackage->basePoint->y];
     [velocityInESpace initializeVectorX:eVx andY:eVy];
     
@@ -3197,6 +4065,13 @@ const float unitsPerMeter = 1000.0f;
     NSNumber *num12 = [NSNumber numberWithDouble:0.0];
     NSNumber *num21 = [NSNumber numberWithDouble:0.0];
     NSNumber *num22 = [NSNumber numberWithDouble:1/(r*sy)];
+    if (screenWidth == 1242)
+    {
+        num11 = [NSNumber numberWithDouble:1/(r)];
+        num12 = [NSNumber numberWithDouble:0.0];
+        num21 = [NSNumber numberWithDouble:0.0];
+        num22 = [NSNumber numberWithDouble:1/(r)];
+    }
     CBM = [[CBM initWithWidth:2 andHeight:2] autorelease];
     [[CBM->M objectAtIndex:0] addObject:num11];
     [[CBM->M objectAtIndex:0] addObject:num12];
@@ -3236,9 +4111,19 @@ const float unitsPerMeter = 1000.0f;
     colPackage->intersectionPoint = collisionPoint;
     colPackage->R3Velocity = vel;
     colPackage->nearestDistance = [x1 floatValue] * [vel length];
-    double eSpaceIntersectionPtX = colPackage->intersectionPoint->x * (1.0f/(r*sx));
-       double eSpaceIntersectionPtY = colPackage->intersectionPoint->y * (1.0f/(r*sy));
-       [eSpaceIntersectionPt initializeVectorX:eSpaceIntersectionPtX andY:eSpaceIntersectionPtY];
+    double eSpaceIntersectionPtX = 0;
+    double eSpaceIntersectionPtY = 0;
+    if (screenWidth == 1242)
+    {
+        eSpaceIntersectionPtX = colPackage->intersectionPoint->x * (1.0f/(r));
+        eSpaceIntersectionPtY = colPackage->intersectionPoint->y * (1.0f/(r));
+    }
+    else
+    {
+        eSpaceIntersectionPtX = colPackage->intersectionPoint->x * (1.0f/(r*sx));
+        eSpaceIntersectionPtY = colPackage->intersectionPoint->y * (1.0f/(r*sy));
+    }
+    [eSpaceIntersectionPt initializeVectorX:eSpaceIntersectionPtX andY:eSpaceIntersectionPtY];
     //eSpaceIntersectionPt = [colPackage->intersectionPoint multiply:1/(r*sx)];
     eSpaceNearestDist = t * [velocityInESpace length];//colPackage->nearestDistance * 1/(r*sx);
     
