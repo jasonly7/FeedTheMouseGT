@@ -424,7 +424,7 @@
     else
     {
         cx = c->pos->x * sx;// + c->coinSprite.width*sx/2;
-        cy = c->pos->y * sy;// + c->coinSprite.height*sy/2;
+        cy = c->pos->y * sy;// +  c->coinSprite.height*sy/2;
     }
     [coinPosition initializeVectorX:cx andY:cy];
     double dist = [coinPosition subtract:pos]->length;
@@ -450,7 +450,7 @@
     // circle A to the center of B
     Vector *C = [[[Vector alloc] init] autorelease];
     [C initializeVectorX:0 andY:0];
-    C = [c->pos subtract:pos];
+    C = [coinPosition subtract:pos];//[c->pos subtract:pos];
    // NSLog(@"C: (%f,%f)", C->x, C->y);
     
     // D = N . C = ||C|| * cos(angle between N and C)
