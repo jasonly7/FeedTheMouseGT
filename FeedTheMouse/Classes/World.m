@@ -23,6 +23,7 @@
         sx = screenWidth/640.0f;
         sy = screenHeight/1136.0f;
         removedCoins = [[NSMutableArray alloc] initWithCapacity:10];
+        score = 0;
     }
     return self;
 }
@@ -90,7 +91,7 @@
                 cheese->colPackage->collidedObj = coin;
                // NSLog(@"# of coins: %d", (int)lvl->coins.count);
                // NSLog(@"removing coin at index %d", i);
-                
+                score+=1;
                 [removedCoins addObject:coin];
                 [lvl->coins removeObjectAtIndex:i];
                 cheese->colPackage->foundCollision = false;

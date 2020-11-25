@@ -118,7 +118,7 @@
     CGContextShowTextAtPoint(context, 0,  y , [text UTF8String], textLength);
     */
      // create a font, quasi systemFontWithSize:24.0
-    CTFontRef sysUIFont = CTFontCreateWithName(CFSTR("Helvetica-Bold"), 24.0, NULL);
+    CTFontRef sysUIFont = CTFontCreateWithName(CFSTR("Helvetica-Bold"), fontSize, NULL);
     //CTFontCreateUIFontForLanguage(kCTFontSystemFontType,
            //  24.0, NULL);
       

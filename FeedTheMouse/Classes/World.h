@@ -24,6 +24,7 @@
     CGFloat sx,sy;
     CGFloat screenScale;
     float screenWidth, screenHeight;
+    int score;
 }
 
 - (void)checkCollision :( CollisionPacket **) colPackage;

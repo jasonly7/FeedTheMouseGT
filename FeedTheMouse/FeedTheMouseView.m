@@ -929,10 +929,28 @@
     levelText.y = 1000;//*screenScale ;
     if (screenWidth == 1242)
         levelText.y = self.bounds.size.height*screenScale - 136;
-    //levelText.rotation = 180;
+    levelText.fontSize = 24;
     [(TextSprite *) levelText setFontSize:36];
-
+    
     [levelText drawBody:context on:self.bounds];
+    CGContextRestoreGState(context);
+    
+    CGContextSaveGState(context);
+    CGContextSetTextMatrix(context, CGAffineTransformIdentity);
+    //CGFloat screenScale = [[UIScreen mainScreen] scale];
+    NSString *strScore = [NSString stringWithFormat:@"Score: %d", cheese->world->score]; //[strLevel stringByAppendingString:curLevel];
+    TextSprite *scoreText = [TextSprite withString: strScore];
+    scoreText.r = 0;
+    scoreText.g = 1.0;
+    scoreText.b = 1.0;
+    if (screenWidth == 1242)
+        scoreText.y = self.bounds.size.height*screenScale - 136;
+    scoreText.x = self.bounds.size.width - 10*sx;
+    scoreText.y = 1000;//*screenScale ;
+    scoreText.fontSize = 18;
+    [(TextSprite *) scoreText setFontSize:24];
+
+    [scoreText drawBody:context on:self.bounds];
     CGContextRestoreGState(context);
     
     for (int i = 0; i < [cheese->world->removedCoins count]; i++)
