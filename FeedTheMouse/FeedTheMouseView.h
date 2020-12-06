@@ -16,15 +16,18 @@
 #import "Drum.h"
 #import "Coin.h"
 #import "VectorSprite.h"
-#import "Obstacles.h"
+//#import "Obstacles.h"
 #import "XMLParser.h"
 #import "Level.h" 
 #import "TitleViewController.h"
+
+#import "FinishGameViewController.h"
 #import "TitleView.h"
 #import "TextSprite.h"
 
-const int MOUSE_HEIGHT = 322;
-const int MOUSE_WIDTH = 256;
+
+//const int MOUSE_HEIGHT = 322;
+//const int MOUSE_WIDTH = 256;
 
 @interface FeedTheMouseView : UIView {
     IBOutlet UILabel *fpsLabel;
@@ -79,8 +82,13 @@ const int MOUSE_WIDTH = 256;
     CGPoint mousePt;
     CGPoint mouseTouchedPoint;
     bool isTouched;
-   
+    //FeedTheMouseViewController *feedTheMouseViewController;
+    //TitleViewController *titleViewController;
+    @public
+        NSString *playerName;
 }
+
+
 
 - (void) doParse:(NSData *) data;
 - (void) gameLoop;

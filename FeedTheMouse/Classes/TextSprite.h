@@ -31,6 +31,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void) moveUpperLeftTo: (CGPoint) p;
 - (void) newText: (NSString *) val;
 - (void) drawBody: (CGContextRef) context on:(CGRect) rect;
+- (void) computeWidth: (CGContextRef) context on: (CGRect) rect;
 @end
 
 NS_ASSUME_NONNULL_END

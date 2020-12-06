@@ -7,9 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FeedTheMouseView.h"
+#import "TitleViewController.h"
 
 @interface FeedTheMouseViewController : UIViewController
-
-
+{
+   
+    NSString *playerName;
+    
+}
+//@property (retain, nonatomic) IBOutlet FeedTheMouseView *feedTheMouseView;
+-(void) setPlayerName: (NSString*) name;
+-(NSString*) getPlayerName;
 @end
 

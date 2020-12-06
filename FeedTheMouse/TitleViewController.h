@@ -8,15 +8,21 @@
 
 #import <UIKit/UIKit.h>
 #import "PlayImageView.h"
+#import "FeedTheMouseViewController.h"
 
 @interface TitleViewController : UIViewController
 {
-     IBOutlet UIImageView *titleImageView;
+
+    //IBOutlet UIView *ftmView;
+    IBOutlet UIImageView *titleImageView;
      IBOutlet UIImageView *splashImageView;
      NSTimer *timer, *splashTimer;
      int count;
+
 }
 @property (nonatomic, retain) IBOutlet UIButton *playButton;
+@property (nonatomic, retain) UITextField *playerNameTextField;
+- (IBAction)doneEnteringPlayerName:(id)sender;
 
 - (void) splashLoop;
 - (void) transitionLoop;

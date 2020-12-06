@@ -8,10 +8,13 @@
 #import "Circle.h"
 #import "Picture.h"
 
+#define COIN_FRAMES 16
+
 @interface Coin : Circle
 {
     @public
         Sprite *coinSprite;
+        
         float lifespan;
 
 }

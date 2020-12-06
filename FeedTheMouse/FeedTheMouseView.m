@@ -126,6 +126,10 @@
             backgroundFilename = [[NSString alloc] initWithString:curLevel->backgroundFilename];
         }
         backgroundSprite = [Picture fromFile:backgroundFilename];
+        TitleViewController *titleViewController = (TitleViewController*)[UIApplication sharedApplication].keyWindow.rootViewController;
+        titleViewController.playerNameTextField.hidden = true;
+      //  FeedTheMouseViewController *feedTheMouseViewController = (FeedThe)
+        //playerName = self.sup
     }
     return self;
 }
@@ -164,16 +168,16 @@
     
    // CGPoint textPt = CGPointMake(50, 100);
     
-    NSFont *font = [NSFont fontWithName:@"Arial" size:24.0];
+    //NSFont *font = [NSFont fontWithName:@"Arial" size:24.0];
     
-    NSDictionary *attrsDictionary =
+    /*NSDictionary *attrsDictionary =
         [NSDictionary dictionaryWithObjectsAndKeys:
          font, NSFontAttributeName,
-         [NSNumber numberWithFloat:1.0], NSBaselineOffsetAttributeName, nil];
+         [NSNumber numberWithFloat:1.0], NSBaselineOffsetAttributeName, nil];*/
     //[str drawAtPoint:textPt withAttributes:attrsDictionary];
     //CGContextShowTextAtPoint(context, 10, 100, str, strlen(str));
     CGRect drawRect = CGRectMake(0.0, 50.0, 500.0, 100.0);
-    [str drawInRect:drawRect withAttributes:attrsDictionary];
+   // [str drawInRect:drawRect withAttributes:attrsDictionary];
 	// Reset the transformation
 	CGAffineTransform t0 = CGContextGetCTM(context);
 	t0 = CGAffineTransformInvert(t0);
@@ -255,6 +259,17 @@
         t0 = CGAffineTransformTranslate(t0, cheese->cheeseSprite.x+cheese->cheeseSprite.width/2,cheese->cheeseSprite.y+cheese->cheeseSprite.height/2);
         
         t0 = CGAffineTransformScale(t0, 2, 2);
+        t0 = CGAffineTransformTranslate(t0, -cheese->cheeseSprite.x-cheese->cheeseSprite.width/2,
+                                        -cheese->cheeseSprite.y-cheese->cheeseSprite.height/2);
+    }
+    
+    if (screenWidth == 1284)
+    {
+        t0 = CGAffineTransformScale(t0, 1/sx, 1/sy);
+        
+        t0 = CGAffineTransformTranslate(t0, cheese->cheeseSprite.x+cheese->cheeseSprite.width/2,cheese->cheeseSprite.y+cheese->cheeseSprite.height/2);
+        
+        t0 = CGAffineTransformScale(t0, sx, sy);
         t0 = CGAffineTransformTranslate(t0, -cheese->cheeseSprite.x-cheese->cheeseSprite.width/2,
                                         -cheese->cheeseSprite.y-cheese->cheeseSprite.height/2);
     }
@@ -920,7 +935,7 @@
     CGContextSaveGState(context);
     CGContextSetTextMatrix(context, CGAffineTransformIdentity);
     CGFloat screenScale = [[UIScreen mainScreen] scale];
-    NSString *strLevel = [NSString stringWithFormat:@"Level: %d", curLevel->num]; //[strLevel stringByAppendingString:curLevel];
+    NSString *strLevel = [NSString stringWithFormat:@"Level %d", curLevel->num]; //[strLevel stringByAppendingString:curLevel];
     TextSprite *levelText = [TextSprite withString: strLevel];
     levelText.r = 0;
     levelText.g = 1.0;
@@ -938,18 +953,54 @@
     CGContextSaveGState(context);
     CGContextSetTextMatrix(context, CGAffineTransformIdentity);
     //CGFloat screenScale = [[UIScreen mainScreen] scale];
-    NSString *strScore = [NSString stringWithFormat:@"Score: %d", cheese->world->score]; //[strLevel stringByAppendingString:curLevel];
+    NSString *strScore = [NSString stringWithFormat:@"Score: %06d", cheese->world->score]; //[strLevel stringByAppendingString:curLevel];
+    TextSprite *fakeScoreText = [TextSprite withString: strScore];
+    fakeScoreText.r = 0;
+    fakeScoreText.g = 1.0;
+    fakeScoreText.b = 1.0;
+    //if (screenWidth == 1242)
+    fakeScoreText.y = levelText.y;// self.bounds.size.height*screenScale - 136;
+    //else
+       // scoreText.y = 1000;//*screenScale ;
+   // [scoreText computeWidth:context on:rect];
+    float screenWidth = self.bounds.size.width*screenScale;
+    //[scoreText computeWidth:context on:self.bounds];
+    fakeScoreText.x = screenWidth;//52
+    
+    fakeScoreText.fontSize = 18;
+    [(TextSprite *) fakeScoreText setFontSize:24];
+   // CGContextSetTextDrawingMode(context, kCGTextInvisible);
+   // [fakeScoreText computeWidth:context on:self.bounds];
+    [fakeScoreText drawBody:context on:self.bounds];
+   // scoreText.x = (screenWidth - scoreText.width)/2;
+   // [scoreText drawBody:context on:self.bounds];
+    CGContextRestoreGState(context);
+    
+    CGContextSaveGState(context);
+    CGContextSetTextMatrix(context, CGAffineTransformIdentity);
+    //CGFloat screenScale = [[UIScreen mainScreen] scale];
+    //NSString *strScore = [NSString stringWithFormat:@"Score: %06d", cheese->world->score]; //[strLevel stringByAppendingString:curLevel];
     TextSprite *scoreText = [TextSprite withString: strScore];
     scoreText.r = 0;
     scoreText.g = 1.0;
     scoreText.b = 1.0;
-    if (screenWidth == 1242)
-        scoreText.y = self.bounds.size.height*screenScale - 136;
-    scoreText.x = self.bounds.size.width - 10*sx;
-    scoreText.y = 1000;//*screenScale ;
+    //if (screenWidth == 1242)
+        scoreText.y = levelText.y;// self.bounds.size.height*screenScale - 136;
+    //else
+       // scoreText.y = 1000;//*screenScale ;
+   // [scoreText computeWidth:context on:rect];
+   // float screenWidth = self.bounds.size.width*screenScale;
+    //[scoreText computeWidth:context on:self.bounds];
+   // scoreText.x = screenWidth;//52
+    
     scoreText.fontSize = 18;
     [(TextSprite *) scoreText setFontSize:24];
-
+   // CGContextSetTextDrawingMode(context, kCGTextInvisible);
+    
+    if (screenWidth == 1242 || screenWidth == 640)
+        scoreText.x = (screenWidth - fakeScoreText.width*screenScale-10);
+    else
+        scoreText.x = (screenWidth - fakeScoreText.width)/screenScale;
     [scoreText drawBody:context on:self.bounds];
     CGContextRestoreGState(context);
     
@@ -972,7 +1023,7 @@
         coinText.g = 1.0;
         coinText.b = 1.0;
         coinText.x = coin->x;//*sx+coin->coinSprite.width/2*sx;
-        coinText.y = coin->y;//*sy+coin->coinSprite.height*sy;
+        coinText.y = coin->y+coin->coinSprite.height;//*sy+coin->coinSprite.height*sy;
         coinText->color =  [UIColor orangeColor].CGColor;
         [(TextSprite *) coinText setFontSize:36];
         [coinText drawBody:context on:self.bounds];
@@ -1190,13 +1241,18 @@
         }*/
         if (currentLevelNumber >= [levels count])
         {
-            
+            TitleViewController *titleViewController = (TitleViewController*)[UIApplication sharedApplication].keyWindow.rootViewController;
+            NSString *playerName = titleViewController.playerNameTextField.text;
             //UIViewController *titleViewController = [[TitleViewController alloc] initWithNibName:@"TitleViewController" bundle:[NSBundle mainBundle]];
             UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
             
             UIViewController *viewController = [sb instantiateViewControllerWithIdentifier:@"FinishGameViewController"];
-            
-           [super addSubview:viewController.view];
+            FinishGameViewController *finishController = (FinishGameViewController*) viewController;
+            finishController->playerName = playerName;
+            finishController->score = cheese->world->score;
+            NSString *strScore = [[NSString alloc] initWithFormat:@"Score: %d",finishController->scores[0]];
+            //[finishController->score1Label setText:strScore];
+           [super addSubview:finishController.view];
             [timer invalidate];
             timer = nil;
            //[self willMoveToSuperview:titleViewController.view];

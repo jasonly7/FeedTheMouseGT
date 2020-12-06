@@ -15,7 +15,7 @@
     self = [super init];
     if (self)
     {
-        coinSprite = [Picture fromFile:@"coin.png"];
+        coinSprite = [[AtlasSprite alloc] init];//[Picture fromFile:@"coin.png"];
         [self setX:0];
         [self setY:0];
         /* coinSprite.x = 0;

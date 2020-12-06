@@ -33,6 +33,8 @@
 		868A774D212B3A62003B5205 /* TitleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 868A774C212B3A62003B5205 /* TitleViewController.m */; };
 		868A7750212B3C24003B5205 /* TitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 868A774F212B3C24003B5205 /* TitleView.m */; };
 		8699A07F2553A0C900B5CFEE /* Wall.m in Sources */ = {isa = PBXBuildFile; fileRef = 8699A07E2553A0C900B5CFEE /* Wall.m */; };
+		86A0496C256FFE0500B89DB6 /* medium_coins in Resources */ = {isa = PBXBuildFile; fileRef = 86A0496B256FFE0500B89DB6 /* medium_coins */; };
+		86A04971257009E900B89DB6 /* large_coins in Resources */ = {isa = PBXBuildFile; fileRef = 86A04970257009E900B89DB6 /* large_coins */; };
 		86A50DA924DF6EFA00108BB2 /* animation_frames in Resources */ = {isa = PBXBuildFile; fileRef = 86A50DA724DF6EFA00108BB2 /* animation_frames */; };
 		86A50DAA24DF6EFA00108BB2 /* bomb_explosion in Resources */ = {isa = PBXBuildFile; fileRef = 86A50DA824DF6EFA00108BB2 /* bomb_explosion */; };
 		86B3B97C24ED75B900BE2FE0 /* teeter_totter_yellow.png in Resources */ = {isa = PBXBuildFile; fileRef = 86B3B97B24ED75B900BE2FE0 /* teeter_totter_yellow.png */; };
@@ -205,6 +207,8 @@
 		868A7751212B4BF8003B5205 /* FeedTheMouseView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FeedTheMouseView.h; sourceTree = "<group>"; };
 		8699A07D2553A0C900B5CFEE /* Wall.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Wall.h; path = Classes/Wall.h; sourceTree = "<group>"; };
 		8699A07E2553A0C900B5CFEE /* Wall.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = Wall.m; path = Classes/Wall.m; sourceTree = "<group>"; };
+		86A0496B256FFE0500B89DB6 /* medium_coins */ = {isa = PBXFileReference; lastKnownFileType = folder; name = medium_coins; path = Images/Triggers/medium_coins; sourceTree = "<group>"; };
+		86A04970257009E900B89DB6 /* large_coins */ = {isa = PBXFileReference; lastKnownFileType = folder; name = large_coins; path = Images/Triggers/large_coins; sourceTree = "<group>"; };
 		86A50DA724DF6EFA00108BB2 /* animation_frames */ = {isa = PBXFileReference; lastKnownFileType = folder; name = animation_frames; path = Images/animation_frames; sourceTree = "<group>"; };
 		86A50DA824DF6EFA00108BB2 /* bomb_explosion */ = {isa = PBXFileReference; lastKnownFileType = folder; name = bomb_explosion; path = Images/bomb_explosion; sourceTree = "<group>"; };
 		86B3B97B24ED75B900BE2FE0 /* teeter_totter_yellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = teeter_totter_yellow.png; path = Images/Triggers/TeeterTotters/teeter_totter_yellow.png; sourceTree = "<group>"; };
@@ -249,7 +253,6 @@
 		86E074E21E441CD400E92CB9 /* FeedTheMouse.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = FeedTheMouse.xml; sourceTree = "<group>"; };
 		86E074E31E441CD400E92CB9 /* FeedTheMouseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedTheMouseView.h; sourceTree = "<group>"; };
 		86E074E41E441CD400E92CB9 /* FeedTheMouseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedTheMouseView.m; sourceTree = "<group>"; };
-		86E074E51E441CD400E92CB9 /* Obstacles.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Obstacles.h; sourceTree = "<group>"; };
 		86E074EC1E441DF600E92CB9 /* AtlasSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AtlasSprite.h; path = Classes/AtlasSprite.h; sourceTree = "<group>"; };
 		86E074ED1E441DF600E92CB9 /* AtlasSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AtlasSprite.m; path = Classes/AtlasSprite.m; sourceTree = "<group>"; };
 		86E074EE1E441DF600E92CB9 /* Cheese.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Cheese.h; path = Classes/Cheese.h; sourceTree = "<group>"; };
@@ -430,7 +433,6 @@
 				8647A0CF212C5FCD00DE7685 /* FinishGameView.m */,
 				868A7751212B4BF8003B5205 /* FeedTheMouseView.h */,
 				86E074E41E441CD400E92CB9 /* FeedTheMouseView.m */,
-				86E074E51E441CD400E92CB9 /* Obstacles.h */,
 				86E074AE1E4412B400E92CB9 /* AppDelegate.h */,
 				86E074AF1E4412B400E92CB9 /* AppDelegate.m */,
 				86E074B11E4412B400E92CB9 /* FeedTheMouseViewController.h */,
@@ -599,6 +601,8 @@
 		86E0755D1E44268B00E92CB9 /* Triggers */ = {
 			isa = PBXGroup;
 			children = (
+				86A04970257009E900B89DB6 /* large_coins */,
+				86A0496B256FFE0500B89DB6 /* medium_coins */,
 				86A50DA724DF6EFA00108BB2 /* animation_frames */,
 				86A50DA824DF6EFA00108BB2 /* bomb_explosion */,
 				861A65E41E465CD80013918F /* coin.png */,
@@ -828,6 +832,7 @@
 				86E0756E1E4426D300E92CB9 /* small_gear_orange.png in Resources */,
 				863A582824EC7989004D5541 /* bigCheese.png in Resources */,
 				86E0754B1E44254000E92CB9 /* MouseOpenMouth.png in Resources */,
+				86A0496C256FFE0500B89DB6 /* medium_coins in Resources */,
 				86E65836250878A800BA1889 /* small_button_up.png in Resources */,
 				86E0754C1E44254000E92CB9 /* MouseSad.png in Resources */,
 				8672E0412539D9A400F69618 /* big_teeter_totter_green.png in Resources */,
@@ -906,6 +911,7 @@
 				860BDC6E252F8361007B91C4 /* big_teeter_totter_orange.png in Resources */,
 				86C4979E250197560006519F /* bigMouseWait.png in Resources */,
 				861A65E51E465CD80013918F /* coin.png in Resources */,
+				86A04971257009E900B89DB6 /* large_coins in Resources */,
 				86E075A01E44282700E92CB9 /* small_star.png in Resources */,
 				8603B62C253CF6DC003AF4E4 /* big_teeter_totter_yellow.png in Resources */,
 				86E075C01E44288900E92CB9 /* teeter_totter_grey.png in Resources */,

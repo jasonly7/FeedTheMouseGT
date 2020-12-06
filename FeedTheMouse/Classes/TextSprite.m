@@ -163,6 +163,14 @@
     CGContextTranslateCTM(context, xVal*rect.size.width, rect.size.height*yVal);
     CGContextScaleCTM(context, 1.0, -1.0);
 
+    //NSDictionary<NSAttributedString*, id> *stringDictionary;
+    
+    //stringDictionary = [NSDictionary dictionaryWithObject:stringToDraw forKey:@"key1"];
+    NSStringDrawingContext *con = [[NSStringDrawingContext alloc] init];
+    con.minimumScaleFactor = screenScale;
+    
+    CGRect strRect = [text boundingRectWithSize:rect.size options:NSStringDrawingUsesLineFragmentOrigin attributes:attributesDict context:con];
+    width = strRect.size.width;
     // draw
     CTLineRef line = CTLineCreateWithAttributedString(
      (CFAttributedStringRef)stringToDraw);

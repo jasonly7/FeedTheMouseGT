@@ -48,9 +48,12 @@
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
     
     UIViewController *feedTheMouseViewController = [sb instantiateViewControllerWithIdentifier:@"FeedTheMouseViewController"];
-    
+    FeedTheMouseViewController *feedController = (FeedTheMouseViewController*) feedTheMouseViewController;
+    //FeedTheMouseViewController *feedController = [[FeedTheMouseViewController alloc] initWithNibName:@"FeedTheMouse" bundle:[NSBundle mainBundle]];
+    [feedController setPlayerName:_playerNameTextField.text];
+
     [self.view addSubview:feedTheMouseViewController.view];
-    
+    //[self.view addSubview:feedController.view];
 }
 
 -(void)animationCompleted{
@@ -82,6 +85,11 @@
         splashTimer = nil;
         
     }
+}
+
+- (IBAction)doneEnteringPlayerName:(id)sender {
+    
+    [sender resignFirstResponder];
 }
 
 - (void) transitionLoop
@@ -117,6 +125,7 @@
         selector:@selector(splashLoop)
         userInfo:nil
         repeats:YES];
+    [_playerNameTextField setBackgroundColor:[UIColor whiteColor]];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -142,4 +151,11 @@
 }
 */
 
+
+- (void)dealloc {
+    //[view release];
+  //  [ftmView release];
+    [_playerNameTextField release];
+    [super dealloc];
+}
 @end
