@@ -235,19 +235,24 @@
                     if (cheese->colPackage->foundCollision)
                     {
                         printf("collided with teeter totter\n");
+                        [cheese->vel initializeVectorX:0 andY:0];
                     }
                     else if (cheese->colPackage->state != COLLISION_BOUNCE)// && !cheese->isPastTopRight)
                     {
                         printf("near the teeter totter\n");
                         cheese->colPackage->state = cheese->colPackage->state == COLLISION_SLIDE;
                         //cheese->colPackage->foundCollision = true;
+                        [cheese->vel initializeVectorX:0 andY:0];
                     }
                     
                     if ((cheese->isNearTopLine && !cheese->isNearTopLeft && !cheese->isNearTopRight) || cheese->isPastTopLine)// && (cheese->colPackage->state != COLLISION_BOUNCE && //!cheese->isPastTopRight))
                         cheese->colPackage->state = COLLISION_SLIDE;
 
                     if (cheese->colPackage->state == COLLISION_SLIDE )
+                    {
                         [cheese slideOffTeeterTotter:teeterTotter];
+                        [cheese->vel initializeVectorX:0 andY:0];
+                    }
                     else if (cheese->colPackage->state == COLLISION_BOUNCE)
                         [cheese bounceOffTeeterTotter];
                    // teeterTotter->time += 2;
@@ -334,8 +339,10 @@
                             teeterTotter->topLineRotated = [topLine initializeLineWithPoint1:topLeftPt andPoint2:topRightPt];
                             cheese->slidingLine->normal = [teeterTotter->topLineRotated normal];
                         }
-                        break;
+                       // break;
                     }
+                    [cheese->vel initializeVectorX:1 andY:1];
+                    break;
                 }
                 else if ( cheese->colPackage->collisionRecursionDepth > 0 )
                 {
@@ -343,7 +350,10 @@
                     if (cheese->colPackage->state == COLLISION_SLIDE)
                     {
                         [cheese slideOffTeeterTotter:teeterTotter];
+                        [cheese->vel initializeVectorX:1 andY:1];
+                        //break;
                     }
+                    //break;
                 }
                 else
                 {
@@ -378,10 +388,11 @@
                     
                 }// end if
             }
-            if (cheese->colPackage->foundCollision)
+            if (cheese->colPackage->foundCollision || cheese->colPackage->collisionRecursionDepth > 0)
             {
                 cheese->colPackage->collisionCount++;
-             //   break;
+                [cheese->vel initializeVectorX:1 andY:1];
+                break;
             }
         } // end for
         
