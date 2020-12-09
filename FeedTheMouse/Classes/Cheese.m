@@ -923,6 +923,8 @@
         isNearTopLeft = [self nearVertex:topLeft];
         isNearTopRight = [self nearVertex:topRight];
         isNearTopLine = [self nearLine:topLine];
+        isNearRightLine = [self nearLine:rightLine];
+        isNearLeftLine = [self nearLine:leftLine];
         float collidedWithTop = [self collideWithLineF:topLine];
         float collidedWithBottom = [self collideWithLineF:bottomLine];
         float collidedWithLeft = [self collideWithLineF:leftLine];
@@ -1013,17 +1015,10 @@
             slidingLine->normal = normal;
             colPackage->state = COLLISION_SLIDE;
             
-            if (isNearTopLeft && !isCollidedWithTopLeft)
+            /*if (isNearTopLeft && !isCollidedWithTopLeft)
             {
-                if (vel->x <0)
-                {
-                    colPackage->isSlidingOff = true;
-                    //normal = [[topLine->normal add:leftLine->normal] multiply:0.5f];
-                    
-                    //[normal normalize];
-                   // totter->normal = normal;
-                }
-                else if (vel->x >= 0)
+                
+                if (vel->x >= 0 && x < totter->totterSprite.x )
                 {
                     isPastTopLeft = [self pastVertex:topLeftVector];
                   //  isPastLeftLine = [self pastLine:leftLine];
@@ -1051,14 +1046,22 @@
                     bounceVel = [[N multiply:2] add:I];
                             
                     [bounceVel normalize];
-                    bounceVel = [bounceVel multiply:(vel.length/screenScale)];//[[bounceVel multiply:vel.length] add:gravity];
+                    bounceVel = [[bounceVel multiply:vel.length] add:gravity];// [bounceVel multiply:(vel.length/screenScale)];//
 
                     slidingLine->normal = normal;
+                }
+                else//if (vel->x <0)
+                {
+                    colPackage->isSlidingOff = true;
+                    //normal = [[topLine->normal add:leftLine->normal] multiply:0.5f];
+                    
+                    //[normal normalize];
+                   // totter->normal = normal;
                 }
             }
             else
             {
-                if (vel->x > 0)
+                if (vel->x > 0 && x < totter->totterSprite.x)
                 {
                     colPackage->state = COLLISION_BOUNCE;
                     Vector *I = [[[Vector alloc] init] autorelease];
@@ -1081,15 +1084,16 @@
                     bounceVel = [[N multiply:2] add:I];
                                
                     [bounceVel normalize];
-                    bounceVel = [bounceVel multiply:(vel.length/screenScale)];// [[normal multiply:vel.length] add:gravity];
+                    bounceVel = [[bounceVel multiply:vel.length] add:gravity];//[bounceVel multiply:(vel.length/screenScale)];// [[normal multiply:vel.length] add:gravity];
                    
                     slidingLine->normal = normal;
                 }
-                else if (vel->x < 0)
-                {
+                else //if (vel->x < 0)
+                {*/
+
                      colPackage->isSlidingOff = true;
-                }
-            }
+                //}
+            //}
             
             
         }
@@ -1198,6 +1202,52 @@
             //foundCollision = true;
             
         }
+        else if (collidedWithLeft == shortestDistance || isNearLeftLine)
+        {
+            [self collideWithLine:leftLine];
+            if ([leftLine isFrontFacingTo:vel])
+            {
+                normal = leftLine->normal = [leftLine normal];
+            }
+            else
+            {
+                [normal initializeVectorX:-leftLine->normal->x andY: -leftLine->normal->y];
+                leftLine->normal = normal;
+            }
+            [normal normalize];
+            // projection of the normal along I (initial velocity vector going towards the line)
+            N = [normal multiply:[negativeI dotProduct:normal]];
+            bounceVel = [[N multiply:2] add:I];
+            [bounceVel normalize];
+            bounceVel = [[bounceVel multiply:vel.length] add:gravity];//[bounceVel multiply:(vel.length/2.0f)];//
+            foundCollision = true;
+            colPackage->state = COLLISION_BOUNCE;
+        }
+        else if (collidedWithRight == shortestDistance || isNearRightLine)
+        {
+            [self collideWithLine:rightLine];
+            Vector *I = [[[Vector alloc] init] autorelease];
+            [I initializeVectorX:vel->x andY:vel->y];
+            Vector *negativeI = [[[Vector alloc] init] autorelease];
+            [negativeI initializeVectorX:-vel->x andY:-vel->y];
+            //if ([rightLine isFrontFacingTo:vel])
+           // {
+                normal = rightLine->normal = [rightLine normal];
+           // }
+           // else
+           // {
+              //  [normal initializeVectorX:-rightLine->normal->x andY: -rightLine->normal->y];
+             //   rightLine->normal = normal;
+          // }
+            [normal normalize];
+            // projection of the normal along I (initial velocity vector going towards the line)
+            N = [normal multiply:[negativeI dotProduct:normal]];
+            bounceVel = [[N multiply:2] add:I];
+            [bounceVel normalize];
+            bounceVel = [[bounceVel multiply:vel.length] add:gravity];//[bounceVel multiply:(vel.length/screenScale)];
+            foundCollision = true;
+            colPackage->state = COLLISION_BOUNCE;
+        }
         else if (collidedWithTop == shortestDistance || isNearTopLine)// || isPastTopLine)
         {
             if (collidedWithTop == shortestDistance)
@@ -1242,52 +1292,6 @@
                 foundCollision = true;
             
             colPackage->state = COLLISION_SLIDE;
-        }
-        else if (collidedWithLeft == shortestDistance)
-        {
-            [self collideWithLine:leftLine];
-            if ([leftLine isFrontFacingTo:vel])
-            {
-                normal = leftLine->normal = [leftLine normal];
-            }
-            else
-            {
-                [normal initializeVectorX:-leftLine->normal->x andY: -leftLine->normal->y];
-                leftLine->normal = normal;
-            }
-            [normal normalize];
-            // projection of the normal along I (initial velocity vector going towards the line)
-            N = [normal multiply:[negativeI dotProduct:normal]];
-            bounceVel = [[N multiply:2] add:I];
-            [bounceVel normalize];
-            bounceVel = [bounceVel multiply:(vel.length/2.0f)];//[[bounceVel multiply:vel.length] add:gravity];
-            foundCollision = true;
-            colPackage->state = COLLISION_BOUNCE;
-        }
-        else if (collidedWithRight == shortestDistance)
-        {
-            [self collideWithLine:rightLine];
-            Vector *I = [[[Vector alloc] init] autorelease];
-            [I initializeVectorX:vel->x andY:vel->y];
-            Vector *negativeI = [[[Vector alloc] init] autorelease];
-            [negativeI initializeVectorX:-vel->x andY:-vel->y];
-            //if ([rightLine isFrontFacingTo:vel])
-           // {
-                normal = rightLine->normal = [rightLine normal];
-           // }
-           // else
-           // {
-              //  [normal initializeVectorX:-rightLine->normal->x andY: -rightLine->normal->y];
-             //   rightLine->normal = normal;
-          // }
-            [normal normalize];
-            // projection of the normal along I (initial velocity vector going towards the line)
-            N = [normal multiply:[negativeI dotProduct:normal]];
-            bounceVel = [[N multiply:2] add:I];
-            [bounceVel normalize];
-            bounceVel = [bounceVel multiply:(vel.length/screenScale)]; //[[bounceVel multiply:vel.length] add:gravity];
-            foundCollision = true;
-            colPackage->state = COLLISION_BOUNCE;
         }
         else if (collidedWithBottomLeft == shortestDistance || isPastBottomLeft)
         {
