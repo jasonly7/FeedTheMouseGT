@@ -1017,7 +1017,7 @@
         [arc stroke];*/
         CGFloat screenScale = [[UIScreen mainScreen] scale];
 
-        NSString *strCoin = [NSString stringWithFormat:@"+%d", curLevel->num]; //[strLevel stringByAppendingString:curLevel];
+        NSString *strCoin = [NSString stringWithFormat:@"+%d", 1]; //[strLevel stringByAppendingString:curLevel];
         TextSprite *coinText = [TextSprite withString: strCoin];
         coinText.r = 0;
         coinText.g = 1.0;

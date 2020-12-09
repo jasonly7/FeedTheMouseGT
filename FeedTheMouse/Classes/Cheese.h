@@ -86,7 +86,8 @@
         bool isPastTopRight;
         bool isPastBottomRight;
         bool isPastBottomLeft;
-        bool isNearTopRight, isNearTopLeft, isNearTopLine;
+        bool isNearTopRight, isNearTopLeft;
+        bool isNearTopLine, isNearRightLine, isNearLeftLine;
         bool isCollidedWithTop;
         
         float diff;
