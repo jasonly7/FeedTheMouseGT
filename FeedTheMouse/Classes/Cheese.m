@@ -1090,7 +1090,6 @@
                 }
                 else //if (vel->x < 0)
                 {*/
-            
 
                      colPackage->isSlidingOff = true;
                 //}
