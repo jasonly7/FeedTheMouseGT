@@ -1134,8 +1134,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2474"
             endingLineNumber = "2474"
-            landmarkName = "-collideWith:"
-            landmarkType = "7">
+            landmarkName = "Cheese"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2293,8 +2293,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3824"
             endingLineNumber = "3824"
-            landmarkName = "Cheese"
-            landmarkType = "3">
+            landmarkName = "-moveTo:"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -3389,8 +3389,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3842"
             endingLineNumber = "3842"
-            landmarkName = "-collideWithLineF:"
-            landmarkType = "7">
+            landmarkName = "Cheese"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -3423,8 +3423,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3825"
             endingLineNumber = "3825"
-            landmarkName = "-dealloc"
-            landmarkType = "7">
+            landmarkName = "Cheese"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -4873,8 +4873,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1799"
             endingLineNumber = "1799"
-            landmarkName = "-checkFlipper:"
-            landmarkType = "7">
+            landmarkName = "Cheese"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -6834,8 +6834,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2517"
             endingLineNumber = "2517"
-            landmarkName = "Cheese"
-            landmarkType = "3">
+            landmarkName = "-nearVertex:"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
