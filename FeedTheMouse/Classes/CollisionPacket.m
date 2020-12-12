@@ -22,6 +22,7 @@
         normalizedVelocity = [[Vector alloc] init];
         closestPt = [[Vector alloc] init];
         collisionCount = 0;
+        
     }
     return self;
 }

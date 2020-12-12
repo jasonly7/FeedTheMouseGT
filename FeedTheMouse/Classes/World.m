@@ -342,6 +342,9 @@
                        // break;
                     }
                     [cheese->vel initializeVectorX:1 andY:1];
+                    if (cheese->colPackage->prevStates[i] == COLLISION_NONE)
+                        [cheese->prevVelocities[i] initializeVectorX:0 andY:0];
+                    cheese->colPackage->prevStates[i] = cheese->colPackage->state;
                     break;
                 }
                 else if ( cheese->colPackage->collisionRecursionDepth > 0 )
@@ -358,9 +361,9 @@
                 else
                 {
                     printf("miss the teeter totter\n");
-                   // if (teeterTotter->time <=0)
-                   // {
-                        //teeterTotter->time=0;
+                    if (cheese->colPackage->prevStates[i] == COLLISION_NONE)
+                        [cheese->prevVelocities[i] initializeVectorX:0 andY:0];
+                    cheese->colPackage->prevStates[i] = cheese->colPackage->state;
                         if (teeterTotter->angle == 360)
                             teeterTotter->angle = 0;
                         //if (teeterTotter->angle <= 1)
@@ -390,8 +393,12 @@
             }
             if (cheese->colPackage->foundCollision || cheese->colPackage->collisionRecursionDepth > 0)
             {
+                if (cheese->colPackage->prevStates[i] == COLLISION_NONE)
+                    [cheese->prevVelocities[i] initializeVectorX:0 andY:0];
+                cheese->colPackage->prevStates[i] = cheese->colPackage->state;
                 cheese->colPackage->collisionCount++;
                 [cheese->vel initializeVectorX:1 andY:1];
+                
                 break;
             }
         } // end for
