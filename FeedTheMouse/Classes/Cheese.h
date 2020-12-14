@@ -61,6 +61,8 @@
       //  Mouse *mouse;
         CollisionPacket *colPackage;
         Vector *vel; // velocity in R2
+        Vector *prevVel;
+        NSMutableArray *prevVelocities;
         Vector *acceleration;
         Vector *zeroVector;
         Vector *justTouchVelocity; // temporary velocity to just touch the gear

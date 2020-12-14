@@ -87,8 +87,8 @@
         sy = screenHeight/1136.0f;
         vel = [[Vector alloc] init];
         justTouchVelocity = [[Vector alloc] init];
-        
-        
+        prevVel = [[Vector alloc] init];
+        [prevVel initializeVectorX:0 andY:0];
         if (screenWidth == 1242)
         {
             cheeseSprite = [Picture fromFile:@"bigCheese.png"];
@@ -160,6 +160,8 @@
         [colPackage->closestPoint initializeVectorX:0.0f andY:0.0f];
         colPackage->R3Velocity = [[Vector alloc] init];
         
+        prevVelocities = [[NSMutableArray alloc] init];
+        
     }
     return self;
 }
@@ -192,7 +194,7 @@
     bounceForce->a->y = 0;
     normalForce->a->x = 0;
     normalForce->a->y = 0;
-    angularVelocity = angularDisplacement = 1;
+    angularVelocity = angularDisplacement = 1.4;
 }
 
 - (void) fall:(float) interpolation
@@ -3400,74 +3402,12 @@ const float unitsPerMeter = 1000.0f;
         return [position add:lineToCheese];
     }
     
-    /*if (colPackage->state== COLLISION_SLIDE) {
-         double angle = 0;
-         if (colPackage->collidedTotter!= nil){
-             //if (colPackage->collidedTotter->angle<0)
-            // if (colPackage->collidedTotter->angle==0)
-              //   [vel setLength:initVel->length];
-            
-             angle = colPackage->collidedTotter->angle;
-             angle = angle * M_PI/180;
-             
-             NSLog(@"cos value %f",cos(angle));
-             NSLog(@"sin value %f",sin(angle));
-             double v2x = 0;
-             double v2y = 0;
-             if (self->x < colPackage->collidedTotter->x)
-             {
-                 v2x = -vel->length*cos(angle);
-                 v2y = -vel->length*sin(angle);
-             }
-             else
-             {
-                 v2x = vel->length*cos(angle);
-                 v2y = vel->length*sin(angle);
-             }
-
-              //   Vector *newVelocityVector
-             [vel initializeVectorX:v2x andY:v2y];
-         }
-        return position;
-    }*/
-   // if (collisionRecursionDepth == 0 && colPackage->state ==  COLLISION_BOUNCE)
-   // {
-       // [vel initializeVectorX:initVel->x andY:initVel->y];
-      //  Vector *gravityX3 = [[Vector alloc] init];
-       // gravityX3 = [gravity multiply:3];
-       // vel = [vel add:gravity];
-   // }
-    /*Vector *newPos = [[Vector alloc] init];
-    Vector *newVelocity = [[Vector alloc] init];
-    [newVelocity initializeVectorX:velocity->x andY:velocity->y];
-    [newVelocity normalize];
-    //double lengthOfVelocity = [velocity length];
-    [newPos initializeVectorX:position->x andY:position->y];
-    newPos = [newPos add:newVelocity]; // add 1 for radius*/
-    // *** Collision occured ***
-   // NSLog(@"Collision occured");
-    // the original destination point
-    //Vector *destinationPoint = [[Vector alloc] init];
     [destinationPoint initializeVectorX:0 andY:0];
     float t = 0;//0.33;//time; // 30.0f;
-   /* if (colPackage->state == COLLISION_SLIDE && !colPackage->isSlidingOff)
-    {
-        t = time;
-    }
-    else
-    {
-        t = 0.33;
-    }*/
-    
-    //if (colPackage->state == COLLISION_SLIDE && !colPackage->isSlidingOff)
-    //{
+   
     float tick = 1/30.0f;
     t = time;
-   // }
-    //else
-    //{
-    //    t = time;
-   // }
+   
     Vector *vr = [[Vector alloc] init];
     Vector *velocityNormalized = [[Vector alloc] init];
     [velocityNormalized initializeVectorX:velocity->x andY:velocity->y];
@@ -3478,43 +3418,17 @@ const float unitsPerMeter = 1000.0f;
     Vector *vt = [[Vector alloc] init];
     [vt initializeVectorX:0 andY:0];
     
-  //  velocity = [velocity add: acceleration];
+  
     vt = [velocityInESpace multiply:t];
-   // vt = [vt add: velocityNormalized];
-    //vt = [vt add:vr];
-   // Vector *one = [[Vector alloc] init];
-    //[one initializeVectorX:0 andY:-1];
-   // Vector *times2 = [[Vector alloc] init];
-    //[times2 initializeVectorX:0 andY:0];
-    //times2 = [[vt add:velocityNormalized] multiply:2];
-    //destinationPoint = [position add: times2];
+  
     Vector *ePos = [[Vector alloc] init];
     [ePos initializeVectorX:0 andY:0];
     if (colPackage->state == COLLISION_BOUNCE || colPackage->state == COLLISION_NONE)
         ePos = position;
     else if (colPackage->state == COLLISION_SLIDE)
         ePos = [position add: vr];
-        //ePos = [destinationPoint add: vr];
     
     destinationPoint = [ePos add: vt];
-   /* Vector *p1 = [[Vector alloc] init];
-    [p1 initializeVectorX:slidingLine->p1.x/radius andY:slidingLine->p1.y/radius];
-    Vector *p2 = [[Vector alloc] init];
-    [p2 initializeVectorX:slidingLine->p2.x/radius andY:slidingLine->p2.y/radius];
-    Vector *b = [destinationPoint subtract:p1];
-    Vector *a = [p2 subtract:p1];
-    Vector *projBoA = [[Vector alloc] project:b onto:a];
-    Vector *closestPt = [[Vector alloc] init];
-    Vector *p1ToClosestPt = [[Vector alloc] init];
-    p1ToClosestPt = [p1 add:projBoA];
-    Vector *p1AddB = [[Vector alloc] init];
-    p1AddB = [p1 add:b];
-    closestPt = [p1AddB subtract:p1ToClosestPt];
-    Vector *destToClosestPt = [[Vector alloc] init];
-    destToClosestPt = [destinationPoint subtract:p1ToClosestPt];*/
-    //[destToClosestPt normalize];
-    
-    //destinationPoint = [destinationPoint add: destToClosestPt];
     
     Vector *newBasePoint = position;
    
@@ -3523,13 +3437,8 @@ const float unitsPerMeter = 1000.0f;
     // to the exact spot
    // NSLog(@"eSpaceNearestDist: %f ", eSpaceNearestDist);
    // NSLog(@"veryCloseDistance: %f ", veryCloseDistance);
-   // if (eSpaceNearestDist<0)
-     //   eSpaceNearestDist = -eSpaceNearestDist;
     if (eSpaceNearestDist >= veryCloseDistance  && colPackage->foundCollision 
-        //&& colPackage->state != COLLISION_BOUNCE
-        //eSpaceIntersectionPt->x!= 0 && eSpaceIntersectionPt->y!=0 &&
-        //!isnan(eSpaceIntersectionPt->x) && !isnan(eSpaceIntersectionPt->y) &&
-        //!isnan(velocity->x) && !isnan(velocity->y)
+       
         )
     {
         
@@ -3575,14 +3484,7 @@ const float unitsPerMeter = 1000.0f;
     slideLineNormal = [[Vector alloc] init];
     // we already have the intersection point from the colliding with line/vertex function
     [slideLineOrigin initializeVectorX:eSpaceIntersectionPt->x andY:eSpaceIntersectionPt->y];
-    [slideLineNormal initializeVectorX:slidingLine->normal->x andY:slidingLine->normal->y];
-   // [slideLineNormal initializeVectorX:slidingLine->normal->x andY:slidingLine->normal->y];
-   // Vector *newBasePoint = [[Vector alloc] init];
-   // newBasePoint = [newBasePoint multiply:1/r];
-    //slideLineNormal = [position subtract: eSpaceIntersectionPt];
-    //[slideLineNormal normalize];
-    
-    //slideLineOrigin = [slideLineOrigin add: slideLineNormal];
+   
     slidingLine->origin = slideLineOrigin;
     slidingLine->normal = slideLineNormal;
 
@@ -3600,197 +3502,103 @@ const float unitsPerMeter = 1000.0f;
     // project the original velocity vector to the sliding line to get a new destination
     Vector *slideLineNormalTimesDistance = [[[Vector alloc] init] autorelease];
     slideLineNormalTimesDistance = [ slideLineNormal multiply:distance];
-    //Vector *newDestinationPoint = [[Vector alloc] init];
-    //if (colPackage->state == COLLISION_SLIDE)
-   // {
-    /*if ([slidingLine isFrontFacingTo:destToClosestPt]) {
-        newDestinationPoint = [destinationPoint add: destToClosestPt];
-    }
-    else {*/
-        newDestinationPoint = [destinationPoint add: slideLineNormalTimesDistance];
-    
-    /*if (colPackage->state == COLLISION_BOUNCE && [colPackage->collidedObj class] == [Drum class] ) {
-        if (![slidingLine isFrontFacingTo:vel])
-        {
-            distance =  [slidingLine signedDistanceTo:position];
-            slideLineNormalTimesDistance = [ slideLineNormal multiply:distance];
-            newBasePoint = [position add:slideLineNormalTimesDistance];
-        }
-       // colPackage->foundCollision = true;
-        return newBasePoint;
-    }*/
-    //}
-   // }
-    //else
-    //{
-    //    newDestinationPoint = destinationPoint;
-   // }
    
-    /*Vector *b = [position subtract:destinationPoint];
-   
-    if ([colPackage->collidedObj class] == [Gear class])
-    {
-         // prevent cheese from getting stuck on the object
-        if (b->x==0 && collisionRecursionDepth==0)
-        {
-            //Vector *normalImpulse = [[Vector alloc] project:b onto:slideLineNormal];
-           // Vector *normalImpulse = [[[Vector alloc] project:b onto:slideLineNormal] multiply:2.0f];
-            return position;//[[destinationPoint add:normalImpulse] subtract:slideLineOrigin];
-        }
-    }*/
+    newDestinationPoint = [destinationPoint add: slideLineNormalTimesDistance];
     
     if (colPackage->state == COLLISION_BOUNCE)
    {
        return newBasePoint;
-   }    
-
-    
-    
-    //[vel initializeVectorX:80 andY:-80];
-   
-    
-    //dont recurse if the new velocity is very small
-    
-    //else if (!colPackage->isSlidingOff && colPackage->state==COLLISION_SLIDE)
+   }
     
     Vector *newVelocityVector = [[Vector alloc] init];
     if (colPackage->state== COLLISION_SLIDE) {
         double angle = 0;
         
-        Vector *tmpVel = [[Vector alloc] init];
-        [tmpVel initializeVectorX:0 andY:0];
+        Vector *dirAlongTeeter = [[Vector alloc] init];
+        [dirAlongTeeter initializeVectorX:0 andY:0];
          if (colPackage->collidedTotter!= nil){
-             //if (colPackage->collidedTotter->angle<0)
-             //if (colPackage->collidedTotter->angle!=0)//<=3 || colPackage->collidedTotter->angle>=357)
+             
              double accel = [gravity length];//originalSpeed;
              double eAccel = 0;
              
-            // if(colPackage->foundCollision)
-            // {
-                  //   [vel setLength:initVel->length];
-                
-                 angle = colPackage->collidedTotter->angle;
-                 angle = angle * M_PI/180;
+           
+             angle = colPackage->collidedTotter->angle;
+             angle = angle * M_PI/180;
+             
+             NSLog(@"cos value %f",cos(angle));
+             NSLog(@"sin value %f",sin(angle));
+             double v2x = 0;
+             double v2y = 0;
+             double collidedTotterX;
+             if (screenWidth == 1242)
+             {
+                 collidedTotterX = colPackage->collidedTotter->x;
+             }
+             else
+             {
+                 collidedTotterX = colPackage->collidedTotter->x*sx;
+             }
+             if (self->x < collidedTotterX )//(vel->x < 0)
+             {
                  
-                 NSLog(@"cos value %f",cos(angle));
-                 NSLog(@"sin value %f",sin(angle));
-                 double v2x = 0;
-                 double v2y = 0;
-                 double collidedTotterX;
-                 if (screenWidth == 1242)
+                 v2x = -vel->length*cos(angle);
+                 v2y = -vel->length*sin(angle);
+                 [dirAlongTeeter initializeVectorX:v2x andY:v2y];
+             }
+             else if (self->x > collidedTotterX)//vel->x > 0)
+             {
+                 v2x = vel->length*cos(angle);
+                 v2y = vel->length*sin(angle);
+                 [dirAlongTeeter initializeVectorX:v2x andY:v2y];
+             }
+
+             [newVelocityVector initializeVectorX:v2x andY:v2y];
+             
+            if (fabs(newVelocityVector->x) < 0.000000001)
+              newVelocityVector->x = (int)(10000000000*(newVelocityVector->x))/100.0f;
+            
+            Line *slideLine = [[Line alloc] init];
+
+            CGPoint pt1 = CGPointMake(slidingLine->p1.x, slidingLine->p1.y);
+            CGPoint pt2 = CGPointMake(slidingLine->p2.x, slidingLine->p2.y);
+
+            [slideLine initializeLineWithPoint1:pt1 andPoint2:pt2];
+            
+             [dirAlongTeeter normalize];
+             
+            if (angle > 2 * M_PI)
+                angle-= 2 * M_PI;
+            else if (angle < 0)
+                angle+= 2 * M_PI;
+                
+            if (self->x < collidedTotterX )
+                accel = accel * sin(angle);
+            else if (self->x > collidedTotterX)
+            {
+                float beta = 2*M_PI - angle;
+                float theta = M_PI/2 - beta;
+                
+                accel = accel * cos(theta);
+            }
+             
+             for(int i=0; i < [teeterTotters count]; i++)
+             {
+                 if (colPackage->prevStates[i] == COLLISION_SLIDE)
                  {
-                     collidedTotterX = colPackage->collidedTotter->x;
+                     vel = [prevVelocities[i] add:[dirAlongTeeter multiply:accel]];
+                     prevVelocities[i] = vel;
                  }
                  else
-                 {
-                     collidedTotterX = colPackage->collidedTotter->x*sx;
-                 }
-                 if (self->x < collidedTotterX )//(vel->x < 0)
-                 {
-                     
-                     v2x = -vel->length*cos(angle);
-                     v2y = -vel->length*sin(angle);
-                     [tmpVel initializeVectorX:v2x andY:v2y];
-                 }
-                 else if (self->x > collidedTotterX)//vel->x > 0)
-                 {
-                     v2x = vel->length*cos(angle);
-                     v2y = vel->length*sin(angle);
-                     [tmpVel initializeVectorX:v2x andY:v2y];
-                 }
-
-                  //   Vector *newVelocityVector
-                 [newVelocityVector initializeVectorX:v2x andY:v2y];
-                 
-                 //if (colPackage->state == COLLISION_SLIDE)
-                      //{
-                          //Vector *newVelVecNorm = [[Vector alloc] init];
-                          //[newVelVecNorm initializeVectorX:newVelocityVector->x andY:newVelocityVector->y];
-                          //[newVelVecNorm normalize];
-                          //double ax = newVelVecNorm->x*gravity->length;
-                          //double ay = newVelVecNorm->y*gravity->length;
-                          //[acceleration initializeVectorX:ax andY:ay];
-                     // }
-                     // // Recurse
-                      //NSLog(@"newVelocityVector length: %f", [newVelocityVector length]);
-                      if (fabs(newVelocityVector->x) < 0.000000001)
-                          newVelocityVector->x = (int)(10000000000*(newVelocityVector->x))/100.0f;
-                     // newVelocityVector->y = (int)(10000000000*(newVelocityVector->y))/100.0f;
-                      
-                     // newVelocityVector = [newVelocityVector multiply:originalSpeed];
-                   //   [vel initializeVectorX:newVelocityVector->x andY:newVelocityVector->y];
-                     // vel = [vel add:gravity];
-                     Line *slideLine = [[Line alloc] init];
-
-                     CGPoint pt1 = CGPointMake(slidingLine->p1.x, slidingLine->p1.y);
-                     CGPoint pt2 = CGPointMake(slidingLine->p2.x, slidingLine->p2.y);
-
-                     [slideLine initializeLineWithPoint1:pt1 andPoint2:pt2];
-                    // if (![self nearLine:slideLine])
-                     //{
-                         [tmpVel normalize];
-                         //originalSpeed= originalSpeed*time;
-                         //vel = [vel multiply:gravity.length];
-                        if (angle > 2 * M_PI)
-                            angle-= 2 * M_PI;
-                        else if (angle < 0)
-                            angle+= 2 * M_PI;
-                            
-                        if (self->x < collidedTotterX )
-                            accel = accel * sin(angle);
-                        else if (self->x > collidedTotterX)
-                        {
-                            float beta = 2*M_PI - angle;
-                            float theta = M_PI/2 - beta;
-                            
-                            accel = accel * cos(theta);
-                        }
-                         vel = [vel add:[tmpVel multiply:accel]];
+                     vel = [vel add:[dirAlongTeeter multiply:accel]];
+             }
              
              if (screenWidth == 1242)
                  eAccel = accel/radius;
              else
                  eAccel = accel/(34.0f*sy);
                  
-                 newVelocityVector = [newVelocityVector multiply:eAccel];
-                
-                     //}
-                 
-                     // vel = [vel add:acceleration];
-                     //colPackage->R3Velocity = vel;
-                     //colPackage->velocity = vel;
-                     //return position;
-            // }
-             /*else
-             {
-            
+             newVelocityVector = [newVelocityVector multiply:eAccel];
 
-                 // Generate the slide vector, which will become our new veocity vector for the next iteration
-                newVelocityVector = [newDestinationPoint subtract:eSpaceIntersectionPt];
-                [newVelocityVector normalize];
-          
-                 
-                newVelocityVector = [newVelocityVector multiply:eSpeed];
-                NSLog(@"newVelocityVector: (%f,%f)", newVelocityVector->x, newVelocityVector->y);
-                float newVelocityLength = [newVelocityVector length];
-                
-                if ( newVelocityLength < veryCloseDistance) {
-                    return newBasePoint;
-                }
-                if (colPackage->state==COLLISION_SLIDE || colPackage->isSlidingOff)
-                {
-                    double velocityX = newVelocityVector->x * colPackage->eRadius*sx;
-                    double velocityY = newVelocityVector->y * colPackage->eRadius*sy;
-                    if (velocityY>0)
-                        velocityY = 0;
-                    [vel initializeVectorX:velocityX andY:velocityY];
-                    //newVelocityVector = vel;
-                    //vel = [newVelocityVector multiply:(colPackage->eRadius*sx)]; // set velocity to slide vector
-                }
-                 
-             }*/
-        
-            
         }
         
     }
@@ -3798,13 +3606,7 @@ const float unitsPerMeter = 1000.0f;
    
     colPackage->R3Velocity = vel;
     colPackage->velocity = vel;
-    //if (collisionRecursionDepth == 0 && colPackage->state == COLLISION_BOUNCE)
-    //{
-      //  [vel initializeVectorX:initVel->x andY:initVel->y];
-        //  Vector *gravityX3 = [[Vector alloc] init];
-        // gravityX3 = [gravity multiply:3];
-        // vel = [vel add:gravity];
-    //}
+
     collisionRecursionDepth++;
     colPackage->collisionRecursionDepth = collisionRecursionDepth;
    // NSLog(@"collision recursion depth %d", collisionRecursionDepth);
