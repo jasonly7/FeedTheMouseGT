@@ -37,6 +37,8 @@ typedef enum {
     Vector *intersectionPoint;
     NSObject *collidedObj;
     COLLISION_STATE state;
+    COLLISION_STATE prevState;
+    int prevStates[4];
     bool isSlidingOff;
     int collisionRecursionDepth;
     TeeterTotter *collidedTotter;

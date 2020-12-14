@@ -90,6 +90,18 @@
         cheese->bombs = bombs;
         teeterTotters = [curLevel getTeeterTotters];
         cheese->teeterTotters = teeterTotters;
+        if ([teeterTotters count] > 0)
+        {
+            [cheese->prevVelocities initWithCapacity:[teeterTotters count]];
+            for (int i=0; i < [teeterTotters count]; i++)
+            {
+                [cheese->prevVelocities addObject:[[Vector alloc] init]];
+            }
+            for (int i=0; i < [cheese->prevVelocities count]; i++)
+            {
+                [cheese->prevVelocities[i] initializeVectorX:0 andY:0];
+            }
+        }
         flippers = [curLevel getFlippers];
         cheese->flippers = flippers;
         currentLevelNumber = 0;
@@ -1050,10 +1062,7 @@
         //curLevel->teeterTotters =
         [cheese->world setLevel: &curLevel];
     
-       /* if ([cheese->teeterTotters count] > 0)
-        {
-            cheese->teeterTotters = cheese->world->lvl->teeterTotters;
-        }*/
+       
         Vector *v = [[Vector alloc] init];
         [v initializeVectorX:-100 andY:-100];
         [cheese moveTo:v];
@@ -1070,6 +1079,18 @@
         bombs = [curLevel getBombs];
         //printf("drums count: %d\n", drums.count);
         teeterTotters = [curLevel getTeeterTotters];
+        
+        if ([cheese->prevVelocities count] > 0)
+            [cheese->prevVelocities removeAllObjects];
+         for (int i=0; i < [teeterTotters count]; i++)
+         {
+             [cheese->prevVelocities addObject:[[Vector alloc] init]];
+         }
+        for (int i=0; i < [cheese->prevVelocities count]; i++)
+        {
+            [cheese->prevVelocities[i] initializeVectorX:0 andY:0];
+        }
+        
         flippers = [curLevel getFlippers];
        // printf("teeter count: %d\n", teeterTotters.count);
        /* cheese->gears = gears;
@@ -1087,6 +1108,8 @@
         }
         backgroundSprite = [Picture fromFile:backgroundFilename];
         [cheese->world->removedCoins removeAllObjects];
+        
+        
     }
     /* else if ([mouseSprite getFileName]==@"newopenmouthsheet.png")
      {

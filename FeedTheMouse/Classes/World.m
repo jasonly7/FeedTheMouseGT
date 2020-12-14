@@ -209,7 +209,8 @@
         }
     }
     
-    
+    float topLeftX, topLeftY, topRightX, topRightY;
+    double radAngle = 0;
     if (cheese->colPackage->foundCollision==false)
     {
         //printf("# of teeter totters: %d", [lvl->teeterTotters count] );
@@ -219,15 +220,15 @@
             TeeterTotter *teeterTotter = [lvl->teeterTotters objectAtIndex:i];
             if ( cheese->colPackage->collisionCount == 0)
             {
-            cheese->colPackage->foundCollision = [cheese checkTeeterTotter:teeterTotter];
-            //bool isNearTopLine = [cheese nearLine:teeterTotter->topLine];
-            
+                cheese->colPackage->foundCollision = [cheese checkTeeterTotter:teeterTotter];
+                //bool isNearTopLine = [cheese nearLine:teeterTotter->topLine];
+                radAngle = teeterTotter->angle*M_PI/180.0f;
                 if (cheese->colPackage->foundCollision || (cheese->isNearTopLine || cheese->isNearTopRight || cheese->isNearTopLeft) || [cheese nearVertex:teeterTotter->topLine->p1] || [cheese nearVertex:teeterTotter->topLine->p2] || cheese->isPastTopLine ||
                     cheese->colPackage->state == COLLISION_SLIDE)
                 {
-                    float topLeftX, topLeftY, topRightX, topRightY;
+                    
                     CGPoint topLeftPt,topRightPt;
-                    double radAngle = teeterTotter->angle*M_PI/180.0f;
+                    
                     Line *topLine = [[[Line alloc] init] autorelease];
                     cheese->colPackage->collidedObj = teeterTotter;
                     cheese->colPackage->collidedTotter = teeterTotter;
@@ -342,6 +343,9 @@
                        // break;
                     }
                     [cheese->vel initializeVectorX:1 andY:1];
+                    if (cheese->colPackage->prevStates[i] == COLLISION_NONE)
+                        [cheese->prevVelocities[i] initializeVectorX:0 andY:0];
+                    cheese->colPackage->prevStates[i] = cheese->colPackage->state;
                     break;
                 }
                 else if ( cheese->colPackage->collisionRecursionDepth > 0 )
@@ -358,9 +362,30 @@
                 else
                 {
                     printf("miss the teeter totter\n");
-                   // if (teeterTotter->time <=0)
-                   // {
-                        //teeterTotter->time=0;
+                    
+                    if (cheese->colPackage->prevStates[i] == COLLISION_NONE)
+                        [cheese->prevVelocities[i] initializeVectorX:0 andY:0];
+                    cheese->colPackage->prevStates[i] = cheese->colPackage->state;
+                    
+                    if (screenWidth == 1242)
+                    {
+                        topLeftX = (teeterTotter->x - cos(radAngle)*teeterTotter->totterSprite.width/2 + cos(radAngle+M_PI_2)*teeterTotter->totterSprite.height/2);
+                        topLeftY = (teeterTotter->y - sin(radAngle)*teeterTotter->totterSprite.width/2 + sin(radAngle+M_PI_2)*teeterTotter->totterSprite.height/2);
+                        
+                        topRightX = (teeterTotter->x + cos(radAngle)*teeterTotter->totterSprite.width/2 + cos(radAngle+M_PI_2)*teeterTotter->totterSprite.height/2);
+                        topRightY = (teeterTotter->y + sin(radAngle)*teeterTotter->totterSprite.width/2 + sin(radAngle+M_PI_2)*teeterTotter->totterSprite.height/2);
+                    }
+                    else
+                    {
+                        topLeftX = sx*(teeterTotter->x - cos(radAngle)*teeterTotter->totterSprite.width/2 + cos(radAngle+M_PI_2)*teeterTotter->totterSprite.height/2);
+                        topLeftY = sy*(teeterTotter->y - sin(radAngle)*teeterTotter->totterSprite.width/2 + sin(radAngle+M_PI_2)*teeterTotter->totterSprite.height/2);
+                      
+                        // get top right of rectangle
+                        topRightX = sx*(teeterTotter->x + cos(radAngle)*teeterTotter->totterSprite.width/2 + cos(radAngle+M_PI_2)*teeterTotter->totterSprite.height/2);
+                        topRightY = sy*(teeterTotter->y + sin(radAngle)*teeterTotter->totterSprite.width/2 + sin(radAngle+M_PI_2)*teeterTotter->totterSprite.height/2);
+                    }
+                    
+                    
                         if (teeterTotter->angle == 360)
                             teeterTotter->angle = 0;
                         //if (teeterTotter->angle <= 1)
@@ -371,10 +396,19 @@
                             if (teeterTotter->angularVelocity<0)
                                 teeterTotter->angularVelocity = 0;
                             //if (cheese->pos->x > teeterTotter->x)
-                            if (teeterTotter->angle >= 315 && teeterTotter->angle < 360)
-                                teeterTotter->angle+=teeterTotter->angularVelocity;
-                            else if (teeterTotter->angle <=45 && teeterTotter->angle >=0)//(cheese->pos->x < teeterTotter->x)
-                                teeterTotter->angle-=teeterTotter->angularVelocity;
+                            //if (!cheese->colPackage->isSlidingOff)
+                            //{
+                                if (teeterTotter->angle >= 300 && teeterTotter->angle < 360)
+                                {
+                                    if (cheese->pos->y + cheese->cheeseSprite->height/2.0f > topRightY)
+                                        teeterTotter->angle+=teeterTotter->angularVelocity;
+                                }
+                                else if (teeterTotter->angle <=60 && teeterTotter->angle >=0)
+                                {
+                                    if (cheese->pos->y + cheese->cheeseSprite->height/2.0f < topLeftY)
+                                        teeterTotter->angle-=teeterTotter->angularVelocity;
+                                }
+                            //}
                         }
                         else
                         {
@@ -390,8 +424,12 @@
             }
             if (cheese->colPackage->foundCollision || cheese->colPackage->collisionRecursionDepth > 0)
             {
+                if (cheese->colPackage->prevStates[i] == COLLISION_NONE)
+                    [cheese->prevVelocities[i] initializeVectorX:0 andY:0];
+                cheese->colPackage->prevStates[i] = cheese->colPackage->state;
                 cheese->colPackage->collisionCount++;
                 [cheese->vel initializeVectorX:1 andY:1];
+                
                 break;
             }
         } // end for
