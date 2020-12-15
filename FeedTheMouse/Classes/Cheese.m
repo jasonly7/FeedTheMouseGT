@@ -954,6 +954,8 @@
         if (collidedWithBottomRight < shortestDistance && collidedWithBottomRight > 0)
             shortestDistance = collidedWithBottomRight;
         
+        float xRightCheese = pos->x + cheeseSprite->width/2.0f;
+        
         if ((isPastTopLine || isPastBottomLine || isPastBottomRight || isPastBottomLeft || isPastTopLeft || isPastTopRight)) //&& (shortestDistance == FLT_MAX || shortestDistance==-1))
         {
             if (diff < veryCloseDistance)
@@ -1250,7 +1252,7 @@
             foundCollision = true;
             colPackage->state = COLLISION_BOUNCE;
         }
-        else if (collidedWithTop == shortestDistance || isNearTopLine)// || isPastTopLine)
+        else if (collidedWithTop == shortestDistance || (isNearTopLine && xRightCheese < topRightX))// || isPastTopLine)
         {
             if (collidedWithTop == shortestDistance)
             {
