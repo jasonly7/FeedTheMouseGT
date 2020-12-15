@@ -194,7 +194,7 @@
     bounceForce->a->y = 0;
     normalForce->a->x = 0;
     normalForce->a->y = 0;
-    angularVelocity = angularDisplacement = 1;
+    angularVelocity = angularDisplacement = 1.4;
 }
 
 - (void) fall:(float) interpolation
@@ -1004,7 +1004,7 @@
             [bounceVel normalize];
             bounceVel = [bounceVel multiply:vel.length];
         }
-        else if ( collidedWithTopLeft == shortestDistance)// || isNearTopLeft)
+        else if ( collidedWithTopLeft == shortestDistance || isNearTopLeft)
         {
             bool isCollidedWithTopLeft = [self collideWithVertex:topLeft];
             Vector *topLeftVector = [[[Vector alloc] init] autorelease];
@@ -1099,7 +1099,7 @@
             
             
         }
-        else if (collidedWithTopRight == shortestDistance)// || isNearTopRight)
+        else if (collidedWithTopRight == shortestDistance || isNearTopRight)
         {
             bool isCollidedWithTopRight = [self collideWithVertex:topRight];
             Vector *topRightVector = [[[Vector alloc] init] autorelease];
@@ -1204,7 +1204,7 @@
             //foundCollision = true;
             
         }
-        else if (collidedWithLeft == shortestDistance || isNearLeftLine)
+        else if (collidedWithLeft == shortestDistance)// || isNearLeftLine)
         {
             [self collideWithLine:leftLine];
             if ([leftLine isFrontFacingTo:vel])
@@ -1225,7 +1225,7 @@
             foundCollision = true;
             colPackage->state = COLLISION_BOUNCE;
         }
-        else if (collidedWithRight == shortestDistance || isNearRightLine)
+        else if (collidedWithRight == shortestDistance)// || isNearRightLine)
         {
             [self collideWithLine:rightLine];
             Vector *I = [[[Vector alloc] init] autorelease];

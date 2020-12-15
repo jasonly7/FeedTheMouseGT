@@ -400,7 +400,7 @@
                             //{
                                 if (teeterTotter->angle >= 300 && teeterTotter->angle < 360)
                                 {
-                                    if (cheese->pos->y + cheese->cheeseSprite->height/2.0f > topRightY)
+                                    if (cheese->pos->y + cheese->cheeseSprite->height/2.0f < topRightY)
                                         teeterTotter->angle+=teeterTotter->angularVelocity;
                                 }
                                 else if (teeterTotter->angle <=60 && teeterTotter->angle >=0)
