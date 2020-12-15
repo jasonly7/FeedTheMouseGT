@@ -362,7 +362,6 @@
                 else
                 {
                     printf("miss the teeter totter\n");
-<<<<<<< HEAD
                     
                     if (cheese->colPackage->prevStates[i] == COLLISION_NONE)
                         [cheese->prevVelocities[i] initializeVectorX:0 andY:0];
@@ -387,11 +386,6 @@
                     }
                     
                     
-=======
-                    if (cheese->colPackage->prevStates[i] == COLLISION_NONE)
-                        [cheese->prevVelocities[i] initializeVectorX:0 andY:0];
-                    cheese->colPackage->prevStates[i] = cheese->colPackage->state;
->>>>>>> 3a001faeeba689a6f38bdc87539fa3c7e7d87a06
                         if (teeterTotter->angle == 360)
                             teeterTotter->angle = 0;
                         //if (teeterTotter->angle <= 1)
@@ -406,7 +400,7 @@
                             //{
                                 if (teeterTotter->angle >= 300 && teeterTotter->angle < 360)
                                 {
-                                    if (cheese->pos->y + cheese->cheeseSprite->height/2.0f > topRightY)
+                                    if (cheese->pos->y + cheese->cheeseSprite->height/2.0f < topRightY)
                                         teeterTotter->angle+=teeterTotter->angularVelocity;
                                 }
                                 else if (teeterTotter->angle <=60 && teeterTotter->angle >=0)

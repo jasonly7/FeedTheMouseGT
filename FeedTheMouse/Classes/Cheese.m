@@ -1204,7 +1204,7 @@
             //foundCollision = true;
             
         }
-        else if (collidedWithLeft == shortestDistance || isNearLeftLine)
+        else if (collidedWithLeft == shortestDistance)// || isNearLeftLine)
         {
             [self collideWithLine:leftLine];
             if ([leftLine isFrontFacingTo:vel])
@@ -1225,7 +1225,7 @@
             foundCollision = true;
             colPackage->state = COLLISION_BOUNCE;
         }
-        else if (collidedWithRight == shortestDistance || isNearRightLine)
+        else if (collidedWithRight == shortestDistance)// || isNearRightLine)
         {
             [self collideWithLine:rightLine];
             Vector *I = [[[Vector alloc] init] autorelease];
