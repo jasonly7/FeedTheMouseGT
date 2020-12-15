@@ -4836,18 +4836,8 @@
             timestampString = "593923806.467357"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-<<<<<<< HEAD
-            startingLineNumber = "442"
-            endingLineNumber = "442"
-=======
-<<<<<<< HEAD
-            startingLineNumber = "436"
-            endingLineNumber = "436"
-=======
-            startingLineNumber = "405"
-            endingLineNumber = "405"
->>>>>>> 3a001faeeba689a6f38bdc87539fa3c7e7d87a06
->>>>>>> ef29a8f888e916f51c7a8cd0ac0a06a38041d45e
+            startingLineNumber = "443"
+            endingLineNumber = "443"
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -6193,8 +6183,8 @@
             timestampString = "592698419.386698"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "125"
-            endingLineNumber = "125"
+            startingLineNumber = "126"
+            endingLineNumber = "126"
             landmarkName = "-initializeTeeterTotterAtX:andY:andColor:"
             landmarkType = "7">
          </BreakpointContent>
@@ -6356,7 +6346,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "41142B21-8A9D-43BA-A651-AD408542A068"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FeedTheMouse/Classes/World.m"
@@ -6595,7 +6585,6 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "7161820F-2AAD-4A67-BAC1-128EA089B8CD"
-<<<<<<< HEAD
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -6714,137 +6703,6 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "833C8606-7731-4F4C-9117-BECD2DED6069"
-=======
->>>>>>> 3a001faeeba689a6f38bdc87539fa3c7e7d87a06
-            shouldBeEnabled = "No"
-            condition = "distanceVector.length &lt; nearDist"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FeedTheMouse/Classes/Cheese.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2899"
-            endingLineNumber = "2899"
-            landmarkName = "-collideWithLine:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "4BD77191-B2CB-4945-A6B6-6315DAF5C54D"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FeedTheMouse/Classes/Cheese.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2382"
-            endingLineNumber = "2382"
-            landmarkName = "-bounceOffDrum"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "59C24095-39DF-4313-8FD0-2F32538277A4"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FeedTheMouse/Classes/World.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "354"
-            endingLineNumber = "354"
-            landmarkName = "-checkCollision:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "38D437EB-6725-471C-A8BA-03E34820EAEC"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FeedTheMouse/Classes/World.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "353"
-            endingLineNumber = "353"
-            landmarkName = "-checkCollision:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "3D9E9153-22BD-4881-8105-5EB06C9B690C"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FeedTheMouse/Classes/World.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-<<<<<<< HEAD
-            startingLineNumber = "389"
-            endingLineNumber = "389"
-            landmarkName = "-checkCollision:"
-=======
-            startingLineNumber = "2956"
-            endingLineNumber = "2956"
-            landmarkName = "-collideWithLine:"
->>>>>>> 3a001faeeba689a6f38bdc87539fa3c7e7d87a06
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "559B21C5-6B8E-4138-BC95-E9209EC01064"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FeedTheMouse/Classes/World.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-<<<<<<< HEAD
-            startingLineNumber = "355"
-            endingLineNumber = "355"
-            landmarkName = "-checkCollision:"
-=======
-            startingLineNumber = "3639"
-            endingLineNumber = "3639"
-            landmarkName = "-dealloc"
->>>>>>> 3a001faeeba689a6f38bdc87539fa3c7e7d87a06
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "B4B5B349-936A-4C10-914A-C474D996F7C3"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FeedTheMouse/Classes/World.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-<<<<<<< HEAD
-            startingLineNumber = "406"
-            endingLineNumber = "406"
-=======
-            startingLineNumber = "3173"
-            endingLineNumber = "3173"
-            landmarkName = "-collideWithVertex:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "833C8606-7731-4F4C-9117-BECD2DED6069"
             shouldBeEnabled = "No"
             condition = "distanceVector.length &lt; nearDist"
             ignoreCount = "0"
@@ -6932,14 +6790,8 @@
             filePath = "FeedTheMouse/Classes/World.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-<<<<<<< HEAD
             startingLineNumber = "403"
             endingLineNumber = "403"
-=======
-            startingLineNumber = "379"
-            endingLineNumber = "379"
->>>>>>> 3a001faeeba689a6f38bdc87539fa3c7e7d87a06
->>>>>>> ef29a8f888e916f51c7a8cd0ac0a06a38041d45e
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -6954,18 +6806,8 @@
             filePath = "FeedTheMouse/Classes/World.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-<<<<<<< HEAD
             startingLineNumber = "355"
             endingLineNumber = "355"
-=======
-<<<<<<< HEAD
-            startingLineNumber = "355"
-            endingLineNumber = "355"
-=======
-            startingLineNumber = "354"
-            endingLineNumber = "354"
->>>>>>> 3a001faeeba689a6f38bdc87539fa3c7e7d87a06
->>>>>>> ef29a8f888e916f51c7a8cd0ac0a06a38041d45e
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -6980,18 +6822,8 @@
             filePath = "FeedTheMouse/Classes/World.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-<<<<<<< HEAD
             startingLineNumber = "363"
             endingLineNumber = "363"
-=======
-<<<<<<< HEAD
-            startingLineNumber = "363"
-            endingLineNumber = "363"
-=======
-            startingLineNumber = "362"
-            endingLineNumber = "362"
->>>>>>> 3a001faeeba689a6f38bdc87539fa3c7e7d87a06
->>>>>>> ef29a8f888e916f51c7a8cd0ac0a06a38041d45e
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -7006,18 +6838,8 @@
             filePath = "FeedTheMouse/Classes/World.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-<<<<<<< HEAD
             startingLineNumber = "362"
             endingLineNumber = "362"
-=======
-<<<<<<< HEAD
-            startingLineNumber = "362"
-            endingLineNumber = "362"
-=======
-            startingLineNumber = "361"
-            endingLineNumber = "361"
->>>>>>> 3a001faeeba689a6f38bdc87539fa3c7e7d87a06
->>>>>>> ef29a8f888e916f51c7a8cd0ac0a06a38041d45e
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -7032,18 +6854,8 @@
             filePath = "FeedTheMouse/Classes/World.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-<<<<<<< HEAD
             startingLineNumber = "394"
             endingLineNumber = "394"
-=======
-<<<<<<< HEAD
-            startingLineNumber = "397"
-            endingLineNumber = "397"
-=======
-            startingLineNumber = "375"
-            endingLineNumber = "375"
->>>>>>> 3a001faeeba689a6f38bdc87539fa3c7e7d87a06
->>>>>>> ef29a8f888e916f51c7a8cd0ac0a06a38041d45e
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -7280,18 +7092,8 @@
             filePath = "FeedTheMouse/Classes/World.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-<<<<<<< HEAD
             startingLineNumber = "367"
             endingLineNumber = "367"
-=======
-<<<<<<< HEAD
-            startingLineNumber = "368"
-            endingLineNumber = "368"
-=======
-            startingLineNumber = "366"
-            endingLineNumber = "366"
->>>>>>> 3a001faeeba689a6f38bdc87539fa3c7e7d87a06
->>>>>>> ef29a8f888e916f51c7a8cd0ac0a06a38041d45e
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -8695,18 +8497,8 @@
             filePath = "FeedTheMouse/Classes/World.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-<<<<<<< HEAD
             startingLineNumber = "363"
             endingLineNumber = "363"
-=======
-<<<<<<< HEAD
-            startingLineNumber = "363"
-            endingLineNumber = "363"
-=======
-            startingLineNumber = "362"
-            endingLineNumber = "362"
->>>>>>> 3a001faeeba689a6f38bdc87539fa3c7e7d87a06
->>>>>>> ef29a8f888e916f51c7a8cd0ac0a06a38041d45e
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -8721,18 +8513,8 @@
             filePath = "FeedTheMouse/Classes/World.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-<<<<<<< HEAD
             startingLineNumber = "388"
             endingLineNumber = "388"
-=======
-<<<<<<< HEAD
-            startingLineNumber = "391"
-            endingLineNumber = "391"
-=======
-            startingLineNumber = "369"
-            endingLineNumber = "369"
->>>>>>> 3a001faeeba689a6f38bdc87539fa3c7e7d87a06
->>>>>>> ef29a8f888e916f51c7a8cd0ac0a06a38041d45e
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -9849,8 +9631,6 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "DB65493D-B3A9-45C2-B815-3361938CAD0E"
-<<<<<<< HEAD
-=======
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -9899,20 +9679,14 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "A54E45D5-1855-4681-82B2-BB727F1F71AA"
->>>>>>> 3a001faeeba689a6f38bdc87539fa3c7e7d87a06
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FeedTheMouse/Classes/Cheese.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-<<<<<<< HEAD
-            startingLineNumber = "1976"
-            endingLineNumber = "1976"
-=======
             startingLineNumber = "2015"
             endingLineNumber = "2015"
->>>>>>> 3a001faeeba689a6f38bdc87539fa3c7e7d87a06
             landmarkName = "-checkFlipper:"
             landmarkType = "7">
          </BreakpointContent>
@@ -9927,13 +9701,8 @@
             filePath = "FeedTheMouse/Classes/Cheese.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-<<<<<<< HEAD
-            startingLineNumber = "2021"
-            endingLineNumber = "2021"
-=======
             startingLineNumber = "2007"
             endingLineNumber = "2007"
->>>>>>> 3a001faeeba689a6f38bdc87539fa3c7e7d87a06
             landmarkName = "-checkFlipper:"
             landmarkType = "7">
          </BreakpointContent>
@@ -9948,13 +9717,8 @@
             filePath = "FeedTheMouse/Classes/Cheese.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-<<<<<<< HEAD
-            startingLineNumber = "2020"
-            endingLineNumber = "2020"
-=======
             startingLineNumber = "2008"
             endingLineNumber = "2008"
->>>>>>> 3a001faeeba689a6f38bdc87539fa3c7e7d87a06
             landmarkName = "-checkFlipper:"
             landmarkType = "7">
          </BreakpointContent>
@@ -9969,78 +9733,6 @@
             filePath = "FeedTheMouse/Classes/Cheese.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-<<<<<<< HEAD
-            startingLineNumber = "2015"
-            endingLineNumber = "2015"
-            landmarkName = "-checkFlipper:"
-=======
-            startingLineNumber = "1513"
-            endingLineNumber = "1513"
-            landmarkName = "-checkDrum:"
->>>>>>> 3a001faeeba689a6f38bdc87539fa3c7e7d87a06
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "7B749611-537A-48FA-9ED1-9B9A6AB3CBE5"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FeedTheMouse/Classes/Cheese.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-<<<<<<< HEAD
-            startingLineNumber = "2007"
-            endingLineNumber = "2007"
-            landmarkName = "-checkFlipper:"
-=======
-            startingLineNumber = "1555"
-            endingLineNumber = "1555"
-            landmarkName = "-checkDrum:"
->>>>>>> 3a001faeeba689a6f38bdc87539fa3c7e7d87a06
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "2D93A0BF-D8C0-4AFD-9031-13A7380780FD"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FeedTheMouse/Classes/World.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-<<<<<<< HEAD
-            startingLineNumber = "272"
-            endingLineNumber = "272"
-=======
-<<<<<<< HEAD
-            startingLineNumber = "2008"
-            endingLineNumber = "2008"
-            landmarkName = "-checkFlipper:"
-=======
-            startingLineNumber = "271"
-            endingLineNumber = "271"
->>>>>>> ef29a8f888e916f51c7a8cd0ac0a06a38041d45e
-            landmarkName = "-checkCollision:"
->>>>>>> 3a001faeeba689a6f38bdc87539fa3c7e7d87a06
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "284E90A9-CE04-4288-A912-FD4C04B1C90F"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FeedTheMouse/Classes/Cheese.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-<<<<<<< HEAD
             startingLineNumber = "1513"
             endingLineNumber = "1513"
             landmarkName = "-checkDrum:"
@@ -10089,8 +9781,6 @@
             filePath = "FeedTheMouse/Classes/Cheese.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-=======
->>>>>>> 3a001faeeba689a6f38bdc87539fa3c7e7d87a06
             startingLineNumber = "671"
             endingLineNumber = "671"
             landmarkName = "-checkGear:"
@@ -13529,8 +13219,8 @@
             filePath = "FeedTheMouse/Classes/TeeterTotter.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "111"
-            endingLineNumber = "111"
+            startingLineNumber = "112"
+            endingLineNumber = "112"
             landmarkName = "-initializeTeeterTotterAtX:andY:andColor:"
             landmarkType = "7">
          </BreakpointContent>
@@ -13577,18 +13267,8 @@
             filePath = "FeedTheMouse/Classes/World.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-<<<<<<< HEAD
             startingLineNumber = "275"
             endingLineNumber = "275"
-=======
-<<<<<<< HEAD
-            startingLineNumber = "275"
-            endingLineNumber = "275"
-=======
-            startingLineNumber = "274"
-            endingLineNumber = "274"
->>>>>>> 3a001faeeba689a6f38bdc87539fa3c7e7d87a06
->>>>>>> ef29a8f888e916f51c7a8cd0ac0a06a38041d45e
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -13603,11 +13283,6 @@
             filePath = "FeedTheMouse/Classes/World.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-<<<<<<< HEAD
-            startingLineNumber = "281"
-            endingLineNumber = "281"
-=======
-<<<<<<< HEAD
             startingLineNumber = "281"
             endingLineNumber = "281"
             landmarkName = "-checkCollision:"
@@ -13771,181 +13446,12 @@
             startingLineNumber = "3072"
             endingLineNumber = "3072"
             landmarkName = "-collideWithLine:"
-=======
-            startingLineNumber = "280"
-            endingLineNumber = "280"
->>>>>>> ef29a8f888e916f51c7a8cd0ac0a06a38041d45e
-            landmarkName = "-checkCollision:"
->>>>>>> 3a001faeeba689a6f38bdc87539fa3c7e7d87a06
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-<<<<<<< HEAD
-=======
-            uuid = "81340FB8-B0B4-42FC-A70B-BBED33DB8E5D"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FeedTheMouse/Classes/World.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "282"
-            endingLineNumber = "282"
-            landmarkName = "-checkCollision:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "4AAB968C-2DE5-4007-B86B-2035F089BA0E"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FeedTheMouse/Classes/World.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "299"
-            endingLineNumber = "299"
-            landmarkName = "-checkCollision:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "D3A60DAF-F5FE-4852-87EC-93917709160F"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FeedTheMouse/FeedTheMouseView.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "531"
-            endingLineNumber = "531"
-            landmarkName = "-drawRect:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "E2E51823-0472-44E9-8F7F-7A868523D814"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FeedTheMouse/Classes/Line.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "236"
-            endingLineNumber = "236"
-            landmarkName = "-closestPoint:on:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "1955A158-1439-4141-9EC2-44CFA1B562B2"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FeedTheMouse/Classes/Line.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "226"
-            endingLineNumber = "226"
-            landmarkName = "-closestPoint:on:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "7C63E51D-A713-4BF3-8F33-9D370A7F942A"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FeedTheMouse/FeedTheMouseView.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "530"
-            endingLineNumber = "530"
-            landmarkName = "-drawRect:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "BAA54716-E412-4DA9-896B-DF5A33F5F0D0"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FeedTheMouse/Classes/Line.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "216"
-            endingLineNumber = "216"
-            landmarkName = "-closestPoint:on:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "17968DCD-E499-488E-BD1F-D340978EFFCC"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FeedTheMouse/Classes/Cheese.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "3095"
-            endingLineNumber = "3095"
-            landmarkName = "-collideWithLine:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "17E37A23-4BF5-4D27-BFA5-393268468216"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FeedTheMouse/Classes/Cheese.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "3068"
-            endingLineNumber = "3068"
-            landmarkName = "-collideWithLine:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "6775A47D-DB22-4EE4-B3C5-3E280E4351D4"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FeedTheMouse/Classes/Cheese.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "3072"
-            endingLineNumber = "3072"
-            landmarkName = "-collideWithLine:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
->>>>>>> 3a001faeeba689a6f38bdc87539fa3c7e7d87a06
             uuid = "C4394700-4448-45A0-AA7A-349232ECA2C0"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -14737,8 +14243,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1423"
-            endingLineNumber = "1423"
+            startingLineNumber = "1430"
+            endingLineNumber = "1430"
             landmarkName = "-touchesEnded:withEvent:"
             landmarkType = "7">
          </BreakpointContent>
@@ -15395,8 +14901,8 @@
             filePath = "FeedTheMouse/Classes/TeeterTotter.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "84"
-            endingLineNumber = "84"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
             landmarkName = "-initializeTeeterTotterAtX:andY:andColor:"
             landmarkType = "7">
          </BreakpointContent>
@@ -15411,8 +14917,8 @@
             filePath = "FeedTheMouse/Classes/TeeterTotter.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "51"
-            endingLineNumber = "51"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
             landmarkName = "-initializeTeeterTotterAtX:andY:andColor:"
             landmarkType = "7">
          </BreakpointContent>
@@ -15475,8 +14981,8 @@
             filePath = "FeedTheMouse/Classes/TeeterTotter.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "89"
-            endingLineNumber = "89"
+            startingLineNumber = "90"
+            endingLineNumber = "90"
             landmarkName = "-initializeTeeterTotterAtX:andY:andColor:"
             landmarkType = "7">
          </BreakpointContent>
@@ -16341,18 +15847,8 @@
             filePath = "FeedTheMouse/Classes/World.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-<<<<<<< HEAD
-            startingLineNumber = "439"
-            endingLineNumber = "439"
-=======
-<<<<<<< HEAD
-            startingLineNumber = "433"
-            endingLineNumber = "433"
-=======
-            startingLineNumber = "402"
-            endingLineNumber = "402"
->>>>>>> 3a001faeeba689a6f38bdc87539fa3c7e7d87a06
->>>>>>> ef29a8f888e916f51c7a8cd0ac0a06a38041d45e
+            startingLineNumber = "440"
+            endingLineNumber = "440"
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -16367,18 +15863,8 @@
             filePath = "FeedTheMouse/Classes/World.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-<<<<<<< HEAD
-            startingLineNumber = "436"
-            endingLineNumber = "436"
-=======
-<<<<<<< HEAD
-            startingLineNumber = "430"
-            endingLineNumber = "430"
-=======
-            startingLineNumber = "399"
-            endingLineNumber = "399"
->>>>>>> 3a001faeeba689a6f38bdc87539fa3c7e7d87a06
->>>>>>> ef29a8f888e916f51c7a8cd0ac0a06a38041d45e
+            startingLineNumber = "437"
+            endingLineNumber = "437"
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -16538,8 +16024,8 @@
             filePath = "FeedTheMouse/Classes/TeeterTotter.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "92"
-            endingLineNumber = "92"
+            startingLineNumber = "93"
+            endingLineNumber = "93"
             landmarkName = "-initializeTeeterTotterAtX:andY:andColor:"
             landmarkType = "7">
          </BreakpointContent>
@@ -17275,8 +16761,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1373"
-            endingLineNumber = "1373"
+            startingLineNumber = "1380"
+            endingLineNumber = "1380"
             landmarkName = "-touchesBegan:withEvent:"
             landmarkType = "7">
          </BreakpointContent>
@@ -19051,18 +18537,8 @@
             filePath = "FeedTheMouse/Classes/World.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-<<<<<<< HEAD
-            startingLineNumber = "431"
-            endingLineNumber = "431"
-=======
-<<<<<<< HEAD
-            startingLineNumber = "425"
-            endingLineNumber = "425"
-=======
-            startingLineNumber = "394"
-            endingLineNumber = "394"
->>>>>>> 3a001faeeba689a6f38bdc87539fa3c7e7d87a06
->>>>>>> ef29a8f888e916f51c7a8cd0ac0a06a38041d45e
+            startingLineNumber = "432"
+            endingLineNumber = "432"
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -19352,73 +18828,6 @@
             startingLineNumber = "95"
             endingLineNumber = "95"
             landmarkName = "-initWithCoder:"
-<<<<<<< HEAD
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "D1F93680-4739-47A7-88BD-9AC93160F396"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FeedTheMouse/Classes/World.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "404"
-            endingLineNumber = "404"
-            landmarkName = "-checkCollision:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "DF5DF9BC-362C-4E2D-9FE1-87E2A21B62D0"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FeedTheMouse/Classes/World.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "409"
-            endingLineNumber = "409"
-            landmarkName = "-checkCollision:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "EBC2524C-E50D-4929-8709-A9546E3B9BD3"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FeedTheMouse/Classes/World.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "403"
-            endingLineNumber = "403"
-            landmarkName = "-checkCollision:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "8655558A-C02F-478C-BDE9-3C0B3CB4D675"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FeedTheMouse/Classes/World.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "408"
-            endingLineNumber = "408"
-            landmarkName = "-checkCollision:"
-=======
->>>>>>> 3a001faeeba689a6f38bdc87539fa3c7e7d87a06
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

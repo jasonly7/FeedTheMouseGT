@@ -1369,6 +1369,13 @@ void cleanRemoveFromSuperview( UIView * view ) {
             found = true;
     }
     
+    for (int i=0; i < [teeterTotters count]; i++)
+    {
+        teeterTotter = (TeeterTotter*)[teeterTotters objectAtIndex:i];
+        teeterTotter->reset = true;
+
+        
+    }
        
     if (!found)
     {

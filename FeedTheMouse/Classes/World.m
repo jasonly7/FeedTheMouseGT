@@ -400,10 +400,10 @@
                             //{
                                 if (teeterTotter->angle >= 300 && teeterTotter->angle < 360)
                                 {
-                                    if (cheese->pos->y + cheese->cheeseSprite->height/2.0f < topRightY)
+                                    if (cheese->pos->y + cheese->cheeseSprite->height/2.0f < topRightY || teeterTotter->reset)
                                         teeterTotter->angle+=teeterTotter->angularVelocity;
                                 }
-                                else if (teeterTotter->angle <=60 && teeterTotter->angle >=0)
+                                else if (teeterTotter->angle <=60 && teeterTotter->angle >=0 || teeterTotter->reset)
                                 {
                                     if (cheese->pos->y + cheese->cheeseSprite->height/2.0f < topLeftY)
                                         teeterTotter->angle-=teeterTotter->angularVelocity;
@@ -412,12 +412,13 @@
                         }
                         else
                         {
+                            teeterTotter->reset=false;
                           //  NSLog(@"teeterTotter angle: %f",teeterTotter->angle);
                         }
                    /* }
                     else
                     {
-                        teeterTotter->time-=1;
+                        
                     }*/
                     
                 }// end if
@@ -429,7 +430,7 @@
                 cheese->colPackage->prevStates[i] = cheese->colPackage->state;
                 cheese->colPackage->collisionCount++;
                 [cheese->vel initializeVectorX:1 andY:1];
-                
+                //teeterTotter->time = 1000;
                 break;
             }
         } // end for

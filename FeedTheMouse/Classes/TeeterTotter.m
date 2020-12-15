@@ -38,6 +38,7 @@
         [self setAngle:0];
         time = 0;
         topLine = [[Line alloc] init];
+        reset = false;
     }
     return self;
 }

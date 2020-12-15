@@ -28,6 +28,7 @@ typedef enum {
     float angularVelocity, angularAcceleration;
     Vector *normal;
     float time;
+    bool reset;
     Line *topLine;
     Line *topLineRotated;
 }
