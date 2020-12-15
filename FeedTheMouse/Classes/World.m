@@ -400,12 +400,14 @@
                             //{
                                 if (teeterTotter->angle >= 300 && teeterTotter->angle < 360)
                                 {
-                                    if (cheese->pos->y + cheese->cheeseSprite->height/2.0f < topRightY || teeterTotter->reset)
+                                    if (cheese->pos->y + cheese->cheeseSprite->height/2.0f < topRightY || teeterTotter->reset ||
+                                        cheese->pos->x - cheese->cheeseSprite->width/2.0f > topRightX)
                                         teeterTotter->angle+=teeterTotter->angularVelocity;
                                 }
-                                else if (teeterTotter->angle <=60 && teeterTotter->angle >=0 || teeterTotter->reset)
+                                else if (teeterTotter->angle <=60 && teeterTotter->angle >=0 )
                                 {
-                                    if (cheese->pos->y + cheese->cheeseSprite->height/2.0f < topLeftY)
+                                    if (cheese->pos->y + cheese->cheeseSprite->height/2.0f < topLeftY || teeterTotter->reset ||
+                                        cheese->pos->x + cheese->cheeseSprite->width/2.0f < topLeftX)
                                         teeterTotter->angle-=teeterTotter->angularVelocity;
                                 }
                             //}

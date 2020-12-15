@@ -4836,8 +4836,8 @@
             timestampString = "593923806.467357"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "443"
-            endingLineNumber = "443"
+            startingLineNumber = "445"
+            endingLineNumber = "445"
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -15847,8 +15847,8 @@
             filePath = "FeedTheMouse/Classes/World.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "440"
-            endingLineNumber = "440"
+            startingLineNumber = "442"
+            endingLineNumber = "442"
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -15863,8 +15863,8 @@
             filePath = "FeedTheMouse/Classes/World.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "437"
-            endingLineNumber = "437"
+            startingLineNumber = "439"
+            endingLineNumber = "439"
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -18537,8 +18537,8 @@
             filePath = "FeedTheMouse/Classes/World.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "432"
-            endingLineNumber = "432"
+            startingLineNumber = "434"
+            endingLineNumber = "434"
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -18857,8 +18857,8 @@
             filePath = "FeedTheMouse/Classes/World.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "406"
-            endingLineNumber = "406"
+            startingLineNumber = "407"
+            endingLineNumber = "407"
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -18889,8 +18889,8 @@
             filePath = "FeedTheMouse/Classes/World.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "405"
-            endingLineNumber = "405"
+            startingLineNumber = "406"
+            endingLineNumber = "406"
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -18921,8 +18921,8 @@
             filePath = "FeedTheMouse/Classes/World.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "409"
-            endingLineNumber = "409"
+            startingLineNumber = "411"
+            endingLineNumber = "411"
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
