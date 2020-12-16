@@ -13,12 +13,13 @@
 @interface Coin : Circle
 {
     @public
-        Sprite *coinSprite;
-        
+        AtlasSprite *coinSprite;
+        //AtlasSprite *atlasCoinSprite;
         float lifespan;
-
+        //int frame;
+        int steps;
 }
-
+- (void) update;
 - (void) initializeCoinAtX:(float) xLocation andY: (float)yLocation;
 - (int)getX;
 - (int)getY;

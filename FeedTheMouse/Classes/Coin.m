@@ -37,9 +37,15 @@
     float sx = screenWidth/640.0f;
     float sy = screenHeight/1136.0f;
     if (screenWidth == 1242)
+    {
         coinSprite = [Picture fromFile:@"bigCoin.png"];
+    }
     else
-        coinSprite = [Picture fromFile:@"coin.png"];
+    {
+        [coinSprite fromFile:@"medium_coins/mediumcoin.png" withRows:1 withColumns:16];
+        //coinSprite = [Picture fromFile:@"coin.png"];
+    }
+        
     [self setX:0];
     [self setY:0];
     /* coinSprite.x = 0;
@@ -97,6 +103,14 @@
 - (void) draw:(CGContextRef)context
 {
     [coinSprite draw:context];
+}
+
+- (void) update
+{
+    float screenWidth = [UIScreen.mainScreen bounds].size.width * [UIScreen.mainScreen scale];
+    int lastframe = COIN_FRAMES-1;
+    steps = COIN_FRAMES;
+    coinSprite.frame = (coinSprite.frame+1)%steps;    
 }
 
 @end

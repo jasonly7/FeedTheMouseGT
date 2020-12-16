@@ -294,11 +294,18 @@
         t0 = CGAffineTransformInvert(t0);
         CGContextConcatCTM(context,t0);
         t0 = CGAffineTransformIdentity;
-        t0 = CGAffineTransformTranslate(t0, coin->coinSprite.x+coin->coinSprite.width/2,coin->coinSprite.y+coin->coinSprite.height/2);
-       
-        t0 = CGAffineTransformTranslate(t0, -coin->coinSprite.x-coin->coinSprite.width/2,
-                                        -coin->coinSprite.y-coin->coinSprite.height/2);
-        
+        if (screenWidth == 1242)
+        {
+            t0 = CGAffineTransformTranslate(t0, coin->coinSprite.x+coin->coinSprite.width/2,coin->coinSprite.y+coin->coinSprite.height/2);
+            t0 = CGAffineTransformTranslate(t0, -coin->coinSprite.x-coin->coinSprite.width/2,
+                                            -coin->coinSprite.y-coin->coinSprite.height/2);
+        }
+        else
+        {
+            t0 = CGAffineTransformTranslate(t0, coin->coinSprite.x+coin->coinSprite.width/2,coin->coinSprite.y+coin->coinSprite.height/2);
+            t0 = CGAffineTransformTranslate(t0, -coin->coinSprite.x,
+                                            -coin->coinSprite.y);
+        }
         CGContextConcatCTM(context,t0);
         
         [coin draw:context];
@@ -1167,6 +1174,11 @@
         else
             [flipper unrotate];
         
+    }
+    for (int i=0; i < [coins count]; i++)
+    {
+        coin = (Coin*)[coins objectAtIndex:i];
+        [coin update];
     }
     for (int i=0; i < [cheese->world->removedCoins count]; i++)
     {
