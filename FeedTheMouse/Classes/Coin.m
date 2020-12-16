@@ -38,7 +38,8 @@
     float sy = screenHeight/1136.0f;
     if (screenWidth == 1242)
     {
-        coinSprite = [Picture fromFile:@"bigCoin.png"];
+        //coinSprite = [Picture fromFile:@"bigCoin.png"];
+        [coinSprite fromFile:@"large_coins/largecoin.png" withRows:1 withColumns:16];
     }
     else
     {
@@ -62,8 +63,8 @@
     [self setY:yLocation];
     //pos->x = x;
     //pos->y = y;
-
-   
+    
+    
   //  x = xLocation;
    // y = yLocation;
    // r = 29;
@@ -102,6 +103,7 @@
 
 - (void) draw:(CGContextRef)context
 {
+    [coinSprite setRotation:90];
     [coinSprite draw:context];
 }
 

@@ -294,18 +294,12 @@
         t0 = CGAffineTransformInvert(t0);
         CGContextConcatCTM(context,t0);
         t0 = CGAffineTransformIdentity;
-        if (screenWidth == 1242)
-        {
-            t0 = CGAffineTransformTranslate(t0, coin->coinSprite.x+coin->coinSprite.width/2,coin->coinSprite.y+coin->coinSprite.height/2);
-            t0 = CGAffineTransformTranslate(t0, -coin->coinSprite.x-coin->coinSprite.width/2,
-                                            -coin->coinSprite.y-coin->coinSprite.height/2);
-        }
-        else
-        {
-            t0 = CGAffineTransformTranslate(t0, coin->coinSprite.x+coin->coinSprite.width/2,coin->coinSprite.y+coin->coinSprite.height/2);
-            t0 = CGAffineTransformTranslate(t0, -coin->coinSprite.x,
-                                            -coin->coinSprite.y);
-        }
+        
+        t0 = CGAffineTransformTranslate(t0, coin->coinSprite.x+coin->coinSprite.width/2,coin->coinSprite.y+coin->coinSprite.height/2);
+        t0 = CGAffineTransformRotate(t0, M_PI_2);
+        t0 = CGAffineTransformTranslate(t0, -coin->coinSprite.x,
+                                        -coin->coinSprite.y);
+        
         CGContextConcatCTM(context,t0);
         
         [coin draw:context];

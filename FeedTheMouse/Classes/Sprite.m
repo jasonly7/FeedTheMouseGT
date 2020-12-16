@@ -105,7 +105,8 @@
     x = pt.x;
     y = pt.y;
     t = CGAffineTransformTranslate(t, pt.x, pt.y);
-   // t = CGAffineTransformRotate(t,rotation - 3.141592*0.5);
+    //t = CGAffineTransformRotate(t,rotation - 3.141592*0.5);
+   // t = CGAffineTransformRotate(t,rotation);
    // t = CGAffineTransformScale(t,scale,scale);
     CGContextConcatCTM(context,t);
     
