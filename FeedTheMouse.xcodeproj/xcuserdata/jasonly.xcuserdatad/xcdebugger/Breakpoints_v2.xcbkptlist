@@ -1064,8 +1064,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1310"
             endingLineNumber = "1310"
-            landmarkName = "cleanRemoveFromSuperview(view)"
-            landmarkType = "9">
+            landmarkName = "FeedTheMouseView"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2309,7 +2309,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1192"
             endingLineNumber = "1192"
-            landmarkName = "-update_game"
+            landmarkName = "-gameLoop"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -14245,7 +14245,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1436"
             endingLineNumber = "1436"
-            landmarkName = "-touchesBegan:withEvent:"
+            landmarkName = "-touchesEnded:withEvent:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

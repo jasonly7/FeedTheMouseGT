@@ -3590,8 +3590,8 @@ const float unitsPerMeter = 1000.0f;
                      vel = [prevVelocities[i] add:[dirAlongTeeter multiply:accel]];
                      prevVelocities[i] = vel;
                  }
-                 else
-                     vel = [vel add:[dirAlongTeeter multiply:accel]];
+                // else
+                     //vel = [vel add:[dirAlongTeeter multiply:accel]];
              }
              
              if (screenWidth == 1242)
