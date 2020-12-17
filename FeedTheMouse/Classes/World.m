@@ -24,6 +24,11 @@
         sy = screenHeight/1136.0f;
         removedCoins = [[NSMutableArray alloc] initWithCapacity:10];
         score = 0;
+        sndMan = [[SoundManager alloc] init ];
+        [sndMan initializeSoundManager:(1)];
+        pathForCoinSoundFile = [[[NSBundle mainBundle] pathForResource:@"sounds/coin_sound" ofType:@"wav"] retain];
+        
+        
     }
     return self;
 }
@@ -95,7 +100,8 @@
                 [removedCoins addObject:coin];
                 [lvl->coins removeObjectAtIndex:i];
                 cheese->colPackage->foundCollision = false;
-                
+        
+                [sndMan playSound:pathForCoinSoundFile];
                 break;
             }
             else
@@ -176,7 +182,8 @@
                
                 [cheese bounceOffBomb];
                 [bomb explode];
-               
+                NSString *pathForBombSoundFile = [[NSBundle mainBundle] pathForResource:@"sounds/bomb" ofType:@"wav"];
+                [sndMan playSound:pathForBombSoundFile];
                 [mouse openMouth];
                 
                 break;

@@ -84,6 +84,9 @@
     bool isTouched;
     //FeedTheMouseViewController *feedTheMouseViewController;
     //TitleViewController *titleViewController;
+    NSString *pathForMusicFile;
+    NSURL *musicFile;
+    AVAudioPlayer *musicPlayer;
     @public
         NSString *playerName;
 }

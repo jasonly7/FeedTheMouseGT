@@ -51,7 +51,7 @@
     FeedTheMouseViewController *feedController = (FeedTheMouseViewController*) feedTheMouseViewController;
     //FeedTheMouseViewController *feedController = [[FeedTheMouseViewController alloc] initWithNibName:@"FeedTheMouse" bundle:[NSBundle mainBundle]];
     [feedController setPlayerName:_playerNameTextField.text];
-
+    [musicPlayer stop];
     [self.view addSubview:feedTheMouseViewController.view];
     //[self.view addSubview:feedController.view];
 }
@@ -104,6 +104,7 @@
     }
     else
     {
+        [musicPlayer play];
         [timer invalidate];
         timer = nil;
     }
@@ -126,6 +127,13 @@
         userInfo:nil
         repeats:YES];
     [_playerNameTextField setBackgroundColor:[UIColor whiteColor]];
+    pathForMusicFile = [[NSBundle mainBundle] pathForResource:@"sounds/menu_edited" ofType:@"wav"];
+    musicFile = [[NSURL alloc] initFileURLWithPath:pathForMusicFile];
+    musicPlayer = [AVAudioPlayer alloc];
+    [musicPlayer initWithContentsOfURL:musicFile error:NULL];
+    musicPlayer.numberOfLoops = -1;
+    [musicPlayer prepareToPlay];
+    
 }
 
 - (void)didReceiveMemoryWarning {

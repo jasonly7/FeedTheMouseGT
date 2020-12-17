@@ -15,8 +15,8 @@
             timestampString = "593923806.230998"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "293"
-            endingLineNumber = "293"
+            startingLineNumber = "298"
+            endingLineNumber = "298"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -134,8 +134,8 @@
             timestampString = "593923806.231716"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "292"
-            endingLineNumber = "292"
+            startingLineNumber = "297"
+            endingLineNumber = "297"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -151,8 +151,8 @@
             timestampString = "593923806.23202"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "291"
-            endingLineNumber = "291"
+            startingLineNumber = "296"
+            endingLineNumber = "296"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -288,8 +288,8 @@
             timestampString = "593923806.234388"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "249"
-            endingLineNumber = "249"
+            startingLineNumber = "256"
+            endingLineNumber = "256"
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -305,8 +305,8 @@
             timestampString = "593923806.2347471"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1069"
-            endingLineNumber = "1069"
+            startingLineNumber = "1074"
+            endingLineNumber = "1074"
             landmarkName = "-update_game"
             landmarkType = "7">
          </BreakpointContent>
@@ -684,8 +684,8 @@
             timestampString = "593923806.256577"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "121"
-            endingLineNumber = "121"
+            startingLineNumber = "127"
+            endingLineNumber = "127"
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -796,8 +796,8 @@
             timestampString = "593923806.262122"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "116"
-            endingLineNumber = "116"
+            startingLineNumber = "122"
+            endingLineNumber = "122"
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -814,8 +814,8 @@
             timestampString = "593923806.2623791"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "118"
-            endingLineNumber = "118"
+            startingLineNumber = "124"
+            endingLineNumber = "124"
             landmarkName = "-checkCollision:"
             landmarkType = "7">
             <Actions>
@@ -1062,8 +1062,8 @@
             timestampString = "593923806.272838"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1310"
-            endingLineNumber = "1310"
+            startingLineNumber = "1315"
+            endingLineNumber = "1315"
             landmarkName = "FeedTheMouseView"
             landmarkType = "3">
          </BreakpointContent>
@@ -1183,8 +1183,8 @@
             timestampString = "593923806.280557"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1261"
-            endingLineNumber = "1261"
+            startingLineNumber = "1266"
+            endingLineNumber = "1266"
             landmarkName = "-gameLoop"
             landmarkType = "7">
          </BreakpointContent>
@@ -1200,8 +1200,8 @@
             timestampString = "593923806.2809449"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "32"
-            endingLineNumber = "32"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1302,8 +1302,8 @@
             timestampString = "593923806.28457"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "119"
-            endingLineNumber = "119"
+            startingLineNumber = "125"
+            endingLineNumber = "125"
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1319,8 +1319,8 @@
             timestampString = "593923806.2848589"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "112"
-            endingLineNumber = "112"
+            startingLineNumber = "118"
+            endingLineNumber = "118"
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1370,8 +1370,8 @@
             timestampString = "593923806.2871161"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1254"
-            endingLineNumber = "1254"
+            startingLineNumber = "1259"
+            endingLineNumber = "1259"
             landmarkName = "-gameLoop"
             landmarkType = "7">
          </BreakpointContent>
@@ -1387,8 +1387,8 @@
             timestampString = "593923806.287415"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1232"
-            endingLineNumber = "1232"
+            startingLineNumber = "1237"
+            endingLineNumber = "1237"
             landmarkName = "-gameLoop"
             landmarkType = "7">
          </BreakpointContent>
@@ -1404,8 +1404,8 @@
             timestampString = "593923806.288"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "115"
-            endingLineNumber = "115"
+            startingLineNumber = "121"
+            endingLineNumber = "121"
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1438,8 +1438,8 @@
             timestampString = "593923806.2889169"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "168"
-            endingLineNumber = "168"
+            startingLineNumber = "173"
+            endingLineNumber = "173"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1455,8 +1455,8 @@
             timestampString = "593923806.2892179"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "169"
-            endingLineNumber = "169"
+            startingLineNumber = "174"
+            endingLineNumber = "174"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1472,8 +1472,8 @@
             timestampString = "593923806.289789"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1309"
-            endingLineNumber = "1309"
+            startingLineNumber = "1314"
+            endingLineNumber = "1314"
             landmarkName = "cleanRemoveFromSuperview(view)"
             landmarkType = "9">
          </BreakpointContent>
@@ -1489,8 +1489,8 @@
             timestampString = "593923806.290079"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "144"
-            endingLineNumber = "144"
+            startingLineNumber = "150"
+            endingLineNumber = "150"
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1509,23 +1509,6 @@
             startingLineNumber = "3693"
             endingLineNumber = "3693"
             landmarkName = "-collideWithLineF:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "2CEBE3E2-6DBE-4E65-BA0B-542AD88257D7"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FeedTheMouse/Classes/World.m"
-            timestampString = "593923806.2922879"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "99"
-            endingLineNumber = "99"
-            landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1557,8 +1540,8 @@
             timestampString = "593923806.293828"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1268"
-            endingLineNumber = "1268"
+            startingLineNumber = "1273"
+            endingLineNumber = "1273"
             landmarkName = "-gameLoop"
             landmarkType = "7">
          </BreakpointContent>
@@ -1574,8 +1557,8 @@
             timestampString = "593923806.294117"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1285"
-            endingLineNumber = "1285"
+            startingLineNumber = "1290"
+            endingLineNumber = "1290"
             landmarkName = "-gameLoop"
             landmarkType = "7">
          </BreakpointContent>
@@ -1591,8 +1574,8 @@
             timestampString = "593923806.294403"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1265"
-            endingLineNumber = "1265"
+            startingLineNumber = "1270"
+            endingLineNumber = "1270"
             landmarkName = "-gameLoop"
             landmarkType = "7">
          </BreakpointContent>
@@ -1608,8 +1591,8 @@
             timestampString = "593923806.294688"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1277"
-            endingLineNumber = "1277"
+            startingLineNumber = "1282"
+            endingLineNumber = "1282"
             landmarkName = "-gameLoop"
             landmarkType = "7">
          </BreakpointContent>
@@ -1642,8 +1625,8 @@
             timestampString = "593923806.294991"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "565"
-            endingLineNumber = "565"
+            startingLineNumber = "570"
+            endingLineNumber = "570"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1659,8 +1642,8 @@
             timestampString = "593923806.2953219"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "566"
-            endingLineNumber = "566"
+            startingLineNumber = "571"
+            endingLineNumber = "571"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1677,8 +1660,8 @@
             timestampString = "593923806.295624"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "560"
-            endingLineNumber = "560"
+            startingLineNumber = "565"
+            endingLineNumber = "565"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1694,8 +1677,8 @@
             timestampString = "593923806.295913"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "551"
-            endingLineNumber = "551"
+            startingLineNumber = "556"
+            endingLineNumber = "556"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1712,8 +1695,8 @@
             timestampString = "593923806.2962"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "556"
-            endingLineNumber = "556"
+            startingLineNumber = "561"
+            endingLineNumber = "561"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1729,8 +1712,8 @@
             timestampString = "593923806.2965291"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "568"
-            endingLineNumber = "568"
+            startingLineNumber = "573"
+            endingLineNumber = "573"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1797,8 +1780,8 @@
             timestampString = "593923806.301427"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "135"
-            endingLineNumber = "135"
+            startingLineNumber = "141"
+            endingLineNumber = "141"
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1814,8 +1797,8 @@
             timestampString = "593923806.3016911"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "132"
-            endingLineNumber = "132"
+            startingLineNumber = "138"
+            endingLineNumber = "138"
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1882,8 +1865,8 @@
             timestampString = "593923806.303951"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "806"
-            endingLineNumber = "806"
+            startingLineNumber = "811"
+            endingLineNumber = "811"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1899,8 +1882,8 @@
             timestampString = "593923806.3042639"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "825"
-            endingLineNumber = "825"
+            startingLineNumber = "830"
+            endingLineNumber = "830"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1916,8 +1899,8 @@
             timestampString = "593923806.304559"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "795"
-            endingLineNumber = "795"
+            startingLineNumber = "800"
+            endingLineNumber = "800"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1933,8 +1916,8 @@
             timestampString = "593923806.304852"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "797"
-            endingLineNumber = "797"
+            startingLineNumber = "802"
+            endingLineNumber = "802"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1984,8 +1967,8 @@
             timestampString = "593923806.3064719"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "818"
-            endingLineNumber = "818"
+            startingLineNumber = "823"
+            endingLineNumber = "823"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -2035,8 +2018,8 @@
             timestampString = "593923806.3081239"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "805"
-            endingLineNumber = "805"
+            startingLineNumber = "810"
+            endingLineNumber = "810"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -2052,8 +2035,8 @@
             timestampString = "593923806.308418"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "836"
-            endingLineNumber = "836"
+            startingLineNumber = "841"
+            endingLineNumber = "841"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -2069,8 +2052,8 @@
             timestampString = "593923806.308707"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "838"
-            endingLineNumber = "838"
+            startingLineNumber = "843"
+            endingLineNumber = "843"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -2137,8 +2120,8 @@
             timestampString = "593923806.310999"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1236"
-            endingLineNumber = "1236"
+            startingLineNumber = "1241"
+            endingLineNumber = "1241"
             landmarkName = "-gameLoop"
             landmarkType = "7">
          </BreakpointContent>
@@ -2307,8 +2290,8 @@
             timestampString = "593923806.323478"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1192"
-            endingLineNumber = "1192"
+            startingLineNumber = "1197"
+            endingLineNumber = "1197"
             landmarkName = "-gameLoop"
             landmarkType = "7">
          </BreakpointContent>
@@ -2562,8 +2545,8 @@
             timestampString = "593923806.347461"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "150"
-            endingLineNumber = "150"
+            startingLineNumber = "156"
+            endingLineNumber = "156"
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -2596,8 +2579,8 @@
             timestampString = "593923806.35574"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "189"
-            endingLineNumber = "189"
+            startingLineNumber = "196"
+            endingLineNumber = "196"
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -2613,8 +2596,8 @@
             timestampString = "593923806.356005"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "192"
-            endingLineNumber = "192"
+            startingLineNumber = "199"
+            endingLineNumber = "199"
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -2648,8 +2631,8 @@
             timestampString = "593923806.357563"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1272"
-            endingLineNumber = "1272"
+            startingLineNumber = "1277"
+            endingLineNumber = "1277"
             landmarkName = "-gameLoop"
             landmarkType = "7">
          </BreakpointContent>
@@ -2700,8 +2683,8 @@
             timestampString = "593923806.359531"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "449"
-            endingLineNumber = "449"
+            startingLineNumber = "454"
+            endingLineNumber = "454"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -2717,8 +2700,8 @@
             timestampString = "593923806.359816"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "508"
-            endingLineNumber = "508"
+            startingLineNumber = "513"
+            endingLineNumber = "513"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -2735,8 +2718,8 @@
             timestampString = "593923806.360106"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "507"
-            endingLineNumber = "507"
+            startingLineNumber = "512"
+            endingLineNumber = "512"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -2821,8 +2804,8 @@
             timestampString = "593923806.362734"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "461"
-            endingLineNumber = "461"
+            startingLineNumber = "466"
+            endingLineNumber = "466"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -2839,8 +2822,8 @@
             timestampString = "593923806.36304"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "462"
-            endingLineNumber = "462"
+            startingLineNumber = "467"
+            endingLineNumber = "467"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -2856,8 +2839,8 @@
             timestampString = "593923806.363344"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "475"
-            endingLineNumber = "475"
+            startingLineNumber = "480"
+            endingLineNumber = "480"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -2873,8 +2856,8 @@
             timestampString = "593923806.363627"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "477"
-            endingLineNumber = "477"
+            startingLineNumber = "482"
+            endingLineNumber = "482"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -2890,8 +2873,8 @@
             timestampString = "593923806.363907"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "60"
-            endingLineNumber = "60"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -2907,8 +2890,8 @@
             timestampString = "593923806.3641599"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "62"
-            endingLineNumber = "62"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -2924,8 +2907,8 @@
             timestampString = "593923806.364408"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "67"
-            endingLineNumber = "67"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -2941,8 +2924,8 @@
             timestampString = "593923806.364656"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "157"
-            endingLineNumber = "157"
+            startingLineNumber = "163"
+            endingLineNumber = "163"
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -2958,8 +2941,8 @@
             timestampString = "593923806.3649009"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "207"
-            endingLineNumber = "207"
+            startingLineNumber = "214"
+            endingLineNumber = "214"
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -2975,8 +2958,8 @@
             timestampString = "593923806.365154"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "277"
-            endingLineNumber = "277"
+            startingLineNumber = "284"
+            endingLineNumber = "284"
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -3009,8 +2992,8 @@
             timestampString = "593923806.368867"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "195"
-            endingLineNumber = "195"
+            startingLineNumber = "202"
+            endingLineNumber = "202"
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -3266,8 +3249,8 @@
             timestampString = "593923806.382578"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "198"
-            endingLineNumber = "198"
+            startingLineNumber = "205"
+            endingLineNumber = "205"
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -3591,8 +3574,8 @@
             timestampString = "593923806.402541"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "243"
-            endingLineNumber = "243"
+            startingLineNumber = "250"
+            endingLineNumber = "250"
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -3778,8 +3761,8 @@
             timestampString = "593923806.414606"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "248"
-            endingLineNumber = "248"
+            startingLineNumber = "255"
+            endingLineNumber = "255"
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -3914,8 +3897,8 @@
             timestampString = "593923806.42138"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1200"
-            endingLineNumber = "1200"
+            startingLineNumber = "1205"
+            endingLineNumber = "1205"
             landmarkName = "-gameLoop"
             landmarkType = "7">
          </BreakpointContent>
@@ -4135,8 +4118,8 @@
             timestampString = "593923806.434"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "237"
-            endingLineNumber = "237"
+            startingLineNumber = "244"
+            endingLineNumber = "244"
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -4152,8 +4135,8 @@
             timestampString = "593923806.435585"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "220"
-            endingLineNumber = "220"
+            startingLineNumber = "227"
+            endingLineNumber = "227"
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -4204,8 +4187,8 @@
             timestampString = "593923806.439782"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "140"
-            endingLineNumber = "140"
+            startingLineNumber = "146"
+            endingLineNumber = "146"
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -4221,8 +4204,8 @@
             timestampString = "593923806.440034"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "139"
-            endingLineNumber = "139"
+            startingLineNumber = "145"
+            endingLineNumber = "145"
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -4323,8 +4306,8 @@
             timestampString = "593923806.4435641"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1212"
-            endingLineNumber = "1212"
+            startingLineNumber = "1217"
+            endingLineNumber = "1217"
             landmarkName = "-gameLoop"
             landmarkType = "7">
          </BreakpointContent>
@@ -4357,8 +4340,8 @@
             timestampString = "593923806.445858"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "146"
-            endingLineNumber = "146"
+            startingLineNumber = "152"
+            endingLineNumber = "152"
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -4374,8 +4357,8 @@
             timestampString = "593923806.446121"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "154"
-            endingLineNumber = "154"
+            startingLineNumber = "160"
+            endingLineNumber = "160"
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -4391,8 +4374,8 @@
             timestampString = "593923806.446371"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "152"
-            endingLineNumber = "152"
+            startingLineNumber = "158"
+            endingLineNumber = "158"
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -4734,8 +4717,8 @@
             timestampString = "593923806.461809"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "111"
-            endingLineNumber = "111"
+            startingLineNumber = "117"
+            endingLineNumber = "117"
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -4836,8 +4819,8 @@
             timestampString = "593923806.467357"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "445"
-            endingLineNumber = "445"
+            startingLineNumber = "452"
+            endingLineNumber = "452"
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -4870,8 +4853,8 @@
             timestampString = "593923806.472791"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "171"
-            endingLineNumber = "171"
+            startingLineNumber = "176"
+            endingLineNumber = "176"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -4904,8 +4887,8 @@
             timestampString = "593923806.473737"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1127"
-            endingLineNumber = "1127"
+            startingLineNumber = "1132"
+            endingLineNumber = "1132"
             landmarkName = "-update_game"
             landmarkType = "7">
          </BreakpointContent>
@@ -4921,8 +4904,8 @@
             timestampString = "593923806.4740241"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "174"
-            endingLineNumber = "174"
+            startingLineNumber = "179"
+            endingLineNumber = "179"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -4955,8 +4938,8 @@
             timestampString = "593923806.476349"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "142"
-            endingLineNumber = "142"
+            startingLineNumber = "148"
+            endingLineNumber = "148"
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -5074,8 +5057,8 @@
             timestampString = "593923806.4818209"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "444"
-            endingLineNumber = "444"
+            startingLineNumber = "449"
+            endingLineNumber = "449"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -5091,8 +5074,8 @@
             timestampString = "593923806.482106"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "439"
-            endingLineNumber = "439"
+            startingLineNumber = "444"
+            endingLineNumber = "444"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -5108,8 +5091,8 @@
             timestampString = "593923806.482391"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "442"
-            endingLineNumber = "442"
+            startingLineNumber = "447"
+            endingLineNumber = "447"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -5125,8 +5108,8 @@
             timestampString = "593923806.482669"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "443"
-            endingLineNumber = "443"
+            startingLineNumber = "448"
+            endingLineNumber = "448"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -5244,8 +5227,8 @@
             timestampString = "593923806.488223"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "799"
-            endingLineNumber = "799"
+            startingLineNumber = "804"
+            endingLineNumber = "804"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -5295,8 +5278,8 @@
             timestampString = "593923806.490463"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "351"
-            endingLineNumber = "351"
+            startingLineNumber = "356"
+            endingLineNumber = "356"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -5448,8 +5431,8 @@
             timestampString = "593923806.5004359"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "525"
-            endingLineNumber = "525"
+            startingLineNumber = "530"
+            endingLineNumber = "530"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -5482,8 +5465,8 @@
             timestampString = "593923806.5022449"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "522"
-            endingLineNumber = "522"
+            startingLineNumber = "527"
+            endingLineNumber = "527"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -5499,8 +5482,8 @@
             timestampString = "593923806.5025491"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "563"
-            endingLineNumber = "563"
+            startingLineNumber = "568"
+            endingLineNumber = "568"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -5516,8 +5499,8 @@
             timestampString = "593923806.502834"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "564"
-            endingLineNumber = "564"
+            startingLineNumber = "569"
+            endingLineNumber = "569"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -5533,8 +5516,8 @@
             timestampString = "593923806.503119"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "562"
-            endingLineNumber = "562"
+            startingLineNumber = "567"
+            endingLineNumber = "567"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -5638,8 +5621,8 @@
             timestampString = "593923806.507574"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "516"
-            endingLineNumber = "516"
+            startingLineNumber = "521"
+            endingLineNumber = "521"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -5740,8 +5723,8 @@
             timestampString = "593923806.519089"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "193"
-            endingLineNumber = "193"
+            startingLineNumber = "200"
+            endingLineNumber = "200"
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -5757,8 +5740,8 @@
             timestampString = "593923806.519372"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "867"
-            endingLineNumber = "867"
+            startingLineNumber = "872"
+            endingLineNumber = "872"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -5774,8 +5757,8 @@
             timestampString = "593923806.520304"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "794"
-            endingLineNumber = "794"
+            startingLineNumber = "799"
+            endingLineNumber = "799"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -5791,8 +5774,8 @@
             timestampString = "593923806.520591"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "828"
-            endingLineNumber = "828"
+            startingLineNumber = "833"
+            endingLineNumber = "833"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -5808,8 +5791,8 @@
             timestampString = "593923806.520876"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "796"
-            endingLineNumber = "796"
+            startingLineNumber = "801"
+            endingLineNumber = "801"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -5825,8 +5808,8 @@
             timestampString = "593923806.521161"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "829"
-            endingLineNumber = "829"
+            startingLineNumber = "834"
+            endingLineNumber = "834"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -5842,8 +5825,8 @@
             timestampString = "593923806.521448"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "860"
-            endingLineNumber = "860"
+            startingLineNumber = "865"
+            endingLineNumber = "865"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -5859,8 +5842,8 @@
             timestampString = "593923806.521733"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "874"
-            endingLineNumber = "874"
+            startingLineNumber = "879"
+            endingLineNumber = "879"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -5944,8 +5927,8 @@
             timestampString = "593923806.5255131"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "224"
-            endingLineNumber = "224"
+            startingLineNumber = "231"
+            endingLineNumber = "231"
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -6030,8 +6013,8 @@
             timestampString = "593923806.530445"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "218"
-            endingLineNumber = "218"
+            startingLineNumber = "225"
+            endingLineNumber = "225"
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -6115,8 +6098,8 @@
             timestampString = "593923806.533042"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1082"
-            endingLineNumber = "1082"
+            startingLineNumber = "1087"
+            endingLineNumber = "1087"
             landmarkName = "-update_game"
             landmarkType = "7">
          </BreakpointContent>
@@ -6132,8 +6115,8 @@
             timestampString = "593923806.533361"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1095"
-            endingLineNumber = "1095"
+            startingLineNumber = "1100"
+            endingLineNumber = "1100"
             landmarkName = "-update_game"
             landmarkType = "7">
          </BreakpointContent>
@@ -6149,8 +6132,8 @@
             timestampString = "593923806.533653"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1064"
-            endingLineNumber = "1064"
+            startingLineNumber = "1069"
+            endingLineNumber = "1069"
             landmarkName = "-update_game"
             landmarkType = "7">
          </BreakpointContent>
@@ -6217,8 +6200,8 @@
             timestampString = "593923806.534514"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -6285,8 +6268,8 @@
             timestampString = "593923806.538414"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1157"
-            endingLineNumber = "1157"
+            startingLineNumber = "1162"
+            endingLineNumber = "1162"
             landmarkName = "-update_game"
             landmarkType = "7">
          </BreakpointContent>
@@ -6319,8 +6302,8 @@
             timestampString = "593923806.539338"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1156"
-            endingLineNumber = "1156"
+            startingLineNumber = "1161"
+            endingLineNumber = "1161"
             landmarkName = "-update_game"
             landmarkType = "7">
          </BreakpointContent>
@@ -6336,8 +6319,8 @@
             timestampString = "593923806.539619"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "187"
-            endingLineNumber = "187"
+            startingLineNumber = "194"
+            endingLineNumber = "194"
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -6353,8 +6336,8 @@
             timestampString = "593923806.5398721"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "214"
-            endingLineNumber = "214"
+            startingLineNumber = "221"
+            endingLineNumber = "221"
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -6381,15 +6364,14 @@
          <BreakpointContent
             uuid = "3A9DC5F5-B1E5-48E0-B973-41B6079A6147"
             shouldBeEnabled = "No"
-            condition = "topTeeterTotter-&gt;topLine-&gt;p2.x &lt; 0.01"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FeedTheMouse/Classes/World.m"
             timestampString = "593923806.540765"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "79"
-            endingLineNumber = "79"
+            startingLineNumber = "84"
+            endingLineNumber = "84"
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -6439,8 +6421,8 @@
             timestampString = "593923806.542984"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "107"
-            endingLineNumber = "107"
+            startingLineNumber = "113"
+            endingLineNumber = "113"
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -6592,8 +6574,8 @@
             timestampString = "593923806.555166"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "257"
-            endingLineNumber = "257"
+            startingLineNumber = "264"
+            endingLineNumber = "264"
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -6609,8 +6591,8 @@
             timestampString = "593923806.55542"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "265"
-            endingLineNumber = "265"
+            startingLineNumber = "272"
+            endingLineNumber = "272"
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -6626,8 +6608,8 @@
             timestampString = "593923806.555667"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "240"
-            endingLineNumber = "240"
+            startingLineNumber = "247"
+            endingLineNumber = "247"
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -6643,8 +6625,8 @@
             timestampString = "593923806.555912"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "228"
-            endingLineNumber = "228"
+            startingLineNumber = "235"
+            endingLineNumber = "235"
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -6742,8 +6724,8 @@
             filePath = "FeedTheMouse/Classes/World.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "354"
-            endingLineNumber = "354"
+            startingLineNumber = "361"
+            endingLineNumber = "361"
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -6758,8 +6740,8 @@
             filePath = "FeedTheMouse/Classes/World.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "353"
-            endingLineNumber = "353"
+            startingLineNumber = "360"
+            endingLineNumber = "360"
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -6768,70 +6750,6 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "559B21C5-6B8E-4138-BC95-E9209EC01064"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FeedTheMouse/Classes/World.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "355"
-            endingLineNumber = "355"
-            landmarkName = "-checkCollision:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "B4B5B349-936A-4C10-914A-C474D996F7C3"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FeedTheMouse/Classes/World.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "403"
-            endingLineNumber = "403"
-            landmarkName = "-checkCollision:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "A5CC7A5F-BCDD-4CD2-836B-B994FF9FA279"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FeedTheMouse/Classes/World.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "355"
-            endingLineNumber = "355"
-            landmarkName = "-checkCollision:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "9EC41C2A-FE4A-4CAC-A2D9-B434EF595B2A"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FeedTheMouse/Classes/World.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "363"
-            endingLineNumber = "363"
-            landmarkName = "-checkCollision:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "DC23CF23-6AB4-4170-BF0F-725DA8A78A8B"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -6847,6 +6765,70 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
+            uuid = "B4B5B349-936A-4C10-914A-C474D996F7C3"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FeedTheMouse/Classes/World.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "410"
+            endingLineNumber = "410"
+            landmarkName = "-checkCollision:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A5CC7A5F-BCDD-4CD2-836B-B994FF9FA279"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FeedTheMouse/Classes/World.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "362"
+            endingLineNumber = "362"
+            landmarkName = "-checkCollision:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9EC41C2A-FE4A-4CAC-A2D9-B434EF595B2A"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FeedTheMouse/Classes/World.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "370"
+            endingLineNumber = "370"
+            landmarkName = "-checkCollision:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DC23CF23-6AB4-4170-BF0F-725DA8A78A8B"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FeedTheMouse/Classes/World.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "369"
+            endingLineNumber = "369"
+            landmarkName = "-checkCollision:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
             uuid = "B1BBB278-F385-4E87-A1F0-2261CE36CEB4"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -6854,8 +6836,8 @@
             filePath = "FeedTheMouse/Classes/World.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "394"
-            endingLineNumber = "394"
+            startingLineNumber = "401"
+            endingLineNumber = "401"
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -7092,8 +7074,8 @@
             filePath = "FeedTheMouse/Classes/World.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "367"
-            endingLineNumber = "367"
+            startingLineNumber = "374"
+            endingLineNumber = "374"
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -7602,8 +7584,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "289"
-            endingLineNumber = "289"
+            startingLineNumber = "294"
+            endingLineNumber = "294"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -7618,8 +7600,8 @@
             filePath = "FeedTheMouse/Classes/World.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "65"
-            endingLineNumber = "65"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -8208,8 +8190,8 @@
             filePath = "FeedTheMouse/Classes/World.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "58"
-            endingLineNumber = "58"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -8224,8 +8206,8 @@
             filePath = "FeedTheMouse/Classes/World.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "51"
-            endingLineNumber = "51"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -8272,8 +8254,8 @@
             filePath = "FeedTheMouse/Classes/World.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "56"
-            endingLineNumber = "56"
+            startingLineNumber = "61"
+            endingLineNumber = "61"
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -8385,8 +8367,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1222"
-            endingLineNumber = "1222"
+            startingLineNumber = "1227"
+            endingLineNumber = "1227"
             landmarkName = "-gameLoop"
             landmarkType = "7">
          </BreakpointContent>
@@ -8401,8 +8383,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1211"
-            endingLineNumber = "1211"
+            startingLineNumber = "1216"
+            endingLineNumber = "1216"
             landmarkName = "-gameLoop"
             landmarkType = "7">
          </BreakpointContent>
@@ -8417,8 +8399,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1217"
-            endingLineNumber = "1217"
+            startingLineNumber = "1222"
+            endingLineNumber = "1222"
             landmarkName = "-gameLoop"
             landmarkType = "7">
          </BreakpointContent>
@@ -8433,8 +8415,8 @@
             filePath = "FeedTheMouse/Classes/World.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "294"
-            endingLineNumber = "294"
+            startingLineNumber = "301"
+            endingLineNumber = "301"
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -8443,38 +8425,6 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "D91A7E82-BDC8-464B-9D17-25B21DB273BC"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FeedTheMouse/Classes/World.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "291"
-            endingLineNumber = "291"
-            landmarkName = "-checkCollision:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "B49EB33D-E254-479E-BC50-C8A7B62A38F7"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FeedTheMouse/Classes/World.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "268"
-            endingLineNumber = "268"
-            landmarkName = "-checkCollision:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "4051F200-05A0-4956-B103-017477B38EB1"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -8490,6 +8440,38 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
+            uuid = "B49EB33D-E254-479E-BC50-C8A7B62A38F7"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FeedTheMouse/Classes/World.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "275"
+            endingLineNumber = "275"
+            landmarkName = "-checkCollision:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4051F200-05A0-4956-B103-017477B38EB1"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FeedTheMouse/Classes/World.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "305"
+            endingLineNumber = "305"
+            landmarkName = "-checkCollision:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
             uuid = "CAAC04DA-BC89-4BB5-B330-DF3F2BB06A69"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -8497,8 +8479,8 @@
             filePath = "FeedTheMouse/Classes/World.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "363"
-            endingLineNumber = "363"
+            startingLineNumber = "370"
+            endingLineNumber = "370"
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -8513,8 +8495,8 @@
             filePath = "FeedTheMouse/Classes/World.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "388"
-            endingLineNumber = "388"
+            startingLineNumber = "395"
+            endingLineNumber = "395"
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -8721,8 +8703,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "465"
-            endingLineNumber = "465"
+            startingLineNumber = "470"
+            endingLineNumber = "470"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -8993,8 +8975,8 @@
             filePath = "FeedTheMouse/Classes/World.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "236"
-            endingLineNumber = "236"
+            startingLineNumber = "243"
+            endingLineNumber = "243"
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -9009,8 +8991,8 @@
             filePath = "FeedTheMouse/Classes/World.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "296"
-            endingLineNumber = "296"
+            startingLineNumber = "303"
+            endingLineNumber = "303"
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -9025,8 +9007,8 @@
             filePath = "FeedTheMouse/Classes/World.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "267"
-            endingLineNumber = "267"
+            startingLineNumber = "274"
+            endingLineNumber = "274"
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -9041,8 +9023,8 @@
             filePath = "FeedTheMouse/Classes/World.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "343"
-            endingLineNumber = "343"
+            startingLineNumber = "350"
+            endingLineNumber = "350"
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -9089,8 +9071,8 @@
             filePath = "FeedTheMouse/Classes/World.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "229"
-            endingLineNumber = "229"
+            startingLineNumber = "236"
+            endingLineNumber = "236"
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -9137,8 +9119,8 @@
             filePath = "FeedTheMouse/Classes/World.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "270"
-            endingLineNumber = "270"
+            startingLineNumber = "277"
+            endingLineNumber = "277"
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -9283,8 +9265,8 @@
             filePath = "FeedTheMouse/Classes/World.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "305"
-            endingLineNumber = "305"
+            startingLineNumber = "312"
+            endingLineNumber = "312"
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -9316,8 +9298,8 @@
             filePath = "FeedTheMouse/Classes/World.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "244"
-            endingLineNumber = "244"
+            startingLineNumber = "251"
+            endingLineNumber = "251"
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -9364,8 +9346,8 @@
             filePath = "FeedTheMouse/Classes/World.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "238"
-            endingLineNumber = "238"
+            startingLineNumber = "245"
+            endingLineNumber = "245"
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -9492,8 +9474,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "905"
-            endingLineNumber = "905"
+            startingLineNumber = "910"
+            endingLineNumber = "910"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -9508,8 +9490,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "904"
-            endingLineNumber = "904"
+            startingLineNumber = "909"
+            endingLineNumber = "909"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -9524,8 +9506,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "934"
-            endingLineNumber = "934"
+            startingLineNumber = "939"
+            endingLineNumber = "939"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -9540,8 +9522,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "903"
-            endingLineNumber = "903"
+            startingLineNumber = "908"
+            endingLineNumber = "908"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -9556,8 +9538,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "919"
-            endingLineNumber = "919"
+            startingLineNumber = "924"
+            endingLineNumber = "924"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -9765,8 +9747,8 @@
             filePath = "FeedTheMouse/Classes/World.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "272"
-            endingLineNumber = "272"
+            startingLineNumber = "279"
+            endingLineNumber = "279"
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -10510,8 +10492,8 @@
             filePath = "FeedTheMouse/Classes/World.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "258"
-            endingLineNumber = "258"
+            startingLineNumber = "265"
+            endingLineNumber = "265"
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -10526,8 +10508,8 @@
             filePath = "FeedTheMouse/Classes/World.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "252"
-            endingLineNumber = "252"
+            startingLineNumber = "259"
+            endingLineNumber = "259"
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -11039,8 +11021,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "237"
-            endingLineNumber = "237"
+            startingLineNumber = "242"
+            endingLineNumber = "242"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -11055,8 +11037,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "478"
-            endingLineNumber = "478"
+            startingLineNumber = "483"
+            endingLineNumber = "483"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -11087,8 +11069,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "253"
-            endingLineNumber = "253"
+            startingLineNumber = "258"
+            endingLineNumber = "258"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -11151,8 +11133,8 @@
             filePath = "FeedTheMouse/Classes/World.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "230"
-            endingLineNumber = "230"
+            startingLineNumber = "237"
+            endingLineNumber = "237"
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -11167,8 +11149,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "769"
-            endingLineNumber = "769"
+            startingLineNumber = "774"
+            endingLineNumber = "774"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -11183,8 +11165,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "773"
-            endingLineNumber = "773"
+            startingLineNumber = "778"
+            endingLineNumber = "778"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -11215,8 +11197,8 @@
             filePath = "FeedTheMouse/Classes/World.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "39"
-            endingLineNumber = "39"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -11231,8 +11213,8 @@
             filePath = "FeedTheMouse/Classes/World.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "42"
-            endingLineNumber = "42"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -11263,8 +11245,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "698"
-            endingLineNumber = "698"
+            startingLineNumber = "703"
+            endingLineNumber = "703"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -11375,8 +11357,8 @@
             filePath = "FeedTheMouse/Classes/World.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "41"
-            endingLineNumber = "41"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -11423,8 +11405,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "685"
-            endingLineNumber = "685"
+            startingLineNumber = "690"
+            endingLineNumber = "690"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -11455,8 +11437,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "689"
-            endingLineNumber = "689"
+            startingLineNumber = "694"
+            endingLineNumber = "694"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -11520,8 +11502,8 @@
             filePath = "FeedTheMouse/Classes/World.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "194"
-            endingLineNumber = "194"
+            startingLineNumber = "201"
+            endingLineNumber = "201"
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -12082,8 +12064,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "945"
-            endingLineNumber = "945"
+            startingLineNumber = "950"
+            endingLineNumber = "950"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -12092,6 +12074,22 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "74FEABFA-6825-46BA-916A-6BB881D704CB"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FeedTheMouse/FeedTheMouseView.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "951"
+            endingLineNumber = "951"
+            landmarkName = "-drawRect:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D51E9026-43EE-466A-AE59-7E43FB73B9DE"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -12107,22 +12105,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "D51E9026-43EE-466A-AE59-7E43FB73B9DE"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FeedTheMouse/FeedTheMouseView.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "941"
-            endingLineNumber = "941"
-            landmarkName = "-drawRect:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "A8B11CE2-5C66-4854-9120-05E0D9D5291D"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -12130,8 +12112,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "943"
-            endingLineNumber = "943"
+            startingLineNumber = "948"
+            endingLineNumber = "948"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -12194,8 +12176,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1253"
-            endingLineNumber = "1253"
+            startingLineNumber = "1258"
+            endingLineNumber = "1258"
             landmarkName = "-gameLoop"
             landmarkType = "7">
          </BreakpointContent>
@@ -12226,8 +12208,8 @@
             filePath = "FeedTheMouse/Classes/World.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "284"
-            endingLineNumber = "284"
+            startingLineNumber = "291"
+            endingLineNumber = "291"
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -12242,8 +12224,8 @@
             filePath = "FeedTheMouse/Classes/World.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "301"
-            endingLineNumber = "301"
+            startingLineNumber = "308"
+            endingLineNumber = "308"
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -12258,8 +12240,8 @@
             filePath = "FeedTheMouse/Classes/World.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "309"
-            endingLineNumber = "309"
+            startingLineNumber = "316"
+            endingLineNumber = "316"
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -12274,8 +12256,8 @@
             filePath = "FeedTheMouse/Classes/World.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "310"
-            endingLineNumber = "310"
+            startingLineNumber = "317"
+            endingLineNumber = "317"
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -12290,8 +12272,8 @@
             filePath = "FeedTheMouse/Classes/World.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "313"
-            endingLineNumber = "313"
+            startingLineNumber = "320"
+            endingLineNumber = "320"
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -12306,8 +12288,8 @@
             filePath = "FeedTheMouse/Classes/World.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "289"
-            endingLineNumber = "289"
+            startingLineNumber = "296"
+            endingLineNumber = "296"
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -12434,8 +12416,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "274"
-            endingLineNumber = "274"
+            startingLineNumber = "279"
+            endingLineNumber = "279"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -12499,8 +12481,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "463"
-            endingLineNumber = "463"
+            startingLineNumber = "468"
+            endingLineNumber = "468"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -12515,8 +12497,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "468"
-            endingLineNumber = "468"
+            startingLineNumber = "473"
+            endingLineNumber = "473"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -12547,8 +12529,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "467"
-            endingLineNumber = "467"
+            startingLineNumber = "472"
+            endingLineNumber = "472"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -12563,8 +12545,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "267"
-            endingLineNumber = "267"
+            startingLineNumber = "272"
+            endingLineNumber = "272"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -12595,8 +12577,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1250"
-            endingLineNumber = "1250"
+            startingLineNumber = "1255"
+            endingLineNumber = "1255"
             landmarkName = "-gameLoop"
             landmarkType = "7">
          </BreakpointContent>
@@ -12611,8 +12593,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1252"
-            endingLineNumber = "1252"
+            startingLineNumber = "1257"
+            endingLineNumber = "1257"
             landmarkName = "-gameLoop"
             landmarkType = "7">
          </BreakpointContent>
@@ -12627,8 +12609,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "647"
-            endingLineNumber = "647"
+            startingLineNumber = "652"
+            endingLineNumber = "652"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -12643,8 +12625,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "648"
-            endingLineNumber = "648"
+            startingLineNumber = "653"
+            endingLineNumber = "653"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -12659,8 +12641,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "640"
-            endingLineNumber = "640"
+            startingLineNumber = "645"
+            endingLineNumber = "645"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -12675,8 +12657,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "659"
-            endingLineNumber = "659"
+            startingLineNumber = "664"
+            endingLineNumber = "664"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -12691,8 +12673,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "670"
-            endingLineNumber = "670"
+            startingLineNumber = "675"
+            endingLineNumber = "675"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -12707,8 +12689,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "641"
-            endingLineNumber = "641"
+            startingLineNumber = "646"
+            endingLineNumber = "646"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -12723,8 +12705,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "656"
-            endingLineNumber = "656"
+            startingLineNumber = "661"
+            endingLineNumber = "661"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -12739,8 +12721,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1257"
-            endingLineNumber = "1257"
+            startingLineNumber = "1262"
+            endingLineNumber = "1262"
             landmarkName = "-gameLoop"
             landmarkType = "7">
          </BreakpointContent>
@@ -12819,8 +12801,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "855"
-            endingLineNumber = "855"
+            startingLineNumber = "860"
+            endingLineNumber = "860"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -12835,8 +12817,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "854"
-            endingLineNumber = "854"
+            startingLineNumber = "859"
+            endingLineNumber = "859"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -12979,8 +12961,8 @@
             filePath = "FeedTheMouse/Classes/World.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "155"
-            endingLineNumber = "155"
+            startingLineNumber = "161"
+            endingLineNumber = "161"
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -12995,8 +12977,8 @@
             filePath = "FeedTheMouse/Classes/World.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "231"
-            endingLineNumber = "231"
+            startingLineNumber = "238"
+            endingLineNumber = "238"
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -13027,8 +13009,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "540"
-            endingLineNumber = "540"
+            startingLineNumber = "545"
+            endingLineNumber = "545"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -13059,8 +13041,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "460"
-            endingLineNumber = "460"
+            startingLineNumber = "465"
+            endingLineNumber = "465"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -13107,8 +13089,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "533"
-            endingLineNumber = "533"
+            startingLineNumber = "538"
+            endingLineNumber = "538"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -13235,8 +13217,8 @@
             filePath = "FeedTheMouse/Classes/World.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "234"
-            endingLineNumber = "234"
+            startingLineNumber = "241"
+            endingLineNumber = "241"
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -13267,8 +13249,8 @@
             filePath = "FeedTheMouse/Classes/World.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "275"
-            endingLineNumber = "275"
+            startingLineNumber = "282"
+            endingLineNumber = "282"
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -13283,8 +13265,8 @@
             filePath = "FeedTheMouse/Classes/World.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "281"
-            endingLineNumber = "281"
+            startingLineNumber = "288"
+            endingLineNumber = "288"
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -13299,8 +13281,8 @@
             filePath = "FeedTheMouse/Classes/World.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "282"
-            endingLineNumber = "282"
+            startingLineNumber = "289"
+            endingLineNumber = "289"
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -13315,8 +13297,8 @@
             filePath = "FeedTheMouse/Classes/World.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "299"
-            endingLineNumber = "299"
+            startingLineNumber = "306"
+            endingLineNumber = "306"
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -13331,8 +13313,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "532"
-            endingLineNumber = "532"
+            startingLineNumber = "537"
+            endingLineNumber = "537"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -13379,8 +13361,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "531"
-            endingLineNumber = "531"
+            startingLineNumber = "536"
+            endingLineNumber = "536"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -13459,8 +13441,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "524"
-            endingLineNumber = "524"
+            startingLineNumber = "529"
+            endingLineNumber = "529"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -13731,8 +13713,8 @@
             filePath = "FeedTheMouse/Classes/World.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "225"
-            endingLineNumber = "225"
+            startingLineNumber = "232"
+            endingLineNumber = "232"
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -13859,8 +13841,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1251"
-            endingLineNumber = "1251"
+            startingLineNumber = "1256"
+            endingLineNumber = "1256"
             landmarkName = "-gameLoop"
             landmarkType = "7">
          </BreakpointContent>
@@ -13875,8 +13857,8 @@
             filePath = "FeedTheMouse/Classes/World.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "59"
-            endingLineNumber = "59"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -13939,8 +13921,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "255"
-            endingLineNumber = "255"
+            startingLineNumber = "260"
+            endingLineNumber = "260"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -13955,8 +13937,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "252"
-            endingLineNumber = "252"
+            startingLineNumber = "257"
+            endingLineNumber = "257"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -14003,8 +13985,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "294"
-            endingLineNumber = "294"
+            startingLineNumber = "299"
+            endingLineNumber = "299"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -14163,8 +14145,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "681"
-            endingLineNumber = "681"
+            startingLineNumber = "686"
+            endingLineNumber = "686"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -14179,8 +14161,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "715"
-            endingLineNumber = "715"
+            startingLineNumber = "720"
+            endingLineNumber = "720"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -14195,8 +14177,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "712"
-            endingLineNumber = "712"
+            startingLineNumber = "717"
+            endingLineNumber = "717"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -14227,8 +14209,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1166"
-            endingLineNumber = "1166"
+            startingLineNumber = "1171"
+            endingLineNumber = "1171"
             landmarkName = "-update_game"
             landmarkType = "7">
          </BreakpointContent>
@@ -14243,8 +14225,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1436"
-            endingLineNumber = "1436"
+            startingLineNumber = "1441"
+            endingLineNumber = "1441"
             landmarkName = "-touchesEnded:withEvent:"
             landmarkType = "7">
          </BreakpointContent>
@@ -14275,8 +14257,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1169"
-            endingLineNumber = "1169"
+            startingLineNumber = "1174"
+            endingLineNumber = "1174"
             landmarkName = "-update_game"
             landmarkType = "7">
          </BreakpointContent>
@@ -14291,8 +14273,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1167"
-            endingLineNumber = "1167"
+            startingLineNumber = "1172"
+            endingLineNumber = "1172"
             landmarkName = "-update_game"
             landmarkType = "7">
          </BreakpointContent>
@@ -14501,8 +14483,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1185"
-            endingLineNumber = "1185"
+            startingLineNumber = "1190"
+            endingLineNumber = "1190"
             landmarkName = "-update_game"
             landmarkType = "7">
          </BreakpointContent>
@@ -14629,8 +14611,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "248"
-            endingLineNumber = "248"
+            startingLineNumber = "253"
+            endingLineNumber = "253"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -14645,8 +14627,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "245"
-            endingLineNumber = "245"
+            startingLineNumber = "250"
+            endingLineNumber = "250"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -14821,8 +14803,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "865"
-            endingLineNumber = "865"
+            startingLineNumber = "870"
+            endingLineNumber = "870"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -14837,8 +14819,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "204"
-            endingLineNumber = "204"
+            startingLineNumber = "209"
+            endingLineNumber = "209"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -14853,8 +14835,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1351"
-            endingLineNumber = "1351"
+            startingLineNumber = "1356"
+            endingLineNumber = "1356"
             landmarkName = "-touchesBegan:withEvent:"
             landmarkType = "7">
          </BreakpointContent>
@@ -14869,8 +14851,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "200"
-            endingLineNumber = "200"
+            startingLineNumber = "205"
+            endingLineNumber = "205"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -14885,8 +14867,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "346"
-            endingLineNumber = "346"
+            startingLineNumber = "351"
+            endingLineNumber = "351"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -14933,8 +14915,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "406"
-            endingLineNumber = "406"
+            startingLineNumber = "411"
+            endingLineNumber = "411"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -14949,8 +14931,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "401"
-            endingLineNumber = "401"
+            startingLineNumber = "406"
+            endingLineNumber = "406"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -14965,8 +14947,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "405"
-            endingLineNumber = "405"
+            startingLineNumber = "410"
+            endingLineNumber = "410"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -14997,8 +14979,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "402"
-            endingLineNumber = "402"
+            startingLineNumber = "407"
+            endingLineNumber = "407"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -15045,8 +15027,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "778"
-            endingLineNumber = "778"
+            startingLineNumber = "783"
+            endingLineNumber = "783"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -15190,8 +15172,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1334"
-            endingLineNumber = "1334"
+            startingLineNumber = "1339"
+            endingLineNumber = "1339"
             landmarkName = "-touchesBegan:withEvent:"
             landmarkType = "7">
          </BreakpointContent>
@@ -15206,8 +15188,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1349"
-            endingLineNumber = "1349"
+            startingLineNumber = "1354"
+            endingLineNumber = "1354"
             landmarkName = "-touchesBegan:withEvent:"
             landmarkType = "7">
          </BreakpointContent>
@@ -15222,8 +15204,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "163"
-            endingLineNumber = "163"
+            startingLineNumber = "168"
+            endingLineNumber = "168"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -15238,8 +15220,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1263"
-            endingLineNumber = "1263"
+            startingLineNumber = "1268"
+            endingLineNumber = "1268"
             landmarkName = "-gameLoop"
             landmarkType = "7">
          </BreakpointContent>
@@ -15254,8 +15236,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1262"
-            endingLineNumber = "1262"
+            startingLineNumber = "1267"
+            endingLineNumber = "1267"
             landmarkName = "-gameLoop"
             landmarkType = "7">
          </BreakpointContent>
@@ -15414,8 +15396,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "249"
-            endingLineNumber = "249"
+            startingLineNumber = "254"
+            endingLineNumber = "254"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -15430,8 +15412,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "257"
-            endingLineNumber = "257"
+            startingLineNumber = "262"
+            endingLineNumber = "262"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -15446,8 +15428,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "269"
-            endingLineNumber = "269"
+            startingLineNumber = "274"
+            endingLineNumber = "274"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -15478,8 +15460,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1131"
-            endingLineNumber = "1131"
+            startingLineNumber = "1136"
+            endingLineNumber = "1136"
             landmarkName = "-update_game"
             landmarkType = "7">
          </BreakpointContent>
@@ -15622,8 +15604,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "205"
-            endingLineNumber = "205"
+            startingLineNumber = "210"
+            endingLineNumber = "210"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -15638,8 +15620,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "195"
-            endingLineNumber = "195"
+            startingLineNumber = "200"
+            endingLineNumber = "200"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -15831,8 +15813,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "466"
-            endingLineNumber = "466"
+            startingLineNumber = "471"
+            endingLineNumber = "471"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -15847,8 +15829,8 @@
             filePath = "FeedTheMouse/Classes/World.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "442"
-            endingLineNumber = "442"
+            startingLineNumber = "449"
+            endingLineNumber = "449"
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -15863,8 +15845,8 @@
             filePath = "FeedTheMouse/Classes/World.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "439"
-            endingLineNumber = "439"
+            startingLineNumber = "446"
+            endingLineNumber = "446"
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -15895,8 +15877,8 @@
             filePath = "FeedTheMouse/Classes/World.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "260"
-            endingLineNumber = "260"
+            startingLineNumber = "267"
+            endingLineNumber = "267"
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -16040,8 +16022,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "239"
-            endingLineNumber = "239"
+            startingLineNumber = "244"
+            endingLineNumber = "244"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -16056,8 +16038,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "332"
-            endingLineNumber = "332"
+            startingLineNumber = "337"
+            endingLineNumber = "337"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -16184,8 +16166,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "146"
-            endingLineNumber = "146"
+            startingLineNumber = "151"
+            endingLineNumber = "151"
             landmarkName = "-initWithCoder:"
             landmarkType = "7">
          </BreakpointContent>
@@ -16216,8 +16198,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "335"
-            endingLineNumber = "335"
+            startingLineNumber = "340"
+            endingLineNumber = "340"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -16232,8 +16214,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "340"
-            endingLineNumber = "340"
+            startingLineNumber = "345"
+            endingLineNumber = "345"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -16344,8 +16326,8 @@
             filePath = "FeedTheMouse/Classes/World.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "173"
-            endingLineNumber = "173"
+            startingLineNumber = "179"
+            endingLineNumber = "179"
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -16360,8 +16342,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "357"
-            endingLineNumber = "357"
+            startingLineNumber = "362"
+            endingLineNumber = "362"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -16761,8 +16743,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1386"
-            endingLineNumber = "1386"
+            startingLineNumber = "1391"
+            endingLineNumber = "1391"
             landmarkName = "-touchesBegan:withEvent:"
             landmarkType = "7">
          </BreakpointContent>
@@ -16777,8 +16759,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1337"
-            endingLineNumber = "1337"
+            startingLineNumber = "1342"
+            endingLineNumber = "1342"
             landmarkName = "-touchesBegan:withEvent:"
             landmarkType = "7">
          </BreakpointContent>
@@ -16793,8 +16775,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "872"
-            endingLineNumber = "872"
+            startingLineNumber = "877"
+            endingLineNumber = "877"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -16809,8 +16791,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "893"
-            endingLineNumber = "893"
+            startingLineNumber = "898"
+            endingLineNumber = "898"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -16825,8 +16807,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "911"
-            endingLineNumber = "911"
+            startingLineNumber = "916"
+            endingLineNumber = "916"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -16841,8 +16823,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "932"
-            endingLineNumber = "932"
+            startingLineNumber = "937"
+            endingLineNumber = "937"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -16857,8 +16839,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "567"
-            endingLineNumber = "567"
+            startingLineNumber = "572"
+            endingLineNumber = "572"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -16873,8 +16855,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "655"
-            endingLineNumber = "655"
+            startingLineNumber = "660"
+            endingLineNumber = "660"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -16889,8 +16871,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "673"
-            endingLineNumber = "673"
+            startingLineNumber = "678"
+            endingLineNumber = "678"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -16905,8 +16887,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "714"
-            endingLineNumber = "714"
+            startingLineNumber = "719"
+            endingLineNumber = "719"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -16921,8 +16903,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "729"
-            endingLineNumber = "729"
+            startingLineNumber = "734"
+            endingLineNumber = "734"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -16937,8 +16919,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "732"
-            endingLineNumber = "732"
+            startingLineNumber = "737"
+            endingLineNumber = "737"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -16953,8 +16935,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "787"
-            endingLineNumber = "787"
+            startingLineNumber = "792"
+            endingLineNumber = "792"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -16969,8 +16951,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "786"
-            endingLineNumber = "786"
+            startingLineNumber = "791"
+            endingLineNumber = "791"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -17033,8 +17015,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1271"
-            endingLineNumber = "1271"
+            startingLineNumber = "1276"
+            endingLineNumber = "1276"
             landmarkName = "-gameLoop"
             landmarkType = "7">
          </BreakpointContent>
@@ -17049,8 +17031,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "309"
-            endingLineNumber = "309"
+            startingLineNumber = "314"
+            endingLineNumber = "314"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -17065,8 +17047,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "447"
-            endingLineNumber = "447"
+            startingLineNumber = "452"
+            endingLineNumber = "452"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -17075,6 +17057,38 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "73A4BAF4-31CA-4E8D-B23F-5B8F2E6386A3"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FeedTheMouse/FeedTheMouseView.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "533"
+            endingLineNumber = "533"
+            landmarkName = "-drawRect:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "08C4C882-2A3C-41CB-974A-DD50E537D672"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FeedTheMouse/FeedTheMouseView.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "525"
+            endingLineNumber = "525"
+            landmarkName = "-drawRect:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E6B3F498-DED4-4C2B-A482-996DC3C4A7E8"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -17090,23 +17104,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "08C4C882-2A3C-41CB-974A-DD50E537D672"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FeedTheMouse/FeedTheMouseView.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "520"
-            endingLineNumber = "520"
-            landmarkName = "-drawRect:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "E6B3F498-DED4-4C2B-A482-996DC3C4A7E8"
+            uuid = "52FBCE9C-FDA8-4FFD-A99E-A41665E6AE0F"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -17122,22 +17120,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "52FBCE9C-FDA8-4FFD-A99E-A41665E6AE0F"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FeedTheMouse/FeedTheMouseView.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "518"
-            endingLineNumber = "518"
-            landmarkName = "-drawRect:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "95AF765B-B5AF-4BB4-9E52-580063E73D07"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -17145,8 +17127,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "677"
-            endingLineNumber = "677"
+            startingLineNumber = "682"
+            endingLineNumber = "682"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -17161,8 +17143,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "736"
-            endingLineNumber = "736"
+            startingLineNumber = "741"
+            endingLineNumber = "741"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -17177,8 +17159,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "791"
-            endingLineNumber = "791"
+            startingLineNumber = "796"
+            endingLineNumber = "796"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -17193,8 +17175,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "842"
-            endingLineNumber = "842"
+            startingLineNumber = "847"
+            endingLineNumber = "847"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -17209,8 +17191,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "888"
-            endingLineNumber = "888"
+            startingLineNumber = "893"
+            endingLineNumber = "893"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -17225,8 +17207,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "921"
-            endingLineNumber = "921"
+            startingLineNumber = "926"
+            endingLineNumber = "926"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -17241,8 +17223,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "924"
-            endingLineNumber = "924"
+            startingLineNumber = "929"
+            endingLineNumber = "929"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -17257,8 +17239,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "678"
-            endingLineNumber = "678"
+            startingLineNumber = "683"
+            endingLineNumber = "683"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -17273,8 +17255,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "633"
-            endingLineNumber = "633"
+            startingLineNumber = "638"
+            endingLineNumber = "638"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -17417,8 +17399,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "450"
-            endingLineNumber = "450"
+            startingLineNumber = "455"
+            endingLineNumber = "455"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -17705,8 +17687,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "232"
-            endingLineNumber = "232"
+            startingLineNumber = "237"
+            endingLineNumber = "237"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -17785,8 +17767,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1038"
-            endingLineNumber = "1038"
+            startingLineNumber = "1043"
+            endingLineNumber = "1043"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -17817,8 +17799,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1042"
-            endingLineNumber = "1042"
+            startingLineNumber = "1047"
+            endingLineNumber = "1047"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -17913,8 +17895,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1039"
-            endingLineNumber = "1039"
+            startingLineNumber = "1044"
+            endingLineNumber = "1044"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -17929,8 +17911,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "957"
-            endingLineNumber = "957"
+            startingLineNumber = "962"
+            endingLineNumber = "962"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -17945,8 +17927,8 @@
             filePath = "FeedTheMouse/Classes/World.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "95"
-            endingLineNumber = "95"
+            startingLineNumber = "100"
+            endingLineNumber = "100"
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -17961,8 +17943,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1022"
-            endingLineNumber = "1022"
+            startingLineNumber = "1027"
+            endingLineNumber = "1027"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -17977,8 +17959,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1023"
-            endingLineNumber = "1023"
+            startingLineNumber = "1028"
+            endingLineNumber = "1028"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -17993,8 +17975,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1180"
-            endingLineNumber = "1180"
+            startingLineNumber = "1185"
+            endingLineNumber = "1185"
             landmarkName = "-update_game"
             landmarkType = "7">
          </BreakpointContent>
@@ -18009,8 +17991,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1181"
-            endingLineNumber = "1181"
+            startingLineNumber = "1186"
+            endingLineNumber = "1186"
             landmarkName = "-update_game"
             landmarkType = "7">
          </BreakpointContent>
@@ -18041,8 +18023,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1284"
-            endingLineNumber = "1284"
+            startingLineNumber = "1289"
+            endingLineNumber = "1289"
             landmarkName = "-gameLoop"
             landmarkType = "7">
          </BreakpointContent>
@@ -18057,8 +18039,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1283"
-            endingLineNumber = "1283"
+            startingLineNumber = "1288"
+            endingLineNumber = "1288"
             landmarkName = "-gameLoop"
             landmarkType = "7">
          </BreakpointContent>
@@ -18137,8 +18119,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1276"
-            endingLineNumber = "1276"
+            startingLineNumber = "1281"
+            endingLineNumber = "1281"
             landmarkName = "-gameLoop"
             landmarkType = "7">
          </BreakpointContent>
@@ -18153,8 +18135,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1274"
-            endingLineNumber = "1274"
+            startingLineNumber = "1279"
+            endingLineNumber = "1279"
             landmarkName = "-gameLoop"
             landmarkType = "7">
          </BreakpointContent>
@@ -18169,8 +18151,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1281"
-            endingLineNumber = "1281"
+            startingLineNumber = "1286"
+            endingLineNumber = "1286"
             landmarkName = "-gameLoop"
             landmarkType = "7">
          </BreakpointContent>
@@ -18185,8 +18167,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "959"
-            endingLineNumber = "959"
+            startingLineNumber = "964"
+            endingLineNumber = "964"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -18201,8 +18183,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "975"
-            endingLineNumber = "975"
+            startingLineNumber = "980"
+            endingLineNumber = "980"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -18217,8 +18199,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "974"
-            endingLineNumber = "974"
+            startingLineNumber = "979"
+            endingLineNumber = "979"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -18249,8 +18231,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "990"
-            endingLineNumber = "990"
+            startingLineNumber = "995"
+            endingLineNumber = "995"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -18259,54 +18241,6 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "E2D83E52-6AE6-4DFE-B22D-7E46633CBA20"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FeedTheMouse/FeedTheMouseView.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "983"
-            endingLineNumber = "983"
-            landmarkName = "-drawRect:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "E76FCF89-E14D-45E0-9CEE-A5CBF671DDD7"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FeedTheMouse/FeedTheMouseView.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "981"
-            endingLineNumber = "981"
-            landmarkName = "-drawRect:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "FD63CB58-CAFA-48F1-B175-2EC26FCE6FAC"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FeedTheMouse/FeedTheMouseView.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "987"
-            endingLineNumber = "987"
-            landmarkName = "-drawRect:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "7CCC3A14-2963-4D3B-93D5-83B496F91C1D"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -18322,6 +18256,54 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
+            uuid = "E76FCF89-E14D-45E0-9CEE-A5CBF671DDD7"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FeedTheMouse/FeedTheMouseView.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "986"
+            endingLineNumber = "986"
+            landmarkName = "-drawRect:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FD63CB58-CAFA-48F1-B175-2EC26FCE6FAC"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FeedTheMouse/FeedTheMouseView.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "992"
+            endingLineNumber = "992"
+            landmarkName = "-drawRect:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7CCC3A14-2963-4D3B-93D5-83B496F91C1D"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FeedTheMouse/FeedTheMouseView.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "993"
+            endingLineNumber = "993"
+            landmarkName = "-drawRect:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
             uuid = "23802510-B4F8-4000-A0B4-1437917DEE9D"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -18329,8 +18311,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1014"
-            endingLineNumber = "1014"
+            startingLineNumber = "1019"
+            endingLineNumber = "1019"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -18345,8 +18327,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1017"
-            endingLineNumber = "1017"
+            startingLineNumber = "1022"
+            endingLineNumber = "1022"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -18425,8 +18407,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1016"
-            endingLineNumber = "1016"
+            startingLineNumber = "1021"
+            endingLineNumber = "1021"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -18505,8 +18487,8 @@
             filePath = "FeedTheMouse/Classes/World.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "262"
-            endingLineNumber = "262"
+            startingLineNumber = "269"
+            endingLineNumber = "269"
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -18537,8 +18519,8 @@
             filePath = "FeedTheMouse/Classes/World.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "434"
-            endingLineNumber = "434"
+            startingLineNumber = "441"
+            endingLineNumber = "441"
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -18841,8 +18823,8 @@
             filePath = "FeedTheMouse/Classes/World.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "401"
-            endingLineNumber = "401"
+            startingLineNumber = "408"
+            endingLineNumber = "408"
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -18851,6 +18833,22 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "DF5DF9BC-362C-4E2D-9FE1-87E2A21B62D0"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FeedTheMouse/Classes/World.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "414"
+            endingLineNumber = "414"
+            landmarkName = "-checkCollision:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EBC2524C-E50D-4929-8709-A9546E3B9BD3"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -18866,22 +18864,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "EBC2524C-E50D-4929-8709-A9546E3B9BD3"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FeedTheMouse/Classes/World.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "400"
-            endingLineNumber = "400"
-            landmarkName = "-checkCollision:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "8655558A-C02F-478C-BDE9-3C0B3CB4D675"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -18889,8 +18871,8 @@
             filePath = "FeedTheMouse/Classes/World.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "406"
-            endingLineNumber = "406"
+            startingLineNumber = "413"
+            endingLineNumber = "413"
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -18921,8 +18903,8 @@
             filePath = "FeedTheMouse/Classes/World.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "411"
-            endingLineNumber = "411"
+            startingLineNumber = "418"
+            endingLineNumber = "418"
             landmarkName = "-checkCollision:"
             landmarkType = "7">
          </BreakpointContent>
@@ -18969,8 +18951,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "305"
-            endingLineNumber = "305"
+            startingLineNumber = "310"
+            endingLineNumber = "310"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -18985,8 +18967,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "162"
-            endingLineNumber = "162"
+            startingLineNumber = "167"
+            endingLineNumber = "167"
             landmarkName = "-drawRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -19036,6 +19018,38 @@
             startingLineNumber = "111"
             endingLineNumber = "111"
             landmarkName = "-draw:at:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "83191E29-3E84-4FA7-A0CC-F322DE90767F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FeedTheMouse/Classes/World.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "104"
+            endingLineNumber = "104"
+            landmarkName = "-checkCollision:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "96BC67E6-865D-404E-BC56-B1C21F5F51F3"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FeedTheMouse/Classes/World.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "-init"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

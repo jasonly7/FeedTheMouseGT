@@ -18,6 +18,9 @@
      IBOutlet UIImageView *splashImageView;
      NSTimer *timer, *splashTimer;
      int count;
+    NSString *pathForMusicFile;
+    NSURL *musicFile;
+    AVAudioPlayer *musicPlayer;
 
 }
 @property (nonatomic, retain) IBOutlet UIButton *playButton;

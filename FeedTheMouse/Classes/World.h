@@ -11,6 +11,7 @@
 #import "Level.h"
 #import "Cheese.h"
 #import "Wall.h"
+#import "SoundManager.h"
 
 @class Cheese;
 
@@ -25,6 +26,9 @@
     CGFloat screenScale;
     float screenWidth, screenHeight;
     int score;
+    SoundManager *sndMan;
+    NSString *pathForCoinSoundFile;
+    
 }
 
 - (void)checkCollision :( CollisionPacket **) colPackage;

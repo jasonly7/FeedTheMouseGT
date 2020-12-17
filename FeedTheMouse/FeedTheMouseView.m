@@ -140,8 +140,13 @@
         backgroundSprite = [Picture fromFile:backgroundFilename];
         TitleViewController *titleViewController = (TitleViewController*)[UIApplication sharedApplication].keyWindow.rootViewController;
         titleViewController.playerNameTextField.hidden = true;
-      //  FeedTheMouseViewController *feedTheMouseViewController = (FeedThe)
-        //playerName = self.sup
+        pathForMusicFile = [[NSBundle mainBundle] pathForResource:@"sounds/level_1_2_edited" ofType:@"wav"];
+        musicFile = [[NSURL alloc] initFileURLWithPath:pathForMusicFile];
+        musicPlayer = [AVAudioPlayer alloc];
+        [musicPlayer initWithContentsOfURL:musicFile error:NULL];
+        musicPlayer.numberOfLoops = -1;
+        [musicPlayer prepareToPlay];
+        [musicPlayer play];
     }
     return self;
 }
@@ -1274,7 +1279,7 @@
             NSString *playerName = titleViewController.playerNameTextField.text;
             //UIViewController *titleViewController = [[TitleViewController alloc] initWithNibName:@"TitleViewController" bundle:[NSBundle mainBundle]];
             UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
-            
+            [musicPlayer stop];
             UIViewController *viewController = [sb instantiateViewControllerWithIdentifier:@"FinishGameViewController"];
             FinishGameViewController *finishController = (FinishGameViewController*) viewController;
             finishController->playerName = playerName;
