@@ -58,6 +58,7 @@
 		86C8923D254E2E4000FB1919 /* big_background_4.png in Resources */ = {isa = PBXBuildFile; fileRef = 86C89239254E2E4000FB1919 /* big_background_4.png */; };
 		86D600862507ECF600DD9E93 /* SplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D600852507ECF600DD9E93 /* SplashViewController.m */; };
 		86D712312507195E00D643A6 /* cortex_intro.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 86D712302507195E00D643A6 /* cortex_intro.jpg */; };
+		86D7FBA4258C03F3006C2432 /* back_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 86D7FBA3258C03F3006C2432 /* back_button.png */; };
 		86D98728253FA8C000B05A78 /* teeter_totter_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 86D98727253FA8C000B05A78 /* teeter_totter_blue.png */; };
 		86E074AD1E4412B400E92CB9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 86E074AC1E4412B400E92CB9 /* main.m */; };
 		86E074B01E4412B400E92CB9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 86E074AF1E4412B400E92CB9 /* AppDelegate.m */; };
@@ -236,6 +237,7 @@
 		86D600842507ECF600DD9E93 /* SplashViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SplashViewController.h; sourceTree = "<group>"; };
 		86D600852507ECF600DD9E93 /* SplashViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SplashViewController.m; sourceTree = "<group>"; };
 		86D712302507195E00D643A6 /* cortex_intro.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = cortex_intro.jpg; path = Images/cortex_intro.jpg; sourceTree = "<group>"; };
+		86D7FBA3258C03F3006C2432 /* back_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = back_button.png; path = Images/back_button.png; sourceTree = "<group>"; };
 		86D98727253FA8C000B05A78 /* teeter_totter_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = teeter_totter_blue.png; path = Images/Triggers/TeeterTotters/teeter_totter_blue.png; sourceTree = "<group>"; };
 		86E074A81E4412B400E92CB9 /* FeedTheMouse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FeedTheMouse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86E074AC1E4412B400E92CB9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -562,6 +564,7 @@
 		86E075371E44250400E92CB9 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				86D7FBA3258C03F3006C2432 /* back_button.png */,
 				864B3F6D2558EF9F0028CBF3 /* score.png */,
 				864B3F682558EE630028CBF3 /* score.jpg */,
 				86E6582F2508593100BA1889 /* button_down.png */,
@@ -876,6 +879,7 @@
 				864B619024FAF71700F616BD /* bigCoin.png in Resources */,
 				86E0754D1E44254000E92CB9 /* MouseWait.png in Resources */,
 				86E0754E1E44254000E92CB9 /* MouseWaitOpen.png in Resources */,
+				86D7FBA4258C03F3006C2432 /* back_button.png in Resources */,
 				86C497A22501CDF50006519F /* bigMouseChew.png in Resources */,
 				86E074B81E4412B400E92CB9 /* Assets.xcassets in Resources */,
 				86E0758E1E44280500E92CB9 /* flipper_blue_grey.png in Resources */,

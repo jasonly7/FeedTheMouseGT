@@ -278,6 +278,17 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XAU-ZF-pbS">
+                                <rect key="frame" x="0.0" y="0.0" width="35" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" button="YES" image="YES"/>
+                                </accessibility>
+                                <state key="normal" title="Button" image="back_button.png"/>
+                                <connections>
+                                    <action selector="backButtonClicked:" destination="9MV-8K-5xz" eventType="touchUpInside" id="off-Q8-VST"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -390,6 +401,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="back_button.png" width="86" height="86"/>
         <image name="cortex_intro.jpg" width="1242" height="2688"/>
         <image name="intro.jpg" width="1242" height="2688"/>
         <image name="score.jpg" width="921.89691162109375" height="1995.216552734375"/>

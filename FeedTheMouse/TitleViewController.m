@@ -51,7 +51,8 @@
     FeedTheMouseViewController *feedController = (FeedTheMouseViewController*) feedTheMouseViewController;
     //FeedTheMouseViewController *feedController = [[FeedTheMouseViewController alloc] initWithNibName:@"FeedTheMouse" bundle:[NSBundle mainBundle]];
     [feedController setPlayerName:_playerNameTextField.text];
-    [musicPlayer stop];
+    [musicTitlePlayer stop];
+    
     [self.view addSubview:feedTheMouseViewController.view];
     //[self.view addSubview:feedController.view];
 }
@@ -104,7 +105,8 @@
     }
     else
     {
-        [musicPlayer play];
+        if (![musicTitlePlayer isPlaying])
+            [musicTitlePlayer play];
         [timer invalidate];
         timer = nil;
     }
@@ -129,10 +131,10 @@
     [_playerNameTextField setBackgroundColor:[UIColor whiteColor]];
     pathForMusicFile = [[NSBundle mainBundle] pathForResource:@"sounds/menu_edited" ofType:@"wav"];
     musicFile = [[NSURL alloc] initFileURLWithPath:pathForMusicFile];
-    musicPlayer = [AVAudioPlayer alloc];
-    [musicPlayer initWithContentsOfURL:musicFile error:NULL];
-    musicPlayer.numberOfLoops = -1;
-    [musicPlayer prepareToPlay];
+    musicTitlePlayer = [AVAudioPlayer alloc];
+    [musicTitlePlayer initWithContentsOfURL:musicFile error:NULL];
+    musicTitlePlayer.numberOfLoops = -1;
+    [musicTitlePlayer prepareToPlay];
     
 }
 
@@ -144,6 +146,7 @@
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     NSLog(@"Play Clicked");
+   
    /* float x =  self.view.center.x - _playButton.frame.size.width/2;
     float y = self.view.center.y;
     CGRect playRect = CGRectMake(0, y, _playButton.frame.size.width, _playButton.frame.size.height);

@@ -140,6 +140,7 @@
         backgroundSprite = [Picture fromFile:backgroundFilename];
         TitleViewController *titleViewController = (TitleViewController*)[UIApplication sharedApplication].keyWindow.rootViewController;
         titleViewController.playerNameTextField.hidden = true;
+        //[titleViewController->musicTitlePlayer stop];
         pathForMusicFile = [[NSBundle mainBundle] pathForResource:@"sounds/level_1_2_edited" ofType:@"wav"];
         musicFile = [[NSURL alloc] initFileURLWithPath:pathForMusicFile];
         musicPlayer = [AVAudioPlayer alloc];
@@ -1286,11 +1287,14 @@
             finishController->score = cheese->world->score;
             NSString *strScore = [[NSString alloc] initWithFormat:@"Score: %d",finishController->scores[0]];
             //[finishController->score1Label setText:strScore];
-           [super addSubview:finishController.view];
+            [titleViewController.view addSubview:finishController.view];
+            titleViewController.playerNameTextField.hidden = false;
+            [titleViewController->musicTitlePlayer play];
+           //[super addSubview:finishController.view];
             [timer invalidate];
             timer = nil;
            //[self willMoveToSuperview:titleViewController.view];
-         //  [self removeFromSuperview];
+           [self removeFromSuperview];
         }
     }
 }

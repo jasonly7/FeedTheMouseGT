@@ -16,7 +16,8 @@
  //   IBOutlet UITextField *nameField;
     
  @public
-   
+
+    
     IBOutlet UILabel *scoreLabel;
     int scores[15];
     NSString *names[15];
@@ -56,7 +57,9 @@
 @property (nonatomic, retain) IBOutlet UILabel *player14Label;
 @property (nonatomic, retain) IBOutlet UILabel *score15Label;
 @property (nonatomic, retain) IBOutlet UILabel *player15Label;
+- (IBAction)backButtonClicked:(id)sender;
 
 - (void)initializeScores;
 - (void)updateScoresWithNew:(int)score andNew:(NSString *)name;
+- (void) returnToTitle;
 @end

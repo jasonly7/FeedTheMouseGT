@@ -26,7 +26,14 @@
 
     TitleViewController *titleViewController = (TitleViewController*)[UIApplication sharedApplication].keyWindow.rootViewController;
     titleViewController.playerNameTextField.hidden = true;
+    
+}
 
+- (IBAction)backButtonClicked:(id)sender
+{
+    //FeedTheMouseViewController *feedTheMouseViewController = (FeedTheMouseViewController*)self.parentViewController;
+    //[feedTheMouseViewController removeFromParentViewController];
+    [self removeFromParentViewController];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -420,6 +427,7 @@
 - (void)dealloc {
     [scoreLabel release];
     [_titleLabel release];
+  
     [super dealloc];
 }
 @end
