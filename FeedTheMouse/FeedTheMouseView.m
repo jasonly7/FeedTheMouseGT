@@ -141,7 +141,7 @@
         TitleViewController *titleViewController = (TitleViewController*)[UIApplication sharedApplication].keyWindow.rootViewController;
         titleViewController.playerNameTextField.hidden = true;
         //[titleViewController->musicTitlePlayer stop];
-        pathForMusicFile = [[NSBundle mainBundle] pathForResource:@"sounds/level_1_2_edited" ofType:@"wav"];
+        pathForMusicFile = [[NSBundle mainBundle] pathForResource:@"sounds/ADVENTURE_By_Benjamin_Tissot" ofType:@"mp3"];
         musicFile = [[NSURL alloc] initFileURLWithPath:pathForMusicFile];
         musicPlayer = [AVAudioPlayer alloc];
         [musicPlayer initWithContentsOfURL:musicFile error:NULL];
@@ -1289,7 +1289,7 @@
             //[finishController->score1Label setText:strScore];
             [titleViewController.view addSubview:finishController.view];
             titleViewController.playerNameTextField.hidden = false;
-            [titleViewController->musicTitlePlayer play];
+           // [titleViewController->musicTitlePlayer play];
            //[super addSubview:finishController.view];
             [timer invalidate];
             timer = nil;

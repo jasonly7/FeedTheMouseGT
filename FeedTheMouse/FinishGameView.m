@@ -17,17 +17,31 @@
     // Drawing code
 }
 */
-
+- (id) initWithCoder:(NSCoder *)coder
+{
+    if (self = [super initWithCoder: coder]) {
+        pathForMusicFile = [[NSBundle mainBundle] pathForResource:@"sounds/TENDERNESS_By_Benjamin_Tissot" ofType:@"mp3"];
+        musicFile = [[NSURL alloc] initFileURLWithPath:pathForMusicFile];
+        musicPlayer = [AVAudioPlayer alloc];
+        [musicPlayer initWithContentsOfURL:musicFile error:NULL];
+        musicPlayer.numberOfLoops = -1;
+        [musicPlayer prepareToPlay];
+        [musicPlayer play];
+    }
+    return self;
+}
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     //UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
     
     //UIViewController *viewController = [sb instantiateViewControllerWithIdentifier:@"TitleViewController"];
-    
+    [musicPlayer stop];
+    TitleViewController *titleViewController = (TitleViewController*)[UIApplication sharedApplication].keyWindow.rootViewController;
+    titleViewController.playerNameTextField.hidden = false;
+    [titleViewController->musicTitlePlayer play];
     //[super addSubview:viewController.view];
     [super removeFromSuperview];
     //super v
-    //TitleViewController *titleViewController = (TitleViewController*)[UIApplication sharedApplication].keyWindow.rootViewController;
-   // titleViewController.playerNameTextField.hidden = true;
+    
     /*NSArray *viewsToRemove = [titleViewController.view subviews];
     for (UIView *v in viewsToRemove) {
         [v removeFromSuperview];

@@ -9,5 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface FinishGameView : UIView
-
+{
+    NSString *pathForMusicFile;
+    NSURL *musicFile;
+    AVAudioPlayer *musicPlayer;
+  
+}
 @end

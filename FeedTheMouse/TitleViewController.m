@@ -129,7 +129,7 @@
         userInfo:nil
         repeats:YES];
     [_playerNameTextField setBackgroundColor:[UIColor whiteColor]];
-    pathForMusicFile = [[NSBundle mainBundle] pathForResource:@"sounds/menu_edited" ofType:@"wav"];
+    pathForMusicFile = [[NSBundle mainBundle] pathForResource:@"sounds/PHOTO_ALBUM_By_Benjamin_Tissot" ofType:@"mp3"];
     musicFile = [[NSURL alloc] initFileURLWithPath:pathForMusicFile];
     musicTitlePlayer = [AVAudioPlayer alloc];
     [musicTitlePlayer initWithContentsOfURL:musicFile error:NULL];
