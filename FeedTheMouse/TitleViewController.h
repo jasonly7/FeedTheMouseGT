@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "PlayImageView.h"
 #import "FeedTheMouseViewController.h"
+#import "CreditsViewController.h"
 
 @interface TitleViewController : UIViewController
 {
@@ -22,10 +23,16 @@
     NSString *pathForMusicFile;
     NSURL *musicFile;
     AVAudioPlayer *musicTitlePlayer;
-
+    CGFloat screenScale;
+    CGFloat sx,sy;
+    float screenWidth, screenHeight;
 }
 @property (nonatomic, retain) IBOutlet UIButton *playButton;
 @property (nonatomic, retain) UITextField *playerNameTextField;
+
+
+- (IBAction)infoButtonTouchedUp:(id)sender;
+
 - (IBAction)doneEnteringPlayerName:(id)sender;
 
 - (void) splashLoop;

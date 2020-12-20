@@ -39,6 +39,10 @@
 		86A50DAA24DF6EFA00108BB2 /* bomb_explosion in Resources */ = {isa = PBXBuildFile; fileRef = 86A50DA824DF6EFA00108BB2 /* bomb_explosion */; };
 		86ABD01A258BC42E00E84D8A /* SoundManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 86ABD018258BC42E00E84D8A /* SoundManager.m */; };
 		86ABD01F258BCA9800E84D8A /* sounds in Resources */ = {isa = PBXBuildFile; fileRef = 86ABD01E258BCA9800E84D8A /* sounds */; };
+		86AE3BD5258E56BC00F5EBBB /* credits.png in Resources */ = {isa = PBXBuildFile; fileRef = 86AE3BD4258E56BC00F5EBBB /* credits.png */; };
+		86AE3BDA258E56C300F5EBBB /* info_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 86AE3BD9258E56C300F5EBBB /* info_button.png */; };
+		86AE3BDF258E56E000F5EBBB /* scores_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 86AE3BDE258E56E000F5EBBB /* scores_button.png */; };
+		86B11076258E81FE002D98BC /* CreditsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86B11075258E81FE002D98BC /* CreditsViewController.m */; };
 		86B3B97C24ED75B900BE2FE0 /* teeter_totter_yellow.png in Resources */ = {isa = PBXBuildFile; fileRef = 86B3B97B24ED75B900BE2FE0 /* teeter_totter_yellow.png */; };
 		86BCDED0256AF255004BA326 /* small_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 86BCDECF256AF255004BA326 /* small_background.png */; };
 		86C0D08C252FDD3800B9E269 /* bomb.png in Resources */ = {isa = PBXBuildFile; fileRef = 86C0D08B252FDD3800B9E269 /* bomb.png */; };
@@ -217,6 +221,11 @@
 		86ABD018258BC42E00E84D8A /* SoundManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SoundManager.m; path = Classes/SoundManager.m; sourceTree = "<group>"; };
 		86ABD019258BC42E00E84D8A /* SoundManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SoundManager.h; path = Classes/SoundManager.h; sourceTree = "<group>"; };
 		86ABD01E258BCA9800E84D8A /* sounds */ = {isa = PBXFileReference; lastKnownFileType = folder; path = sounds; sourceTree = "<group>"; };
+		86AE3BD4258E56BC00F5EBBB /* credits.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = credits.png; path = Images/credits.png; sourceTree = "<group>"; };
+		86AE3BD9258E56C300F5EBBB /* info_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = info_button.png; path = Images/info_button.png; sourceTree = "<group>"; };
+		86AE3BDE258E56E000F5EBBB /* scores_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = scores_button.png; path = Images/scores_button.png; sourceTree = "<group>"; };
+		86B11074258E81FE002D98BC /* CreditsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CreditsViewController.h; path = Classes/CreditsViewController.h; sourceTree = "<group>"; };
+		86B11075258E81FE002D98BC /* CreditsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = CreditsViewController.m; path = Classes/CreditsViewController.m; sourceTree = "<group>"; };
 		86B3B97B24ED75B900BE2FE0 /* teeter_totter_yellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = teeter_totter_yellow.png; path = Images/Triggers/TeeterTotters/teeter_totter_yellow.png; sourceTree = "<group>"; };
 		86BCDECF256AF255004BA326 /* small_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = small_background.png; path = Images/Backgrounds/small_background.png; sourceTree = "<group>"; };
 		86C0D08B252FDD3800B9E269 /* bomb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bomb.png; path = Images/Triggers/bomb.png; sourceTree = "<group>"; };
@@ -445,6 +454,8 @@
 				86E074B11E4412B400E92CB9 /* FeedTheMouseViewController.h */,
 				86E074B21E4412B400E92CB9 /* FeedTheMouseViewController.m */,
 				86E074B41E4412B400E92CB9 /* Main.storyboard */,
+				86B11074258E81FE002D98BC /* CreditsViewController.h */,
+				86B11075258E81FE002D98BC /* CreditsViewController.m */,
 				86E074B71E4412B400E92CB9 /* Assets.xcassets */,
 				86E074B91E4412B400E92CB9 /* LaunchScreen.storyboard */,
 				86E074BC1E4412B400E92CB9 /* Info.plist */,
@@ -564,6 +575,9 @@
 		86E075371E44250400E92CB9 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				86AE3BDE258E56E000F5EBBB /* scores_button.png */,
+				86AE3BD9258E56C300F5EBBB /* info_button.png */,
+				86AE3BD4258E56BC00F5EBBB /* credits.png */,
 				86D7FBA3258C03F3006C2432 /* back_button.png */,
 				864B3F6D2558EF9F0028CBF3 /* score.png */,
 				864B3F682558EE630028CBF3 /* score.jpg */,
@@ -855,9 +869,11 @@
 				86A50DAA24DF6EFA00108BB2 /* bomb_explosion in Resources */,
 				864B3F692558EE630028CBF3 /* score.jpg in Resources */,
 				86C8923C254E2E4000FB1919 /* big_background_2.png in Resources */,
+				86AE3BDF258E56E000F5EBBB /* scores_button.png in Resources */,
 				86E075C31E44288900E92CB9 /* teeter_totter_red.png in Resources */,
 				86C0D09B2530086400B9E269 /* big_teeter_totter.png in Resources */,
 				86E075A11E44282700E92CB9 /* star_slider.png in Resources */,
+				86AE3BDA258E56C300F5EBBB /* info_button.png in Resources */,
 				86E075C21E44288900E92CB9 /* teeter_totter_purple.png in Resources */,
 				86E075581E44263400E92CB9 /* background_2.png in Resources */,
 				86E074BB1E4412B400E92CB9 /* LaunchScreen.storyboard in Resources */,
@@ -883,6 +899,7 @@
 				86C497A22501CDF50006519F /* bigMouseChew.png in Resources */,
 				86E074B81E4412B400E92CB9 /* Assets.xcassets in Resources */,
 				86E0758E1E44280500E92CB9 /* flipper_blue_grey.png in Resources */,
+				86AE3BD5258E56BC00F5EBBB /* credits.png in Resources */,
 				86E658312508593100BA1889 /* button_down.png in Resources */,
 				86E074B61E4412B400E92CB9 /* Main.storyboard in Resources */,
 				86E0757B1E4427DA00E92CB9 /* Drum.png in Resources */,
@@ -989,6 +1006,7 @@
 				86E075241E441DF600E92CB9 /* Mouse.m in Sources */,
 				86E0751B1E441DF600E92CB9 /* Drum.m in Sources */,
 				86E075221E441DF600E92CB9 /* Line.m in Sources */,
+				86B11076258E81FE002D98BC /* CreditsViewController.m in Sources */,
 				86E0751A1E441DF600E92CB9 /* CollisionPacket.m in Sources */,
 				86708E52256183B8001A32D8 /* TextSprite.m in Sources */,
 				86E075191E441DF600E92CB9 /* Circle.m in Sources */,

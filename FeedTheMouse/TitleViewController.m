@@ -93,6 +93,16 @@
     [sender resignFirstResponder];
 }
 
+- (IBAction)infoButtonTouchedUp:(id)sender {
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+    CreditsViewController *creditVC = (CreditsViewController*) [sb instantiateViewControllerWithIdentifier:@"CreditsStoryBoardID"];
+    //[creditVC->background setBounds:CGRectMake(0, 0, self.view.bounds.size.width*sx, self.view.bounds.size.height*sy)];
+    [creditVC.view setFrame:CGRectMake(0, 0, screenWidth*sx, screenHeight*sy)];
+    //creditVC.view.frame.size = CGSizeMake(screenWidth*sx, screenHeight*sy);
+    [self presentViewController:creditVC animated:YES completion:nil];
+    //[self.view addSubview:creditVC.view];
+}
+
 - (void) transitionLoop
 {
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
@@ -135,7 +145,13 @@
     [musicTitlePlayer initWithContentsOfURL:musicFile error:NULL];
     musicTitlePlayer.numberOfLoops = -1;
     [musicTitlePlayer prepareToPlay];
-    
+    //CGRect screenBounds = [[UIScreen mainScreen] bounds];
+    screenScale = [[UIScreen mainScreen] scale];
+    CGSize screenSize = CGSizeMake(screenBounds.size.width * screenScale, screenBounds.size.height * screenScale);
+    screenWidth = screenSize.width;
+    screenHeight = screenSize.height;
+    sx = screenWidth/640.0f;
+    sy = screenHeight/1136.0f;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -167,6 +183,7 @@
     //[view release];
   //  [ftmView release];
     [_playerNameTextField release];
+
     [super dealloc];
 }
 @end
