@@ -469,14 +469,16 @@
                                     <action selector="infoButtonTouchedUp:" destination="BkT-N0-O1f" eventType="touchUpInside" id="2p6-At-zit"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="10y-Ug-gy5">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="10y-Ug-gy5">
                                 <rect key="frame" x="64" y="350" width="92" height="43"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="36"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aq3-yS-HTT">
-                                <rect key="frame" x="164" y="359" width="139" height="39.5"/>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aq3-yS-HTT">
+                                <rect key="frame" x="164" y="359" width="160" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -501,18 +503,10 @@
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="10y-Ug-gy5" firstAttribute="leading" secondItem="MJH-PU-iVE" secondAttribute="leading" constant="64" id="80Y-nE-eSy"/>
-                            <constraint firstItem="aq3-yS-HTT" firstAttribute="centerY" secondItem="MJH-PU-iVE" secondAttribute="centerY" id="WJL-fH-gzA"/>
-                            <constraint firstItem="aq3-yS-HTT" firstAttribute="width" secondItem="MJH-PU-iVE" secondAttribute="height" multiplier="139:667" id="hOD-KV-oTF"/>
-                            <constraint firstItem="aq3-yS-HTT" firstAttribute="leading" secondItem="10y-Ug-gy5" secondAttribute="trailing" constant="8" symbolic="YES" id="rpa-fO-YxI"/>
-                            <constraint firstItem="10y-Ug-gy5" firstAttribute="centerY" secondItem="MJH-PU-iVE" secondAttribute="centerY" id="saT-t5-uZl"/>
-                        </constraints>
                     </view>
                     <connections>
-                        <outlet property="NameCenterConstraint" destination="saT-t5-uZl" id="j23-YP-wH8"/>
-                        <outlet property="PlayerNameCenterConstraint" destination="WJL-fH-gzA" id="REj-UY-Vss"/>
                         <outlet property="infoButton" destination="bcx-zD-Dzb" id="4bz-Jo-cLc"/>
+                        <outlet property="nameTextField" destination="10y-Ug-gy5" id="Xal-PS-Nce"/>
                         <outlet property="playButton" destination="yN3-XU-tAy" id="NY2-bC-Dcm"/>
                         <outlet property="playerNameTextField" destination="aq3-yS-HTT" id="QZm-7V-keN"/>
                         <outlet property="splashImageView" destination="HzX-Ly-jns" id="Y08-Hs-KcG"/>
@@ -521,7 +515,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cjG-kI-sNZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="898" y="61"/>
+            <point key="canvasLocation" x="896.79999999999995" y="60.719640179910051"/>
         </scene>
     </scenes>
     <resources>

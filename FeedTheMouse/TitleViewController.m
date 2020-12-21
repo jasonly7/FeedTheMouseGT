@@ -156,10 +156,10 @@
     //_playerNameTextField.constraints remo
     //[self.view removeConstraint:_PlayerNameCenterConstraint];
     int yPos = _playButton.center.y + ( titleImageView.center.y - _playButton.center.y)/2;
-   // [_playerNameTextField removeConstraints:_playerNameTextField.constraints];
+    //[_playerNameTextField removeConstraints:_playerNameTextField.constraints];
     //[self.view removeConstraints:self.view.constraints];
-    [self.view setTranslatesAutoresizingMaskIntoConstraints:false];
-    NSLog(@"constraints: %d",self.view.translatesAutoresizingMaskIntoConstraints);
+    //[self.view setTranslatesAutoresizingMaskIntoConstraints:false];
+    //NSLog(@"constraints: %d",self.view.translatesAutoresizingMaskIntoConstraints);
     //[_playerNameTextField setCenter:CGPointMake(_playerNameTextField.center.x, 300)];
     //_playerNameTextField.frame.origin.y = 300;
     //UILabel *nameLabel = [[UILabel alloc] init];
@@ -170,6 +170,11 @@
     //[_playerNameTextField setFrame:CGRectMake(_playerNameTextField.frame.origin.x, yPos, _playerNameTextField.frame.size.width, _playerNameTextField.frame.size.height)];
     [_infoButton setCenter:CGPointMake(self.view.frame.size.width - _infoButton.frame.size.width ,
                                        self.view.frame.size.height - _infoButton.frame.size.height )];
+    
+    float ratio = _playerNameTextField.frame.origin.y/667;
+    [_playerNameTextField setCenter:CGPointMake(screenBounds.size.width/2+_playerNameTextField.frame.size.width/4,screenBounds.size.height*ratio+_playerNameTextField.frame.size.height/2)];
+    ratio = _nameTextField.frame.origin.y/667;
+    [_nameTextField setCenter:CGPointMake(screenBounds.size.width/2-_nameTextField.frame.size.width,_playerNameTextField.center.y)];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -206,6 +211,7 @@
     [_NameCenterConstraint release];
     [_PlayerNameCenterConstraint release];
     [_infoButton release];
+    [_nameTextField release];
     [super dealloc];
 }
 @end
