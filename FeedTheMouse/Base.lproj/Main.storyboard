@@ -427,6 +427,15 @@
                     </view>
                     <connections>
                         <outlet property="background" destination="OpQ-RW-YPM" id="Q6s-VE-jlN"/>
+                        <outlet property="benLabel" destination="OyS-Cv-irP" id="SCz-ox-f2P"/>
+                        <outlet property="creditsTitleLabel" destination="e6b-Th-szl" id="fmi-aV-5PH"/>
+                        <outlet property="designerLabel" destination="q2h-hW-VUT" id="EYS-Bc-hkR"/>
+                        <outlet property="dukeLabel" destination="0Rx-Lp-7WU" id="tVW-xD-I3C"/>
+                        <outlet property="jasonLabel" destination="4j8-wB-ez1" id="Dxe-W5-tfk"/>
+                        <outlet property="musicLabel" destination="4Fw-iF-BBF" id="Grw-Bw-g4X"/>
+                        <outlet property="programmerLabel" destination="2gM-zg-JCI" id="9oZ-c6-iYG"/>
+                        <outlet property="thanksLabel" destination="1k3-Qk-5ig" id="962-Ih-jnf"/>
+                        <outlet property="viTranLabel" destination="z5M-7a-23v" id="zzI-3J-FSM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Gr-Lt-n6B" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
