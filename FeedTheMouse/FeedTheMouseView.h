@@ -87,6 +87,7 @@
     NSString *pathForMusicFile;
     NSURL *musicFile;
     AVAudioPlayer *musicPlayer;
+    NSString *message;
     @public
         NSString *playerName;
 }

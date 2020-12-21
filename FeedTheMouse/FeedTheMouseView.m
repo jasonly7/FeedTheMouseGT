@@ -148,6 +148,7 @@
         musicPlayer.numberOfLoops = -1;
         [musicPlayer prepareToPlay];
         [musicPlayer play];
+        message = @"TOUCH HERE";
     }
     return self;
 }
@@ -361,7 +362,7 @@
         float bombCenterX = bomb->x; //+ bomb->bombSprite.width/2;
         float bombCenterY = bomb->y;// + bomb->bombSprite.height/2;
         CGContextAddArc(context, bombCenterX, bombCenterY, bomb->r, 0, 2*M_PI,YES);
-        CGContextStrokePath(context);
+       // CGContextStrokePath(context);
     }
     
     float drumTopLeftX = 0;
@@ -446,8 +447,8 @@
         flipperTopRightY = flipper->y + sin(radianAngle)*flipper->sprite.width/2 + sin(radianAngle+M_PI_2)*flipper->sprite.height/2;
         flipperTopRightX = flipperTopRightX/2.0f;
         flipperTopRightY = self.bounds.size.height - flipperTopRightY/2.0f;
-        CGContextAddArc(context, flipperTopRightX, flipperTopRightY, 5, 0, 2*M_PI,YES);
-        CGContextStrokePath(context);
+       // CGContextAddArc(context, flipperTopRightX, flipperTopRightY, 5, 0, 2*M_PI,YES);
+        //CGContextStrokePath(context);
     }
     
     CGContextRestoreGState(context);
@@ -479,9 +480,9 @@
     //float cheeseY = self.bounds.size.height - cheese->y;
   
     printf(" move to: (%f,%f)\n", x, y);
-    if (!isnan(x3) && !isnan(y3) )
-        CGContextAddLineToPoint(context, x3, y3);
-    CGContextStrokePath(context);
+    //if (!isnan(x3) && !isnan(y3) )
+        //CGContextAddLineToPoint(context, x3, y3);
+   // CGContextStrokePath(context);
     CGContextSetStrokeColor(context, red);
     CGContextBeginPath(context);
     if (screenWidth == 1242)
@@ -489,19 +490,19 @@
     else
         CGContextAddArc(context, x3, y3, cheese->r*sy/screenScale, 0, 2*M_PI, YES);
     
-    CGContextStrokePath(context);
+    //CGContextStrokePath(context);
     
 
     CGContextSetStrokeColor(context, blue);
     CGContextBeginPath(context);
     CGContextAddArc(context, mousePt.x, mousePt.y, 5, 0, 2*M_PI, YES);
-    CGContextStrokePath(context);
+    //CGContextStrokePath(context);
     
    // CGFloat green[4] = {0.0f, 1.0f, 0.0f, 1.0f};
     CGContextSetStrokeColor(context, green);
     CGContextBeginPath(context);
     CGContextAddArc(context, drumTopLeftX, drumTopLeftY, 5, 0, 2*M_PI,YES);
-    CGContextStrokePath(context);
+    //CGContextStrokePath(context);
     
     
     
@@ -511,7 +512,7 @@
     float collisionPtX = sx*cheese->colPackage->intersectionPoint->x/screenScale;
     float collisionPtY = self.bounds.size.height - sy*cheese->colPackage->intersectionPoint->y/screenScale;
     CGContextAddArc(context, collisionPtX, collisionPtY, 15, 0, 2*M_PI,YES);
-    CGContextStrokePath(context);
+    //CGContextStrokePath(context);
     
     float destPtX = sx*cheese->destinationPoint->x*cheese->r /screenScale;
     float destPtY = self.bounds.size.height - sy*cheese->destinationPoint->y*cheese->r/screenScale;
@@ -519,7 +520,7 @@
     CGContextBeginPath(context);
     
     CGContextAddArc(context, destPtX, destPtY, 5, 0, 2*M_PI,YES);
-    CGContextStrokePath(context);
+    //CGContextStrokePath(context);
     
     if (!isnan(cheese->newDestinationPoint->x) || !isnan(cheese->newDestinationPoint->y))
     {
@@ -528,7 +529,7 @@
         float newDestPtX = cheese->newDestinationPoint->x*(cheese->r*sx)/screenScale;
         float newDestPtY = self.bounds.size.height - cheese->newDestinationPoint->y*(cheese->r*sy)/screenScale;
         CGContextAddArc(context, newDestPtX, newDestPtY, 8, 0, 2*M_PI,YES);
-        CGContextStrokePath(context);
+        //CGContextStrokePath(context);
     }
     
     CGContextSetStrokeColor(context, red);
@@ -536,7 +537,7 @@
     float closestPtX = (cheese->colPackage->closestPoint->x * (cheese->r*sx))/screenScale;
     float closestPtY = self.bounds.size.height - (cheese->colPackage->closestPoint->y * (cheese->r*sy))/screenScale;
     CGContextAddArc(context, closestPtX, closestPtY, 10, 0, 2*M_PI,YES);
-    CGContextStrokePath(context);
+    //CGContextStrokePath(context);
    
     CGContextSetStrokeColor(context, green);
     CGContextBeginPath(context);
@@ -544,7 +545,7 @@
     float intersectionPtY = self.bounds.size.height - cheese->colPackage->intersectionPoint->y /screenScale;
    
     CGContextAddArc(context, intersectionPtX, intersectionPtY, 5, 0, 2*M_PI,YES);
-    CGContextStrokePath(context);
+   // CGContextStrokePath(context);
     
     if (cheese->slidingLine->normal!=nil)
     {
@@ -569,9 +570,9 @@
         y2 = sy*(cheese->slidingLine->origin->y*cheese->colPackage->eRadius + cheese->slidingLine->normal->y*10*cheese->colPackage->eRadius);
         if (!isnan(x1) || !isnan(y1))
         {
-            CGContextMoveToPoint(context, x1/screenScale,self.bounds.size.height - y1/screenScale);
-            CGContextAddLineToPoint(context, x2/screenScale, self.bounds.size.height - y2/screenScale);
-            CGContextStrokePath(context);
+           // CGContextMoveToPoint(context, x1/screenScale,self.bounds.size.height - y1/screenScale);
+           // CGContextAddLineToPoint(context, x2/screenScale, self.bounds.size.height - y2/screenScale);
+           // CGContextStrokePath(context);
         }
     }
     
@@ -612,7 +613,7 @@
         }
         UIBezierPath *arc = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(gearX, gearY, width, height)];
         [[UIColor blackColor] setStroke];
-        [arc stroke];
+        //[arc stroke];
     }
     
     for (int i = 0; i < [coins count]; i++)
@@ -625,7 +626,7 @@
         float height = coin->coinSprite.height/screenScale*sy;
         UIBezierPath *arc = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(coinX, coinY, width, height)];
         [[UIColor blackColor] setStroke];
-        [arc stroke];
+        //[arc stroke];
         
     }
 
@@ -657,9 +658,9 @@
         bottomRightY = sy * (drum->y + sin(radAngle)*drum->drumSprite.width/2 + sin(radAngle-M_PI_2)*drum->drumSprite.height/2);
         
         CGContextSetStrokeColor(context, blue);
-        CGContextMoveToPoint(context, topLeftX/screenScale, self.bounds.size.height - topLeftY/screenScale);
-        CGContextAddLineToPoint(context,topRightX/screenScale, self.bounds.size.height - topRightY/screenScale);
-        CGContextStrokePath(context);
+       // CGContextMoveToPoint(context, topLeftX/screenScale, self.bounds.size.height - topLeftY/screenScale);
+       // CGContextAddLineToPoint(context,topRightX/screenScale, self.bounds.size.height - topRightY/screenScale);
+      //  CGContextStrokePath(context);
         
         topLeftX = topLeftX/(sx*34)*(10/screenScale*sx);
         topLeftY = topLeftY/(sy*34)*(10/screenScale*sy);
@@ -671,13 +672,13 @@
         bottomRightX = bottomRightX/(sx*34)*(10/screenScale*sx);
         bottomRightY = bottomRightY/(sy*34)*(10/screenScale*sy);
         
-        CGContextSetStrokeColor(context, yellow);
-        CGContextMoveToPoint(context, topLeftX, self.bounds.size.height - topLeftY);
-        CGContextAddLineToPoint(context,topRightX, self.bounds.size.height - topRightY);
-        CGContextStrokePath(context);
-        CGContextMoveToPoint(context, bottomLeftX, self.bounds.size.height - bottomLeftY);
-        CGContextAddLineToPoint(context,bottomRightX, self.bounds.size.height - bottomRightY);
-        CGContextStrokePath(context);
+       // CGContextSetStrokeColor(context, yellow);
+       // CGContextMoveToPoint(context, topLeftX, self.bounds.size.height - topLeftY);
+       // CGContextAddLineToPoint(context,topRightX, self.bounds.size.height - topRightY);
+       // CGContextStrokePath(context);
+       // CGContextMoveToPoint(context, bottomLeftX, self.bounds.size.height - bottomLeftY);
+        //CGContextAddLineToPoint(context,bottomRightX, self.bounds.size.height - bottomRightY);
+       // CGContextStrokePath(context);
     }
     
     for (int i=0; i < [flippers count]; i++)
@@ -709,16 +710,16 @@
         UIBezierPath *path = [UIBezierPath bezierPath];
         [[UIColor redColor] setStroke];
         path.lineWidth = 1;
-        [path moveToPoint:CGPointMake(tlx, tly)];
-        [path addLineToPoint:CGPointMake(trx, try)];
-        [path stroke];
+        //[path moveToPoint:CGPointMake(tlx, tly)];
+        //[path addLineToPoint:CGPointMake(trx, try)];
+        //[path stroke];
         //CGContextMoveToPoint(context,tlx ,tly );
         //CGContextAddLineToPoint(context, trx, try);
         //CGContextDrawPath(context, 2);
        // CGContextStrokePath(context);
-        CGContextMoveToPoint(context, bottomLeftX/screenScale, self.bounds.size.height - bottomLeftY/screenScale);
-        CGContextAddLineToPoint(context,bottomRightX/screenScale, self.bounds.size.height - bottomRightY/screenScale);
-        CGContextStrokePath(context);
+       // CGContextMoveToPoint(context, bottomLeftX/screenScale, self.bounds.size.height - bottomLeftY/screenScale);
+       // CGContextAddLineToPoint(context,bottomRightX/screenScale, self.bounds.size.height - bottomRightY/screenScale);
+       // CGContextStrokePath(context);
         
         topLeftX = topLeftX/(sx*34)*(10/screenScale*sx);
         topLeftY = topLeftY/(sy*34)*(10/screenScale*sy);
@@ -731,12 +732,12 @@
         bottomRightY = bottomRightY/(sy*34)*(10/screenScale*sy);
         
         CGContextSetStrokeColor(context, yellow);
-        CGContextMoveToPoint(context, topLeftX, self.bounds.size.height - topLeftY);
-        CGContextAddLineToPoint(context,topRightX, self.bounds.size.height - topRightY);
-        CGContextStrokePath(context);
-        CGContextMoveToPoint(context, bottomLeftX, self.bounds.size.height - bottomLeftY);
-        CGContextAddLineToPoint(context,bottomRightX, self.bounds.size.height - bottomRightY);
-        CGContextStrokePath(context);
+       // CGContextMoveToPoint(context, topLeftX, self.bounds.size.height - topLeftY);
+        //CGContextAddLineToPoint(context,topRightX, self.bounds.size.height - topRightY);
+       // CGContextStrokePath(context);
+        //CGContextMoveToPoint(context, bottomLeftX, self.bounds.size.height - bottomLeftY);
+        //CGContextAddLineToPoint(context,bottomRightX, self.bounds.size.height - bottomRightY);
+      //  CGContextStrokePath(context);
     }
     
     for (int i=0; i < [teeterTotters count]; i++)
@@ -789,9 +790,9 @@
         topRightY = topRightY/(sy*34)*(10/screenScale*sy);
         
         CGContextSetStrokeColor(context, yellow);
-        CGContextMoveToPoint(context, topLeftX, self.bounds.size.height - topLeftY);
-        CGContextAddLineToPoint(context,topRightX, self.bounds.size.height - topRightY);
-        CGContextStrokePath(context);
+        //CGContextMoveToPoint(context, topLeftX, self.bounds.size.height - topLeftY);
+        //CGContextAddLineToPoint(context,topRightX, self.bounds.size.height - topRightY);
+        //CGContextStrokePath(context);
     }
     
      CGContextSetStrokeColor(context, yellow);
@@ -839,9 +840,9 @@
   //  NSLog(@"finalX2: %f", x2);
    // NSLog(@"finalY2: %f", finalY2);
     
-    CGContextAddLineToPoint(context, x2 , finalY2); // add 1 cuz too tiny
+   // CGContextAddLineToPoint(context, x2 , finalY2); // add 1 cuz too tiny
     //CGContextFillRect(context,CGRectMake(cheeseX / 2.0f,self.bounds.size.height - cheeseY/2.0f,1,1));
-    CGContextStrokePath(context);
+   // CGContextStrokePath(context);
     CGContextBeginPath(context);
     float basePtX = 0;
     float basePtY = 0;
@@ -858,7 +859,7 @@
         CGContextAddArc(context,x2 , finalY2, cheese->r/screenScale * sy, 0, 2*M_PI, YES);
     }
     
-    CGContextStrokePath(context);
+   // CGContextStrokePath(context);
     
     CGContextSetStrokeColor(context, white);
     float destX, destY;
@@ -875,9 +876,9 @@
     float finalX2 = finalX - 3;
     finalY2 = finalY;
 
-    CGContextAddLineToPoint(context, finalX2 , finalY2); // add 1 cuz too tiny
+    //CGContextAddLineToPoint(context, finalX2 , finalY2); // add 1 cuz too tiny
     //CGContextFillRect(context,CGRectMake(cheeseX / 2.0f,self.bounds.size.height - cheeseY/2.0f,1,1));
-    CGContextStrokePath(context);
+   // CGContextStrokePath(context);
     
     CGContextSetStrokeColor(context, white);
     float newDestX, newDestY;
@@ -896,9 +897,9 @@
         finalX2 = finalX - 3;
         finalY2 = finalY;
         
-        CGContextAddLineToPoint(context, finalX2 , finalY2); // add 1 cuz too tiny
+       // CGContextAddLineToPoint(context, finalX2 , finalY2); // add 1 cuz too tiny
         //CGContextFillRect(context,CGRectMake(cheeseX / 2.0f,self.bounds.size.height - cheeseY/2.0f,1,1));
-        CGContextStrokePath(context);
+       // CGContextStrokePath(context);
     }
     
     
@@ -914,9 +915,9 @@
     float finalY3 = [self bounds].size.height - destinationPtY / screenScale;
     float finalX3 = destinationPtX / screenScale;
 
-    CGContextAddLineToPoint(context, finalX3 , finalY3);
-    //CGContextFillRect(context,CGRectMake(cheeseX / 2.0f,self.bounds.size.height - cheeseY/2.0f,1,1));
-    CGContextStrokePath(context);
+    //CGContextAddLineToPoint(context, finalX3 , finalY3);
+    
+    //CGContextStrokePath(context);
     
        
     CGContextSetStrokeColor(context, black);
@@ -935,9 +936,9 @@
         float finalY4 = [self bounds].size.height - newDestinationY / screenScale;
         float finalX4 = newDestinationX / screenScale;
 
-        CGContextAddLineToPoint(context, finalX4 , finalY4);
+       // CGContextAddLineToPoint(context, finalX4 , finalY4);
         //CGContextFillRect(context,CGRectMake(cheeseX / 2.0f,self.bounds.size.height - cheeseY/2.0f,1,1));
-        CGContextStrokePath(context);
+        //CGContextStrokePath(context);
          //CGContextMoveToPoint(context, mouse->mouseSprite->x, mouse->mouseSprite->y);
        // CGContextFillRect(context, CGRectMake( 0,self.bounds.size.height - 960*sy /(34*sy) * 15/2.0f*sy, 640*sx / (34*sx) * 15 / 2*sx, 960*sy /(34*sy) * 15 /2.0f*sy));
     }
@@ -946,11 +947,10 @@
     float mouseY = self.bounds.size.height - sy*(mouse->mouseSprite->y+mouse->mouseSprite->height/2)/screenScale;
     CGRect mouseRect = CGRectMake(mouseX, mouseY,
                                   mouse->mouseSprite->width*sx/screenScale, self.bounds.size.height - mouse->mouseSprite->height*sy/screenScale);
-    //CGContextFillRect(context, mouseRect);
-    //CGContextSetFillColor(context, black);
     CGContextAddRect(context, mouseRect);
-    CGContextStrokePath(context);
+    //CGContextStrokePath(context);
    
+    
     CGContextSaveGState(context);
     CGContextSetTextMatrix(context, CGAffineTransformIdentity);
     CGFloat screenScale = [[UIScreen mainScreen] scale];
@@ -965,75 +965,81 @@
         levelText.y = self.bounds.size.height*screenScale - 136;
     levelText.fontSize = 24;
     [(TextSprite *) levelText setFontSize:36];
+    if (message == @"")
+    {
+        [levelText drawBody:context on:self.bounds];
+    }
+    CGContextRestoreGState(context);
     
-    [levelText drawBody:context on:self.bounds];
+    
+    CGContextSaveGState(context);
+    CGContextSetTextMatrix(context, CGAffineTransformIdentity);
+    TextSprite *fakeTouchText = [TextSprite withString:message];
+    fakeTouchText.x = screenWidth;
+    fakeTouchText.y = 1000;
+    if (screenWidth == 1242)
+        fakeTouchText.y = self.bounds.size.height*screenScale - 136;
+    [(TextSprite *) fakeTouchText setFontSize:48];
+    [fakeTouchText drawBody:context on:self.bounds];
     CGContextRestoreGState(context);
     
     CGContextSaveGState(context);
     CGContextSetTextMatrix(context, CGAffineTransformIdentity);
-    //CGFloat screenScale = [[UIScreen mainScreen] scale];
+    TextSprite *touchText = [TextSprite withString:@"Touch Here"];
+    touchText.x = self.bounds.size.width/2 - fakeTouchText->width/2;
+    touchText.y = 1000;
+    if (screenWidth == 1242)
+        touchText.y = self.bounds.size.height*screenScale - 136;
+    [(TextSprite *) touchText setFontSize:48];
+    if (message != @"")
+        [touchText drawBody:context on:self.bounds];
+    CGContextRestoreGState(context);
+    
+    CGContextSaveGState(context);
+    CGContextSetTextMatrix(context, CGAffineTransformIdentity);
     NSString *strScore = [NSString stringWithFormat:@"Score: %06d", cheese->world->score]; //[strLevel stringByAppendingString:curLevel];
     TextSprite *fakeScoreText = [TextSprite withString: strScore];
     fakeScoreText.r = 0;
     fakeScoreText.g = 1.0;
     fakeScoreText.b = 1.0;
-    //if (screenWidth == 1242)
-    fakeScoreText.y = levelText.y;// self.bounds.size.height*screenScale - 136;
-    //else
-       // scoreText.y = 1000;//*screenScale ;
-   // [scoreText computeWidth:context on:rect];
+    fakeScoreText.y = levelText.y;
     float screenWidth = self.bounds.size.width*screenScale;
-    //[scoreText computeWidth:context on:self.bounds];
-    fakeScoreText.x = screenWidth;//52
-    
+    fakeScoreText.x = screenWidth;
     fakeScoreText.fontSize = 18;
     [(TextSprite *) fakeScoreText setFontSize:24];
-   // CGContextSetTextDrawingMode(context, kCGTextInvisible);
-   // [fakeScoreText computeWidth:context on:self.bounds];
     [fakeScoreText drawBody:context on:self.bounds];
-   // scoreText.x = (screenWidth - scoreText.width)/2;
-   // [scoreText drawBody:context on:self.bounds];
     CGContextRestoreGState(context);
     
     CGContextSaveGState(context);
     CGContextSetTextMatrix(context, CGAffineTransformIdentity);
-    //CGFloat screenScale = [[UIScreen mainScreen] scale];
-    //NSString *strScore = [NSString stringWithFormat:@"Score: %06d", cheese->world->score]; //[strLevel stringByAppendingString:curLevel];
+   
     TextSprite *scoreText = [TextSprite withString: strScore];
     scoreText.r = 0;
     scoreText.g = 1.0;
     scoreText.b = 1.0;
-    //if (screenWidth == 1242)
-        scoreText.y = levelText.y;// self.bounds.size.height*screenScale - 136;
-    //else
-       // scoreText.y = 1000;//*screenScale ;
-   // [scoreText computeWidth:context on:rect];
-   // float screenWidth = self.bounds.size.width*screenScale;
-    //[scoreText computeWidth:context on:self.bounds];
-   // scoreText.x = screenWidth;//52
+    
+    scoreText.y = levelText.y;
     
     scoreText.fontSize = 18;
     [(TextSprite *) scoreText setFontSize:24];
-   // CGContextSetTextDrawingMode(context, kCGTextInvisible);
+   
     
     if (screenWidth == 1242 || screenWidth == 640)
         scoreText.x = (screenWidth - fakeScoreText.width*screenScale-10);
     else
         scoreText.x = (screenWidth - fakeScoreText.width)/screenScale;
-    [scoreText drawBody:context on:self.bounds];
+    if (message == @"")
+    {
+        [scoreText drawBody:context on:self.bounds];
+    }
     CGContextRestoreGState(context);
+    
+    
     
     for (int i = 0; i < [cheese->world->removedCoins count]; i++)
     {
         CGContextSaveGState(context);
         coin = [cheese->world->removedCoins objectAtIndex:i];
-        /*float coinX = coin->pos->x/screenScale*sx-coin->coinSprite.width/screenScale*sx/2.0f;
-        float coinY = self.bounds.size.height-coin->pos->y/screenScale*sy - coin->coinSprite.height/screenScale*sy/2;
-        float width = coin->coinSprite.width/screenScale*sx;
-        float height = coin->coinSprite.height/screenScale*sy;
-        UIBezierPath *arc = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(coinX, coinY, width, height)];
-        [[UIColor blackColor] setStroke];
-        [arc stroke];*/
         CGFloat screenScale = [[UIScreen mainScreen] scale];
 
         NSString *strCoin = [NSString stringWithFormat:@"+%d", 1]; //[strLevel stringByAppendingString:curLevel];
@@ -1115,7 +1121,7 @@
         }
         backgroundSprite = [Picture fromFile:backgroundFilename];
         [cheese->world->removedCoins removeAllObjects];
-        
+        message = @"TOUCH HERE";
         
     }
     /* else if ([mouseSprite getFileName]==@"newopenmouthsheet.png")
@@ -1438,6 +1444,7 @@ void cleanRemoveFromSuperview( UIView * view ) {
             mouseSprite = [AtlasSprite fromFile: @"MouseSad.png" withRows: 1 withColumns: steps];
             break;
     }*/
+    message = @"";
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
