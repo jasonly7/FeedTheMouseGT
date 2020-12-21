@@ -449,7 +449,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bcx-zD-Dzb">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bcx-zD-Dzb" userLabel="infoButton">
                                 <rect key="frame" x="309" y="597" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <accessibility key="accessibilityConfiguration">
@@ -501,6 +501,9 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="NameCenterConstraint" destination="saT-t5-uZl" id="j23-YP-wH8"/>
+                        <outlet property="PlayerNameCenterConstraint" destination="WJL-fH-gzA" id="REj-UY-Vss"/>
+                        <outlet property="infoButton" destination="bcx-zD-Dzb" id="4bz-Jo-cLc"/>
                         <outlet property="playButton" destination="yN3-XU-tAy" id="NY2-bC-Dcm"/>
                         <outlet property="playerNameTextField" destination="aq3-yS-HTT" id="QZm-7V-keN"/>
                         <outlet property="splashImageView" destination="HzX-Ly-jns" id="Y08-Hs-KcG"/>

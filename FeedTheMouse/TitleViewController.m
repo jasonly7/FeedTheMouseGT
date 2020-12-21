@@ -152,6 +152,24 @@
     screenHeight = screenSize.height;
     sx = screenWidth/640.0f;
     sy = screenHeight/1136.0f;
+    //[_infoButton setFrame:CGRectMake(screenWidth-_infoButton.frame.size.width-10, //10,_infoButton.frame.size.width, _infoButton.frame.size.height)];
+    //_playerNameTextField.constraints remo
+    //[self.view removeConstraint:_PlayerNameCenterConstraint];
+    int yPos = _playButton.center.y + ( titleImageView.center.y - _playButton.center.y)/2;
+   // [_playerNameTextField removeConstraints:_playerNameTextField.constraints];
+    //[self.view removeConstraints:self.view.constraints];
+    [self.view setTranslatesAutoresizingMaskIntoConstraints:false];
+    NSLog(@"constraints: %d",self.view.translatesAutoresizingMaskIntoConstraints);
+    //[_playerNameTextField setCenter:CGPointMake(_playerNameTextField.center.x, 300)];
+    //_playerNameTextField.frame.origin.y = 300;
+    //UILabel *nameLabel = [[UILabel alloc] init];
+    //titleImageView.hidden = true;
+    //[nameLabel initWithFrame:CGRectMake(30, 30, 100, 20)];
+    //[nameLabel setText:@"sadf"];
+    //[self.view addSubview:nameLabel];
+    //[_playerNameTextField setFrame:CGRectMake(_playerNameTextField.frame.origin.x, yPos, _playerNameTextField.frame.size.width, _playerNameTextField.frame.size.height)];
+    [_infoButton setCenter:CGPointMake(self.view.frame.size.width - _infoButton.frame.size.width ,
+                                       self.view.frame.size.height - _infoButton.frame.size.height )];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -184,6 +202,10 @@
   //  [ftmView release];
     [_playerNameTextField release];
 
+    [_infoButton release];
+    [_NameCenterConstraint release];
+    [_PlayerNameCenterConstraint release];
+    [_infoButton release];
     [super dealloc];
 }
 @end
