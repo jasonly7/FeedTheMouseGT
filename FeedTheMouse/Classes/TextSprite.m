@@ -171,6 +171,7 @@
     
     CGRect strRect = [text boundingRectWithSize:rect.size options:NSStringDrawingUsesLineFragmentOrigin attributes:attributesDict context:con];
     width = strRect.size.width;
+    height = strRect.size.height;
     // draw
     CTLineRef line = CTLineCreateWithAttributedString(
      (CFAttributedStringRef)stringToDraw);

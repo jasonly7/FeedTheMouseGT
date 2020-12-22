@@ -148,7 +148,7 @@
         musicPlayer.numberOfLoops = -1;
         [musicPlayer prepareToPlay];
         [musicPlayer play];
-        message = @"TOUCH HERE";
+        message = @"TAP HERE";
     }
     return self;
 }
@@ -986,10 +986,13 @@
     CGContextSaveGState(context);
     CGContextSetTextMatrix(context, CGAffineTransformIdentity);
     TextSprite *touchText = [TextSprite withString:message];
-    touchText.x = self.bounds.size.width/2 - fakeTouchText.width/2;
-    touchText.y = 1000;
+    touchText.x = 320 - fakeTouchText.width/2*screenScale/sx;
+    touchText.y = self.bounds.size.height*screenScale/sy-fakeTouchText.height*screenScale/sy-15*screenScale;
     if (screenWidth == 1242)
-        touchText.y = self.bounds.size.height*screenScale - 200;
+    {
+        touchText.x = self.bounds.size.width*screenScale/2 - fakeTouchText.width/2*screenScale;
+        touchText.y = self.bounds.size.height*screenScale-fakeTouchText.height*screenScale-50;
+    }
     [(TextSprite *) touchText setFontSize:48];
     if (message != @"")
         [touchText drawBody:context on:self.bounds];
@@ -1121,7 +1124,7 @@
         }
         backgroundSprite = [Picture fromFile:backgroundFilename];
         [cheese->world->removedCoins removeAllObjects];
-        message = @"TOUCH HERE";
+        message = @"TAP HERE";
         
     }
     /* else if ([mouseSprite getFileName]==@"newopenmouthsheet.png")

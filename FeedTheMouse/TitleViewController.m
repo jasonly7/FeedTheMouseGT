@@ -121,15 +121,10 @@
     finishController->playerName = playerName;
     finishController->score = 0;//cheese->world->score;
     NSString *strScore = [[NSString alloc] initWithFormat:@"Score: %d",finishController->scores[0]];
-    //[finishController->score1Label setText:strScore];
+   
     [titleViewController.view addSubview:finishController.view];
     titleViewController.playerNameTextField.hidden = false;
-   // [titleViewController->musicTitlePlayer play];
-   //[super addSubview:finishController.view];
-   // [timer invalidate];
-    //timer = nil;
-   //[self willMoveToSuperview:titleViewController.view];
-   //[self removeFromSuperview];
+  
 }
 
 - (void) transitionLoop
