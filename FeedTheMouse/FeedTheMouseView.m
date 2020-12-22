@@ -985,11 +985,11 @@
     
     CGContextSaveGState(context);
     CGContextSetTextMatrix(context, CGAffineTransformIdentity);
-    TextSprite *touchText = [TextSprite withString:@"Touch Here"];
-    touchText.x = self.bounds.size.width/2 - fakeTouchText->width/2;
+    TextSprite *touchText = [TextSprite withString:message];
+    touchText.x = self.bounds.size.width/2 - fakeTouchText.width/2;
     touchText.y = 1000;
     if (screenWidth == 1242)
-        touchText.y = self.bounds.size.height*screenScale - 136;
+        touchText.y = self.bounds.size.height*screenScale - 200;
     [(TextSprite *) touchText setFontSize:48];
     if (message != @"")
         [touchText drawBody:context on:self.bounds];

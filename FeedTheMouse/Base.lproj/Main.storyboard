@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BkT-N0-O1f">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BkT-N0-O1f">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -458,6 +458,17 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="uRP-rl-zH8" userLabel="scoreButton">
+                                <rect key="frame" x="245" y="597" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" button="YES" image="YES"/>
+                                </accessibility>
+                                <state key="normal" title="Button" image="scores_button.png"/>
+                                <connections>
+                                    <action selector="scoreButtonTouchedUp:" destination="BkT-N0-O1f" eventType="touchUpInside" id="4jH-VZ-Vgq"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bcx-zD-Dzb" userLabel="infoButton">
                                 <rect key="frame" x="309" y="597" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -509,6 +520,7 @@
                         <outlet property="nameTextField" destination="10y-Ug-gy5" id="Xal-PS-Nce"/>
                         <outlet property="playButton" destination="yN3-XU-tAy" id="NY2-bC-Dcm"/>
                         <outlet property="playerNameTextField" destination="aq3-yS-HTT" id="QZm-7V-keN"/>
+                        <outlet property="scoreButton" destination="uRP-rl-zH8" id="8Rd-jN-wgD"/>
                         <outlet property="splashImageView" destination="HzX-Ly-jns" id="Y08-Hs-KcG"/>
                         <outlet property="titleImageView" destination="BkT-wk-nvN" id="iQ3-yf-eiE"/>
                     </connections>
@@ -525,6 +537,7 @@
         <image name="info_button.png" width="86" height="86"/>
         <image name="intro.jpg" width="1242" height="2688"/>
         <image name="score.jpg" width="921.89691162109375" height="1995.216552734375"/>
+        <image name="scores_button.png" width="86" height="86"/>
         <image name="small_button_up.png" width="170" height="157"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

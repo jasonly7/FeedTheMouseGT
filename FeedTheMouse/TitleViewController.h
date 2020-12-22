@@ -30,9 +30,11 @@
 @property (nonatomic, retain) IBOutlet UIButton *playButton;
 @property (nonatomic, retain) UITextField *playerNameTextField;
 @property (retain, nonatomic) IBOutlet UIButton *infoButton;
+@property (retain, nonatomic) IBOutlet UIButton *scoreButton;
 @property (retain, nonatomic) IBOutlet NSLayoutConstraint *PlayerNameCenterConstraint;
 @property (retain, nonatomic) IBOutlet NSLayoutConstraint *NameCenterConstraint;
 @property (retain, nonatomic) IBOutlet UILabel *nameTextField;
+- (IBAction)scoreButtonTouchedUp:(id)sender;
 
 - (IBAction)infoButtonTouchedUp:(id)sender;
 

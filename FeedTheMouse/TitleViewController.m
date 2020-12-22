@@ -103,6 +103,35 @@
     //[self.view addSubview:creditVC.view];
 }
 
+- (IBAction)scoreButtonTouchedUp:(id)sender {
+   /* UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+    FinishGameViewController *scoreVC = (FinishGameViewController*) [sb instantiateViewControllerWithIdentifier:@"FinishGameViewController"];
+
+    [scoreVC.view setFrame:CGRectMake(0, 0, screenWidth*sx, screenHeight*sy)];
+    
+    [self presentViewController:scoreVC animated:YES completion:nil];*/
+
+    TitleViewController *titleViewController = (TitleViewController*)[UIApplication sharedApplication].keyWindow.rootViewController;
+    NSString *playerName = titleViewController.playerNameTextField.text;
+   
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+    [musicTitlePlayer stop];
+    UIViewController *viewController = [sb instantiateViewControllerWithIdentifier:@"FinishGameViewController"];
+    FinishGameViewController *finishController = (FinishGameViewController*) viewController;
+    finishController->playerName = playerName;
+    finishController->score = 0;//cheese->world->score;
+    NSString *strScore = [[NSString alloc] initWithFormat:@"Score: %d",finishController->scores[0]];
+    //[finishController->score1Label setText:strScore];
+    [titleViewController.view addSubview:finishController.view];
+    titleViewController.playerNameTextField.hidden = false;
+   // [titleViewController->musicTitlePlayer play];
+   //[super addSubview:finishController.view];
+   // [timer invalidate];
+    //timer = nil;
+   //[self willMoveToSuperview:titleViewController.view];
+   //[self removeFromSuperview];
+}
+
 - (void) transitionLoop
 {
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
@@ -170,6 +199,8 @@
     //[_playerNameTextField setFrame:CGRectMake(_playerNameTextField.frame.origin.x, yPos, _playerNameTextField.frame.size.width, _playerNameTextField.frame.size.height)];
     [_infoButton setCenter:CGPointMake(self.view.frame.size.width - _infoButton.frame.size.width ,
                                        self.view.frame.size.height - _infoButton.frame.size.height )];
+    [_scoreButton setCenter:CGPointMake(self.view.frame.size.width - _infoButton.frame.size.width*2,
+                                       self.view.frame.size.height - _infoButton.frame.size.height )];
     
     float ratio = _playerNameTextField.frame.origin.y/667;
     [_playerNameTextField setCenter:CGPointMake(screenBounds.size.width/2+_playerNameTextField.frame.size.width/4,screenBounds.size.height*ratio+_playerNameTextField.frame.size.height/2)];
@@ -212,6 +243,7 @@
     [_PlayerNameCenterConstraint release];
     [_infoButton release];
     [_nameTextField release];
+    [_scoreButton release];
     [super dealloc];
 }
 @end
