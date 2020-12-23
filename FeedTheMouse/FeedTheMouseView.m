@@ -964,10 +964,10 @@
         fakeLevelText.y = self.bounds.size.height*screenScale - 136;
     
     [(TextSprite *) fakeLevelText setFontSize:24];
-    if (message == @"")
-    {
+   // if (message == @"")
+    //{
         [fakeLevelText drawBody:context on:self.bounds];
-    }
+   // }
     CGContextRestoreGState(context);
     
     CGContextSaveGState(context);
@@ -979,43 +979,46 @@
     levelText.g = 1.0;
     levelText.b = 1.0;
     levelText.x = 10;
-    levelText.y = self.bounds.size.height*screenScale/sy-fakeLevelText.height*screenScale/sy-15*screenScale;//1000;//*screenScale ;
+    levelText.y = self.bounds.size.height*screenScale/sy-fakeLevelText.height*screenScale/sy-10*screenScale;
     if (screenWidth == 1242)
         levelText.y = self.bounds.size.height*screenScale - 136;
     levelText.fontSize = 24;
     [(TextSprite *) levelText setFontSize:24];
-    if (message == @"")
-    {
+   // if (message == @"")
+    //{
         [levelText drawBody:context on:self.bounds];
-    }
+    //}
     CGContextRestoreGState(context);
     
-    
-    CGContextSaveGState(context);
-    CGContextSetTextMatrix(context, CGAffineTransformIdentity);
-    TextSprite *fakeTouchText = [TextSprite withString:message];
-    fakeTouchText.x = screenWidth;
-    fakeTouchText.y = 1000;
-    if (screenWidth == 1242)
-        fakeTouchText.y = self.bounds.size.height*screenScale - 136;
-    [(TextSprite *) fakeTouchText setFontSize:48];
-    [fakeTouchText drawBody:context on:self.bounds];
-    CGContextRestoreGState(context);
-    
-    CGContextSaveGState(context);
-    CGContextSetTextMatrix(context, CGAffineTransformIdentity);
-    TextSprite *touchText = [TextSprite withString:message];
-    touchText.x = 320 - fakeTouchText.width/2*screenScale/sx;
-    touchText.y = self.bounds.size.height*screenScale/sy-fakeTouchText.height*screenScale/sy-15*screenScale;
-    if (screenWidth == 1242)
-    {
-        touchText.x = self.bounds.size.width*screenScale/2 - fakeTouchText.width/2*screenScale;
-        touchText.y = self.bounds.size.height*screenScale-fakeTouchText.height*screenScale-50;
-    }
-    [(TextSprite *) touchText setFontSize:48];
     if (message != @"")
+    {
+        CGContextSaveGState(context);
+        CGContextSetTextMatrix(context, CGAffineTransformIdentity);
+        TextSprite *fakeTouchText = [TextSprite withString:message];
+        fakeTouchText.x = screenWidth;
+        fakeTouchText.y = 1000;
+        if (screenWidth == 1242)
+            fakeTouchText.y = self.bounds.size.height*screenScale - 136;
+        [(TextSprite *) fakeTouchText setFontSize:48];
+        [fakeTouchText drawBody:context on:self.bounds];
+        CGContextRestoreGState(context);
+        
+        CGContextSaveGState(context);
+        CGContextSetTextMatrix(context, CGAffineTransformIdentity);
+        TextSprite *touchText = [TextSprite withString:message];
+        touchText.x = 320 - fakeTouchText.width/2*screenScale/sx;
+        touchText.y = self.bounds.size.height*screenScale/sy-fakeTouchText.height*screenScale/sy-20*screenScale;
+        if (screenWidth == 1242)
+        {
+            touchText.x = self.bounds.size.width*screenScale/2 - fakeTouchText.width/2*screenScale;
+            touchText.y = self.bounds.size.height*screenScale-fakeTouchText.height*screenScale-50*screenScale;
+        }
+        [(TextSprite *) touchText setFontSize:48];
+        
         [touchText drawBody:context on:self.bounds];
-    CGContextRestoreGState(context);
+        
+        CGContextRestoreGState(context);
+    }
     
     CGContextSaveGState(context);
     CGContextSetTextMatrix(context, CGAffineTransformIdentity);
@@ -1027,7 +1030,7 @@
     fakeScoreText.y = levelText.y;
     float screenWidth = self.bounds.size.width*screenScale;
     fakeScoreText.x = screenWidth;
-    fakeScoreText.fontSize = 18;
+    fakeScoreText.fontSize = 24;
     [(TextSprite *) fakeScoreText setFontSize:24];
     [fakeScoreText drawBody:context on:self.bounds];
     CGContextRestoreGState(context);
@@ -1042,7 +1045,7 @@
     
     scoreText.y = levelText.y;
     
-    scoreText.fontSize = 18;
+    scoreText.fontSize = 24;
     [(TextSprite *) scoreText setFontSize:24];
    
     
@@ -1053,10 +1056,10 @@
         //scoreText.x = (screenWidth - fakeScoreText.width)/screenScale;
         scoreText.x = (self.bounds.size.width - fakeScoreText.width)*screenScale/sx-10;
     }
-    if (message == @"")
-    {
+    //if (message == @"")
+    //{
         [scoreText drawBody:context on:self.bounds];
-    }
+    //}
     CGContextRestoreGState(context);
     
     
