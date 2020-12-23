@@ -950,21 +950,40 @@
     CGContextAddRect(context, mouseRect);
     //CGContextStrokePath(context);
    
-    
     CGContextSaveGState(context);
     CGContextSetTextMatrix(context, CGAffineTransformIdentity);
     CGFloat screenScale = [[UIScreen mainScreen] scale];
     NSString *strLevel = [NSString stringWithFormat:@"Level %d", curLevel->num]; //[strLevel stringByAppendingString:curLevel];
+    TextSprite *fakeLevelText = [TextSprite withString: strLevel];
+    fakeLevelText.r = 0;
+    fakeLevelText.g = 1.0;
+    fakeLevelText.b = 1.0;
+    fakeLevelText.x = screenWidth;
+    fakeLevelText.y = self.bounds.size.height*screenScale/sy-fakeLevelText.height*screenScale/sy-15*screenScale;//1000;//*screenScale ;
+    if (screenWidth == 1242)
+        fakeLevelText.y = self.bounds.size.height*screenScale - 136;
+    
+    [(TextSprite *) fakeLevelText setFontSize:24];
+    if (message == @"")
+    {
+        [fakeLevelText drawBody:context on:self.bounds];
+    }
+    CGContextRestoreGState(context);
+    
+    CGContextSaveGState(context);
+    CGContextSetTextMatrix(context, CGAffineTransformIdentity);
+    screenScale = [[UIScreen mainScreen] scale];
+    strLevel = [NSString stringWithFormat:@"Level %d", curLevel->num]; //[strLevel stringByAppendingString:curLevel];
     TextSprite *levelText = [TextSprite withString: strLevel];
     levelText.r = 0;
     levelText.g = 1.0;
     levelText.b = 1.0;
     levelText.x = 10;
-    levelText.y = 1000;//*screenScale ;
+    levelText.y = self.bounds.size.height*screenScale/sy-fakeLevelText.height*screenScale/sy-15*screenScale;//1000;//*screenScale ;
     if (screenWidth == 1242)
         levelText.y = self.bounds.size.height*screenScale - 136;
     levelText.fontSize = 24;
-    [(TextSprite *) levelText setFontSize:36];
+    [(TextSprite *) levelText setFontSize:24];
     if (message == @"")
     {
         [levelText drawBody:context on:self.bounds];
@@ -1030,7 +1049,10 @@
     if (screenWidth == 1242 || screenWidth == 640)
         scoreText.x = (screenWidth - fakeScoreText.width*screenScale-10);
     else
-        scoreText.x = (screenWidth - fakeScoreText.width)/screenScale;
+    {
+        //scoreText.x = (screenWidth - fakeScoreText.width)/screenScale;
+        scoreText.x = (self.bounds.size.width - fakeScoreText.width)*screenScale/sx-10;
+    }
     if (message == @"")
     {
         [scoreText drawBody:context on:self.bounds];
