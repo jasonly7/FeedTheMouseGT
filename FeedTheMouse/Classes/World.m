@@ -156,7 +156,7 @@
                     cheese->colPackage->state = COLLISION_BOUNCE;
                    // cheese->initVel = cheese->bounceVel; will be set in bounceOffDrum
                     [cheese bounceOffDrum];
-                    [drum vibrate];
+                    //[drum vibrate];
                // }
                 [mouse openMouth];
                 

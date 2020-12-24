@@ -1526,6 +1526,7 @@
                 CGPoint p2 = CGPointMake( topLine->p2.x/cheeseRadius, topLine->p2.y/cheeseRadius);
                 [slidingLine initializeLineWithPoint1:p1 andPoint2:p2];
                 normal = [topLine normal];
+                [d vibrate];
             }
             else if (isPastBottomLine)
             {
@@ -1761,6 +1762,7 @@
                     {
                         [normal initializeVectorX:-topLine->normal->x andY: -topLine->normal->y];
                     }
+                    [d vibrate];
                 }
                 else
                 {
