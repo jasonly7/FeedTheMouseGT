@@ -58,6 +58,35 @@
         teeterTotter = [[TeeterTotter alloc] init];
         flipper = [[Flipper alloc] init];
         coin = [[Coin alloc] init];
+        
+        TitleViewController *titleViewController = (TitleViewController*)[UIApplication sharedApplication].keyWindow.rootViewController;
+        titleViewController.playerNameTextField.hidden = true;
+        
+        parser = [[XMLParser alloc] initXMLParser];
+        
+        NSData *data = [[NSData alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"FeedTheMouse.xml" ofType:nil]];
+        [self doParse:data];
+        [data release];
+        NSString *playerName = titleViewController.playerNameTextField.text;
+        NSLog(@"name: %@", playerName);
+        if ([Utility isNumeric:playerName])
+        {
+            
+            currentLevelNumber = [playerName intValue]-1;
+            curLevel = [levels objectAtIndex:currentLevelNumber];
+            mouse = curLevel->mouse;
+            [cheese->world setLevel: &curLevel];
+            coins = [curLevel getCoins];
+            gears = [curLevel getGears];
+            
+        
+            drums = [curLevel getDrums];
+            bombs = [curLevel getBombs];
+   
+            teeterTotters = [curLevel getTeeterTotters];
+        }
+        else
+            currentLevelNumber = 0;
        // cheese->mouse = mouse;
         /*cheese->gear = gear;
         cheese->drum = drum;
@@ -73,11 +102,7 @@
 												repeats:NO];
         game_is_running = true;
         animationNumber = 0;
-        parser = [[XMLParser alloc] initXMLParser];
         
-        NSData *data = [[NSData alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"FeedTheMouse.xml" ofType:nil]];
-        [self doParse:data];
-        [data release];
         // get array of objects here
         gears = [curLevel getGears];
        // printf("gears retain count:%lu", (unsigned long)[gears retainCount]);
@@ -92,7 +117,7 @@
         cheese->teeterTotters = teeterTotters;
         if ([teeterTotters count] > 0)
         {
-            [cheese->prevVelocities initWithCapacity:[teeterTotters count]];
+            //[cheese->prevVelocities initWithCapacity:[teeterTotters count]];
             for (int i=0; i < [teeterTotters count]; i++)
             {
                 [cheese->prevVelocities addObject:[[Vector alloc] init]];
@@ -104,7 +129,7 @@
         }
         flippers = [curLevel getFlippers];
         cheese->flippers = flippers;
-        currentLevelNumber = 0;
+        
         [cheese->world setLevel:&curLevel];
         mouse = curLevel->mouse;
         [cheese->world setMouse:&(mouse)];
@@ -138,8 +163,8 @@
             backgroundFilename = [[NSString alloc] initWithString:curLevel->backgroundFilename];
         }
         backgroundSprite = [Picture fromFile:backgroundFilename];
-        TitleViewController *titleViewController = (TitleViewController*)[UIApplication sharedApplication].keyWindow.rootViewController;
-        titleViewController.playerNameTextField.hidden = true;
+        
+        
         //[titleViewController->musicTitlePlayer stop];
         pathForMusicFile = [[NSBundle mainBundle] pathForResource:@"sounds/ADVENTURE_By_Benjamin_Tissot" ofType:@"mp3"];
         musicFile = [[NSURL alloc] initFileURLWithPath:pathForMusicFile];
@@ -1089,8 +1114,8 @@
 
 - (void) update_game
 {
-    
-    if ([mouse isDoneChewing])
+    coins = [curLevel getCoins];
+    if ([mouse isDoneChewing] && [coins count] <= 0)
     {
         currentLevelNumber++;
         if (currentLevelNumber < [levels count])
@@ -1428,12 +1453,27 @@ void cleanRemoveFromSuperview( UIView * view ) {
        
     if (!found)
     {
- 
-       // if (y > (960 * sy))
-        //{
+        /*TitleViewController *titleViewController = (TitleViewController*)[UIApplication sharedApplication].keyWindow.rootViewController;
+        NSString *playerName = titleViewController.playerNameTextField.text;
+        NSLog(@"name: %@", playerName);
+        if ([Utility isNumeric:playerName])
+        {
+            currentLevelNumber = [playerName intValue];
+            
+        }*/
+        if ([playerName isEqualToString:@"abc"])
+        {
             cheese->colPackage->foundCollision = false;
             [cheese dropAt:pt];
-        //}
+        }
+        else
+        {
+            if (y > (960 * sy))
+            {
+                cheese->colPackage->foundCollision = false;
+                [cheese dropAt:pt];
+            }
+        }
     }
     lastDate = [[NSDate date] retain];
     next_game_tick = -[lastDate timeIntervalSinceNow];//+SKIP_TICKS;

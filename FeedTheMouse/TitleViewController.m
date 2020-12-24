@@ -53,6 +53,8 @@
     [feedController setPlayerName:_playerNameTextField.text];
     [musicTitlePlayer stop];
     
+    
+    
     [self.view addSubview:feedTheMouseViewController.view];
     //[self.view addSubview:feedController.view];
 }

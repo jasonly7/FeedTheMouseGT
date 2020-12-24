@@ -320,25 +320,30 @@
             <Y>814</Y>
         </Coin>
         <Coin>
-            <X>399</X>
-            <Y>558</Y>
+            <X>425</X>
+            <Y>562</Y>
         </Coin>
         <Coin>
-            <X>286</X>
-            <Y>438</Y>
+            <X>273</X>
+            <Y>378</Y>
         </Coin>
         <Coin>
-            <X>375</X>
-            <Y>281</Y>
+            <X>392</X>
+            <Y>237</Y>
         </Coin>
         <Bomb>
-            <X>399</X>
-            <Y>649</Y>
+            <X>437</X>
+            <Y>343</Y>
             <ANGLE>0.000000</ANGLE>
         </Bomb>
         <Bomb>
-            <X>206</X>
-            <Y>499</Y>
+            <X>202</X>
+            <Y>458</Y>
+            <ANGLE>0.000000</ANGLE>
+        </Bomb>
+        <Bomb>
+            <X>442</X>
+            <Y>665</Y>
             <ANGLE>0.000000</ANGLE>
         </Bomb>
         <Flipper>
@@ -349,8 +354,8 @@
             <Color>orange</Color>
         </Flipper>
         <Flipper>
-            <X>238</X>
-            <Y>340</Y>
+            <X>187</X>
+            <Y>305</Y>
             <ANGLE>147.639984</ANGLE>
             <ISFLIPPED>false</ISFLIPPED>
             <Color>orange</Color>
@@ -361,9 +366,9 @@
             <Color>blue</Color>
         </TeeterTotter>
         <TeeterTotter>
-            <X>419</X>
+            <X>445</X>
             <Y>473</Y>
-            <Color>&lt;TeeterTotter: 0x600002437100&gt;</Color>
+            <Color>orange</Color>
         </TeeterTotter>
     </Level>
     <Level>
@@ -629,7 +634,7 @@
         <TeeterTotter>
             <X>459</X>
             <Y>352</Y>
-            <Color>&lt;TeeterTotter: 0x60000276cae0&gt;</Color>
+            <Color>blue</Color>
         </TeeterTotter>
     </Level>
     <Level>
@@ -705,12 +710,12 @@
         <TeeterTotter>
             <X>475</X>
             <Y>433</Y>
-            <Color>&lt;TeeterTotter: 0x600002796040&gt;</Color>
+            <Color>blue</Color>
         </TeeterTotter>
         <TeeterTotter>
             <X>262</X>
             <Y>266</Y>
-            <Color>&lt;TeeterTotter: 0x600006e77220&gt;</Color>
+            <Color>blue</Color>
         </TeeterTotter>
     </Level>
     <Level>

@@ -24,7 +24,7 @@
 #import "FinishGameViewController.h"
 #import "TitleView.h"
 #import "TextSprite.h"
-
+#import "Utility.h"
 
 //const int MOUSE_HEIGHT = 322;
 //const int MOUSE_WIDTH = 256;

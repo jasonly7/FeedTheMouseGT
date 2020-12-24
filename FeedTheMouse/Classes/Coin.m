@@ -43,7 +43,7 @@
     }
     else
     {
-        [coinSprite fromFile:@"medium_coins/mediumcoin.png" withRows:1 withColumns:16];
+        [coinSprite fromFile:@"mediumlargecoins.png" withRows:1 withColumns:16];
         //coinSprite = [Picture fromFile:@"coin.png"];
     }
         
