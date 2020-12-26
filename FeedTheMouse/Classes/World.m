@@ -58,10 +58,10 @@
     [rightWall initializeLineWithPoint1:wallBottomRight andPoint2:wallTopRight];
     cheese->teeterTotters = lvl->teeterTotters;
     cheese->colPackage->collisionCount = 0;
-    if (cheese->y > 960*sy - cheese->cheeseSprite.height/2)//([cheese collideWithLine:topWall])
+    /*if (cheese->y > 960*sy - cheese->cheeseSprite.height/2 && cheese->vel->y > 0)//([cheese collideWithLine:topWall])
     {
         [cheese bounceOffTopWall];
-    }
+    }*/
     if ([cheese collideWithLine:leftWall])
     {
         [cheese bounceOffLeftWall];
@@ -176,11 +176,12 @@
                 cheese->colPackage->foundCollision = [cheese checkBomb:bomb];
             if (cheese->colPackage->foundCollision || cheese->colPackage->state == COLLISION_BOUNCE)
             {
-                cheese->colPackage->collidedObj = bomb;
+                //cheese->colPackage->collidedObj = bomb;
            
-                cheese->colPackage->state = COLLISION_BOUNCE;
-               
-                [cheese bounceOffBomb];
+               // cheese->colPackage->state = COLLISION_BOUNCE;
+                CGPoint pt = CGPointMake(0,-960);
+                [cheese dropAt:pt];
+                //[cheese bounceOffBomb];
                 [bomb explode];
                 NSString *pathForBombSoundFile = [[NSBundle mainBundle] pathForResource:@"sounds/bomb" ofType:@"wav"];
                 [sndMan playSound:pathForBombSoundFile];

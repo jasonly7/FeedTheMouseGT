@@ -111,13 +111,13 @@
         else if ([currentObject isEqualToString:@"Bomb"])
             x = [string intValue]-80;
         else if ([currentObject isEqualToString:@"TeeterTotter"])
-            x = [string intValue]-180;
+            x = [string intValue]-148;//180;
         else if ([currentObject isEqualToString:@"Flipper"])
             x = [string intValue]-168;
         else if ([currentObject isEqualToString:@"Mouse"])
             x = [string intValue];//-MOUSE_WIDTH;
         else if ([currentObject isEqualToString:@"Coin"])
-            x = [string intValue]-29;//-58;
+            x = [string intValue]-45;//29;//-58;
 
         currentElementName = @"";
     } else if ([currentElementName isEqualToString:@"Y"]) {
@@ -128,13 +128,13 @@
         else if ([currentObject isEqualToString:@"Bomb"])
             y = [string intValue]-80;
         else if ([currentObject isEqualToString:@"TeeterTotter"])
-            y = [string intValue]-72;
+            y = [string intValue]-20;//72;
         else if ([currentObject isEqualToString:@"Flipper"])
             y = [string intValue]-56;
         else if ([currentObject isEqualToString:@"Mouse"])
             y = [string intValue];
         else if ([currentObject isEqualToString:@"Coin"])
-            y = [string intValue]-29;//58;
+            y = [string intValue]-45;//-29;//58;
 
         currentElementName = @"";
     } else if ([currentElementName isEqualToString:@"ANGLE"]) {

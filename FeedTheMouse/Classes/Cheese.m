@@ -390,11 +390,11 @@
     }
     
     // if on the edge and not recently dropped
-    if (pos->y > (960*sy-cheeseSprite.height/2))
+    /*if (pos->y > (960*sy-cheeseSprite.height/2) && vel->y > 0)
     {
         pos->y = 960*sy-cheeseSprite.height/2;
         y = pos->y;
-    }
+    }*/
     
     
     if (!colPackage->foundCollision || colPackage->isSlidingOff)
@@ -771,7 +771,7 @@
     [justTouchVelocity normalize];
     justTouchVelocity = [justTouchVelocity multiply:distance];
     
-    bounceVel = [[Vector alloc] init];
+    /*bounceVel = [[Vector alloc] init];
     if (screenWidth == 1242)
     {
         bounceVel->x = (x - bombPosition->x);
@@ -781,10 +781,10 @@
     {
         bounceVel->x = sx*(x - bombPosition->x);//(x - g->x);
         bounceVel->y = sy*(y - bombPosition->y);//(y - g->y);
-    }
+    }*/
     //printf("bounceVel retain count: %lu", (unsigned long)[bounceVel length]);
    // printf("bounceVel retain count: %lu", (unsigned long)[bounceVel retainCount]);
-    [bounceVel normalize];
+   // [bounceVel normalize];
     
     
     
@@ -793,7 +793,7 @@
     [C normalize];
     normal = [[C multiply:-1] multiply:gravity->length];*/
     double length = [vel length];
-    bounceVel = [bounceVel multiply:length];// add:gravity] add:normal];
+   // bounceVel = [bounceVel multiply:length];// add:gravity] add:normal];
     
     if (cSquared < sumRadiiSquared)
     {
@@ -2467,8 +2467,8 @@
         tangent->y = sin(radAngle+M_PI_2);
         
     }
-    initVel->x = bounceVel->x + tangent->x*200;
-    initVel->y = bounceVel->y + tangent->y*200;
+    initVel->x = bounceVel->x + tangent->x*accel;
+    initVel->y = bounceVel->y + tangent->y*accel;
     initVel->length = [initVel length];
    // t = 0;
     cheeseSprite.rotation +=1;

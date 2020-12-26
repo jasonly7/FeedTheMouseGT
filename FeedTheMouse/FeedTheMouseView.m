@@ -1461,7 +1461,9 @@ void cleanRemoveFromSuperview( UIView * view ) {
             currentLevelNumber = [playerName intValue];
             
         }*/
-        if ([playerName isEqualToString:@"abc"])
+        TitleViewController *titleViewController = (TitleViewController*)[UIApplication sharedApplication].keyWindow.rootViewController;
+        NSString *playerName = titleViewController.playerNameTextField.text;
+        if ([playerName isEqualToString:@"cheat"])
         {
             cheese->colPackage->foundCollision = false;
             [cheese dropAt:pt];
