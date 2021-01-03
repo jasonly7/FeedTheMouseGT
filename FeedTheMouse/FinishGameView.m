@@ -20,7 +20,7 @@
 - (id) initWithCoder:(NSCoder *)coder
 {
     if (self = [super initWithCoder: coder]) {
-        pathForMusicFile = [[NSBundle mainBundle] pathForResource:@"sounds/TENDERNESS_By_Benjamin_Tissot" ofType:@"mp3"];
+        pathForMusicFile = [[NSBundle mainBundle] pathForResource:@"sounds/Ukulele_By_Benjamin_Tissot" ofType:@"mp3"];
         musicFile = [[NSURL alloc] initFileURLWithPath:pathForMusicFile];
         musicPlayer = [AVAudioPlayer alloc];
         [musicPlayer initWithContentsOfURL:musicFile error:NULL];

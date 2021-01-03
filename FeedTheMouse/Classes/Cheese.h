@@ -97,12 +97,16 @@
         CGFloat sx,sy;
         float screenWidth, screenHeight;
         Vector *prevVelocity;
+    
+        @public
+            int numOfLives;
 }
 
 - (NSString*) deviceName;
 - (bool) pastVertex: (Vector *)vertex;
 - (bool) pastLine: (Line *)line;
 - (void) draw: (CGContextRef) context;
+- (void) placeAt: (CGPoint) pt;
 - (void) dropAt: (CGPoint) pt;
 - (void) fall: (float) interpolation;
 - (void) update;//

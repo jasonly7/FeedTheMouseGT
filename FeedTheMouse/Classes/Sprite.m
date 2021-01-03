@@ -82,9 +82,11 @@
 
 - (void) drawBody: (CGContextRef) context 
 {
+    CGContextSaveGState(context);
     CGContextSetRGBFillColor(context, r, g, b, alpha);
     [self outlinePath: (context)];
     CGContextDrawPath(context, kCGPathFill);
+    CGContextRestoreGState(context);
 }
 
 - (void) draw: (CGContextRef) context at:(CGPoint)pt

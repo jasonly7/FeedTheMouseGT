@@ -55,6 +55,7 @@
 
 - (void) drawBody: (CGContextRef) context //onLayer: (CALayer *) layer
 {
+    CGContextSaveGState(context);
     // clip our image from the atlas
     CGContextBeginPath(context);
     CGContextAddRect(context, clipRect);
@@ -70,7 +71,7 @@
         CGContextDrawImage(layerContext, box, image);
     }
     CGContextDrawLayerAtPoint(context, CGPointZero, layerReference);
-
+    CGContextRestoreGState(context);
 }
 
 - (void) draw: (CGContextRef) context at:(CGPoint)pt
@@ -102,6 +103,25 @@
 
     // origin at center
     t = CGAffineTransformTranslate(t, x, y);
+    
+    CGContextConcatCTM(context,t);
+    
+    // Draw our body
+    [self drawBody:context];
+    
+    CGContextRestoreGState(context);
+}
+
+- (void) draw: (CGContextRef) context resizeTo: (CGSize) scale
+{
+    CGContextSaveGState(context);
+    
+    // Position the sprite
+    CGAffineTransform t = CGAffineTransformIdentity;
+    t= CGAffineTransformScale(t, scale.width, scale.height);
+
+    // origin at center
+    t = CGAffineTransformTranslate(t, x/scale.width, y/scale.height);
     
     CGContextConcatCTM(context,t);
     

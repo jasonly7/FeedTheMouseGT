@@ -30,6 +30,41 @@
     return self;
 }
 
+- (void) initializeCoinAtX:(float)xLocation andY:(float)yLocation andImage:(NSString*) file
+{
+    float screenWidth = [UIScreen.mainScreen bounds].size.width * [UIScreen.mainScreen scale];
+    float screenHeight = [UIScreen.mainScreen bounds].size.height * [UIScreen.mainScreen scale];
+    float sx = screenWidth/640.0f;
+    float sy = screenHeight/1136.0f;
+    
+    [coinSprite fromFile:file withRows:1 withColumns:16];
+        //coinSprite = [Picture fromFile:@"coin.png"];
+    
+        
+    [self setX:0];
+    [self setY:0];
+    /* coinSprite.x = 0;
+     x = coinSprite.x + coinSprite.width/2;
+     coinSprite.y = 0;
+     y = coinSprite.y + coinSprite.height/2;*/
+    r = coinSprite.width/2;
+    if (screenWidth == 1242)
+    {
+        xLocation = xLocation * sx;
+        yLocation = yLocation * sy;
+    }
+    [self setX:xLocation];
+    [self setY:yLocation];
+    //pos->x = x;
+    //pos->y = y;
+    
+    
+  //  x = xLocation;
+   // y = yLocation;
+   // r = 29;
+  //  return self;
+}
+
 - (void) initializeCoinAtX:(float)xLocation andY:(float)yLocation
 {
     float screenWidth = [UIScreen.mainScreen bounds].size.width * [UIScreen.mainScreen scale];

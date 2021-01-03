@@ -20,6 +20,7 @@
         int steps;
 }
 - (void) update;
+- (void) initializeCoinAtX:(float)xLocation andY:(float)yLocation andImage:(NSString*)file;
 - (void) initializeCoinAtX:(float) xLocation andY: (float)yLocation;
 - (int)getX;
 - (int)getY;

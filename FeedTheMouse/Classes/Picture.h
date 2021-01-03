@@ -31,4 +31,5 @@
 + (Picture *) fromFile: (NSString *) fname;
 + (NSMutableDictionary *) sharedSpriteAtlas;
 + (UIImage *) getPictureImage: (NSString *) name;
+- (void) draw: (CGContextRef) context resizeTo: (CGSize) scale;
 @end

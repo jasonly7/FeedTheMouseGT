@@ -25,7 +25,7 @@
 #import "TitleView.h"
 #import "TextSprite.h"
 #import "Utility.h"
-
+#import "ChatBubble.h"
 //const int MOUSE_HEIGHT = 322;
 //const int MOUSE_WIDTH = 256;
 
@@ -88,6 +88,8 @@
     NSURL *musicFile;
     AVAudioPlayer *musicPlayer;
     NSString *message;
+    NSMutableArray *cheeseArrayOfLives;
+    ChatBubble *chatBubble;
     @public
         NSString *playerName;
 }

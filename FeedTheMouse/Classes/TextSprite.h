@@ -19,14 +19,16 @@ NS_ASSUME_NONNULL_BEGIN
     NSString *font;
     uint fontSize;
     uint textLength;
+    
     @public
         CGColorRef color;
+
 }
 
 @property (assign) NSString *text;
 @property (assign) NSString *font;
 @property (assign) uint fontSize;
-
+@property (assign) bool visible;
 + (TextSprite *) withString: (NSString *) label;
 - (void) moveUpperLeftTo: (CGPoint) p;
 - (void) newText: (NSString *) val;

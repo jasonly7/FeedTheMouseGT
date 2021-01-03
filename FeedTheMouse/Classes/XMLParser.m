@@ -117,7 +117,7 @@
         else if ([currentObject isEqualToString:@"Mouse"])
             x = [string intValue];//-MOUSE_WIDTH;
         else if ([currentObject isEqualToString:@"Coin"])
-            x = [string intValue]-45;//29;//-58;
+            x = [string intValue];//29;//-58;
 
         currentElementName = @"";
     } else if ([currentElementName isEqualToString:@"Y"]) {
@@ -134,7 +134,7 @@
         else if ([currentObject isEqualToString:@"Mouse"])
             y = [string intValue];
         else if ([currentObject isEqualToString:@"Coin"])
-            y = [string intValue]-45;//-29;//58;
+            y = [string intValue];//-29;//58;
 
         currentElementName = @"";
     } else if ([currentElementName isEqualToString:@"ANGLE"]) {

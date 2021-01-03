@@ -81,7 +81,7 @@
         topTeeterTotter = [lvl->teeterTotters objectAtIndex:0];
     
     
-    if (cheese->colPackage->foundCollision==false)
+    if (cheese->colPackage->foundCollision==false )
     {
         for (int i = 0; i< [lvl->coins count]; i++)
         {
@@ -100,7 +100,8 @@
                 [removedCoins addObject:coin];
                 [lvl->coins removeObjectAtIndex:i];
                 cheese->colPackage->foundCollision = false;
-        
+                if ([lvl->coins count] == 0)
+                    [mouse openMouth];
                 [sndMan playSound:pathForCoinSoundFile];
                 break;
             }
@@ -120,7 +121,7 @@
             if (cheese->colPackage->foundCollision)
             {
                 cheese->colPackage->collidedObj = gear;
-                [mouse openMouth];
+               // [mouse openMouth];
                 [cheese bounceOffGear:gear];
                 break;
             }
@@ -158,7 +159,7 @@
                     [cheese bounceOffDrum];
                     //[drum vibrate];
                // }
-                [mouse openMouth];
+               // [mouse openMouth];
                 
                 break;
             }
@@ -174,7 +175,7 @@
             NSLog(@"Checking bomb %d", i);
             if (bomb->state != BOMB_GONE)
                 cheese->colPackage->foundCollision = [cheese checkBomb:bomb];
-            if (cheese->colPackage->foundCollision || cheese->colPackage->state == COLLISION_BOUNCE)
+            if (cheese->colPackage->foundCollision)// || cheese->colPackage->state == COLLISION_BOUNCE)
             {
                 //cheese->colPackage->collidedObj = bomb;
            
@@ -185,276 +186,287 @@
                 [bomb explode];
                 NSString *pathForBombSoundFile = [[NSBundle mainBundle] pathForResource:@"sounds/bomb" ofType:@"wav"];
                 [sndMan playSound:pathForBombSoundFile];
-                [mouse openMouth];
-                
+               // [mouse openMouth];
+                //[cheese release];
+                //[cheese dealloc];
+               // cheese = nil;
+                cheese->colPackage->state = COLLISION_EXPLODE;
                 break;
             }
         }
     }
     
-    if (cheese->colPackage->foundCollision==false)
+    if (cheese !=nil)
     {
-        for (int i = 0; i < [lvl->flippers count]; i++ )
+        if (cheese->colPackage->foundCollision==false)
         {
-            Flipper *flipper = [lvl->flippers objectAtIndex:i];
-            cheese->colPackage->foundCollision = [cheese checkFlipper:flipper];
-            if (cheese->colPackage->foundCollision || cheese->colPackage->state == COLLISION_BOUNCE)
+            for (int i = 0; i < [lvl->flippers count]; i++ )
             {
-                cheese->colPackage->collidedObj = flipper;
-                /*if ( [cheese->bounceVel length] < 1)
+                Flipper *flipper = [lvl->flippers objectAtIndex:i];
+                cheese->colPackage->foundCollision = [cheese checkFlipper:flipper];
+                if (cheese->colPackage->foundCollision || cheese->colPackage->state == COLLISION_BOUNCE)
                 {
-                    cheese->colPackage->state = COLLISION_SLIDE;
+                    cheese->colPackage->collidedObj = flipper;
+                    /*if ( [cheese->bounceVel length] < 1)
+                    {
+                        cheese->colPackage->state = COLLISION_SLIDE;
+                    }
+                    else
+                    {*/
+                        cheese->colPackage->state = COLLISION_BOUNCE;
+                        [cheese bounceOffFlipper];
+                    
+                    //}
+                   // [mouse openMouth];
+                    break;
                 }
-                else
-                {*/
-                    cheese->colPackage->state = COLLISION_BOUNCE;
-                    [cheese bounceOffFlipper];
-                
-                //}
-                [mouse openMouth];
-                break;
             }
         }
     }
     
     float topLeftX, topLeftY, topRightX, topRightY;
     double radAngle = 0;
-    if (cheese->colPackage->foundCollision==false)
+    
+    if (cheese!=nil)
     {
-        //printf("# of teeter totters: %d", [lvl->teeterTotters count] );
-        cheese->colPackage->collisionCount = 0;
-        for (int i = 0; i < [lvl->teeterTotters count]; i++ )
+        if (cheese->colPackage->foundCollision==false)
         {
-            TeeterTotter *teeterTotter = [lvl->teeterTotters objectAtIndex:i];
-            if ( cheese->colPackage->collisionCount == 0)
+            //printf("# of teeter totters: %d", [lvl->teeterTotters count] );
+            cheese->colPackage->collisionCount = 0;
+            for (int i = 0; i < [lvl->teeterTotters count]; i++ )
             {
-                cheese->colPackage->foundCollision = [cheese checkTeeterTotter:teeterTotter];
-                //bool isNearTopLine = [cheese nearLine:teeterTotter->topLine];
-                radAngle = teeterTotter->angle*M_PI/180.0f;
-                if (cheese->colPackage->foundCollision || (cheese->isNearTopLine || cheese->isNearTopRight || cheese->isNearTopLeft) || [cheese nearVertex:teeterTotter->topLine->p1] || [cheese nearVertex:teeterTotter->topLine->p2] || cheese->isPastTopLine ||
-                    cheese->colPackage->state == COLLISION_SLIDE)
+                TeeterTotter *teeterTotter = [lvl->teeterTotters objectAtIndex:i];
+                if ( cheese->colPackage->collisionCount == 0)
                 {
-                    
-                    CGPoint topLeftPt,topRightPt;
-                    
-                    Line *topLine = [[[Line alloc] init] autorelease];
-                    cheese->colPackage->collidedObj = teeterTotter;
-                    cheese->colPackage->collidedTotter = teeterTotter;
-                    
-                    if (cheese->colPackage->foundCollision)
+                    cheese->colPackage->foundCollision = [cheese checkTeeterTotter:teeterTotter];
+                    //bool isNearTopLine = [cheese nearLine:teeterTotter->topLine];
+                    radAngle = teeterTotter->angle*M_PI/180.0f;
+                    if (cheese->colPackage->foundCollision || (cheese->isNearTopLine || cheese->isNearTopRight || cheese->isNearTopLeft) || [cheese nearVertex:teeterTotter->topLine->p1] || [cheese nearVertex:teeterTotter->topLine->p2] || cheese->isPastTopLine ||
+                        cheese->colPackage->state == COLLISION_SLIDE)
                     {
-                        printf("collided with teeter totter\n");
-                        [cheese->vel initializeVectorX:0 andY:0];
-                    }
-                    else if (cheese->colPackage->state != COLLISION_BOUNCE)// && !cheese->isPastTopRight)
-                    {
-                        printf("near the teeter totter\n");
-                        cheese->colPackage->state = cheese->colPackage->state == COLLISION_SLIDE;
-                        //cheese->colPackage->foundCollision = true;
-                        [cheese->vel initializeVectorX:0 andY:0];
-                    }
-                    
-                    if ((cheese->isNearTopLine && !cheese->isNearTopLeft && !cheese->isNearTopRight) || cheese->isPastTopLine)// && (cheese->colPackage->state != COLLISION_BOUNCE && //!cheese->isPastTopRight))
-                        cheese->colPackage->state = COLLISION_SLIDE;
+                        
+                        CGPoint topLeftPt,topRightPt;
+                        
+                        Line *topLine = [[[Line alloc] init] autorelease];
+                        cheese->colPackage->collidedObj = teeterTotter;
+                        cheese->colPackage->collidedTotter = teeterTotter;
+                        
+                        if (cheese->colPackage->foundCollision)
+                        {
+                            printf("collided with teeter totter\n");
+                            [cheese->vel initializeVectorX:0 andY:0];
+                        }
+                        else if (cheese->colPackage->state != COLLISION_BOUNCE)// && !cheese->isPastTopRight)
+                        {
+                            printf("near the teeter totter\n");
+                            cheese->colPackage->state = cheese->colPackage->state == COLLISION_SLIDE;
+                            //cheese->colPackage->foundCollision = true;
+                            [cheese->vel initializeVectorX:0 andY:0];
+                        }
+                        
+                        if ((cheese->isNearTopLine && !cheese->isNearTopLeft && !cheese->isNearTopRight) || cheese->isPastTopLine)// && (cheese->colPackage->state != COLLISION_BOUNCE && //!cheese->isPastTopRight))
+                            cheese->colPackage->state = COLLISION_SLIDE;
 
-                    if (cheese->colPackage->state == COLLISION_SLIDE )
-                    {
-                        [cheese slideOffTeeterTotter:teeterTotter];
-                        [cheese->vel initializeVectorX:0 andY:0];
+                        if (cheese->colPackage->state == COLLISION_SLIDE )
+                        {
+                            [cheese slideOffTeeterTotter:teeterTotter];
+                            [cheese->vel initializeVectorX:0 andY:0];
+                        }
+                        else if (cheese->colPackage->state == COLLISION_BOUNCE)
+                            [cheese bounceOffTeeterTotter];
+                       // teeterTotter->time += 2;
+                        if (cheese->pos->y > teeterTotter->topLine->p1.y && cheese->pos->y > teeterTotter->topLine->p2.y)
+                        {
+                            double teeterTotterX = teeterTotter->x*sx;
+                            if (screenWidth == 1242)
+                                teeterTotterX = teeterTotter->x;
+                            if (cheese->pos->x > teeterTotterX)
+                            {
+                                //teeterTotter->angularVelocity+=teeterTotter->angularAcceleration;
+                                //if (teeterTotter->angularVelocity > 1000)
+                                    //teeterTotter->angularVelocity = 1000;
+                                if ((teeterTotter->angle >=315 && teeterTotter->angle <360) || teeterTotter->angle==0)
+                                {
+                                    if (teeterTotter->angle == 0)
+                                        teeterTotter->angle = 360;
+                                    if (teeterTotter->angle-teeterTotter->angularVelocity >= 315)
+                                        teeterTotter->angle-=teeterTotter->angularVelocity;
+                                    else
+                                        teeterTotter->angle = 315;
+                                }
+                                else if (teeterTotter->angle <=45 && teeterTotter->angle >=0)
+                                {
+                                    if (teeterTotter->angle+teeterTotter->angularVelocity <= 45)
+                                        teeterTotter->angle+=teeterTotter->angularVelocity;
+                                    else
+                                        teeterTotter->angle=45;
+                                }
+                                else if (teeterTotter->angle > 315 && teeterTotter->angle < 360)
+                                    teeterTotter->angle = 315;
+                                else
+                                    teeterTotter->angle-=teeterTotter->angularVelocity;
+                            }
+                            else if (cheese->pos->x  < teeterTotterX)
+                            {
+                                //teeterTotter->angularVelocity+=teeterTotter->angularAcceleration;
+                                //if (teeterTotter->angularVelocity > 1000)
+                                    //teeterTotter->angularVelocity = 1000;
+                                if (teeterTotter->angle <=45 && teeterTotter->angle >=0)
+                                {
+                                    if (teeterTotter->angle+teeterTotter->angularVelocity <= 45)
+                                        teeterTotter->angle+=teeterTotter->angularVelocity;
+                                    else
+                                        teeterTotter->angle=45;
+                                }
+                                else if ((teeterTotter->angle >=315 && teeterTotter->angle <360) || teeterTotter->angle==0)
+                                {
+                                    if (teeterTotter->angle == 0)
+                                        teeterTotter->angle = 360;
+                                    if (teeterTotter->angle-teeterTotter->angularVelocity >= 315)
+                                        teeterTotter->angle-=teeterTotter->angularVelocity;
+                                    else
+                                        teeterTotter->angle = 315;
+                                }
+                                else if (teeterTotter->angle > 45 && teeterTotter->angle < 90)
+                                    teeterTotter->angle = 45;
+                                else
+                                    teeterTotter->angle+=teeterTotter->angularVelocity;
+                            }
+                            radAngle = teeterTotter->angle*M_PI/180.0f;
+                            // get top left of rectangle
+                            if (screenWidth == 1242)
+                            {
+                                topLeftX = (teeterTotter->x - cos(radAngle)*teeterTotter->totterSprite.width/2 + cos(radAngle+M_PI_2)*teeterTotter->totterSprite.height/2);
+                                topLeftY = (teeterTotter->y - sin(radAngle)*teeterTotter->totterSprite.width/2 + sin(radAngle+M_PI_2)*teeterTotter->totterSprite.height/2);
+                                topLeftPt = CGPointMake(topLeftX, topLeftY);
+                                // get top right of rectangle
+                                topRightX = (teeterTotter->x + cos(radAngle)*teeterTotter->totterSprite.width/2 + cos(radAngle+M_PI_2)*teeterTotter->totterSprite.height/2);
+                                topRightY = (teeterTotter->y + sin(radAngle)*teeterTotter->totterSprite.width/2 + sin(radAngle+M_PI_2)*teeterTotter->totterSprite.height/2);
+                                topRightPt = CGPointMake(topRightX,topRightY);
+                                teeterTotter->topLineRotated = [topLine initializeLineWithPoint1:topLeftPt andPoint2:topRightPt];
+                                cheese->slidingLine->normal = [teeterTotter->topLineRotated normal];
+                            }
+                            else
+                            {
+                                topLeftX = sx*(teeterTotter->x - cos(radAngle)*teeterTotter->totterSprite.width/2 + cos(radAngle+M_PI_2)*teeterTotter->totterSprite.height/2);
+                                topLeftY = sy*(teeterTotter->y - sin(radAngle)*teeterTotter->totterSprite.width/2 + sin(radAngle+M_PI_2)*teeterTotter->totterSprite.height/2);
+                                topLeftPt = CGPointMake(topLeftX, topLeftY);
+                                // get top right of rectangle
+                                topRightX = sx*(teeterTotter->x + cos(radAngle)*teeterTotter->totterSprite.width/2 + cos(radAngle+M_PI_2)*teeterTotter->totterSprite.height/2);
+                                topRightY = sy*(teeterTotter->y + sin(radAngle)*teeterTotter->totterSprite.width/2 + sin(radAngle+M_PI_2)*teeterTotter->totterSprite.height/2);
+                                topRightPt = CGPointMake(topRightX,topRightY);
+                                teeterTotter->topLineRotated = [topLine initializeLineWithPoint1:topLeftPt andPoint2:topRightPt];
+                                cheese->slidingLine->normal = [teeterTotter->topLineRotated normal];
+                            }
+                           // break;
+                        }
+                        [cheese->vel initializeVectorX:1 andY:1];
+                        if (cheese->colPackage->prevStates[i] == COLLISION_NONE)
+                            [cheese->prevVelocities[i] initializeVectorX:0 andY:0];
+                        cheese->colPackage->prevStates[i] = cheese->colPackage->state;
+                        break;
                     }
-                    else if (cheese->colPackage->state == COLLISION_BOUNCE)
-                        [cheese bounceOffTeeterTotter];
-                   // teeterTotter->time += 2;
-                    if (cheese->pos->y > teeterTotter->topLine->p1.y && cheese->pos->y > teeterTotter->topLine->p2.y)
+                    else if ( cheese->colPackage->collisionRecursionDepth > 0 )
                     {
-                        double teeterTotterX = teeterTotter->x*sx;
-                        if (screenWidth == 1242)
-                            teeterTotterX = teeterTotter->x;
-                        if (cheese->pos->x > teeterTotterX)
+                        printf("sliding on teeter totter\n");
+                        if (cheese->colPackage->state == COLLISION_SLIDE)
                         {
-                            //teeterTotter->angularVelocity+=teeterTotter->angularAcceleration;
-                            //if (teeterTotter->angularVelocity > 1000)
-                                //teeterTotter->angularVelocity = 1000;
-                            if ((teeterTotter->angle >=315 && teeterTotter->angle <360) || teeterTotter->angle==0)
-                            {
-                                if (teeterTotter->angle == 0)
-                                    teeterTotter->angle = 360;
-                                if (teeterTotter->angle-teeterTotter->angularVelocity >= 315)
-                                    teeterTotter->angle-=teeterTotter->angularVelocity;
-                                else
-                                    teeterTotter->angle = 315;
-                            }
-                            else if (teeterTotter->angle <=45 && teeterTotter->angle >=0)
-                            {
-                                if (teeterTotter->angle+teeterTotter->angularVelocity <= 45)
-                                    teeterTotter->angle+=teeterTotter->angularVelocity;
-                                else
-                                    teeterTotter->angle=45;
-                            }
-                            else if (teeterTotter->angle > 315 && teeterTotter->angle < 360)
-                                teeterTotter->angle = 315;
-                            else
-                                teeterTotter->angle-=teeterTotter->angularVelocity;
+                            [cheese slideOffTeeterTotter:teeterTotter];
+                            [cheese->vel initializeVectorX:1 andY:1];
+                            //break;
                         }
-                        else if (cheese->pos->x  < teeterTotterX)
-                        {
-                            //teeterTotter->angularVelocity+=teeterTotter->angularAcceleration;
-                            //if (teeterTotter->angularVelocity > 1000)
-                                //teeterTotter->angularVelocity = 1000;
-                            if (teeterTotter->angle <=45 && teeterTotter->angle >=0)
-                            {
-                                if (teeterTotter->angle+teeterTotter->angularVelocity <= 45)
-                                    teeterTotter->angle+=teeterTotter->angularVelocity;
-                                else
-                                    teeterTotter->angle=45;
-                            }
-                            else if ((teeterTotter->angle >=315 && teeterTotter->angle <360) || teeterTotter->angle==0)
-                            {
-                                if (teeterTotter->angle == 0)
-                                    teeterTotter->angle = 360;
-                                if (teeterTotter->angle-teeterTotter->angularVelocity >= 315)
-                                    teeterTotter->angle-=teeterTotter->angularVelocity;
-                                else
-                                    teeterTotter->angle = 315;
-                            }
-                            else if (teeterTotter->angle > 45 && teeterTotter->angle < 90)
-                                teeterTotter->angle = 45;
-                            else
-                                teeterTotter->angle+=teeterTotter->angularVelocity;
-                        }
-                        radAngle = teeterTotter->angle*M_PI/180.0f;
-                        // get top left of rectangle
+                        //break;
+                    }
+                    else
+                    {
+                        printf("miss the teeter totter\n");
+                        
+                        if (cheese->colPackage->prevStates[i] == COLLISION_NONE)
+                            [cheese->prevVelocities[i] initializeVectorX:0 andY:0];
+                        cheese->colPackage->prevStates[i] = cheese->colPackage->state;
+                        
                         if (screenWidth == 1242)
                         {
                             topLeftX = (teeterTotter->x - cos(radAngle)*teeterTotter->totterSprite.width/2 + cos(radAngle+M_PI_2)*teeterTotter->totterSprite.height/2);
                             topLeftY = (teeterTotter->y - sin(radAngle)*teeterTotter->totterSprite.width/2 + sin(radAngle+M_PI_2)*teeterTotter->totterSprite.height/2);
-                            topLeftPt = CGPointMake(topLeftX, topLeftY);
-                            // get top right of rectangle
+                            
                             topRightX = (teeterTotter->x + cos(radAngle)*teeterTotter->totterSprite.width/2 + cos(radAngle+M_PI_2)*teeterTotter->totterSprite.height/2);
                             topRightY = (teeterTotter->y + sin(radAngle)*teeterTotter->totterSprite.width/2 + sin(radAngle+M_PI_2)*teeterTotter->totterSprite.height/2);
-                            topRightPt = CGPointMake(topRightX,topRightY);
-                            teeterTotter->topLineRotated = [topLine initializeLineWithPoint1:topLeftPt andPoint2:topRightPt];
-                            cheese->slidingLine->normal = [teeterTotter->topLineRotated normal];
                         }
                         else
                         {
                             topLeftX = sx*(teeterTotter->x - cos(radAngle)*teeterTotter->totterSprite.width/2 + cos(radAngle+M_PI_2)*teeterTotter->totterSprite.height/2);
                             topLeftY = sy*(teeterTotter->y - sin(radAngle)*teeterTotter->totterSprite.width/2 + sin(radAngle+M_PI_2)*teeterTotter->totterSprite.height/2);
-                            topLeftPt = CGPointMake(topLeftX, topLeftY);
+                          
                             // get top right of rectangle
                             topRightX = sx*(teeterTotter->x + cos(radAngle)*teeterTotter->totterSprite.width/2 + cos(radAngle+M_PI_2)*teeterTotter->totterSprite.height/2);
                             topRightY = sy*(teeterTotter->y + sin(radAngle)*teeterTotter->totterSprite.width/2 + sin(radAngle+M_PI_2)*teeterTotter->totterSprite.height/2);
-                            topRightPt = CGPointMake(topRightX,topRightY);
-                            teeterTotter->topLineRotated = [topLine initializeLineWithPoint1:topLeftPt andPoint2:topRightPt];
-                            cheese->slidingLine->normal = [teeterTotter->topLineRotated normal];
                         }
-                       // break;
-                    }
-                    [cheese->vel initializeVectorX:1 andY:1];
-                    if (cheese->colPackage->prevStates[i] == COLLISION_NONE)
-                        [cheese->prevVelocities[i] initializeVectorX:0 andY:0];
-                    cheese->colPackage->prevStates[i] = cheese->colPackage->state;
-                    break;
-                }
-                else if ( cheese->colPackage->collisionRecursionDepth > 0 )
-                {
-                    printf("sliding on teeter totter\n");
-                    if (cheese->colPackage->state == COLLISION_SLIDE)
-                    {
-                        [cheese slideOffTeeterTotter:teeterTotter];
-                        [cheese->vel initializeVectorX:1 andY:1];
-                        //break;
-                    }
-                    //break;
-                }
-                else
-                {
-                    printf("miss the teeter totter\n");
-                    
-                    if (cheese->colPackage->prevStates[i] == COLLISION_NONE)
-                        [cheese->prevVelocities[i] initializeVectorX:0 andY:0];
-                    cheese->colPackage->prevStates[i] = cheese->colPackage->state;
-                    
-                    if (screenWidth == 1242)
-                    {
-                        topLeftX = (teeterTotter->x - cos(radAngle)*teeterTotter->totterSprite.width/2 + cos(radAngle+M_PI_2)*teeterTotter->totterSprite.height/2);
-                        topLeftY = (teeterTotter->y - sin(radAngle)*teeterTotter->totterSprite.width/2 + sin(radAngle+M_PI_2)*teeterTotter->totterSprite.height/2);
                         
-                        topRightX = (teeterTotter->x + cos(radAngle)*teeterTotter->totterSprite.width/2 + cos(radAngle+M_PI_2)*teeterTotter->totterSprite.height/2);
-                        topRightY = (teeterTotter->y + sin(radAngle)*teeterTotter->totterSprite.width/2 + sin(radAngle+M_PI_2)*teeterTotter->totterSprite.height/2);
-                    }
-                    else
-                    {
-                        topLeftX = sx*(teeterTotter->x - cos(radAngle)*teeterTotter->totterSprite.width/2 + cos(radAngle+M_PI_2)*teeterTotter->totterSprite.height/2);
-                        topLeftY = sy*(teeterTotter->y - sin(radAngle)*teeterTotter->totterSprite.width/2 + sin(radAngle+M_PI_2)*teeterTotter->totterSprite.height/2);
-                      
-                        // get top right of rectangle
-                        topRightX = sx*(teeterTotter->x + cos(radAngle)*teeterTotter->totterSprite.width/2 + cos(radAngle+M_PI_2)*teeterTotter->totterSprite.height/2);
-                        topRightY = sy*(teeterTotter->y + sin(radAngle)*teeterTotter->totterSprite.width/2 + sin(radAngle+M_PI_2)*teeterTotter->totterSprite.height/2);
-                    }
-                    
-                    
-                        if (teeterTotter->angle == 360)
-                            teeterTotter->angle = 0;
-                        //if (teeterTotter->angle <= 1)
-                          //  teeterTotter->angle = 0;
-                        if (teeterTotter->angle!=0)
-                        {
-                            //teeterTotter->angularVelocity-=teeterTotter->angularAcceleration;
-                            if (teeterTotter->angularVelocity<0)
-                                teeterTotter->angularVelocity = 0;
-                            //if (cheese->pos->x > teeterTotter->x)
-                            //if (!cheese->colPackage->isSlidingOff)
-                            //{
-                                if (teeterTotter->angle >= 300 && teeterTotter->angle < 360)
-                                {
-                                    if (cheese->pos->y + cheese->cheeseSprite->height/2.0f < topRightY || teeterTotter->reset ||
-                                        cheese->pos->x - cheese->cheeseSprite->width/2.0f > topRightX)
-                                        teeterTotter->angle+=teeterTotter->angularVelocity;
-                                }
-                                else if (teeterTotter->angle <=60 && teeterTotter->angle >=0 )
-                                {
-                                    if (cheese->pos->y + cheese->cheeseSprite->height/2.0f < topLeftY || teeterTotter->reset ||
-                                        cheese->pos->x + cheese->cheeseSprite->width/2.0f < topLeftX)
-                                        teeterTotter->angle-=teeterTotter->angularVelocity;
-                                }
-                            //}
-                        }
+                        
+                            if (teeterTotter->angle == 360)
+                                teeterTotter->angle = 0;
+                            //if (teeterTotter->angle <= 1)
+                              //  teeterTotter->angle = 0;
+                            if (teeterTotter->angle!=0)
+                            {
+                                //teeterTotter->angularVelocity-=teeterTotter->angularAcceleration;
+                                if (teeterTotter->angularVelocity<0)
+                                    teeterTotter->angularVelocity = 0;
+                                //if (cheese->pos->x > teeterTotter->x)
+                                //if (!cheese->colPackage->isSlidingOff)
+                                //{
+                                    if (teeterTotter->angle >= 300 && teeterTotter->angle < 360)
+                                    {
+                                        if (cheese->pos->y + cheese->cheeseSprite->height/2.0f < topRightY || teeterTotter->reset ||
+                                            cheese->pos->x - cheese->cheeseSprite->width/2.0f > topRightX)
+                                            teeterTotter->angle+=teeterTotter->angularVelocity;
+                                    }
+                                    else if (teeterTotter->angle <=60 && teeterTotter->angle >=0 )
+                                    {
+                                        if (cheese->pos->y + cheese->cheeseSprite->height/2.0f < topLeftY || teeterTotter->reset ||
+                                            cheese->pos->x + cheese->cheeseSprite->width/2.0f < topLeftX)
+                                            teeterTotter->angle-=teeterTotter->angularVelocity;
+                                    }
+                                //}
+                            }
+                            else
+                            {
+                                teeterTotter->reset=false;
+                              //  NSLog(@"teeterTotter angle: %f",teeterTotter->angle);
+                            }
+                       /* }
                         else
                         {
-                            teeterTotter->reset=false;
-                          //  NSLog(@"teeterTotter angle: %f",teeterTotter->angle);
-                        }
-                   /* }
-                    else
-                    {
+                            
+                        }*/
                         
-                    }*/
-                    
-                }// end if
-            }
-            if (cheese->colPackage->foundCollision || cheese->colPackage->collisionRecursionDepth > 0)
-            {
-                if (cheese->colPackage->prevStates[i] == COLLISION_NONE)
-                    [cheese->prevVelocities[i] initializeVectorX:0 andY:0];
-                cheese->colPackage->prevStates[i] = cheese->colPackage->state;
-                cheese->colPackage->collisionCount++;
-                [cheese->vel initializeVectorX:1 andY:1];
-                //teeterTotter->time = 1000;
-                break;
-            }
-        } // end for
-        
+                    }// end if
+                }
+                if (cheese->colPackage->foundCollision || cheese->colPackage->collisionRecursionDepth > 0)
+                {
+                    if (cheese->colPackage->prevStates[i] == COLLISION_NONE)
+                        [cheese->prevVelocities[i] initializeVectorX:0 andY:0];
+                    cheese->colPackage->prevStates[i] = cheese->colPackage->state;
+                    cheese->colPackage->collisionCount++;
+                    [cheese->vel initializeVectorX:1 andY:1];
+                    //teeterTotter->time = 1000;
+                    break;
+                }
+            } // end for
+        }
     }
     
-    
-    if ([cheese collideWith:mouse])
+    if (cheese!=nil)
     {
-        //CGPoint pt = CGPointMake(cheese->x,-960);
-      //  cheese->x = 180;
-        CGPoint pt = CGPointMake(0,-960);
-        [cheese dropAt:pt];
-        [mouse chew];
+        if ([cheese collideWith:mouse])
+        {
+            //CGPoint pt = CGPointMake(cheese->x,-960);
+          //  cheese->x = 180;
+            CGPoint pt = CGPointMake(0,-960);
+            [cheese dropAt:pt];
+            [mouse chew];
+        }
     }
 }
 

@@ -22,6 +22,7 @@
         text = nil;
         width = height = 0.0;
         color = [UIColor blackColor].CGColor;
+        _visible = true;
     }
     return self;
 }
@@ -117,6 +118,7 @@
     float y = rect.size.height- height;
     CGContextShowTextAtPoint(context, 0,  y , [text UTF8String], textLength);
     */
+    CGContextSaveGState(context);
      // create a font, quasi systemFontWithSize:24.0
     CTFontRef sysUIFont = CTFontCreateWithName(CFSTR("Helvetica-Bold"), fontSize, NULL);
     //CTFontCreateUIFontForLanguage(kCTFontSystemFontType,
@@ -176,13 +178,14 @@
     CTLineRef line = CTLineCreateWithAttributedString(
      (CFAttributedStringRef)stringToDraw);
     CGContextSetTextPosition(context,0.0, 0.0);
-    CTLineDraw(line, context);
+    if (_visible)
+        CTLineDraw(line, context);
 
     // clean up
     CFRelease(line);
     CFRelease(sysUIFont);
     [stringToDraw release];
-    
+    CGContextRestoreGState(context);
 }
 
 - (void) dealloc

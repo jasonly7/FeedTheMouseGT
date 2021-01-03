@@ -51,14 +51,19 @@
     if (self = [super initWithCoder: coder]) {
         mouse = [[Mouse alloc] init];
         cheese = [[Cheese alloc] init];
-        
+        chatBubble = [[ChatBubble alloc] init];
         gear = [[Gear alloc] init];
 		drum = [[Drum alloc] init];
         bomb = [[Bomb alloc] init];
         teeterTotter = [[TeeterTotter alloc] init];
         flipper = [[Flipper alloc] init];
         coin = [[Coin alloc] init];
-        
+        cheeseArrayOfLives = [[NSMutableArray alloc] initWithCapacity:5];
+        for (int i=0; i < 5; i++)
+        {
+            Cheese *cheeseLife = [[Cheese alloc] init];
+            [cheeseArrayOfLives addObject:cheeseLife];
+        }
         TitleViewController *titleViewController = (TitleViewController*)[UIApplication sharedApplication].keyWindow.rootViewController;
         titleViewController.playerNameTextField.hidden = true;
         
@@ -133,19 +138,28 @@
         [cheese->world setLevel:&curLevel];
         mouse = curLevel->mouse;
         [cheese->world setMouse:&(mouse)];
-        cheese->x = -43;
-        cheese->pos->x = -43;
+        CGRect screenBounds = [[UIScreen mainScreen] bounds];
+        screenScale = [[UIScreen mainScreen] scale];
+        CGSize screenSize = CGSizeMake(screenBounds.size.width * screenScale, screenBounds.size.height * screenScale);
+        screenWidth = screenSize.width;
+        screenHeight = screenSize.height;
+        sx = screenWidth/640.0f;
+        sy = screenHeight/1136.0f;
+        cheese->x = -cheese->cheeseSprite.width*sx;//-43;
+        cheese->pos->x = cheese->x;//-43;
+        chatBubble->x = mouse->x - chatBubble->bubbleSprite.width;
+        chatBubble->y = mouse->y + chatBubble->bubbleSprite.height/4;
         [cheese->world setCheese:&(cheese)];
         lastDate = [[NSDate date] retain];
         //next_game_tick = -[lastDate timeIntervalSinceNow ];
         titleView = [[TitleView alloc] initWithCoder:coder];
         sleep_time = 0;
         next_tick = next_game_tick;
-        CGRect screenBounds = [[UIScreen mainScreen] bounds];
+       /* CGRect screenBounds = [[UIScreen mainScreen] bounds];
         CGFloat screenScale = [[UIScreen mainScreen] scale];
         CGSize screenSize = CGSizeMake(screenBounds.size.width * screenScale, screenBounds.size.height * screenScale);
         screenWidth = screenSize.width;
-        screenHeight = screenSize.height;
+        screenHeight = screenSize.height;*/
         
        /* if (screenWidth == 1242)
             backgroundSprite = [Picture fromFile:@"big_background_1.png"];
@@ -166,14 +180,14 @@
         
         
         //[titleViewController->musicTitlePlayer stop];
-        pathForMusicFile = [[NSBundle mainBundle] pathForResource:@"sounds/ADVENTURE_By_Benjamin_Tissot" ofType:@"mp3"];
+        pathForMusicFile = [[NSBundle mainBundle] pathForResource:@"sounds/Cute_By_Benjamin_Tissot" ofType:@"mp3"];
         musicFile = [[NSURL alloc] initFileURLWithPath:pathForMusicFile];
         musicPlayer = [AVAudioPlayer alloc];
         [musicPlayer initWithContentsOfURL:musicFile error:NULL];
         musicPlayer.numberOfLoops = -1;
         [musicPlayer prepareToPlay];
         [musicPlayer play];
-        message = @"TAP HERE";
+        message = @"Tap Here to Start";
     }
     return self;
 }
@@ -245,7 +259,7 @@
 //    [mouseSprite draw:context at:CGPointMake(mouse->x,mouse->y)];
   //  mouse = curLevel->mouse;
     [mouse draw:context];
-   
+    
     t0 = CGContextGetCTM(context);
     //CGContextRestoreGState(context);
    // t0 = CGAffineTransformScale(t0, sx, sy);
@@ -318,7 +332,62 @@
                                         -cheese->cheeseSprite.y-cheese->cheeseSprite.height/2);
     }
     CGContextConcatCTM(context,t0);
-    [cheese draw: context];
+    if (cheese)
+    {
+        [cheese draw: context];
+    }
+    
+    
+    
+    //for (int i=0; i < 1; i++)
+    for (int i=0; i < cheese->numOfLives; i++)
+    {
+       
+        Cheese *cheeseLife = [cheeseArrayOfLives objectAtIndex:i];
+        NSLog(@"width: %f" ,self.bounds.size.width);
+       // int chx = 640;//-cheese->r;//*sx)/screenScale;
+        int chy = 960+cheeseLife->r*2;//1136/screenScale; //screenHeight/sy/2;
+        int chx = 640 - (i+1)*(cheeseLife->cheeseSprite.width/2);
+        //int chy = screenHeight/sy - screenScale*(cheeseLife->cheeseSprite.height/sy);
+        //cx = self.bounds.size.width/sx - (i+1)*(cheeseLife->cheeseSprite.width/2/sx);
+        //cy = self.bounds.size.height/sy - (cheeseLife->cheeseSprite.height/sy);
+        if (screenWidth == 1242)
+        {
+            chx = 630 - (i)*(cheeseLife->cheeseSprite.width/4);
+            [cheeseLife placeAt:CGPointMake(chx*sx, chy*sy-cheeseLife->r*2)];
+        }
+        else
+            [cheeseLife placeAt:CGPointMake(chx, chy)];
+        t0= CGAffineTransformInvert(t0);
+        CGContextConcatCTM(context,t0);
+        t0 = CGAffineTransformIdentity;
+
+        NSLog(@"cheeseSprite.y: %f", cheeseLife->cheeseSprite.y);
+        
+        
+        //t0= CGAffineTransformTranslate(t0,chx,chy );
+        /*if (screenWidth == 1242)
+            t0 = CGAffineTransformScale(t0,1,1);
+        else
+            t0 = CGAffineTransformScale(t0, 1/screenScale, 1/screenScale);
+        
+        t0 = CGAffineTransformTranslate(t0, -chx,-chy);*/
+        CGContextConcatCTM(context, t0);
+       // if (screenWidth == 1242)
+            //[cheeseLife draw:context];
+        //else
+            [cheeseLife draw:context resizeTo:CGSizeMake(1/sx, 1/sy)];
+        /*t0= CGAffineTransformTranslate(t0,chx,chy );
+        [cheeseLife draw:context];
+        if (screenWidth == 1242)
+            t0 = CGAffineTransformScale(t0,1,1);
+        else
+            t0 = CGAffineTransformScale(t0, screenScale, screenScale);
+        
+        t0 = CGAffineTransformTranslate(t0, -chx,-chy);
+        CGContextConcatCTM(context, t0);*/
+    }
+   
     
     for (int i=0; i < coins.count; i++)
     {
@@ -327,7 +396,7 @@
         CGContextConcatCTM(context,t0);
         t0 = CGAffineTransformIdentity;
         
-        t0 = CGAffineTransformTranslate(t0, coin->coinSprite.x+coin->coinSprite.width/2,coin->coinSprite.y+coin->coinSprite.height/2);
+        t0 = CGAffineTransformTranslate(t0, coin->coinSprite.x,coin->coinSprite.y);
         t0 = CGAffineTransformRotate(t0, M_PI_2);
         t0 = CGAffineTransformTranslate(t0, -coin->coinSprite.x,
                                         -coin->coinSprite.y);
@@ -336,7 +405,63 @@
         
         [coin draw:context];
     }
+    NSString *strScore = [NSString stringWithFormat:@"X%2d", cheese->world->score]; //[strLevel stringByAppendingString:curLevel];
+   // CGContextRestoreGState(context);
+    //CGContextSaveGState(context);
+    
+   
+    CGContextSetTextMatrix(context, CGAffineTransformIdentity);
+    
+    TextSprite *fakeScoreText = [TextSprite withString: strScore];
+    fakeScoreText.r = 0;
+    fakeScoreText.g = 1.0;
+    fakeScoreText.b = 1.0;
+    fakeScoreText.y = 0;
+    float screenWidth = self.bounds.size.width*screenScale;
+    fakeScoreText.x = screenWidth;
+    fakeScoreText.fontSize = 24;
+    fakeScoreText.visible = false;
+    [(TextSprite *) fakeScoreText setFontSize:24];
+    [fakeScoreText drawBody:context on:self.bounds];
+    int fakeX,fakeY;
+    coin = [[Coin alloc] init];
+    [coin initializeCoinAtX:0 andY:0 andImage:@"mediumlargecoins.png"];
+    fakeX = (screenWidth/sx - fakeScoreText.width*screenScale/sx-coin->coinSprite.width/2/sx);
+    fakeY = self.bounds.size.height*screenScale/sy-(fakeScoreText.height*screenScale/sy+5*screenScale);
+    coin = [[[Coin alloc] init] autorelease];
+    int cx = fakeX;
+    int cy = fakeY;
+    [coin initializeCoinAtX:cx andY:cy andImage:@"mediumlargecoins.png"];
+    //CGAffineTransform t1 = t0;
 
+    
+    t0= CGAffineTransformInvert(t0);
+    CGContextConcatCTM(context,t0);
+    t0 = CGAffineTransformIdentity;
+
+    NSLog(@"coinSprite.y: %f", coin->coinSprite.y);
+    t0= CGAffineTransformTranslate(t0,cx,cy );
+    if (screenWidth == 1242)
+        t0 = CGAffineTransformScale(t0,1,1);
+    else
+        t0 = CGAffineTransformScale(t0, 1/screenScale, 1/screenScale);
+    
+    t0 = CGAffineTransformTranslate(t0, -cx,-cy);
+    CGContextConcatCTM(context, t0);
+    [coin draw:context];
+    //CGContextRestoreGState(context);
+    t0 = CGAffineTransformInvert(t0);
+    CGContextConcatCTM(context,t0);
+    t0 = CGAffineTransformIdentity;
+    t0 = CGAffineTransformTranslate(t0,cx,cy );
+    t0 = CGAffineTransformScale(t0, screenScale, screenScale);
+    t0 = CGAffineTransformTranslate(t0,-cx,-cy );
+    CGContextConcatCTM(context,t0);
+    
+    
+    
+    
+    
     
     for (int i=0; i < gears.count; i++)
     {
@@ -355,7 +480,11 @@
         [gear draw:context];
     }
     
-    
+    t0 = CGAffineTransformInvert(t0);
+    CGContextConcatCTM(context,t0);
+    t0 = CGAffineTransformIdentity;
+    CGContextConcatCTM(context,t0);
+    [chatBubble draw:context];
     
     float bombTopLeftX = 0;
     float bombTopLeftY = 0;
@@ -475,9 +604,24 @@
        // CGContextAddArc(context, flipperTopRightX, flipperTopRightY, 5, 0, 2*M_PI,YES);
         //CGContextStrokePath(context);
     }
-    
+    CGFloat black[4] = {0.0f, 0.0f, 0.0f, 1.0f};
     CGContextRestoreGState(context);
-
+    
+    /*CGContextSetStrokeColor(context, black);
+    CGContextBeginPath(context);
+    NSLog(@"cheese width: %f", cheese->cheeseSprite.width);
+    float cheesePtX = cheese->x/screenScale;
+    float cheesePtY = self.bounds.size.height - cheese->y/screenScale;
+    float cheeseWidth = (cheese->cheeseSprite.width)/2*sx/screenScale;
+    float cheeseHeight = (cheese->cheeseSprite.height)/2*sy/screenScale;
+    if (screenWidth == 1242)
+    {
+        cheeseWidth = (cheese->cheeseSprite.width)/2/screenScale;
+        cheeseHeight = (cheese->cheeseSprite.height)/2/screenScale;
+    }
+    float cheeseRadius = cheese->r*sy/screenScale;//sqrtf(cheeseWidth*cheeseWidth+cheeseHeight*cheeseHeight);
+    CGContextAddArc( context, cheesePtX,cheesePtY, cheeseRadius, 0, 2*M_PI, YES);
+    CGContextStrokePath(context);*/
     
     CGContextSetStrokeColor(context, red);
     CGContextBeginPath(context);
@@ -515,13 +659,13 @@
     else
         CGContextAddArc(context, x3, y3, cheese->r*sy/screenScale, 0, 2*M_PI, YES);
     
-    //CGContextStrokePath(context);
+    CGContextStrokePath(context);
     
 
     CGContextSetStrokeColor(context, blue);
     CGContextBeginPath(context);
     CGContextAddArc(context, mousePt.x, mousePt.y, 5, 0, 2*M_PI, YES);
-    //CGContextStrokePath(context);
+   // CGContextStrokePath(context);
     
    // CGFloat green[4] = {0.0f, 1.0f, 0.0f, 1.0f};
     CGContextSetStrokeColor(context, green);
@@ -529,7 +673,7 @@
     CGContextAddArc(context, drumTopLeftX, drumTopLeftY, 5, 0, 2*M_PI,YES);
     //CGContextStrokePath(context);
     
-    
+
     
 
     CGContextSetStrokeColor(context, red);
@@ -601,7 +745,7 @@
         }
     }
     
-    CGFloat black[4] = {0.0f, 0.0f, 0.0f, 1.0f};
+   
    // CGFloat yellow[4] = {1.0f, 1.0f, 0.0f, 1.0f};
     CGFloat white[4] = {1.0f, 1.0f, 1.0f, 1.0f};
     CGContextSetFillColor(context, black);
@@ -641,17 +785,19 @@
         //[arc stroke];
     }
     
+    
+    
     for (int i = 0; i < [coins count]; i++)
     {
      
         coin = [coins objectAtIndex:i];
-        float coinX = coin->pos->x/screenScale*sx-coin->coinSprite.width/screenScale*sx/2.0f;
-        float coinY = self.bounds.size.height-coin->pos->y/screenScale*sy - coin->coinSprite.height/screenScale*sy/2;
+        float coinX = coin->pos->x/screenScale*sx-coin->coinSprite.width/screenScale*sx;
+        float coinY = self.bounds.size.height-coin->pos->y/screenScale*sy;// - coin->coinSprite.height/screenScale*sy;
         float width = coin->coinSprite.width/screenScale*sx;
         float height = coin->coinSprite.height/screenScale*sy;
         UIBezierPath *arc = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(coinX, coinY, width, height)];
         [[UIColor blackColor] setStroke];
-        //[arc stroke];
+        [arc stroke];
         
     }
 
@@ -820,6 +966,7 @@
         //CGContextStrokePath(context);
     }
     
+    
      CGContextSetStrokeColor(context, yellow);
    // CGContextBeginPath(context);
     float cheeseX, cheeseY, cheeseX2, cheeseY2;
@@ -884,7 +1031,7 @@
         CGContextAddArc(context,x2 , finalY2, cheese->r/screenScale * sy, 0, 2*M_PI, YES);
     }
     
-   // CGContextStrokePath(context);
+    //CGContextStrokePath(context);
     
     CGContextSetStrokeColor(context, white);
     float destX, destY;
@@ -1009,10 +1156,7 @@
         levelText.y = self.bounds.size.height*screenScale - 136;
     levelText.fontSize = 24;
     [(TextSprite *) levelText setFontSize:24];
-   // if (message == @"")
-    //{
-        [levelText drawBody:context on:self.bounds];
-    //}
+    [levelText drawBody:context on:self.bounds];
     CGContextRestoreGState(context);
     
     if (message != @"")
@@ -1024,7 +1168,7 @@
         fakeTouchText.y = 1000;
         if (screenWidth == 1242)
             fakeTouchText.y = self.bounds.size.height*screenScale - 136;
-        [(TextSprite *) fakeTouchText setFontSize:48];
+        [(TextSprite *) fakeTouchText setFontSize:24];
         [fakeTouchText drawBody:context on:self.bounds];
         CGContextRestoreGState(context);
         
@@ -1032,33 +1176,21 @@
         CGContextSetTextMatrix(context, CGAffineTransformIdentity);
         TextSprite *touchText = [TextSprite withString:message];
         touchText.x = 320 - fakeTouchText.width/2*screenScale/sx;
-        touchText.y = self.bounds.size.height*screenScale/sy-fakeTouchText.height*screenScale/sy-20*screenScale;
+        touchText.y = self.bounds.size.height*screenScale/sy-fakeTouchText.height*screenScale/sy-30*screenScale;
         if (screenWidth == 1242)
         {
             touchText.x = self.bounds.size.width*screenScale/2 - fakeTouchText.width/2*screenScale;
-            touchText.y = self.bounds.size.height*screenScale-fakeTouchText.height*screenScale-50*screenScale;
+            touchText.y = self.bounds.size.height*screenScale-fakeTouchText.height*screenScale-30*screenScale;
         }
-        [(TextSprite *) touchText setFontSize:48];
+        [(TextSprite *) touchText setFontSize:24];
         
         [touchText drawBody:context on:self.bounds];
         
         CGContextRestoreGState(context);
     }
     
-    CGContextSaveGState(context);
-    CGContextSetTextMatrix(context, CGAffineTransformIdentity);
-    NSString *strScore = [NSString stringWithFormat:@"Score: %06d", cheese->world->score]; //[strLevel stringByAppendingString:curLevel];
-    TextSprite *fakeScoreText = [TextSprite withString: strScore];
-    fakeScoreText.r = 0;
-    fakeScoreText.g = 1.0;
-    fakeScoreText.b = 1.0;
-    fakeScoreText.y = levelText.y;
-    float screenWidth = self.bounds.size.width*screenScale;
-    fakeScoreText.x = screenWidth;
-    fakeScoreText.fontSize = 24;
-    [(TextSprite *) fakeScoreText setFontSize:24];
-    [fakeScoreText drawBody:context on:self.bounds];
-    CGContextRestoreGState(context);
+    
+    
     
     CGContextSaveGState(context);
     CGContextSetTextMatrix(context, CGAffineTransformIdentity);
@@ -1072,7 +1204,6 @@
     
     scoreText.fontSize = 24;
     [(TextSprite *) scoreText setFontSize:24];
-   
     
     if (screenWidth == 1242 || screenWidth == 640)
         scoreText.x = (screenWidth - fakeScoreText.width*screenScale-10);
@@ -1081,12 +1212,9 @@
         //scoreText.x = (screenWidth - fakeScoreText.width)/screenScale;
         scoreText.x = (self.bounds.size.width - fakeScoreText.width)*screenScale/sx-10;
     }
-    //if (message == @"")
-    //{
-        [scoreText drawBody:context on:self.bounds];
-    //}
+
+    [scoreText drawBody:context on:self.bounds];
     CGContextRestoreGState(context);
-    
     
     
     for (int i = 0; i < [cheese->world->removedCoins count]; i++)
@@ -1109,7 +1237,7 @@
         
     }
    
-    
+   
 }
 
 - (void) update_game
@@ -1174,7 +1302,7 @@
         }
         backgroundSprite = [Picture fromFile:backgroundFilename];
         [cheese->world->removedCoins removeAllObjects];
-        message = @"TAP HERE";
+        message = @"Tap Here To Start";
         
     }
     /* else if ([mouseSprite getFileName]==@"newopenmouthsheet.png")
@@ -1323,8 +1451,14 @@
         }
         printf("interp: %f\n", interpolation);
         next_game_tick = cur_game_tick;
-        [cheese collideAndSlide:interpolation];
-        [cheese fall:interpolation];
+        if (cheese->colPackage->state!=COLLISION_EXPLODE)
+        {
+            [cheese collideAndSlide:interpolation];
+        }
+        if (cheese->colPackage->state!=COLLISION_EXPLODE)
+        {
+            [cheese fall:interpolation];
+        }
         [self display_game];
        
 
@@ -1467,6 +1601,7 @@ void cleanRemoveFromSuperview( UIView * view ) {
         {
             cheese->colPackage->foundCollision = false;
             [cheese dropAt:pt];
+            cheese->colPackage->state = COLLISION_NONE;
         }
         else
         {
@@ -1474,6 +1609,7 @@ void cleanRemoveFromSuperview( UIView * view ) {
             {
                 cheese->colPackage->foundCollision = false;
                 [cheese dropAt:pt];
+                cheese->colPackage->state = COLLISION_NONE;
             }
         }
     }

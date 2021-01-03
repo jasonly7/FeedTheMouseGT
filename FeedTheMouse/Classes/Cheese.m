@@ -161,9 +161,27 @@
         colPackage->R3Velocity = [[Vector alloc] init];
         
         prevVelocities = [[NSMutableArray alloc] init];
-        
+        numOfLives = 5;
     }
     return self;
+}
+
+- (void) placeAt: (CGPoint) pt
+{
+    if (screenWidth == 1242)
+    {
+        cheeseSprite.x = pt.x - cheeseSprite.width/2;
+        cheeseSprite.y = pt.y - cheeseSprite.height/2;
+    }
+    else
+    {
+        cheeseSprite.x = pt.x - cheeseSprite.width/2;
+        cheeseSprite.y = pt.y - cheeseSprite.height/2;
+    }
+    x = pt.x;
+    y = pt.y;
+    pos->x = x;
+    pos->y = y;
 }
 
 - (void) dropAt: (CGPoint) pt
@@ -413,6 +431,11 @@
     [cheeseSprite draw:context];
 }
 
+- (void) draw: (CGContextRef) context resizeTo: (CGSize) scale
+{
+    [cheeseSprite draw:context resizeTo:scale];
+}
+
 - (bool) checkCoin:(Coin *)c
 {
     float cx = 0;
@@ -425,8 +448,8 @@
     }
     else
     {
-        cx = c->pos->x * sx;// + c->coinSprite.width*sx/2;
-        cy = c->pos->y * sy;// +  c->coinSprite.height*sy/2;
+        cx = c->pos->x * sx - c->coinSprite.width/2*sx;
+        cy = c->pos->y * sy - c->coinSprite.height/2*sy;
     }
     [coinPosition initializeVectorX:cx andY:cy];
     double dist = [coinPosition subtract:pos]->length;
@@ -811,6 +834,7 @@
     [Friction normalize];
     Friction = [Friction multiply:(UNIT*10)];
     bounceVel = [bounceVel add:Friction];*/
+    numOfLives--;
     return true;
 }
 
@@ -3344,6 +3368,11 @@ const float unitsPerMeter = 1000.0f;
    // NSLog(@"World checking collisions...");
     
     [world checkCollision:&(colPackage)];
+    if (colPackage->state == COLLISION_EXPLODE)
+    {
+        [position setVector:zeroVector];
+        return position;        
+    }
     
     if (colPackage->foundCollision == false )
     {
