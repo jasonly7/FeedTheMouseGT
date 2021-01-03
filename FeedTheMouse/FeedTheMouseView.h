@@ -70,6 +70,7 @@
     double cur_game_tick;
     double delta_tick;
     double time;
+    double total_time;
     double sleep_time;
     int frame;
     bool game_is_running;

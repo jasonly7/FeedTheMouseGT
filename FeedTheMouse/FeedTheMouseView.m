@@ -66,7 +66,7 @@
         }
         TitleViewController *titleViewController = (TitleViewController*)[UIApplication sharedApplication].keyWindow.rootViewController;
         titleViewController.playerNameTextField.hidden = true;
-        
+        total_time = 0;
         parser = [[XMLParser alloc] initXMLParser];
         
         NSData *data = [[NSData alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"FeedTheMouse.xml" ofType:nil]];
@@ -1153,10 +1153,27 @@
     levelText.x = 10;
     levelText.y = self.bounds.size.height*screenScale/sy-fakeLevelText.height*screenScale/sy-10*screenScale;
     if (screenWidth == 1242)
-        levelText.y = self.bounds.size.height*screenScale - 136;
+        levelText.y = self.bounds.size.height*screenScale - fakeLevelText.height*screenScale - 20*screenScale ;//136;
     levelText.fontSize = 24;
     [(TextSprite *) levelText setFontSize:24];
     [levelText drawBody:context on:self.bounds];
+    CGContextRestoreGState(context);
+    
+    CGContextSaveGState(context);
+    CGContextSetTextMatrix(context, CGAffineTransformIdentity);
+    screenScale = [[UIScreen mainScreen] scale];
+    NSString *strTimer = [NSString stringWithFormat:@"%d:%02d",(int)total_time/60,(int)total_time%60]; //[strLevel stringByAppendingString:curLevel];
+    TextSprite *timerText = [TextSprite withString: strTimer];
+    timerText.r = 0;
+    timerText.g = 1.0;
+    timerText.b = 1.0;
+    timerText.x = 10;
+    timerText.y = levelText.y - levelText.height*screenScale/sy;//self.bounds.size.height*screenScale/sy-2*(fakeLevelText.height*screenScale/sy-10*screenScale);
+    if (screenWidth == 1242)
+        timerText.y = levelText.y - levelText.height*screenScale;//self.bounds.size.height*screenScale - 136;
+    timerText.fontSize = 24;
+    [(TextSprite *) timerText setFontSize:24];
+    [timerText drawBody:context on:self.bounds];
     CGContextRestoreGState(context);
     
     if (message != @"")
@@ -1242,6 +1259,7 @@
 
 - (void) update_game
 {
+    
     coins = [curLevel getCoins];
     if ([mouse isDoneChewing] && [coins count] <= 0)
     {
@@ -1441,6 +1459,7 @@
                                                 repeats:NO];
         cur_game_tick = -[lastDate timeIntervalSinceNow];
         interpolation = (cur_game_tick + SKIP_TICKS - next_game_tick) / SKIP_TICKS;
+        
         if (interpolation > MAX_FRAMESKIP*SKIP_TICKS)
         {
            interpolation = MAX_FRAMESKIP*SKIP_TICKS;
@@ -1449,6 +1468,7 @@
         {
             interpolation = SKIP_TICKS;
         }
+        total_time+=interpolation;
         printf("interp: %f\n", interpolation);
         next_game_tick = cur_game_tick;
         if (cheese->colPackage->state!=COLLISION_EXPLODE)
