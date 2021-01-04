@@ -221,7 +221,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3666"
             endingLineNumber = "3666"
-            landmarkName = "-dealloc"
+            landmarkName = "-collideWithLineF:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -343,7 +343,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2387"
             endingLineNumber = "2387"
-            landmarkName = "-bounceOffRightWall"
+            landmarkName = "-bounceOffFlipper"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -447,8 +447,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2654"
             endingLineNumber = "2654"
-            landmarkName = "-nearLine:"
-            landmarkType = "7">
+            landmarkName = "Cheese"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -979,7 +979,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2431"
             endingLineNumber = "2431"
-            landmarkName = "-bounceOffFlipper"
+            landmarkName = "-bounceOffGear:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1030,8 +1030,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1528"
             endingLineNumber = "1528"
-            landmarkName = "cleanRemoveFromSuperview(view)"
-            landmarkType = "9">
+            landmarkName = "FeedTheMouseView"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1064,7 +1064,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2455"
             endingLineNumber = "2455"
-            landmarkName = "-slideOffTeeterTotter:"
+            landmarkName = "-collideWith:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1082,7 +1082,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2472"
             endingLineNumber = "2472"
-            landmarkName = "-bounceOffGear:"
+            landmarkName = "-collideWith:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1100,8 +1100,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2503"
             endingLineNumber = "2503"
-            landmarkName = "Cheese"
-            landmarkType = "3">
+            landmarkName = "-pastVertex:"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1253,7 +1253,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2523"
             endingLineNumber = "2523"
-            landmarkName = "-collideWith:"
+            landmarkName = "-pastLine:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1321,7 +1321,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2385"
             endingLineNumber = "2385"
-            landmarkName = "-bounceOffRightWall"
+            landmarkName = "-bounceOffFlipper"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1697,7 +1697,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3204"
             endingLineNumber = "3204"
-            landmarkName = "-collideWithVertex:"
+            landmarkName = "-collideAndSlide:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1731,7 +1731,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3189"
             endingLineNumber = "3189"
-            landmarkName = "-collideWithVertex:"
+            landmarkName = "-collideAndSlide:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -2105,7 +2105,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3200"
             endingLineNumber = "3200"
-            landmarkName = "-collideWithVertex:"
+            landmarkName = "-collideAndSlide:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -2122,7 +2122,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3199"
             endingLineNumber = "3199"
-            landmarkName = "-collideWithVertex:"
+            landmarkName = "-collideAndSlide:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -2156,7 +2156,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3662"
             endingLineNumber = "3662"
-            landmarkName = "-dealloc"
+            landmarkName = "-collideWithLineF:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -2994,7 +2994,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3202"
             endingLineNumber = "3202"
-            landmarkName = "-collideWithVertex:"
+            landmarkName = "-collideAndSlide:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -3028,7 +3028,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3205"
             endingLineNumber = "3205"
-            landmarkName = "-collideWithVertex:"
+            landmarkName = "-collideAndSlide:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -3147,8 +3147,8 @@
             timestampString = "593923806.378243"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1386"
-            endingLineNumber = "1386"
+            startingLineNumber = "1337"
+            endingLineNumber = "1337"
             landmarkName = "-checkTeeterTotter:"
             landmarkType = "7">
          </BreakpointContent>
@@ -3183,7 +3183,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3661"
             endingLineNumber = "3661"
-            landmarkName = "-dealloc"
+            landmarkName = "-collideWithLineF:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -3217,8 +3217,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3676"
             endingLineNumber = "3676"
-            landmarkName = "Cheese"
-            landmarkType = "3">
+            landmarkName = "-collideWithLineF:"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -3423,7 +3423,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2425"
             endingLineNumber = "2425"
-            landmarkName = "-bounceOffFlipper"
+            landmarkName = "-bounceOffGear:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -3576,7 +3576,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3208"
             endingLineNumber = "3208"
-            landmarkName = "-collideWithVertex:"
+            landmarkName = "-collideAndSlide:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -3593,7 +3593,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3209"
             endingLineNumber = "3209"
-            landmarkName = "-collideWithVertex:"
+            landmarkName = "-collideAndSlide:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -3678,7 +3678,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3207"
             endingLineNumber = "3207"
-            landmarkName = "-collideWithVertex:"
+            landmarkName = "-collideAndSlide:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -3865,8 +3865,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3094"
             endingLineNumber = "3094"
-            landmarkName = "-collideWithLine:"
-            landmarkType = "7">
+            landmarkName = "Cheese"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -4052,7 +4052,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2531"
             endingLineNumber = "2531"
-            landmarkName = "-collideWith:"
+            landmarkName = "-pastLine:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -4340,8 +4340,8 @@
             timestampString = "593923806.446619"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1381"
-            endingLineNumber = "1381"
+            startingLineNumber = "1332"
+            endingLineNumber = "1332"
             landmarkName = "-checkTeeterTotter:"
             landmarkType = "7">
          </BreakpointContent>
@@ -4359,7 +4359,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2426"
             endingLineNumber = "2426"
-            landmarkName = "-bounceOffFlipper"
+            landmarkName = "-bounceOffGear:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -4376,7 +4376,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2450"
             endingLineNumber = "2450"
-            landmarkName = "-slideOffTeeterTotter:"
+            landmarkName = "-bounceOffGear:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -4393,7 +4393,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2667"
             endingLineNumber = "2667"
-            landmarkName = "-nearLine:"
+            landmarkName = "-checkWall:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -4410,7 +4410,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3669"
             endingLineNumber = "3669"
-            landmarkName = "-dealloc"
+            landmarkName = "-collideWithLineF:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -4548,7 +4548,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2449"
             endingLineNumber = "2449"
-            landmarkName = "-slideOffTeeterTotter:"
+            landmarkName = "-bounceOffGear:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -4565,7 +4565,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2465"
             endingLineNumber = "2465"
-            landmarkName = "-slideOffTeeterTotter:"
+            landmarkName = "-collideWith:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -4582,8 +4582,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1828"
             endingLineNumber = "1828"
-            landmarkName = "Cheese"
-            landmarkType = "3">
+            landmarkName = "-checkFlipper:"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -4821,7 +4821,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2384"
             endingLineNumber = "2384"
-            landmarkName = "-bounceOffRightWall"
+            landmarkName = "-bounceOffFlipper"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -4872,7 +4872,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2496"
             endingLineNumber = "2496"
-            landmarkName = "-bounceOffGear:"
+            landmarkName = "-nearVertex:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -5110,7 +5110,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2497"
             endingLineNumber = "2497"
-            landmarkName = "-bounceOffGear:"
+            landmarkName = "-nearVertex:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -5144,7 +5144,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2499"
             endingLineNumber = "2499"
-            landmarkName = "-bounceOffGear:"
+            landmarkName = "-pastVertex:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -5161,7 +5161,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2500"
             endingLineNumber = "2500"
-            landmarkName = "-bounceOffGear:"
+            landmarkName = "-pastVertex:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -5195,7 +5195,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3213"
             endingLineNumber = "3213"
-            landmarkName = "-collideWithVertex:"
+            landmarkName = "-collideAndSlide:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -5348,8 +5348,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3093"
             endingLineNumber = "3093"
-            landmarkName = "-collideWithLine:"
-            landmarkType = "7">
+            landmarkName = "Cheese"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -5555,7 +5555,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3229"
             endingLineNumber = "3229"
-            landmarkName = "-collideWithVertex:"
+            landmarkName = "-collideAndSlide:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -5621,8 +5621,8 @@
             timestampString = "593923806.514515"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1232"
-            endingLineNumber = "1232"
+            startingLineNumber = "1183"
+            endingLineNumber = "1183"
             landmarkName = "-checkTeeterTotter:"
             landmarkType = "7">
          </BreakpointContent>
@@ -5827,7 +5827,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3668"
             endingLineNumber = "3668"
-            landmarkName = "-dealloc"
+            landmarkName = "-collideWithLineF:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -6202,7 +6202,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2386"
             endingLineNumber = "2386"
-            landmarkName = "-bounceOffRightWall"
+            landmarkName = "-bounceOffFlipper"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -6389,7 +6389,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3210"
             endingLineNumber = "3210"
-            landmarkName = "-collideWithVertex:"
+            landmarkName = "-collideAndSlide:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -6423,7 +6423,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2532"
             endingLineNumber = "2532"
-            landmarkName = "-collideWith:"
+            landmarkName = "-pastLine:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -6440,7 +6440,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2536"
             endingLineNumber = "2536"
-            landmarkName = "-nearVertex:"
+            landmarkName = "-pastLine:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -6457,7 +6457,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2546"
             endingLineNumber = "2546"
-            landmarkName = "-nearVertex:"
+            landmarkName = "-pastLine:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -6576,7 +6576,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3672"
             endingLineNumber = "3672"
-            landmarkName = "-dealloc"
+            landmarkName = "-collideWithLineF:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -6592,7 +6592,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3201"
             endingLineNumber = "3201"
-            landmarkName = "-collideWithVertex:"
+            landmarkName = "-collideAndSlide:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -6625,7 +6625,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2410"
             endingLineNumber = "2410"
-            landmarkName = "-bounceOffDrum"
+            landmarkName = "-slideOffTeeterTotter:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -7039,7 +7039,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1826"
             endingLineNumber = "1826"
-            landmarkName = "-checkDrum:"
+            landmarkName = "-checkFlipper:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -7087,7 +7087,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2424"
             endingLineNumber = "2424"
-            landmarkName = "-bounceOffFlipper"
+            landmarkName = "-bounceOffGear:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -7167,7 +7167,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2254"
             endingLineNumber = "2254"
-            landmarkName = "-checkFlipper:"
+            landmarkName = "-update"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -7183,7 +7183,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2272"
             endingLineNumber = "2272"
-            landmarkName = "-checkFlipper:"
+            landmarkName = "-bounceOffTopWall"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -7199,7 +7199,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2271"
             endingLineNumber = "2271"
-            landmarkName = "-checkFlipper:"
+            landmarkName = "-bounceOffTopWall"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -7327,7 +7327,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2276"
             endingLineNumber = "2276"
-            landmarkName = "-checkFlipper:"
+            landmarkName = "-bounceOffTopWall"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -7405,7 +7405,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2255"
             endingLineNumber = "2255"
-            landmarkName = "-checkFlipper:"
+            landmarkName = "-update"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -7421,7 +7421,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2256"
             endingLineNumber = "2256"
-            landmarkName = "-checkFlipper:"
+            landmarkName = "-update"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -7437,7 +7437,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2279"
             endingLineNumber = "2279"
-            landmarkName = "-checkFlipper:"
+            landmarkName = "-bounceOffTopWall"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -7453,7 +7453,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2273"
             endingLineNumber = "2273"
-            landmarkName = "-checkFlipper:"
+            landmarkName = "-bounceOffTopWall"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -7469,7 +7469,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2277"
             endingLineNumber = "2277"
-            landmarkName = "-checkFlipper:"
+            landmarkName = "-bounceOffTopWall"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -7533,7 +7533,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2467"
             endingLineNumber = "2467"
-            landmarkName = "-slideOffTeeterTotter:"
+            landmarkName = "-collideWith:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -7549,7 +7549,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2468"
             endingLineNumber = "2468"
-            landmarkName = "-slideOffTeeterTotter:"
+            landmarkName = "-collideWith:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -7689,8 +7689,8 @@
             filePath = "FeedTheMouse/Classes/Cheese.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1140"
-            endingLineNumber = "1140"
+            startingLineNumber = "1091"
+            endingLineNumber = "1091"
             landmarkName = "-checkTeeterTotter:"
             landmarkType = "7">
          </BreakpointContent>
@@ -7707,7 +7707,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2435"
             endingLineNumber = "2435"
-            landmarkName = "-bounceOffFlipper"
+            landmarkName = "-bounceOffGear:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -7737,8 +7737,8 @@
             filePath = "FeedTheMouse/Classes/Cheese.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1375"
-            endingLineNumber = "1375"
+            startingLineNumber = "1326"
+            endingLineNumber = "1326"
             landmarkName = "-checkTeeterTotter:"
             landmarkType = "7">
          </BreakpointContent>
@@ -7785,8 +7785,8 @@
             filePath = "FeedTheMouse/Classes/Cheese.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1141"
-            endingLineNumber = "1141"
+            startingLineNumber = "1092"
+            endingLineNumber = "1092"
             landmarkName = "-checkTeeterTotter:"
             landmarkType = "7">
          </BreakpointContent>
@@ -7849,8 +7849,8 @@
             filePath = "FeedTheMouse/Classes/Cheese.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1394"
-            endingLineNumber = "1394"
+            startingLineNumber = "1345"
+            endingLineNumber = "1345"
             landmarkName = "-checkTeeterTotter:"
             landmarkType = "7">
          </BreakpointContent>
@@ -7980,7 +7980,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2400"
             endingLineNumber = "2400"
-            landmarkName = "-bounceOffRightWall"
+            landmarkName = "-slideOffTeeterTotter:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -8187,7 +8187,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2434"
             endingLineNumber = "2434"
-            landmarkName = "-bounceOffFlipper"
+            landmarkName = "-bounceOffGear:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -8219,7 +8219,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2295"
             endingLineNumber = "2295"
-            landmarkName = "-update"
+            landmarkName = "-bounceOffLeftWall"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -8428,7 +8428,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2699"
             endingLineNumber = "2699"
-            landmarkName = "-nearLine:"
+            landmarkName = "-checkWall:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -8444,7 +8444,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2701"
             endingLineNumber = "2701"
-            landmarkName = "-nearLine:"
+            landmarkName = "-checkWall:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -8460,7 +8460,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2700"
             endingLineNumber = "2700"
-            landmarkName = "-nearLine:"
+            landmarkName = "-checkWall:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -8508,7 +8508,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3891"
             endingLineNumber = "3891"
-            landmarkName = "-collideWithLineF:"
+            landmarkName = "-collideWithVertexF:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -8540,7 +8540,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3892"
             endingLineNumber = "3892"
-            landmarkName = "-collideWithLineF:"
+            landmarkName = "-collideWithVertexF:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -8764,7 +8764,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3115"
             endingLineNumber = "3115"
-            landmarkName = "-collideWithLine:"
+            landmarkName = "-collideWithVertex:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -8780,7 +8780,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3867"
             endingLineNumber = "3867"
-            landmarkName = "-collideWithLineF:"
+            landmarkName = "-collideWithVertexF:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -8796,7 +8796,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3868"
             endingLineNumber = "3868"
-            landmarkName = "-collideWithLineF:"
+            landmarkName = "-collideWithVertexF:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -8812,7 +8812,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1801"
             endingLineNumber = "1801"
-            landmarkName = "-checkDrum:"
+            landmarkName = "-checkFlipper:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -8828,7 +8828,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1816"
             endingLineNumber = "1816"
-            landmarkName = "-checkDrum:"
+            landmarkName = "-checkFlipper:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -8844,7 +8844,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1814"
             endingLineNumber = "1814"
-            landmarkName = "-checkDrum:"
+            landmarkName = "-checkFlipper:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -8858,8 +8858,8 @@
             filePath = "FeedTheMouse/Classes/Cheese.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1310"
-            endingLineNumber = "1310"
+            startingLineNumber = "1261"
+            endingLineNumber = "1261"
             landmarkName = "-checkTeeterTotter:"
             landmarkType = "7">
          </BreakpointContent>
@@ -8874,8 +8874,8 @@
             filePath = "FeedTheMouse/Classes/Cheese.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1322"
-            endingLineNumber = "1322"
+            startingLineNumber = "1273"
+            endingLineNumber = "1273"
             landmarkName = "-checkTeeterTotter:"
             landmarkType = "7">
          </BreakpointContent>
@@ -8972,7 +8972,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3124"
             endingLineNumber = "3124"
-            landmarkName = "-collideWithLine:"
+            landmarkName = "-collideWithVertex:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -9102,8 +9102,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3961"
             endingLineNumber = "3961"
-            landmarkName = "-collideWithVertexF:"
-            landmarkType = "7">
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -9277,8 +9277,8 @@
             filePath = "FeedTheMouse/Classes/Cheese.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1281"
-            endingLineNumber = "1281"
+            startingLineNumber = "1232"
+            endingLineNumber = "1232"
             landmarkName = "-checkTeeterTotter:"
             landmarkType = "7">
          </BreakpointContent>
@@ -9293,8 +9293,8 @@
             filePath = "FeedTheMouse/Classes/Cheese.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1319"
-            endingLineNumber = "1319"
+            startingLineNumber = "1270"
+            endingLineNumber = "1270"
             landmarkName = "-checkTeeterTotter:"
             landmarkType = "7">
          </BreakpointContent>
@@ -9309,8 +9309,8 @@
             filePath = "FeedTheMouse/Classes/Cheese.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1279"
-            endingLineNumber = "1279"
+            startingLineNumber = "1230"
+            endingLineNumber = "1230"
             landmarkName = "-checkTeeterTotter:"
             landmarkType = "7">
          </BreakpointContent>
@@ -9504,7 +9504,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1793"
             endingLineNumber = "1793"
-            landmarkName = "-checkDrum:"
+            landmarkName = "-checkFlipper:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -9520,7 +9520,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1818"
             endingLineNumber = "1818"
-            landmarkName = "-checkDrum:"
+            landmarkName = "-checkFlipper:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -9758,8 +9758,8 @@
             filePath = "FeedTheMouse/Classes/Cheese.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1171"
-            endingLineNumber = "1171"
+            startingLineNumber = "1122"
+            endingLineNumber = "1122"
             landmarkName = "-checkTeeterTotter:"
             landmarkType = "7">
          </BreakpointContent>
@@ -9774,8 +9774,8 @@
             filePath = "FeedTheMouse/Classes/Cheese.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1161"
-            endingLineNumber = "1161"
+            startingLineNumber = "1112"
+            endingLineNumber = "1112"
             landmarkName = "-checkTeeterTotter:"
             landmarkType = "7">
          </BreakpointContent>
@@ -9790,8 +9790,8 @@
             filePath = "FeedTheMouse/Classes/Cheese.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1172"
-            endingLineNumber = "1172"
+            startingLineNumber = "1123"
+            endingLineNumber = "1123"
             landmarkName = "-checkTeeterTotter:"
             landmarkType = "7">
          </BreakpointContent>
@@ -9806,8 +9806,8 @@
             filePath = "FeedTheMouse/Classes/Cheese.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1163"
-            endingLineNumber = "1163"
+            startingLineNumber = "1114"
+            endingLineNumber = "1114"
             landmarkName = "-checkTeeterTotter:"
             landmarkType = "7">
          </BreakpointContent>
@@ -9822,8 +9822,8 @@
             filePath = "FeedTheMouse/Classes/Cheese.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1191"
-            endingLineNumber = "1191"
+            startingLineNumber = "1142"
+            endingLineNumber = "1142"
             landmarkName = "-checkTeeterTotter:"
             landmarkType = "7">
          </BreakpointContent>
@@ -9838,8 +9838,8 @@
             filePath = "FeedTheMouse/Classes/Cheese.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1192"
-            endingLineNumber = "1192"
+            startingLineNumber = "1143"
+            endingLineNumber = "1143"
             landmarkName = "-checkTeeterTotter:"
             landmarkType = "7">
          </BreakpointContent>
@@ -9857,7 +9857,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2637"
             endingLineNumber = "2637"
-            landmarkName = "-pastLine:"
+            landmarkName = "-nearLine:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -9871,8 +9871,8 @@
             filePath = "FeedTheMouse/Classes/Cheese.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1157"
-            endingLineNumber = "1157"
+            startingLineNumber = "1108"
+            endingLineNumber = "1108"
             landmarkName = "-checkTeeterTotter:"
             landmarkType = "7">
          </BreakpointContent>
@@ -9889,7 +9889,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2632"
             endingLineNumber = "2632"
-            landmarkName = "-pastLine:"
+            landmarkName = "-nearLine:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -9903,8 +9903,8 @@
             filePath = "FeedTheMouse/Classes/Cheese.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1178"
-            endingLineNumber = "1178"
+            startingLineNumber = "1129"
+            endingLineNumber = "1129"
             landmarkName = "-checkTeeterTotter:"
             landmarkType = "7">
          </BreakpointContent>
@@ -9919,8 +9919,8 @@
             filePath = "FeedTheMouse/Classes/Cheese.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1164"
-            endingLineNumber = "1164"
+            startingLineNumber = "1115"
+            endingLineNumber = "1115"
             landmarkName = "-checkTeeterTotter:"
             landmarkType = "7">
          </BreakpointContent>
@@ -9935,8 +9935,8 @@
             filePath = "FeedTheMouse/Classes/Cheese.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1185"
-            endingLineNumber = "1185"
+            startingLineNumber = "1136"
+            endingLineNumber = "1136"
             landmarkName = "-checkTeeterTotter:"
             landmarkType = "7">
          </BreakpointContent>
@@ -9951,24 +9951,8 @@
             filePath = "FeedTheMouse/Classes/Cheese.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1165"
-            endingLineNumber = "1165"
-            landmarkName = "-checkTeeterTotter:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "630E2B34-E4C0-4F32-A1D6-594AE0E842C8"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FeedTheMouse/Classes/Cheese.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1079"
-            endingLineNumber = "1079"
+            startingLineNumber = "1116"
+            endingLineNumber = "1116"
             landmarkName = "-checkTeeterTotter:"
             landmarkType = "7">
          </BreakpointContent>
@@ -9985,7 +9969,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2253"
             endingLineNumber = "2253"
-            landmarkName = "-checkFlipper:"
+            landmarkName = "-update"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -10066,7 +10050,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2244"
             endingLineNumber = "2244"
-            landmarkName = "-checkFlipper:"
+            landmarkName = "-update"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -10136,7 +10120,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2246"
             endingLineNumber = "2246"
-            landmarkName = "-checkFlipper:"
+            landmarkName = "-update"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -10153,7 +10137,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2561"
             endingLineNumber = "2561"
-            landmarkName = "-pastVertex:"
+            landmarkName = "-pastLine:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -10167,8 +10151,8 @@
             filePath = "FeedTheMouse/Classes/Cheese.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1153"
-            endingLineNumber = "1153"
+            startingLineNumber = "1104"
+            endingLineNumber = "1104"
             landmarkName = "-checkTeeterTotter:"
             landmarkType = "7">
          </BreakpointContent>
@@ -10279,8 +10263,8 @@
             filePath = "FeedTheMouse/Classes/Cheese.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1369"
-            endingLineNumber = "1369"
+            startingLineNumber = "1320"
+            endingLineNumber = "1320"
             landmarkName = "-checkTeeterTotter:"
             landmarkType = "7">
          </BreakpointContent>
@@ -10375,8 +10359,8 @@
             filePath = "FeedTheMouse/Classes/Cheese.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1155"
-            endingLineNumber = "1155"
+            startingLineNumber = "1106"
+            endingLineNumber = "1106"
             landmarkName = "-checkTeeterTotter:"
             landmarkType = "7">
          </BreakpointContent>
@@ -11098,7 +11082,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2684"
             endingLineNumber = "2684"
-            landmarkName = "-nearLine:"
+            landmarkName = "-checkWall:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -11208,8 +11192,8 @@
             filePath = "FeedTheMouse/Classes/Cheese.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1373"
-            endingLineNumber = "1373"
+            startingLineNumber = "1324"
+            endingLineNumber = "1324"
             landmarkName = "-checkTeeterTotter:"
             landmarkType = "7">
          </BreakpointContent>
@@ -11370,7 +11354,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2639"
             endingLineNumber = "2639"
-            landmarkName = "-pastLine:"
+            landmarkName = "-nearLine:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -11386,7 +11370,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2257"
             endingLineNumber = "2257"
-            landmarkName = "-checkFlipper:"
+            landmarkName = "-update"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -11453,8 +11437,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3988"
             endingLineNumber = "3988"
-            landmarkName = "-collideWithVertexF:"
-            landmarkType = "7">
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -11533,7 +11517,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3232"
             endingLineNumber = "3232"
-            landmarkName = "-collideWithVertex:"
+            landmarkName = "-collideAndSlide:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -11565,8 +11549,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3963"
             endingLineNumber = "3963"
-            landmarkName = "-collideWithVertexF:"
-            landmarkType = "7">
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -11629,7 +11613,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3197"
             endingLineNumber = "3197"
-            landmarkName = "-collideWithVertex:"
+            landmarkName = "-collideAndSlide:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -11661,7 +11645,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3193"
             endingLineNumber = "3193"
-            landmarkName = "-collideWithVertex:"
+            landmarkName = "-collideAndSlide:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -11709,7 +11693,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2397"
             endingLineNumber = "2397"
-            landmarkName = "-bounceOffRightWall"
+            landmarkName = "-slideOffTeeterTotter:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -11725,7 +11709,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2359"
             endingLineNumber = "2359"
-            landmarkName = "-bounceOffLeftWall"
+            landmarkName = "-bounceOffDrum"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -11789,7 +11773,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2634"
             endingLineNumber = "2634"
-            landmarkName = "-pastLine:"
+            landmarkName = "-nearLine:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -11853,7 +11837,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3299"
             endingLineNumber = "3299"
-            landmarkName = "-collideAndSlide:"
+            landmarkName = "-collideWithWorldPosition:andVelocity:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -11933,7 +11917,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2550"
             endingLineNumber = "2550"
-            landmarkName = "-pastVertex:"
+            landmarkName = "-pastLine:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -12045,7 +12029,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2379"
             endingLineNumber = "2379"
-            landmarkName = "-bounceOffRightWall"
+            landmarkName = "-bounceOffFlipper"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -12093,7 +12077,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2330"
             endingLineNumber = "2330"
-            landmarkName = "-bounceOffTopWall"
+            landmarkName = "-bounceOffRightWall"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -12350,7 +12334,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1797"
             endingLineNumber = "1797"
-            landmarkName = "-checkDrum:"
+            landmarkName = "-checkFlipper:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -12654,8 +12638,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1779"
             endingLineNumber = "1779"
-            landmarkName = "-checkDrum:"
-            landmarkType = "7">
+            landmarkName = "Cheese"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -12814,7 +12798,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1812"
             endingLineNumber = "1812"
-            landmarkName = "-checkDrum:"
+            landmarkName = "-checkFlipper:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -12830,7 +12814,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1821"
             endingLineNumber = "1821"
-            landmarkName = "-checkDrum:"
+            landmarkName = "-checkFlipper:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -12956,8 +12940,8 @@
             filePath = "FeedTheMouse/Classes/Cheese.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1283"
-            endingLineNumber = "1283"
+            startingLineNumber = "1234"
+            endingLineNumber = "1234"
             landmarkName = "-checkTeeterTotter:"
             landmarkType = "7">
          </BreakpointContent>
@@ -13006,7 +12990,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2607"
             endingLineNumber = "2607"
-            landmarkName = "-pastLine:"
+            landmarkName = "-nearLine:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -13086,7 +13070,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3621"
             endingLineNumber = "3621"
-            landmarkName = "-collideWithWorldPosition:andVelocity:"
+            landmarkName = "-dealloc"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -13294,7 +13278,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3123"
             endingLineNumber = "3123"
-            landmarkName = "-collideWithLine:"
+            landmarkName = "-collideWithVertex:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -13310,7 +13294,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3096"
             endingLineNumber = "3096"
-            landmarkName = "-collideWithLine:"
+            landmarkName = "-collideWithVertex:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -13326,7 +13310,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3100"
             endingLineNumber = "3100"
-            landmarkName = "-collideWithLine:"
+            landmarkName = "-collideWithVertex:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -13406,7 +13390,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3633"
             endingLineNumber = "3633"
-            landmarkName = "-collideWithWorldPosition:andVelocity:"
+            landmarkName = "-collideWithLineF:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -13550,7 +13534,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3301"
             endingLineNumber = "3301"
-            landmarkName = "-collideAndSlide:"
+            landmarkName = "-collideWithWorldPosition:andVelocity:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -13598,7 +13582,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3136"
             endingLineNumber = "3136"
-            landmarkName = "-collideWithLine:"
+            landmarkName = "-collideWithVertex:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -13660,8 +13644,8 @@
             filePath = "FeedTheMouse/Classes/Cheese.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1282"
-            endingLineNumber = "1282"
+            startingLineNumber = "1233"
+            endingLineNumber = "1233"
             landmarkName = "-checkTeeterTotter:"
             landmarkType = "7">
          </BreakpointContent>
@@ -13678,7 +13662,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3135"
             endingLineNumber = "3135"
-            landmarkName = "-collideWithLine:"
+            landmarkName = "-collideWithVertex:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -13710,7 +13694,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3230"
             endingLineNumber = "3230"
-            landmarkName = "-collideWithVertex:"
+            landmarkName = "-collideAndSlide:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -13726,7 +13710,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3231"
             endingLineNumber = "3231"
-            landmarkName = "-collideWithVertex:"
+            landmarkName = "-collideAndSlide:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -13772,8 +13756,8 @@
             filePath = "FeedTheMouse/Classes/Cheese.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1117"
-            endingLineNumber = "1117"
+            startingLineNumber = "1068"
+            endingLineNumber = "1068"
             landmarkName = "-checkTeeterTotter:"
             landmarkType = "7">
          </BreakpointContent>
@@ -13804,8 +13788,8 @@
             filePath = "FeedTheMouse/Classes/Cheese.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1130"
-            endingLineNumber = "1130"
+            startingLineNumber = "1081"
+            endingLineNumber = "1081"
             landmarkName = "-checkTeeterTotter:"
             landmarkType = "7">
          </BreakpointContent>
@@ -13932,8 +13916,8 @@
             filePath = "FeedTheMouse/Classes/Cheese.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1376"
-            endingLineNumber = "1376"
+            startingLineNumber = "1327"
+            endingLineNumber = "1327"
             landmarkName = "-checkTeeterTotter:"
             landmarkType = "7">
          </BreakpointContent>
@@ -13948,8 +13932,8 @@
             filePath = "FeedTheMouse/Classes/Cheese.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1393"
-            endingLineNumber = "1393"
+            startingLineNumber = "1344"
+            endingLineNumber = "1344"
             landmarkName = "-checkTeeterTotter:"
             landmarkType = "7">
          </BreakpointContent>
@@ -13964,8 +13948,8 @@
             filePath = "FeedTheMouse/Classes/Cheese.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1388"
-            endingLineNumber = "1388"
+            startingLineNumber = "1339"
+            endingLineNumber = "1339"
             landmarkName = "-checkTeeterTotter:"
             landmarkType = "7">
          </BreakpointContent>
@@ -13980,8 +13964,8 @@
             filePath = "FeedTheMouse/Classes/Cheese.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1385"
-            endingLineNumber = "1385"
+            startingLineNumber = "1336"
+            endingLineNumber = "1336"
             landmarkName = "-checkTeeterTotter:"
             landmarkType = "7">
          </BreakpointContent>
@@ -13996,8 +13980,8 @@
             filePath = "FeedTheMouse/Classes/Cheese.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1380"
-            endingLineNumber = "1380"
+            startingLineNumber = "1331"
+            endingLineNumber = "1331"
             landmarkName = "-checkTeeterTotter:"
             landmarkType = "7">
          </BreakpointContent>
@@ -14012,8 +13996,8 @@
             filePath = "FeedTheMouse/Classes/Cheese.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1387"
-            endingLineNumber = "1387"
+            startingLineNumber = "1338"
+            endingLineNumber = "1338"
             landmarkName = "-checkTeeterTotter:"
             landmarkType = "7">
          </BreakpointContent>
@@ -14528,7 +14512,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2490"
             endingLineNumber = "2490"
-            landmarkName = "-bounceOffGear:"
+            landmarkName = "-nearVertex:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -14544,7 +14528,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2485"
             endingLineNumber = "2485"
-            landmarkName = "-bounceOffGear:"
+            landmarkName = "-collideWith:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -14560,7 +14544,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2479"
             endingLineNumber = "2479"
-            landmarkName = "-bounceOffGear:"
+            landmarkName = "-collideWith:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -14576,8 +14560,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2486"
             endingLineNumber = "2486"
-            landmarkName = "-bounceOffGear:"
-            landmarkType = "7">
+            landmarkName = "Cheese"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -14592,7 +14576,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2483"
             endingLineNumber = "2483"
-            landmarkName = "-bounceOffGear:"
+            landmarkName = "-collideWith:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -14608,7 +14592,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2494"
             endingLineNumber = "2494"
-            landmarkName = "-bounceOffGear:"
+            landmarkName = "-nearVertex:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -15135,8 +15119,8 @@
             filePath = "FeedTheMouse/Classes/Cheese.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1138"
-            endingLineNumber = "1138"
+            startingLineNumber = "1089"
+            endingLineNumber = "1089"
             landmarkName = "-checkTeeterTotter:"
             landmarkType = "7">
          </BreakpointContent>
@@ -15345,7 +15329,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2558"
             endingLineNumber = "2558"
-            landmarkName = "-pastVertex:"
+            landmarkName = "-pastLine:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -15361,7 +15345,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2559"
             endingLineNumber = "2559"
-            landmarkName = "-pastVertex:"
+            landmarkName = "-pastLine:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -15576,54 +15560,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "B2BB24AA-5C75-4F15-B422-FF8D404FD651"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FeedTheMouse/Classes/Cheese.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1035"
-            endingLineNumber = "1035"
-            landmarkName = "-checkTeeterTotter:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "FA4F6209-795E-4FD7-B3D6-5E6C22FAB9C8"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FeedTheMouse/Classes/Cheese.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1041"
-            endingLineNumber = "1041"
-            landmarkName = "-checkTeeterTotter:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "89DE6460-D164-46F2-AEBF-A2032F3242BA"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FeedTheMouse/Classes/Cheese.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1042"
-            endingLineNumber = "1042"
-            landmarkName = "-checkTeeterTotter:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "6633D825-C8C8-4DD7-820D-16778D9BE344"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -15631,8 +15567,8 @@
             filePath = "FeedTheMouse/Classes/Cheese.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1128"
-            endingLineNumber = "1128"
+            startingLineNumber = "1079"
+            endingLineNumber = "1079"
             landmarkName = "-checkTeeterTotter:"
             landmarkType = "7">
          </BreakpointContent>
@@ -15647,8 +15583,8 @@
             filePath = "FeedTheMouse/Classes/Cheese.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1397"
-            endingLineNumber = "1397"
+            startingLineNumber = "1348"
+            endingLineNumber = "1348"
             landmarkName = "-checkTeeterTotter:"
             landmarkType = "7">
          </BreakpointContent>
@@ -15666,7 +15602,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1400"
             endingLineNumber = "1400"
-            landmarkName = "-checkTeeterTotter:"
+            landmarkName = "-checkDrum:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -15746,7 +15682,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3608"
             endingLineNumber = "3608"
-            landmarkName = "-collideWithWorldPosition:andVelocity:"
+            landmarkName = "-moveTo:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -15762,7 +15698,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2544"
             endingLineNumber = "2544"
-            landmarkName = "-nearVertex:"
+            landmarkName = "-pastLine:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -15779,23 +15715,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2545"
             endingLineNumber = "2545"
-            landmarkName = "-nearVertex:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "5B679C1F-A2A0-4238-B8F0-7F4CEDB1869D"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FeedTheMouse/Classes/Cheese.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "985"
-            endingLineNumber = "985"
-            landmarkName = "-checkTeeterTotter:"
+            landmarkName = "-pastLine:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -15843,7 +15763,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3326"
             endingLineNumber = "3326"
-            landmarkName = "-collideAndSlide:"
+            landmarkName = "-collideWithWorldPosition:andVelocity:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -17044,7 +16964,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2893"
             endingLineNumber = "2893"
-            landmarkName = "-checkWall:"
+            landmarkName = "-collideWithLine:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -17243,54 +17163,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "67F8AE84-BAAC-4595-BC29-A09F43169841"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FeedTheMouse/Classes/Cheese.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1031"
-            endingLineNumber = "1031"
-            landmarkName = "-checkTeeterTotter:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "722746CB-6314-4387-895D-21D251E76E3A"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FeedTheMouse/Classes/Cheese.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1006"
-            endingLineNumber = "1006"
-            landmarkName = "-checkTeeterTotter:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "7116935B-EFA9-4F81-91FF-F04B3CBF4E8A"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FeedTheMouse/Classes/Cheese.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1025"
-            endingLineNumber = "1025"
-            landmarkName = "-checkTeeterTotter:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "53185F58-1126-42EC-9B2C-F1D01B73060E"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -17300,22 +17172,6 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "909"
             endingLineNumber = "909"
-            landmarkName = "-checkTeeterTotter:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "BD5E629A-F4EE-4795-B58E-823E0031AE3E"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FeedTheMouse/Classes/Cheese.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "997"
-            endingLineNumber = "997"
             landmarkName = "-checkTeeterTotter:"
             landmarkType = "7">
          </BreakpointContent>
@@ -18052,7 +17908,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3614"
             endingLineNumber = "3614"
-            landmarkName = "-collideWithWorldPosition:andVelocity:"
+            landmarkName = "-dealloc"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -18068,7 +17924,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3604"
             endingLineNumber = "3604"
-            landmarkName = "-collideWithWorldPosition:andVelocity:"
+            landmarkName = "-moveTo:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -18084,23 +17940,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3605"
             endingLineNumber = "3605"
-            landmarkName = "-collideWithWorldPosition:andVelocity:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "5418C838-64B0-4AD1-ADCD-ED7AA9DB77B6"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FeedTheMouse/Classes/Cheese.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1048"
-            endingLineNumber = "1048"
-            landmarkName = "-checkTeeterTotter:"
+            landmarkName = "-moveTo:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -18114,8 +17954,8 @@
             filePath = "FeedTheMouse/Classes/Cheese.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1094"
-            endingLineNumber = "1094"
+            startingLineNumber = "1045"
+            endingLineNumber = "1045"
             landmarkName = "-checkTeeterTotter:"
             landmarkType = "7">
          </BreakpointContent>
@@ -18132,7 +17972,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2557"
             endingLineNumber = "2557"
-            landmarkName = "-pastVertex:"
+            landmarkName = "-pastLine:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -18171,22 +18011,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "161B81DD-A1DB-46BD-8DD9-F0E0621DA08D"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FeedTheMouse/Classes/Cheese.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1044"
-            endingLineNumber = "1044"
-            landmarkName = "-checkTeeterTotter:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "355AB608-B0B5-4996-BA5B-6FBA23E78F37"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -18210,8 +18034,8 @@
             filePath = "FeedTheMouse/Classes/Cheese.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1115"
-            endingLineNumber = "1115"
+            startingLineNumber = "1066"
+            endingLineNumber = "1066"
             landmarkName = "-checkTeeterTotter:"
             landmarkType = "7">
          </BreakpointContent>
@@ -18228,7 +18052,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3622"
             endingLineNumber = "3622"
-            landmarkName = "-collideWithWorldPosition:andVelocity:"
+            landmarkName = "-dealloc"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -18244,8 +18068,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3625"
             endingLineNumber = "3625"
-            landmarkName = "-collideWithWorldPosition:andVelocity:"
-            landmarkType = "7">
+            landmarkName = "Cheese"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -18418,8 +18242,8 @@
             filePath = "FeedTheMouse/Classes/Cheese.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1256"
-            endingLineNumber = "1256"
+            startingLineNumber = "1207"
+            endingLineNumber = "1207"
             landmarkName = "-checkTeeterTotter:"
             landmarkType = "7">
          </BreakpointContent>
@@ -19269,6 +19093,22 @@
             startingLineNumber = "337"
             endingLineNumber = "337"
             landmarkName = "-initializeTimes"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "58FF2FCA-F20B-48AF-BF79-B01CD062343F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FeedTheMouse/Classes/Cheese.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "952"
+            endingLineNumber = "952"
+            landmarkName = "-checkTeeterTotter:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
