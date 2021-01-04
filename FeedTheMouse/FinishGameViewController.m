@@ -21,8 +21,8 @@
     [scoreboardImageView setFrame:(CGRectMake(scoreboardImageView.frame.origin.x, scoreboardImageView.frame.origin.y, screenBounds.size.width,screenBounds.size.height))];
     
     
-    [self initializeScores];
-    [self updateScoresWithNew:score andNew:playerName];
+    [self initializeTimes];
+    [self updateScoresWithNewTime:total_time andNewName:playerName];
 
     TitleViewController *titleViewController = (TitleViewController*)[UIApplication sharedApplication].keyWindow.rootViewController;
     titleViewController.playerNameTextField.hidden = true;
@@ -229,8 +229,117 @@
     NSLog(@"%@ score 15 label: %@",_player15Label.text, _score15Label.text);
 }
 
+- (void)initializeTimes {
+    int time = 0;
+    
+    NSString *strName;
+
+    for (int i=0; i < 15; i++)
+    {
+        time = [[NSUserDefaults standardUserDefaults] integerForKey:[NSString stringWithFormat:@"time%d",i]];
+        strName = [[NSUserDefaults standardUserDefaults] stringForKey:[NSString stringWithFormat:@"name%d",i]];
+       
+        /*if (score>0)
+        {
+            scores[i] = score;
+        }
+        else
+        {
+            scores[i] = 15-i;
+        }*/
+        times[i] = time;
+        if (strName==NULL)
+        {
+            switch (i)
+            {
+                case 0:
+                    names[i] = _player1Label.text = @"Player 1";
+                    break;
+                case 1:
+                    names[i] = _player2Label.text = @"Player 2";
+                    break;
+                case 2:
+                    names[i] = _player3Label.text = @"Player 3";
+                    break;
+                case 3:
+                    names[i] = _player4Label.text = @"Player 4";
+                    break;
+                case 4:
+                    names[i] = _player5Label.text = @"Player 5";
+                    break;
+                case 5:
+                    names[i] = _player6Label.text = @"Player 6";
+                    break;
+                case 6:
+                    names[i] = _player7Label.text = @"Player 7";
+                    break;
+                case 7:
+                    names[i] = _player8Label.text = @"Player 8";
+                    break;
+                case 8:
+                    names[i] = _player9Label.text = @"Player 9";
+                    break;
+                case 9:
+                    names[i] = _player10Label.text = @"Player 10";
+                    break;
+                case 10:
+                    names[i] = _player11Label.text = @"Player 11";
+                    break;
+                case 11:
+                    names[i] = _player12Label.text = @"Player 12";
+                    break;
+                case 12:
+                    names[i] = _player13Label.text = @"Player 13";
+                    break;
+                case 13:
+                    names[i] = _player14Label.text = @"Player 14";
+                    break;
+                case 14:
+                    names[i] = _player15Label.text = @"Player 15";
+                    break;
+            }
+        }
+        else
+        {
+            names[i] = strName;
+        }
+        printf("name is %s and time %d is %d\n",[names[i] UTF8String], i,times[i]);
+    }
+    _score1Label.text = [NSString stringWithFormat:@"%d", times[0]];
+    _score2Label.text = [NSString stringWithFormat:@"%d", times[1]];
+    _score3Label.text = [NSString stringWithFormat:@"%d", times[2]];
+    _score4Label.text = [NSString stringWithFormat:@"%d", times[3]];
+    _score5Label.text = [NSString stringWithFormat:@"%d", times[4]];
+    _score6Label.text = [NSString stringWithFormat:@"%d", times[5]];
+    _score7Label.text = [NSString stringWithFormat:@"%d", times[6]];
+    _score8Label.text = [NSString stringWithFormat:@"%d", times[7]];
+    _score9Label.text = [NSString stringWithFormat:@"%d", times[8]];
+    _score10Label.text = [NSString stringWithFormat:@"%d", times[9]];
+    _score11Label.text = [NSString stringWithFormat:@"%d", times[10]];
+    _score12Label.text = [NSString stringWithFormat:@"%d", times[11]];
+    _score13Label.text = [NSString stringWithFormat:@"%d", times[12]];
+    _score14Label.text = [NSString stringWithFormat:@"%d", times[13]];
+    _score15Label.text = [NSString stringWithFormat:@"%d", times[14]];
+    _player1Label.text = names[0];
+    _player2Label.text = names[1];
+    _player3Label.text = names[2];
+    _player4Label.text = names[3];
+    _player5Label.text = names[4];
+    _player6Label.text = names[5];
+    _player7Label.text = names[6];
+    _player8Label.text = names[7];
+    _player9Label.text = names[8];
+    _player10Label.text = names[9];
+    _player11Label.text = names[10];
+    _player12Label.text = names[11];
+    _player13Label.text = names[12];
+    _player14Label.text = names[13];
+    _player15Label.text = names[14];
+}
+
 - (void)initializeScores {
     int score = 0;
+    
     NSString *strName;
 
     for (int i=0; i < 15; i++)
@@ -339,6 +448,79 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)updateScoresWithNewTime:(int)time andNewName:(NSString *)name
+{
+    int tmpTime = 0;
+    NSString *tmpName = @"";
+
+    if (total_time < times[14])
+    {
+        times[14] = total_time;
+        names[14] = name;
+        for(int i=0; i<15; i++)
+        {
+            printf("name %d: %s time: %d\n",i, [names[i] UTF8String],times[i]);
+        }
+        for(int i=14; i>0; i--)
+        {
+            for(int j=i-1; j>=0; j--)
+            {
+                if (times[i]<times[j])
+                {
+                    tmpTime = times[i];
+                   
+                    tmpName = [NSString stringWithString:names[i]];
+                    
+                    times[i] = times[j];
+                    names[i] = [NSString stringWithString:names[j]];
+                    
+                    times[j] = tmpTime;
+                    names[j] = [NSString stringWithString:tmpName];
+                }
+            }
+            printf("name %d: %s time: %d, ",i, [names[i] UTF8String],times[i]);
+            printf("\n");
+        }
+    }
+    
+    _score1Label.text = [NSString stringWithFormat:@"%d:%02d", (int)times[0]/60, (int)times[0]%60];
+    _score2Label.text = [NSString stringWithFormat:@"%d:%02d", (int)times[1]/60, (int)times[1]%60];
+    _score3Label.text = [NSString stringWithFormat:@"%d:%02d", (int)times[2]/60, (int)times[2]%60];
+    _score4Label.text = [NSString stringWithFormat:@"%d:%02d", (int)times[3]/60, (int)times[3]%60];
+    _score5Label.text = [NSString stringWithFormat:@"%d:%02d", (int)times[4]/60, (int)times[4]%60];
+    _score6Label.text = [NSString stringWithFormat:@"%d:%02d", (int)times[5]/60, (int)times[5]%60];
+    _score7Label.text = [NSString stringWithFormat:@"%d:%02d", (int)times[6]/60, (int)times[6]%60];
+    _score8Label.text = [NSString stringWithFormat:@"%d:%02d", (int)times[7]/60, (int)times[7]%60];
+    _score9Label.text = [NSString stringWithFormat:@"%d:%02d", (int)times[8]/60, (int)times[8]%60];
+    _score10Label.text = [NSString stringWithFormat:@"%d:%02d", (int)times[9]/60, (int)times[9]%60];
+    _score11Label.text = [NSString stringWithFormat:@"%d:%02d", (int)times[10]/60, (int)times[10]%60];
+    _score12Label.text = [NSString stringWithFormat:@"%d:%02d", (int)times[11]/60, (int)times[11]%60];
+    _score13Label.text = [NSString stringWithFormat:@"%d:%02d", (int)times[12]/60, (int)times[12]%60];
+    _score14Label.text = [NSString stringWithFormat:@"%d:%02d", (int)times[13]/60, (int)times[13]%60];
+    _score15Label.text = [NSString stringWithFormat:@"%d:%02d", (int)times[14]/60, (int)times[14]%60];
+    _player1Label.text = names[0];
+    _player2Label.text = names[1];
+    _player3Label.text = names[2];
+    _player4Label.text = names[3];
+    _player5Label.text = names[4];
+    _player6Label.text = names[5];
+    _player7Label.text = names[6];
+    _player8Label.text = names[7];
+    _player9Label.text = names[8];
+    _player10Label.text = names[9];
+    _player11Label.text = names[10];
+    _player12Label.text = names[11];
+    _player13Label.text = names[12];
+    _player14Label.text = names[13];
+    _player15Label.text = names[14];
+    
+    for(int i=0; i<15; i++)
+    {
+        [[NSUserDefaults standardUserDefaults] setObject:names[i] forKey:[NSString stringWithFormat:@"name%d",i]];
+        [[NSUserDefaults standardUserDefaults] setInteger:times[i] forKey:[NSString stringWithFormat:@"time%d",i]];
+    }
 }
 
 - (void)updateScoresWithNew:(int)score andNew:(NSString *)name

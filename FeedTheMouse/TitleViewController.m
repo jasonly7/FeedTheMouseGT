@@ -122,6 +122,7 @@
     FinishGameViewController *finishController = (FinishGameViewController*) viewController;
     finishController->playerName = playerName;
     finishController->score = 0;//cheese->world->score;
+    finishController->total_time = 3600;
     NSString *strScore = [[NSString alloc] initWithFormat:@"Score: %d",finishController->scores[0]];
    
     [titleViewController.view addSubview:finishController.view];

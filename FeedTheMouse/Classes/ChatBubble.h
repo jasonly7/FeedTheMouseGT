@@ -17,6 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
     CGFloat sx,sy;
     @public
         Sprite *bubbleSprite;
+        bool visible;
 }
 
 - (void) draw: (CGContextRef) context;

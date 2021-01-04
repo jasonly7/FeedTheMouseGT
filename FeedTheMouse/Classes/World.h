@@ -26,6 +26,7 @@
     CGFloat screenScale;
     float screenWidth, screenHeight;
     int score;
+    int total_time;
     SoundManager *sndMan;
     NSString *pathForCoinSoundFile;
     

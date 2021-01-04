@@ -16,13 +16,14 @@
     if (self)
     {
         bubbleSprite = [Picture fromFile:@"chat_bubble_compressed.png"];
+        visible = true;
     }
     return self;
 }
 
 - (void) draw: (CGContextRef) context
 {
-    
-    [bubbleSprite draw:context at:CGPointMake(self.x , self.y)];
+    if (visible)
+        [bubbleSprite draw:context at:CGPointMake(self.x , self.y)];
 }
 @end

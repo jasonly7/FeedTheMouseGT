@@ -20,8 +20,10 @@
     
     IBOutlet UILabel *scoreLabel;
     int scores[15];
+    int times[15];
     NSString *names[15];
     int score;
+    int total_time;
     NSString *playerName;
 }
 
@@ -60,6 +62,8 @@
 - (IBAction)backButtonClicked:(id)sender;
 
 - (void)initializeScores;
+- (void)initializeTimes;
+- (void)updateScoresWithNewTime:(int)time andNewName:(NSString *)name;
 - (void)updateScoresWithNew:(int)score andNew:(NSString *)name;
 - (void) returnToTitle;
 @end

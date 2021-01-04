@@ -457,12 +457,7 @@
     t0 = CGAffineTransformScale(t0, screenScale, screenScale);
     t0 = CGAffineTransformTranslate(t0,-cx,-cy );
     CGContextConcatCTM(context,t0);
-    
-    
-    
-    
-    
-    
+
     for (int i=0; i < gears.count; i++)
     {
         gear = (Gear*)[gears objectAtIndex:i];
@@ -1498,6 +1493,7 @@
             FinishGameViewController *finishController = (FinishGameViewController*) viewController;
             finishController->playerName = playerName;
             finishController->score = cheese->world->score;
+            finishController->total_time = total_time;
             NSString *strScore = [[NSString alloc] initWithFormat:@"Score: %d",finishController->scores[0]];
             //[finishController->score1Label setText:strScore];
             [titleViewController.view addSubview:finishController.view];
@@ -1670,6 +1666,7 @@ void cleanRemoveFromSuperview( UIView * view ) {
             mouseSprite = [AtlasSprite fromFile: @"MouseSad.png" withRows: 1 withColumns: steps];
             break;
     }*/
+    chatBubble->visible = false;
     message = @"";
 }
 
