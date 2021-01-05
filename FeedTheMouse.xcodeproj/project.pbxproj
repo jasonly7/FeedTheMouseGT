@@ -36,6 +36,8 @@
 		867F9F6525006E04002E231A /* big in Resources */ = {isa = PBXBuildFile; fileRef = 867F9F6425006E03002E231A /* big */; };
 		868A774D212B3A62003B5205 /* TitleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 868A774C212B3A62003B5205 /* TitleViewController.m */; };
 		868A7750212B3C24003B5205 /* TitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 868A774F212B3C24003B5205 /* TitleView.m */; };
+		868AE36B25A4E36200DB028A /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 868AE36A25A4E36200DB028A /* icon.png */; };
+		868AE37025A4E49B00DB028A /* projectx_large_512x512px.png in Resources */ = {isa = PBXBuildFile; fileRef = 868AE36F25A4E49B00DB028A /* projectx_large_512x512px.png */; };
 		8690AD6425954E9A003ACCE9 /* Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = 8690AD6325954E9A003ACCE9 /* Utility.m */; };
 		8699A07F2553A0C900B5CFEE /* Wall.m in Sources */ = {isa = PBXBuildFile; fileRef = 8699A07E2553A0C900B5CFEE /* Wall.m */; };
 		86A0496C256FFE0500B89DB6 /* medium_coins in Resources */ = {isa = PBXBuildFile; fileRef = 86A0496B256FFE0500B89DB6 /* medium_coins */; };
@@ -225,6 +227,8 @@
 		868A774E212B3C24003B5205 /* TitleView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TitleView.h; sourceTree = "<group>"; };
 		868A774F212B3C24003B5205 /* TitleView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TitleView.m; sourceTree = "<group>"; };
 		868A7751212B4BF8003B5205 /* FeedTheMouseView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FeedTheMouseView.h; sourceTree = "<group>"; };
+		868AE36A25A4E36200DB028A /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = Images/icon.png; sourceTree = "<group>"; };
+		868AE36F25A4E49B00DB028A /* projectx_large_512x512px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = projectx_large_512x512px.png; path = Images/projectx_large_512x512px.png; sourceTree = "<group>"; };
 		8690AD6225954E9A003ACCE9 /* Utility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Utility.h; path = Classes/Utility.h; sourceTree = "<group>"; };
 		8690AD6325954E9A003ACCE9 /* Utility.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = Utility.m; path = Classes/Utility.m; sourceTree = "<group>"; };
 		8699A07D2553A0C900B5CFEE /* Wall.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Wall.h; path = Classes/Wall.h; sourceTree = "<group>"; };
@@ -475,6 +479,8 @@
 				86E074B71E4412B400E92CB9 /* Assets.xcassets */,
 				86E074B91E4412B400E92CB9 /* LaunchScreen.storyboard */,
 				86E074BC1E4412B400E92CB9 /* Info.plist */,
+				868AE36F25A4E49B00DB028A /* projectx_large_512x512px.png */,
+				868AE36A25A4E36200DB028A /* icon.png */,
 				86E074AB1E4412B400E92CB9 /* Supporting Files */,
 			);
 			path = FeedTheMouse;
@@ -886,6 +892,7 @@
 				86E0754B1E44254000E92CB9 /* MouseOpenMouth.png in Resources */,
 				863D85A6259D7F13007E8C27 /* chat_bubble_compressed.png in Resources */,
 				86A0496C256FFE0500B89DB6 /* medium_coins in Resources */,
+				868AE37025A4E49B00DB028A /* projectx_large_512x512px.png in Resources */,
 				86E65836250878A800BA1889 /* small_button_up.png in Resources */,
 				86E0754C1E44254000E92CB9 /* MouseSad.png in Resources */,
 				8672E0412539D9A400F69618 /* big_teeter_totter_green.png in Resources */,
@@ -960,6 +967,7 @@
 				86E075591E44263400E92CB9 /* background_3.png in Resources */,
 				86C497A02501CAD90006519F /* bigMouseBlink.png in Resources */,
 				86C0D08C252FDD3800B9E269 /* bomb.png in Resources */,
+				868AE36B25A4E36200DB028A /* icon.png in Resources */,
 				86E075481E44254000E92CB9 /* MouseBlink.png in Resources */,
 				86E075571E44263400E92CB9 /* background_1.png in Resources */,
 				86E0759F1E44282700E92CB9 /* small_star_flash.png in Resources */,

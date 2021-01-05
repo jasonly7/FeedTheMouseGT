@@ -221,7 +221,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3666"
             endingLineNumber = "3666"
-            landmarkName = "-collideWithLineF:"
+            landmarkName = "-dealloc"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -343,7 +343,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2387"
             endingLineNumber = "2387"
-            landmarkName = "-bounceOffFlipper"
+            landmarkName = "-bounceOffRightWall"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -447,8 +447,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2654"
             endingLineNumber = "2654"
-            landmarkName = "Cheese"
-            landmarkType = "3">
+            landmarkName = "-nearLine:"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -979,7 +979,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2431"
             endingLineNumber = "2431"
-            landmarkName = "-bounceOffGear:"
+            landmarkName = "-bounceOffFlipper"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1064,7 +1064,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2455"
             endingLineNumber = "2455"
-            landmarkName = "-collideWith:"
+            landmarkName = "-slideOffTeeterTotter:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1082,7 +1082,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2472"
             endingLineNumber = "2472"
-            landmarkName = "-collideWith:"
+            landmarkName = "-bounceOffGear:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1100,8 +1100,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2503"
             endingLineNumber = "2503"
-            landmarkName = "-pastVertex:"
-            landmarkType = "7">
+            landmarkName = "Cheese"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1253,7 +1253,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2523"
             endingLineNumber = "2523"
-            landmarkName = "-pastLine:"
+            landmarkName = "-collideWith:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1321,7 +1321,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2385"
             endingLineNumber = "2385"
-            landmarkName = "-bounceOffFlipper"
+            landmarkName = "-bounceOffRightWall"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1697,7 +1697,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3204"
             endingLineNumber = "3204"
-            landmarkName = "-collideAndSlide:"
+            landmarkName = "-collideWithVertex:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1731,7 +1731,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3189"
             endingLineNumber = "3189"
-            landmarkName = "-collideAndSlide:"
+            landmarkName = "-collideWithVertex:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -2105,7 +2105,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3200"
             endingLineNumber = "3200"
-            landmarkName = "-collideAndSlide:"
+            landmarkName = "-collideWithVertex:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -2122,7 +2122,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3199"
             endingLineNumber = "3199"
-            landmarkName = "-collideAndSlide:"
+            landmarkName = "-collideWithVertex:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -2156,7 +2156,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3662"
             endingLineNumber = "3662"
-            landmarkName = "-collideWithLineF:"
+            landmarkName = "-dealloc"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -2994,7 +2994,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3202"
             endingLineNumber = "3202"
-            landmarkName = "-collideAndSlide:"
+            landmarkName = "-collideWithVertex:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -3028,7 +3028,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3205"
             endingLineNumber = "3205"
-            landmarkName = "-collideAndSlide:"
+            landmarkName = "-collideWithVertex:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -3183,7 +3183,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3661"
             endingLineNumber = "3661"
-            landmarkName = "-collideWithLineF:"
+            landmarkName = "-dealloc"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -3217,8 +3217,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3676"
             endingLineNumber = "3676"
-            landmarkName = "-collideWithLineF:"
-            landmarkType = "7">
+            landmarkName = "Cheese"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -3423,7 +3423,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2425"
             endingLineNumber = "2425"
-            landmarkName = "-bounceOffGear:"
+            landmarkName = "-bounceOffFlipper"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -3576,7 +3576,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3208"
             endingLineNumber = "3208"
-            landmarkName = "-collideAndSlide:"
+            landmarkName = "-collideWithVertex:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -3593,7 +3593,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3209"
             endingLineNumber = "3209"
-            landmarkName = "-collideAndSlide:"
+            landmarkName = "-collideWithVertex:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -3678,7 +3678,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3207"
             endingLineNumber = "3207"
-            landmarkName = "-collideAndSlide:"
+            landmarkName = "-collideWithVertex:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -3865,8 +3865,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3094"
             endingLineNumber = "3094"
-            landmarkName = "Cheese"
-            landmarkType = "3">
+            landmarkName = "-collideWithLine:"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -4052,7 +4052,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2531"
             endingLineNumber = "2531"
-            landmarkName = "-pastLine:"
+            landmarkName = "-collideWith:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -4359,7 +4359,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2426"
             endingLineNumber = "2426"
-            landmarkName = "-bounceOffGear:"
+            landmarkName = "-bounceOffFlipper"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -4376,7 +4376,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2450"
             endingLineNumber = "2450"
-            landmarkName = "-bounceOffGear:"
+            landmarkName = "-slideOffTeeterTotter:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -4393,7 +4393,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2667"
             endingLineNumber = "2667"
-            landmarkName = "-checkWall:"
+            landmarkName = "-nearLine:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -4410,7 +4410,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3669"
             endingLineNumber = "3669"
-            landmarkName = "-collideWithLineF:"
+            landmarkName = "-dealloc"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -4548,7 +4548,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2449"
             endingLineNumber = "2449"
-            landmarkName = "-bounceOffGear:"
+            landmarkName = "-slideOffTeeterTotter:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -4565,7 +4565,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2465"
             endingLineNumber = "2465"
-            landmarkName = "-collideWith:"
+            landmarkName = "-slideOffTeeterTotter:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -4582,8 +4582,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1828"
             endingLineNumber = "1828"
-            landmarkName = "-checkFlipper:"
-            landmarkType = "7">
+            landmarkName = "Cheese"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -4821,7 +4821,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2384"
             endingLineNumber = "2384"
-            landmarkName = "-bounceOffFlipper"
+            landmarkName = "-bounceOffRightWall"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -4872,7 +4872,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2496"
             endingLineNumber = "2496"
-            landmarkName = "-nearVertex:"
+            landmarkName = "-bounceOffGear:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -5110,7 +5110,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2497"
             endingLineNumber = "2497"
-            landmarkName = "-nearVertex:"
+            landmarkName = "-bounceOffGear:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -5144,7 +5144,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2499"
             endingLineNumber = "2499"
-            landmarkName = "-pastVertex:"
+            landmarkName = "-bounceOffGear:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -5161,7 +5161,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2500"
             endingLineNumber = "2500"
-            landmarkName = "-pastVertex:"
+            landmarkName = "-bounceOffGear:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -5195,7 +5195,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3213"
             endingLineNumber = "3213"
-            landmarkName = "-collideAndSlide:"
+            landmarkName = "-collideWithVertex:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -5348,8 +5348,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3093"
             endingLineNumber = "3093"
-            landmarkName = "Cheese"
-            landmarkType = "3">
+            landmarkName = "-collideWithLine:"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -5555,7 +5555,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3229"
             endingLineNumber = "3229"
-            landmarkName = "-collideAndSlide:"
+            landmarkName = "-collideWithVertex:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -5827,7 +5827,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3668"
             endingLineNumber = "3668"
-            landmarkName = "-collideWithLineF:"
+            landmarkName = "-dealloc"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -6202,7 +6202,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2386"
             endingLineNumber = "2386"
-            landmarkName = "-bounceOffFlipper"
+            landmarkName = "-bounceOffRightWall"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -6389,7 +6389,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3210"
             endingLineNumber = "3210"
-            landmarkName = "-collideAndSlide:"
+            landmarkName = "-collideWithVertex:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -6423,7 +6423,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2532"
             endingLineNumber = "2532"
-            landmarkName = "-pastLine:"
+            landmarkName = "-collideWith:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -6440,7 +6440,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2536"
             endingLineNumber = "2536"
-            landmarkName = "-pastLine:"
+            landmarkName = "-nearVertex:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -6457,7 +6457,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2546"
             endingLineNumber = "2546"
-            landmarkName = "-pastLine:"
+            landmarkName = "-nearVertex:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -6576,7 +6576,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3672"
             endingLineNumber = "3672"
-            landmarkName = "-collideWithLineF:"
+            landmarkName = "-dealloc"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -6592,7 +6592,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3201"
             endingLineNumber = "3201"
-            landmarkName = "-collideAndSlide:"
+            landmarkName = "-collideWithVertex:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -6625,7 +6625,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2410"
             endingLineNumber = "2410"
-            landmarkName = "-slideOffTeeterTotter:"
+            landmarkName = "-bounceOffDrum"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -7039,7 +7039,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1826"
             endingLineNumber = "1826"
-            landmarkName = "-checkFlipper:"
+            landmarkName = "-checkDrum:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -7087,7 +7087,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2424"
             endingLineNumber = "2424"
-            landmarkName = "-bounceOffGear:"
+            landmarkName = "-bounceOffFlipper"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -7167,7 +7167,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2254"
             endingLineNumber = "2254"
-            landmarkName = "-update"
+            landmarkName = "-checkFlipper:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -7183,7 +7183,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2272"
             endingLineNumber = "2272"
-            landmarkName = "-bounceOffTopWall"
+            landmarkName = "-checkFlipper:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -7199,7 +7199,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2271"
             endingLineNumber = "2271"
-            landmarkName = "-bounceOffTopWall"
+            landmarkName = "-checkFlipper:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -7327,7 +7327,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2276"
             endingLineNumber = "2276"
-            landmarkName = "-bounceOffTopWall"
+            landmarkName = "-checkFlipper:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -7405,7 +7405,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2255"
             endingLineNumber = "2255"
-            landmarkName = "-update"
+            landmarkName = "-checkFlipper:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -7421,7 +7421,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2256"
             endingLineNumber = "2256"
-            landmarkName = "-update"
+            landmarkName = "-checkFlipper:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -7437,7 +7437,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2279"
             endingLineNumber = "2279"
-            landmarkName = "-bounceOffTopWall"
+            landmarkName = "-checkFlipper:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -7453,7 +7453,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2273"
             endingLineNumber = "2273"
-            landmarkName = "-bounceOffTopWall"
+            landmarkName = "-checkFlipper:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -7469,7 +7469,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2277"
             endingLineNumber = "2277"
-            landmarkName = "-bounceOffTopWall"
+            landmarkName = "-checkFlipper:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -7533,7 +7533,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2467"
             endingLineNumber = "2467"
-            landmarkName = "-collideWith:"
+            landmarkName = "-slideOffTeeterTotter:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -7549,7 +7549,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2468"
             endingLineNumber = "2468"
-            landmarkName = "-collideWith:"
+            landmarkName = "-slideOffTeeterTotter:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -7707,7 +7707,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2435"
             endingLineNumber = "2435"
-            landmarkName = "-bounceOffGear:"
+            landmarkName = "-bounceOffFlipper"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -7980,7 +7980,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2400"
             endingLineNumber = "2400"
-            landmarkName = "-slideOffTeeterTotter:"
+            landmarkName = "-bounceOffRightWall"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -8187,7 +8187,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2434"
             endingLineNumber = "2434"
-            landmarkName = "-bounceOffGear:"
+            landmarkName = "-bounceOffFlipper"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -8219,7 +8219,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2295"
             endingLineNumber = "2295"
-            landmarkName = "-bounceOffLeftWall"
+            landmarkName = "-update"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -8428,7 +8428,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2699"
             endingLineNumber = "2699"
-            landmarkName = "-checkWall:"
+            landmarkName = "-nearLine:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -8444,7 +8444,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2701"
             endingLineNumber = "2701"
-            landmarkName = "-checkWall:"
+            landmarkName = "-nearLine:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -8460,7 +8460,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2700"
             endingLineNumber = "2700"
-            landmarkName = "-checkWall:"
+            landmarkName = "-nearLine:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -8508,7 +8508,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3891"
             endingLineNumber = "3891"
-            landmarkName = "-collideWithVertexF:"
+            landmarkName = "-collideWithLineF:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -8540,7 +8540,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3892"
             endingLineNumber = "3892"
-            landmarkName = "-collideWithVertexF:"
+            landmarkName = "-collideWithLineF:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -8764,7 +8764,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3115"
             endingLineNumber = "3115"
-            landmarkName = "-collideWithVertex:"
+            landmarkName = "-collideWithLine:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -8780,7 +8780,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3867"
             endingLineNumber = "3867"
-            landmarkName = "-collideWithVertexF:"
+            landmarkName = "-collideWithLineF:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -8796,7 +8796,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3868"
             endingLineNumber = "3868"
-            landmarkName = "-collideWithVertexF:"
+            landmarkName = "-collideWithLineF:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -8812,7 +8812,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1801"
             endingLineNumber = "1801"
-            landmarkName = "-checkFlipper:"
+            landmarkName = "-checkDrum:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -8828,7 +8828,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1816"
             endingLineNumber = "1816"
-            landmarkName = "-checkFlipper:"
+            landmarkName = "-checkDrum:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -8844,7 +8844,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1814"
             endingLineNumber = "1814"
-            landmarkName = "-checkFlipper:"
+            landmarkName = "-checkDrum:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -8972,7 +8972,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3124"
             endingLineNumber = "3124"
-            landmarkName = "-collideWithVertex:"
+            landmarkName = "-collideWithLine:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -9102,8 +9102,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3961"
             endingLineNumber = "3961"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "-collideWithVertexF:"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -9504,7 +9504,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1793"
             endingLineNumber = "1793"
-            landmarkName = "-checkFlipper:"
+            landmarkName = "-checkDrum:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -9520,7 +9520,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1818"
             endingLineNumber = "1818"
-            landmarkName = "-checkFlipper:"
+            landmarkName = "-checkDrum:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -9857,7 +9857,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2637"
             endingLineNumber = "2637"
-            landmarkName = "-nearLine:"
+            landmarkName = "-pastLine:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -9889,7 +9889,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2632"
             endingLineNumber = "2632"
-            landmarkName = "-nearLine:"
+            landmarkName = "-pastLine:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -9969,7 +9969,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2253"
             endingLineNumber = "2253"
-            landmarkName = "-update"
+            landmarkName = "-checkFlipper:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -10050,7 +10050,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2244"
             endingLineNumber = "2244"
-            landmarkName = "-update"
+            landmarkName = "-checkFlipper:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -10120,7 +10120,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2246"
             endingLineNumber = "2246"
-            landmarkName = "-update"
+            landmarkName = "-checkFlipper:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -10137,7 +10137,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2561"
             endingLineNumber = "2561"
-            landmarkName = "-pastLine:"
+            landmarkName = "-pastVertex:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -11082,7 +11082,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2684"
             endingLineNumber = "2684"
-            landmarkName = "-checkWall:"
+            landmarkName = "-nearLine:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -11354,7 +11354,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2639"
             endingLineNumber = "2639"
-            landmarkName = "-nearLine:"
+            landmarkName = "-pastLine:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -11370,7 +11370,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2257"
             endingLineNumber = "2257"
-            landmarkName = "-update"
+            landmarkName = "-checkFlipper:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -11437,8 +11437,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3988"
             endingLineNumber = "3988"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "-collideWithVertexF:"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -11517,7 +11517,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3232"
             endingLineNumber = "3232"
-            landmarkName = "-collideAndSlide:"
+            landmarkName = "-collideWithVertex:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -11549,8 +11549,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3963"
             endingLineNumber = "3963"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "-collideWithVertexF:"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -11613,7 +11613,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3197"
             endingLineNumber = "3197"
-            landmarkName = "-collideAndSlide:"
+            landmarkName = "-collideWithVertex:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -11645,7 +11645,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3193"
             endingLineNumber = "3193"
-            landmarkName = "-collideAndSlide:"
+            landmarkName = "-collideWithVertex:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -11693,7 +11693,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2397"
             endingLineNumber = "2397"
-            landmarkName = "-slideOffTeeterTotter:"
+            landmarkName = "-bounceOffRightWall"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -11709,7 +11709,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2359"
             endingLineNumber = "2359"
-            landmarkName = "-bounceOffDrum"
+            landmarkName = "-bounceOffLeftWall"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -11773,7 +11773,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2634"
             endingLineNumber = "2634"
-            landmarkName = "-nearLine:"
+            landmarkName = "-pastLine:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -11837,7 +11837,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3299"
             endingLineNumber = "3299"
-            landmarkName = "-collideWithWorldPosition:andVelocity:"
+            landmarkName = "-collideAndSlide:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -11917,7 +11917,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2550"
             endingLineNumber = "2550"
-            landmarkName = "-pastLine:"
+            landmarkName = "-pastVertex:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -12029,7 +12029,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2379"
             endingLineNumber = "2379"
-            landmarkName = "-bounceOffFlipper"
+            landmarkName = "-bounceOffRightWall"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -12077,7 +12077,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2330"
             endingLineNumber = "2330"
-            landmarkName = "-bounceOffRightWall"
+            landmarkName = "-bounceOffTopWall"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -12334,7 +12334,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1797"
             endingLineNumber = "1797"
-            landmarkName = "-checkFlipper:"
+            landmarkName = "-checkDrum:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -12638,8 +12638,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1779"
             endingLineNumber = "1779"
-            landmarkName = "Cheese"
-            landmarkType = "3">
+            landmarkName = "-checkDrum:"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -12798,7 +12798,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1812"
             endingLineNumber = "1812"
-            landmarkName = "-checkFlipper:"
+            landmarkName = "-checkDrum:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -12814,7 +12814,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1821"
             endingLineNumber = "1821"
-            landmarkName = "-checkFlipper:"
+            landmarkName = "-checkDrum:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -12990,7 +12990,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2607"
             endingLineNumber = "2607"
-            landmarkName = "-nearLine:"
+            landmarkName = "-pastLine:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -13070,7 +13070,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3621"
             endingLineNumber = "3621"
-            landmarkName = "-dealloc"
+            landmarkName = "-collideWithWorldPosition:andVelocity:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -13278,7 +13278,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3123"
             endingLineNumber = "3123"
-            landmarkName = "-collideWithVertex:"
+            landmarkName = "-collideWithLine:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -13294,7 +13294,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3096"
             endingLineNumber = "3096"
-            landmarkName = "-collideWithVertex:"
+            landmarkName = "-collideWithLine:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -13310,7 +13310,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3100"
             endingLineNumber = "3100"
-            landmarkName = "-collideWithVertex:"
+            landmarkName = "-collideWithLine:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -13390,7 +13390,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3633"
             endingLineNumber = "3633"
-            landmarkName = "-collideWithLineF:"
+            landmarkName = "-collideWithWorldPosition:andVelocity:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -13534,7 +13534,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3301"
             endingLineNumber = "3301"
-            landmarkName = "-collideWithWorldPosition:andVelocity:"
+            landmarkName = "-collideAndSlide:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -13582,7 +13582,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3136"
             endingLineNumber = "3136"
-            landmarkName = "-collideWithVertex:"
+            landmarkName = "-collideWithLine:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -13662,7 +13662,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3135"
             endingLineNumber = "3135"
-            landmarkName = "-collideWithVertex:"
+            landmarkName = "-collideWithLine:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -13694,7 +13694,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3230"
             endingLineNumber = "3230"
-            landmarkName = "-collideAndSlide:"
+            landmarkName = "-collideWithVertex:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -13710,7 +13710,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3231"
             endingLineNumber = "3231"
-            landmarkName = "-collideAndSlide:"
+            landmarkName = "-collideWithVertex:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -14512,7 +14512,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2490"
             endingLineNumber = "2490"
-            landmarkName = "-nearVertex:"
+            landmarkName = "-bounceOffGear:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -14528,7 +14528,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2485"
             endingLineNumber = "2485"
-            landmarkName = "-collideWith:"
+            landmarkName = "-bounceOffGear:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -14544,7 +14544,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2479"
             endingLineNumber = "2479"
-            landmarkName = "-collideWith:"
+            landmarkName = "-bounceOffGear:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -14560,8 +14560,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2486"
             endingLineNumber = "2486"
-            landmarkName = "Cheese"
-            landmarkType = "3">
+            landmarkName = "-bounceOffGear:"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -14576,7 +14576,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2483"
             endingLineNumber = "2483"
-            landmarkName = "-collideWith:"
+            landmarkName = "-bounceOffGear:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -14592,7 +14592,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2494"
             endingLineNumber = "2494"
-            landmarkName = "-nearVertex:"
+            landmarkName = "-bounceOffGear:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -15329,7 +15329,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2558"
             endingLineNumber = "2558"
-            landmarkName = "-pastLine:"
+            landmarkName = "-pastVertex:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -15345,7 +15345,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2559"
             endingLineNumber = "2559"
-            landmarkName = "-pastLine:"
+            landmarkName = "-pastVertex:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -15602,7 +15602,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1400"
             endingLineNumber = "1400"
-            landmarkName = "-checkDrum:"
+            landmarkName = "-checkTeeterTotter:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -15682,7 +15682,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3608"
             endingLineNumber = "3608"
-            landmarkName = "-moveTo:"
+            landmarkName = "-collideWithWorldPosition:andVelocity:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -15698,7 +15698,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2544"
             endingLineNumber = "2544"
-            landmarkName = "-pastLine:"
+            landmarkName = "-nearVertex:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -15715,7 +15715,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2545"
             endingLineNumber = "2545"
-            landmarkName = "-pastLine:"
+            landmarkName = "-nearVertex:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -15763,7 +15763,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3326"
             endingLineNumber = "3326"
-            landmarkName = "-collideWithWorldPosition:andVelocity:"
+            landmarkName = "-collideAndSlide:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -16964,7 +16964,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2893"
             endingLineNumber = "2893"
-            landmarkName = "-collideWithLine:"
+            landmarkName = "-checkWall:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -17908,7 +17908,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3614"
             endingLineNumber = "3614"
-            landmarkName = "-dealloc"
+            landmarkName = "-collideWithWorldPosition:andVelocity:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -17924,7 +17924,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3604"
             endingLineNumber = "3604"
-            landmarkName = "-moveTo:"
+            landmarkName = "-collideWithWorldPosition:andVelocity:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -17940,7 +17940,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3605"
             endingLineNumber = "3605"
-            landmarkName = "-moveTo:"
+            landmarkName = "-collideWithWorldPosition:andVelocity:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -17972,7 +17972,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2557"
             endingLineNumber = "2557"
-            landmarkName = "-pastLine:"
+            landmarkName = "-pastVertex:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -18052,7 +18052,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3622"
             endingLineNumber = "3622"
-            landmarkName = "-dealloc"
+            landmarkName = "-collideWithWorldPosition:andVelocity:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -18068,8 +18068,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3625"
             endingLineNumber = "3625"
-            landmarkName = "Cheese"
-            landmarkType = "3">
+            landmarkName = "-collideWithWorldPosition:andVelocity:"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
