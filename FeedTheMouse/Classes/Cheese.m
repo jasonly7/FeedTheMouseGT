@@ -306,29 +306,14 @@
                     if (!colPackage->foundCollision || colPackage->isSlidingOff)
                     {
                         time = interpolation;
-                        //if (screenWidth == 750)
-                            vxt = vel->x*time;
-                        //else if (screenWidth==640)
-                      //      vxt = vel->x;
-                       // else
-                        //    vxt = roundf(vel->x*time);
-                        //if (screenHeight == 1334 || screenWidth==640)
-                            vyt = vel->y*time;
-                        //else
-                         //   vyt = roundf(vel->y*time);
+                       
+                        vxt = lroundf(vel->x*time);
+                        vyt = lroundf(vel->y*time);
                         
                         x = pos->x + vxt;
                         y = pos->y + vyt;
                     }
                    
-                    //x = pos->x;
-                    //y = pos->y;
-                   // vel->x += -1;
-                    //vel->y += 1;
-                   // vel->x += -[acceleration length]*tanf(0.785f); // 1.41
-                    //vel->y += [acceleration length]; // 1.41
-                    //vel->x += [acceleration length]*colPackage->collidedTotter->normal->x;
-                    //vel->y += [acceleration length]*colPackage->collidedTotter->normal->y;
                 }
                 else if ([colPackage->collidedObj class] == [Drum class] ||
                          [colPackage->collidedObj class] == [Flipper class])
@@ -1202,7 +1187,7 @@
             foundCollision = true;
             colPackage->state = COLLISION_BOUNCE;
         }
-        else if (collidedWithRight == shortestDistance || isNearRightLine)
+        else if (collidedWithRight == shortestDistance)// || isNearRightLine)
         {
             [self collideWithLine:rightLine];
             Vector *I = [[[Vector alloc] init] autorelease];
@@ -1227,7 +1212,7 @@
             foundCollision = true;
             colPackage->state = COLLISION_BOUNCE;
         }
-        else if (collidedWithTop == shortestDistance || (isNearTopLine && xRightCheese < topRightX))// || isPastTopLine)
+        else if (collidedWithTop == shortestDistance || (isNearTopLine && xRightCheese < topRightX) && y>topLine->origin->y)// || isPastTopLine)
         {
             if (collidedWithTop == shortestDistance)
             {
@@ -1319,7 +1304,7 @@
             colPackage->state = COLLISION_BOUNCE;
             slidingLine->normal = normal;
         }
-        else if (collidedWithBottom == shortestDistance)
+        else if (collidedWithBottom == shortestDistance && y < totter->y)
         {
             [self collideWithLine:bottomLine];
            // if ([bottomLine isFrontFacingTo:vel])
