@@ -541,13 +541,13 @@
             <Y>268</Y>
         </Coin>
         <Gear>
-            <X>220</X>
-            <Y>724</Y>
+            <X>218</X>
+            <Y>712</Y>
             <Color>blue</Color>
         </Gear>
         <Gear>
-            <X>494</X>
-            <Y>716</Y>
+            <X>495</X>
+            <Y>709</Y>
             <Color>orange</Color>
         </Gear>
         <Drum>
@@ -566,8 +566,8 @@
             <ANGLE>0.000000</ANGLE>
         </Bomb>
         <TeeterTotter>
-            <X>239</X>
-            <Y>854</Y>
+            <X>249</X>
+            <Y>921</Y>
             <Color>blue</Color>
         </TeeterTotter>
         <TeeterTotter>

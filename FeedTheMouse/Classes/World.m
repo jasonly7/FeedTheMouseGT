@@ -236,12 +236,21 @@
             for (int i = 0; i < [lvl->teeterTotters count]; i++ )
             {
                 TeeterTotter *teeterTotter = [lvl->teeterTotters objectAtIndex:i];
+                if (screenWidth == 1242)
+                {
+                    topRightX = (teeterTotter->x + cos(radAngle)*teeterTotter->totterSprite.width/2 + cos(radAngle+M_PI_2)*teeterTotter->totterSprite.height/2);
+                }
+                else
+                {
+                    topRightX = sx * (teeterTotter->x + cos(radAngle)*teeterTotter->totterSprite.width/2 + cos(radAngle+M_PI_2)*teeterTotter->totterSprite.height/2);
+                }
                 if ( cheese->colPackage->collisionCount == 0)
                 {
                     cheese->colPackage->foundCollision = [cheese checkTeeterTotter:teeterTotter];
                     //bool isNearTopLine = [cheese nearLine:teeterTotter->topLine];
                     radAngle = teeterTotter->angle*M_PI/180.0f;
-                    if (cheese->colPackage->foundCollision || (cheese->isNearTopLine || cheese->isNearTopRight || cheese->isNearTopLeft) || [cheese nearVertex:teeterTotter->topLine->p1] || [cheese nearVertex:teeterTotter->topLine->p2] || cheese->isPastTopLine ||
+                    float xRightCheese = cheese->pos->x + cheese->cheeseSprite->width/2.0f;
+                    if (cheese->colPackage->foundCollision || (cheese->isNearTopLine && xRightCheese < topRightX) || cheese->isNearTopRight || cheese->isNearTopLeft || [cheese nearVertex:teeterTotter->topLine->p1] || [cheese nearVertex:teeterTotter->topLine->p2] || cheese->isPastTopLine ||
                         cheese->colPackage->state == COLLISION_SLIDE)
                     {
                         

@@ -965,12 +965,16 @@
         
         float xRightCheese = pos->x + cheeseSprite->width/2.0f;
         
-        
+        Vector *cheeseVector = [[Vector alloc] init];
+        [cheeseVector initializeVectorX:x andY:y];
+        Vector *cheesePtToTopLeft = [cheeseVector subtract:topLeftVector];
+        Vector *topLineVector = [topRightVector subtract:topLeftVector];
+        Vector *bottomLineVector = [bottomRightVector subtract:bottomLeftVector];
         if ( collidedWithTopLeft == shortestDistance || isNearTopLeft)
         {
             bool isCollidedWithTopLeft = [self collideWithVertex:topLeft];
-            Vector *topLeftVector = [[[Vector alloc] init] autorelease];
-            [topLeftVector initializeVectorX:topLeft.x andY:topLeft.y];
+            //Vector *topLeftVector = [[[Vector alloc] init] autorelease];
+            //[topLeftVector initializeVectorX:topLeft.x andY:topLeft.y];
             normal = [[topLine->normal add:leftLine->normal] multiply:0.5f];
             //normal = [self->pos subtract:topLeftVector];
             [normal normalize];
@@ -1212,7 +1216,7 @@
             foundCollision = true;
             colPackage->state = COLLISION_BOUNCE;
         }
-        else if (collidedWithTop == shortestDistance || (isNearTopLine && xRightCheese < topRightX) && y>topLine->origin->y)// || isPastTopLine)
+        else if ((collidedWithTop == shortestDistance || (isNearTopLine && xRightCheese < topRightX)) && [cheesePtToTopLeft crossProduct:topLineVector] < 0) // y>topLine->origin->y)// || isPastTopLine)
         {
             if (collidedWithTop == shortestDistance)
             {
@@ -1304,7 +1308,7 @@
             colPackage->state = COLLISION_BOUNCE;
             slidingLine->normal = normal;
         }
-        else if (collidedWithBottom == shortestDistance && y < totter->y)
+        else if (collidedWithBottom == shortestDistance && [cheesePtToTopLeft crossProduct:bottomLineVector] > 0) // y < totter->y)
         {
             [self collideWithLine:bottomLine];
            // if ([bottomLine isFrontFacingTo:vel])

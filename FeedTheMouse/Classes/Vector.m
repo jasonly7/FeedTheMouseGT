@@ -122,4 +122,10 @@
     return angle;
 }
 
+- (float) crossProduct: (Vector*) v
+{
+    float result = self->x * v->y - self->y*v->x;
+    return result;
+}
+
 @end

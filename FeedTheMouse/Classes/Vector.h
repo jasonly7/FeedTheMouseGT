@@ -26,4 +26,5 @@
 - (void) setVector:(Vector*)v;
 - (Vector*) project: (Vector*) b onto: (Vector*)a;
 - (float) getAngle;
+- (float) crossProduct: (Vector*) v;
 @end
