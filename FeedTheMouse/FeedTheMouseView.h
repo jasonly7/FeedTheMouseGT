@@ -26,6 +26,7 @@
 #import "TextSprite.h"
 #import "Utility.h"
 #import "ChatBubble.h"
+#import "PauseButton.h"
 //const int MOUSE_HEIGHT = 322;
 //const int MOUSE_WIDTH = 256;
 
@@ -82,6 +83,7 @@
     CGFloat screenScale;
     CGPoint mousePt;
     CGPoint mouseTouchedPoint;
+    CGPoint tapPoint;
     bool isTouched;
     //FeedTheMouseViewController *feedTheMouseViewController;
     //TitleViewController *titleViewController;
@@ -91,8 +93,12 @@
     NSString *message;
     NSMutableArray *cheeseArrayOfLives;
     ChatBubble *chatBubble;
+    PauseButton *pauseButton;
+    
     @public
         NSString *playerName;
+    
+    
 }
 
 

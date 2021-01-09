@@ -52,6 +52,7 @@
         mouse = [[Mouse alloc] init];
         cheese = [[Cheese alloc] init];
         chatBubble = [[ChatBubble alloc] init];
+        pauseButton = [[PauseButton alloc] init];
         gear = [[Gear alloc] init];
 		drum = [[Drum alloc] init];
         bomb = [[Bomb alloc] init];
@@ -206,6 +207,7 @@
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect
 {
+   
    CGFloat blue[4] = {0.0f,0.0f,1.0f, 1.0f};
    CGFloat purple[4] = {1.0f,0.0f,1.0f, 1.0f};
    CGFloat yellow[4] = {1.0f,1.0f,0.0f, 1.0f};
@@ -337,7 +339,10 @@
         [cheese draw: context];
     }
     
-    
+    CGContextBeginPath(context);
+    CGContextSetStrokeColor(context, blue);
+    CGContextAddArc(context, tapPoint.x, tapPoint.y, 5, 0, 2*M_PI,YES);
+    CGContextStrokePath(context);
     
     //for (int i=0; i < 1; i++)
     for (int i=0; i < cheese->numOfLives; i++)
@@ -480,6 +485,34 @@
     t0 = CGAffineTransformIdentity;
     CGContextConcatCTM(context,t0);
     [chatBubble draw:context];
+    
+    CGContextSaveGState(context);
+    pauseButton->x = 10;
+    if (screenWidth == 1242)
+    {
+        pauseButton->y = 960*sy + pauseButton->pauseSprite.height*sy;
+        t0 = CGAffineTransformInvert(t0);
+        CGContextConcatCTM(context,t0);
+        t0 = CGAffineTransformIdentity;
+        t0 = CGAffineTransformTranslate(t0,pauseButton->x,pauseButton->y );
+        t0 = CGAffineTransformScale(t0, screenScale, screenScale);
+        t0 = CGAffineTransformTranslate(t0,-pauseButton->x,-pauseButton->y );
+        CGContextConcatCTM(context,t0);
+    }
+    else
+    {
+        pauseButton->y = 960+pauseButton->pauseSprite.height;
+    }
+    [pauseButton draw:context];
+    CGContextRestoreGState(context);
+    
+    CGContextSetStrokeColor(context,blue);
+    CGContextMoveToPoint(context, pauseButton->x, pauseButton->y);
+    CGContextAddLineToPoint(context, pauseButton->x + pauseButton->pauseSprite.width, pauseButton->y);
+    CGContextStrokePath(context);
+    CGContextMoveToPoint(context, pauseButton->x, pauseButton->y + pauseButton->pauseSprite.height);
+    CGContextAddLineToPoint(context, pauseButton->x + pauseButton->pauseSprite.width, pauseButton->y + pauseButton->pauseSprite.height);
+    CGContextStrokePath(context);
     
     float bombTopLeftX = 0;
     float bombTopLeftY = 0;
@@ -1120,21 +1153,17 @@
     CGContextSaveGState(context);
     CGContextSetTextMatrix(context, CGAffineTransformIdentity);
     CGFloat screenScale = [[UIScreen mainScreen] scale];
-    NSString *strLevel = [NSString stringWithFormat:@"Level %d", curLevel->num]; //[strLevel stringByAppendingString:curLevel];
+    NSString *strLevel = [NSString stringWithFormat:@"Level %d", curLevel->num];
     TextSprite *fakeLevelText = [TextSprite withString: strLevel];
     fakeLevelText.r = 0;
     fakeLevelText.g = 1.0;
     fakeLevelText.b = 1.0;
     fakeLevelText.x = screenWidth;
-    fakeLevelText.y = self.bounds.size.height*screenScale/sy-fakeLevelText.height*screenScale/sy-15*screenScale;//1000;//*screenScale ;
+    fakeLevelText.y = self.bounds.size.height*screenScale/sy-fakeLevelText.height*screenScale/sy-15*screenScale;
     if (screenWidth == 1242)
         fakeLevelText.y = self.bounds.size.height*screenScale - 136;
-    
     [(TextSprite *) fakeLevelText setFontSize:24];
-   // if (message == @"")
-    //{
-        [fakeLevelText drawBody:context on:self.bounds];
-   // }
+    [fakeLevelText drawBody:context on:self.bounds];
     CGContextRestoreGState(context);
     
     CGContextSaveGState(context);
@@ -1170,6 +1199,14 @@
     [(TextSprite *) timerText setFontSize:24];
     [timerText drawBody:context on:self.bounds];
     CGContextRestoreGState(context);
+    
+   // t0 = CGAffineTransformInvert(t0);
+    //CGContextConcatCTM(context,t0);
+    //t0 = CGAffineTransformIdentity;
+    //CGContextConcatCTM(context,t0);
+    pauseButton->x = timerText.x;
+    pauseButton->y = timerText.y - levelText.height*screenScale/sy;
+    [pauseButton draw:context];
     
     if (message != @"")
     {
@@ -1463,16 +1500,20 @@
         {
             interpolation = SKIP_TICKS;
         }
-        total_time+=interpolation;
-        printf("interp: %f\n", interpolation);
+       
         next_game_tick = cur_game_tick;
-        if (cheese->colPackage->state!=COLLISION_EXPLODE)
+        if ( ![pauseButton pointIsInside:tapPoint withScreenScale:sy])
         {
-            [cheese collideAndSlide:interpolation];
-        }
-        if (cheese->colPackage->state!=COLLISION_EXPLODE)
-        {
-            [cheese fall:interpolation];
+            total_time+=interpolation;
+            printf("interp: %f\n", interpolation);
+            if (cheese->colPackage->state!=COLLISION_EXPLODE)
+            {
+                [cheese collideAndSlide:interpolation];
+            }
+            if (cheese->colPackage->state!=COLLISION_EXPLODE)
+            {
+                [cheese fall:interpolation];
+            }
         }
         [self display_game];
        
@@ -1566,6 +1607,7 @@ void cleanRemoveFromSuperview( UIView * view ) {
     {
         y = 2688 - touchY*screenScale;
     }
+    tapPoint = CGPointMake(x, y);
     if (x > rightLimit)
         x = rightLimit;
     else if (x < leftLimit)
@@ -1613,19 +1655,29 @@ void cleanRemoveFromSuperview( UIView * view ) {
         }*/
         TitleViewController *titleViewController = (TitleViewController*)[UIApplication sharedApplication].keyWindow.rootViewController;
         NSString *playerName = titleViewController.playerNameTextField.text;
-        if ([playerName isEqualToString:@"cheat"])
+        CGRect screenBounds = [[UIScreen mainScreen] bounds];
+        screenScale = [[UIScreen mainScreen] scale];
+        CGSize screenSize = CGSizeMake(screenBounds.size.width * screenScale, screenBounds.size.height * screenScale);
+        screenWidth = screenSize.width;
+        screenHeight = screenSize.height;
+        sx = screenWidth/640.0f;
+        sy = screenHeight/1136.0f;
+        if (![pauseButton pointIsInside:tapPoint withScreenScale:sy])
         {
-            cheese->colPackage->foundCollision = false;
-            [cheese dropAt:pt];
-            cheese->colPackage->state = COLLISION_NONE;
-        }
-        else
-        {
-            if (y > (960 * sy))
+            if ([playerName isEqualToString:@"cheat"])
             {
                 cheese->colPackage->foundCollision = false;
                 [cheese dropAt:pt];
                 cheese->colPackage->state = COLLISION_NONE;
+            }
+            else
+            {
+                if (y > (960 * sy))
+                {
+                    cheese->colPackage->foundCollision = false;
+                    [cheese dropAt:pt];
+                    cheese->colPackage->state = COLLISION_NONE;
+                }
             }
         }
     }

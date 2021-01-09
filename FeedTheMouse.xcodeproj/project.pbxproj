@@ -31,7 +31,6 @@
 		86708E52256183B8001A32D8 /* TextSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 86708E51256183B8001A32D8 /* TextSprite.m */; };
 		8672E0412539D9A400F69618 /* big_teeter_totter_green.png in Resources */ = {isa = PBXBuildFile; fileRef = 8672E0402539D9A400F69618 /* big_teeter_totter_green.png */; };
 		867909A4259D31360053C25A /* chat_bubble.png in Resources */ = {isa = PBXBuildFile; fileRef = 867909A3259D31360053C25A /* chat_bubble.png */; };
-		867909AA259D33020053C25A /* SpeechBubble.m in Sources */ = {isa = PBXBuildFile; fileRef = 867909A9259D33020053C25A /* SpeechBubble.m */; };
 		867909B0259D38730053C25A /* ChatBubble.m in Sources */ = {isa = PBXBuildFile; fileRef = 867909AF259D38730053C25A /* ChatBubble.m */; };
 		867F9F6525006E04002E231A /* big in Resources */ = {isa = PBXBuildFile; fileRef = 867F9F6425006E03002E231A /* big */; };
 		868A774D212B3A62003B5205 /* TitleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 868A774C212B3A62003B5205 /* TitleViewController.m */; };
@@ -161,6 +160,7 @@
 		86E075C21E44288900E92CB9 /* teeter_totter_purple.png in Resources */ = {isa = PBXBuildFile; fileRef = 86E075B21E44288900E92CB9 /* teeter_totter_purple.png */; };
 		86E075C31E44288900E92CB9 /* teeter_totter_red.png in Resources */ = {isa = PBXBuildFile; fileRef = 86E075B31E44288900E92CB9 /* teeter_totter_red.png */; };
 		86E075C51E44288900E92CB9 /* teeter_totter.png in Resources */ = {isa = PBXBuildFile; fileRef = 86E075B51E44288900E92CB9 /* teeter_totter.png */; };
+		86E4A02025A7BB040089B055 /* pause_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 86E4A01F25A7BB040089B055 /* pause_button.png */; };
 		86E658302508593100BA1889 /* button_up.png in Resources */ = {isa = PBXBuildFile; fileRef = 86E6582E2508593100BA1889 /* button_up.png */; };
 		86E658312508593100BA1889 /* button_down.png in Resources */ = {isa = PBXBuildFile; fileRef = 86E6582F2508593100BA1889 /* button_down.png */; };
 		86E6583425085DF000BA1889 /* PlayImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86E6583325085DF000BA1889 /* PlayImageView.m */; };
@@ -218,8 +218,6 @@
 		86708E51256183B8001A32D8 /* TextSprite.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = TextSprite.m; path = Classes/TextSprite.m; sourceTree = "<group>"; };
 		8672E0402539D9A400F69618 /* big_teeter_totter_green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = big_teeter_totter_green.png; path = Images/Triggers/TeeterTotters/big_teeter_totter_green.png; sourceTree = "<group>"; };
 		867909A3259D31360053C25A /* chat_bubble.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = chat_bubble.png; path = Images/chat_bubble.png; sourceTree = "<group>"; };
-		867909A8259D33020053C25A /* SpeechBubble.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SpeechBubble.h; path = Classes/SpeechBubble.h; sourceTree = "<group>"; };
-		867909A9259D33020053C25A /* SpeechBubble.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = SpeechBubble.m; path = Classes/SpeechBubble.m; sourceTree = "<group>"; };
 		867909AE259D38730053C25A /* ChatBubble.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ChatBubble.h; path = Classes/ChatBubble.h; sourceTree = "<group>"; };
 		867909AF259D38730053C25A /* ChatBubble.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ChatBubble.m; path = Classes/ChatBubble.m; sourceTree = "<group>"; };
 		867F9F6425006E03002E231A /* big */ = {isa = PBXFileReference; lastKnownFileType = folder; name = big; path = Images/Triggers/Flipper/big; sourceTree = "<group>"; };
@@ -388,6 +386,7 @@
 		86E075B21E44288900E92CB9 /* teeter_totter_purple.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = teeter_totter_purple.png; path = Images/Triggers/TeeterTotters/teeter_totter_purple.png; sourceTree = "<group>"; };
 		86E075B31E44288900E92CB9 /* teeter_totter_red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = teeter_totter_red.png; path = Images/Triggers/TeeterTotters/teeter_totter_red.png; sourceTree = "<group>"; };
 		86E075B51E44288900E92CB9 /* teeter_totter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = teeter_totter.png; path = Images/Triggers/TeeterTotters/teeter_totter.png; sourceTree = "<group>"; };
+		86E4A01F25A7BB040089B055 /* pause_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pause_button.png; path = Images/pause_button.png; sourceTree = "<group>"; };
 		86E6582E2508593100BA1889 /* button_up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = button_up.png; path = Images/button_up.png; sourceTree = "<group>"; };
 		86E6582F2508593100BA1889 /* button_down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = button_down.png; path = Images/button_down.png; sourceTree = "<group>"; };
 		86E6583225085DF000BA1889 /* PlayImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayImageView.h; sourceTree = "<group>"; };
@@ -574,8 +573,6 @@
 				86E075161E441DF600E92CB9 /* XMLParser.m */,
 				8690AD6225954E9A003ACCE9 /* Utility.h */,
 				8690AD6325954E9A003ACCE9 /* Utility.m */,
-				867909A8259D33020053C25A /* SpeechBubble.h */,
-				867909A9259D33020053C25A /* SpeechBubble.m */,
 				867909AE259D38730053C25A /* ChatBubble.h */,
 				867909AF259D38730053C25A /* ChatBubble.m */,
 				86FE89A625A151B6002848DF /* Life.h */,
@@ -610,6 +607,7 @@
 		86E075371E44250400E92CB9 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				86E4A01F25A7BB040089B055 /* pause_button.png */,
 				863D85A5259D7F13007E8C27 /* chat_bubble_compressed.png */,
 				867909A3259D31360053C25A /* chat_bubble.png */,
 				86AE3BDE258E56E000F5EBBB /* scores_button.png */,
@@ -991,6 +989,7 @@
 				86E075C11E44288900E92CB9 /* teeter_totter_orange.png in Resources */,
 				86BCDED0256AF255004BA326 /* small_background.png in Resources */,
 				86C73EB625016A820014C5C2 /* big_gear_red.png in Resources */,
+				86E4A02025A7BB040089B055 /* pause_button.png in Resources */,
 				86E0755A1E44263400E92CB9 /* background_4.png in Resources */,
 				86E075921E44280500E92CB9 /* flipper_green.png in Resources */,
 				86E075951E44280500E92CB9 /* flipper_purple_game.png in Resources */,
@@ -1032,7 +1031,6 @@
 				86E074B31E4412B400E92CB9 /* FeedTheMouseViewController.m in Sources */,
 				86E074E71E441CD400E92CB9 /* FeedTheMouse.m in Sources */,
 				86FE89A825A151B6002848DF /* Life.m in Sources */,
-				867909AA259D33020053C25A /* SpeechBubble.m in Sources */,
 				86E075271E441DF600E92CB9 /* Sprite.m in Sources */,
 				86E075281E441DF600E92CB9 /* TeeterTotter.m in Sources */,
 				868A7750212B3C24003B5205 /* TitleView.m in Sources */,

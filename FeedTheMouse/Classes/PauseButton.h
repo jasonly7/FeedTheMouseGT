@@ -7,11 +7,17 @@
 //
 
 #import "Sprite.h"
-
+#import "Picture.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface PauseButton : Sprite
-
+{
+    @public
+        Sprite *pauseSprite;
+    
+}
+- (bool) pointIsInside: (CGPoint)pt withScreenScale: (float)scale;
+- (void) draw: (CGContextRef) context;
 @end
 
 NS_ASSUME_NONNULL_END
