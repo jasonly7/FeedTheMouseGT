@@ -1697,7 +1697,7 @@
         }
        
         next_game_tick = cur_game_tick;
-        if ( game_state == GAME_RUNNING) //![pauseButton pointIsInside:tapPoint withScreenScale:sy])
+        if ( game_state == GAME_RUNNING)
         {
             total_time+=interpolation;
             printf("interp: %f\n", interpolation);
@@ -1882,6 +1882,7 @@ void cleanRemoveFromSuperview( UIView * view ) {
                 else if ( [pauseMenu pointIsInsideRestartButton:tapPoint withScreenScale:sy])
                 {
                     [musicPlayer stop];
+                    [timer invalidate];
                     [self start];
                 }
                 else if ( [pauseMenu pointIsInsideMainMenuButton:tapPoint withScreenScale:sy])

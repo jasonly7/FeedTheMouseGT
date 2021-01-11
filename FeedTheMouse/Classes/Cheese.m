@@ -186,8 +186,9 @@
 
 - (void) dropAt: (CGPoint) pt
 {
-    vel->x = 0;
-    vel->y = 0;
+    //vel->x = 0;
+    //vel->y = 0;
+    [vel initializeVectorX:0 andY:0];
     acceleration->x = 0;
     acceleration->y = gravity->y;
     if (screenWidth == 1242)
