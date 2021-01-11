@@ -46,7 +46,7 @@
     return true;
 }
 
-- (bool) pointIsInsidePlay: (CGPoint)pt withScreenScale: (float)scale
+- (bool) pointIsInsidePlayButton: (CGPoint)pt withScreenScale: (float)scale
 {
     if (pt.x > (self->x + pauseSprite.width)*scale)
         return false;
@@ -59,6 +59,49 @@
     {
         top = self->y+(pauseSprite.height*3/4)*scale;
         bottom = self->y + (pauseSprite.height*2/4)*scale;
+    }
+    if (pt.y > top)
+        return false;
+    else if (pt.y < bottom)
+        return false;
+    return true;
+}
+
+- (bool) pointIsInsideRestartButton: (CGPoint)pt withScreenScale: (float)scale
+{
+    if (pt.x > (self->x + pauseSprite.width)*scale)
+        return false;
+    else if (pt.x < (self->x * scale))
+        return false;
+    
+    float top = (self->y+pauseSprite.height*2/4)*scale;
+    float bottom = (self->y + pauseSprite.height*1/4) * scale;
+    if (scale == 2.36619711f)
+    {
+        top = self->y+(pauseSprite.height*2/4)*scale;
+        bottom = self->y + (pauseSprite.height*1/4)*scale;
+    }
+    if (pt.y > top)
+        return false;
+    else if (pt.y < bottom)
+        return false;
+    return true;
+    
+}
+
+- (bool) pointIsInsideMainMenuButton: (CGPoint)pt withScreenScale: (float)scale
+{
+    if (pt.x > (self->x + pauseSprite.width)*scale)
+        return false;
+    else if (pt.x < (self->x * scale))
+        return false;
+    
+    float top = (self->y+pauseSprite.height*1/4)*scale;
+    float bottom = self->y * scale;
+    if (scale == 2.36619711f)
+    {
+        top = self->y+(pauseSprite.height*1/4)*scale;
+        bottom = self->y;
     }
     if (pt.y > top)
         return false;

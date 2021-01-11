@@ -109,7 +109,7 @@ typedef enum {
 }
 
 
-
+- (void) start;
 - (void) doParse:(NSData *) data;
 - (void) gameLoop;
 - (void) update_game;

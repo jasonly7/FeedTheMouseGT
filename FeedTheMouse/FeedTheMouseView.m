@@ -49,7 +49,9 @@
 
 - (id) initWithCoder: (NSCoder *) coder {
     if (self = [super initWithCoder: coder]) {
-        mouse = [[Mouse alloc] init];
+        titleView = [[TitleView alloc] initWithCoder:coder];
+        [self start];
+        /*mouse = [[Mouse alloc] init];
         cheese = [[Cheese alloc] init];
         chatBubble = [[ChatBubble alloc] init];
         pauseButton = [[PauseButton alloc] init];
@@ -95,9 +97,7 @@
         else
             currentLevelNumber = 0;
        // cheese->mouse = mouse;
-        /*cheese->gear = gear;
-        cheese->drum = drum;
-        cheese->teeterTotter = teeterTotter;*/
+        
         next_game_tick = -[lastDate timeIntervalSinceNow];
 		direction = kDirForward;
         screenScale = [[UIScreen mainScreen] scale];
@@ -154,7 +154,7 @@
         [cheese->world setCheese:&(cheese)];
         lastDate = [[NSDate date] retain];
         //next_game_tick = -[lastDate timeIntervalSinceNow ];
-        titleView = [[TitleView alloc] initWithCoder:coder];
+        
         sleep_time = 0;
         next_tick = next_game_tick;
       
@@ -186,9 +186,152 @@
         musicPlayer.numberOfLoops = -1;
         [musicPlayer prepareToPlay];
         [musicPlayer play];
-        message = @"Tap Here to Start";
+        message = @"Tap Here to Start";*/
     }
     return self;
+}
+
+
+- (void) start
+{
+    mouse = [[Mouse alloc] init];
+    cheese = [[Cheese alloc] init];
+    chatBubble = [[ChatBubble alloc] init];
+    pauseButton = [[PauseButton alloc] init];
+    gear = [[Gear alloc] init];
+    drum = [[Drum alloc] init];
+    bomb = [[Bomb alloc] init];
+    teeterTotter = [[TeeterTotter alloc] init];
+    flipper = [[Flipper alloc] init];
+    coin = [[Coin alloc] init];
+    cheeseArrayOfLives = [[NSMutableArray alloc] initWithCapacity:5];
+    pauseMenu = [[PauseMenu alloc] init];
+    for (int i=0; i < 5; i++)
+    {
+        Cheese *cheeseLife = [[Cheese alloc] init];
+        [cheeseArrayOfLives addObject:cheeseLife];
+    }
+    TitleViewController *titleViewController = (TitleViewController*)[UIApplication sharedApplication].keyWindow.rootViewController;
+    titleViewController.playerNameTextField.hidden = true;
+    total_time = 0;
+    parser = [[XMLParser alloc] initXMLParser];
+    game_state = GAME_RUNNING;
+    NSData *data = [[NSData alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"FeedTheMouse.xml" ofType:nil]];
+    [self doParse:data];
+    [data release];
+    NSString *playerName = titleViewController.playerNameTextField.text;
+    NSLog(@"name: %@", playerName);
+    if ([Utility isNumeric:playerName])
+    {
+        
+        currentLevelNumber = [playerName intValue]-1;
+        curLevel = [levels objectAtIndex:currentLevelNumber];
+        mouse = curLevel->mouse;
+        [cheese->world setLevel: &curLevel];
+        coins = [curLevel getCoins];
+        gears = [curLevel getGears];
+        
+    
+        drums = [curLevel getDrums];
+        bombs = [curLevel getBombs];
+
+        teeterTotters = [curLevel getTeeterTotters];
+    }
+    else
+        currentLevelNumber = 0;
+   // cheese->mouse = mouse;
+    /*cheese->gear = gear;
+    cheese->drum = drum;
+    cheese->teeterTotter = teeterTotter;*/
+    next_game_tick = -[lastDate timeIntervalSinceNow];
+    direction = kDirForward;
+    screenScale = [[UIScreen mainScreen] scale];
+    
+    timer = [NSTimer scheduledTimerWithTimeInterval: 1.0/(kFPS*screenScale)
+                                             target:self
+                                           selector:@selector(gameLoop)
+                                           userInfo:nil
+                                            repeats:NO];
+    game_is_running = true;
+    animationNumber = 0;
+    
+    // get array of objects here
+    gears = [curLevel getGears];
+   // printf("gears retain count:%lu", (unsigned long)[gears retainCount]);
+    cheese->gears = gears;
+    coins = [curLevel getCoins];
+    
+    drums = [curLevel getDrums];
+    cheese->drums = drums;
+    bombs = [curLevel getBombs];
+    cheese->bombs = bombs;
+    teeterTotters = [curLevel getTeeterTotters];
+    cheese->teeterTotters = teeterTotters;
+    if ([teeterTotters count] > 0)
+    {
+        //[cheese->prevVelocities initWithCapacity:[teeterTotters count]];
+        for (int i=0; i < [teeterTotters count]; i++)
+        {
+            [cheese->prevVelocities addObject:[[Vector alloc] init]];
+        }
+        for (int i=0; i < [cheese->prevVelocities count]; i++)
+        {
+            [cheese->prevVelocities[i] initializeVectorX:0 andY:0];
+        }
+    }
+    flippers = [curLevel getFlippers];
+    cheese->flippers = flippers;
+    
+    [cheese->world setLevel:&curLevel];
+    mouse = curLevel->mouse;
+    [cheese->world setMouse:&(mouse)];
+    CGRect screenBounds = [[UIScreen mainScreen] bounds];
+    screenScale = [[UIScreen mainScreen] scale];
+    CGSize screenSize = CGSizeMake(screenBounds.size.width * screenScale, screenBounds.size.height * screenScale);
+    screenWidth = screenSize.width;
+    screenHeight = screenSize.height;
+    sx = screenWidth/640.0f;
+    sy = screenHeight/1136.0f;
+    cheese->x = -cheese->cheeseSprite.width*sx;//-43;
+    cheese->pos->x = cheese->x;//-43;
+    chatBubble->x = mouse->x - chatBubble->bubbleSprite.width;
+    chatBubble->y = mouse->y + chatBubble->bubbleSprite.height/4;
+    [cheese->world setCheese:&(cheese)];
+    lastDate = [[NSDate date] retain];
+    //next_game_tick = -[lastDate timeIntervalSinceNow ];
+    //titleView = [[TitleView alloc] initWithCoder:coder];
+    sleep_time = 0;
+    next_tick = next_game_tick;
+  
+    
+    pauseMenu->x = screenBounds.size.width/2 - pauseMenu->pauseSprite.width*sx/2/screenScale;
+    if (screenWidth == 1242)
+        pauseMenu->y = screenBounds.size.height/2 + pauseMenu->pauseSprite.height*sy/2;
+    else
+        pauseMenu->y = screenBounds.size.height/2 + pauseMenu->pauseSprite.height*sy/2/screenScale;
+    
+    NSString *backgroundFilename;
+    if (screenWidth == 1242)
+    {
+        backgroundFilename = [[NSString alloc] initWithString:@"big_"];
+        backgroundFilename = [backgroundFilename stringByAppendingString:curLevel->backgroundFilename];
+    }
+    else
+    {
+        backgroundFilename = [[NSString alloc] initWithString:curLevel->backgroundFilename];
+    }
+    backgroundSprite = [Picture fromFile:backgroundFilename];
+    
+    
+    //[titleViewController->musicTitlePlayer stop];
+    pathForMusicFile = [[NSBundle mainBundle] pathForResource:@"sounds/Cute_By_Benjamin_Tissot" ofType:@"mp3"];
+    musicFile = [[NSURL alloc] initFileURLWithPath:pathForMusicFile];
+    musicPlayer = [AVAudioPlayer alloc];
+    [musicPlayer initWithContentsOfURL:musicFile error:NULL];
+    musicPlayer.numberOfLoops = -1;
+    [musicPlayer prepareToPlay];
+    [musicPlayer play];
+    message = @"Tap Here to Start";
 }
 
 /*- (id)initWithFrame:(CGRect)frame
@@ -1734,8 +1877,23 @@ void cleanRemoveFromSuperview( UIView * view ) {
             }
             if (game_state == GAME_PAUSED)
             {
-                if ( [pauseMenu pointIsInsidePlay:tapPoint withScreenScale:sy])
+                if ( [pauseMenu pointIsInsidePlayButton:tapPoint withScreenScale:sy])
                     game_state = GAME_RUNNING;
+                else if ( [pauseMenu pointIsInsideRestartButton:tapPoint withScreenScale:sy])
+                {
+                    [musicPlayer stop];
+                    [self start];
+                }
+                else if ( [pauseMenu pointIsInsideMainMenuButton:tapPoint withScreenScale:sy])
+                {
+                    [musicPlayer stop];
+                    TitleViewController *titleViewController = (TitleViewController*)[UIApplication sharedApplication].keyWindow.rootViewController;
+                    titleViewController.playerNameTextField.hidden = false;
+                    [titleViewController->musicTitlePlayer play];
+                    
+                    [self removeFromSuperview];
+                    
+                }
             }
         }
         else if (game_state == GAME_RUNNING && [pauseButton pointIsInside:tapPoint withScreenScale:sy])

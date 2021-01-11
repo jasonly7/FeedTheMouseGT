@@ -31,22 +31,13 @@
     return self;
 }
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    //UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
     
-    //UIViewController *viewController = [sb instantiateViewControllerWithIdentifier:@"TitleViewController"];
     [musicPlayer stop];
     TitleViewController *titleViewController = (TitleViewController*)[UIApplication sharedApplication].keyWindow.rootViewController;
     titleViewController.playerNameTextField.hidden = false;
     [titleViewController->musicTitlePlayer play];
-    //[super addSubview:viewController.view];
-    [super removeFromSuperview];
-    //super v
     
-    /*NSArray *viewsToRemove = [titleViewController.view subviews];
-    for (UIView *v in viewsToRemove) {
-        [v removeFromSuperview];
-        break;
-    }*/
+    [super removeFromSuperview];
     
 }
 

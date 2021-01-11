@@ -18,7 +18,9 @@ NS_ASSUME_NONNULL_BEGIN
 }
 - (void) draw: (CGContextRef) context;
 - (bool) pointIsInside: (CGPoint)pt withScreenScale: (float)scale;
-- (bool) pointIsInsidePlay: (CGPoint)pt withScreenScale: (float)scale;
+- (bool) pointIsInsidePlayButton: (CGPoint)pt withScreenScale: (float)scale;
+- (bool) pointIsInsideRestartButton: (CGPoint)pt withScreenScale: (float)scale;
+- (bool) pointIsInsideMainMenuButton: (CGPoint)pt withScreenScale: (float)scale;
 @end
 
 NS_ASSUME_NONNULL_END

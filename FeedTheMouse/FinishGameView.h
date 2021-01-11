@@ -13,5 +13,5 @@
     NSString *pathForMusicFile;
     NSURL *musicFile;
     AVAudioPlayer *musicPlayer;
-    }
+}
 @end
