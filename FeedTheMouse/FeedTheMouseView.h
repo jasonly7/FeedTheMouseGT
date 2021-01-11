@@ -27,8 +27,15 @@
 #import "Utility.h"
 #import "ChatBubble.h"
 #import "PauseButton.h"
+#import "PauseMenu.h"
 //const int MOUSE_HEIGHT = 322;
 //const int MOUSE_WIDTH = 256;
+
+typedef enum {
+    GAME_RUNNING = 0,
+    GAME_PAUSED
+} GAME_STATE;
+
 
 @interface FeedTheMouseView : UIView {
     IBOutlet UILabel *fpsLabel;
@@ -94,11 +101,11 @@
     NSMutableArray *cheeseArrayOfLives;
     ChatBubble *chatBubble;
     PauseButton *pauseButton;
-    
+    PauseMenu *pauseMenu;
     @public
         NSString *playerName;
-    
-    
+        int game_state;
+
 }
 
 

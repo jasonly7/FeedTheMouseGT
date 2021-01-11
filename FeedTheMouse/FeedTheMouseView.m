@@ -60,6 +60,7 @@
         flipper = [[Flipper alloc] init];
         coin = [[Coin alloc] init];
         cheeseArrayOfLives = [[NSMutableArray alloc] initWithCapacity:5];
+        pauseMenu = [[PauseMenu alloc] init];
         for (int i=0; i < 5; i++)
         {
             Cheese *cheeseLife = [[Cheese alloc] init];
@@ -69,7 +70,7 @@
         titleViewController.playerNameTextField.hidden = true;
         total_time = 0;
         parser = [[XMLParser alloc] initXMLParser];
-        
+        game_state = GAME_RUNNING;
         NSData *data = [[NSData alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"FeedTheMouse.xml" ofType:nil]];
         [self doParse:data];
         [data release];
@@ -156,16 +157,13 @@
         titleView = [[TitleView alloc] initWithCoder:coder];
         sleep_time = 0;
         next_tick = next_game_tick;
-       /* CGRect screenBounds = [[UIScreen mainScreen] bounds];
-        CGFloat screenScale = [[UIScreen mainScreen] scale];
-        CGSize screenSize = CGSizeMake(screenBounds.size.width * screenScale, screenBounds.size.height * screenScale);
-        screenWidth = screenSize.width;
-        screenHeight = screenSize.height;*/
+      
         
-       /* if (screenWidth == 1242)
-            backgroundSprite = [Picture fromFile:@"big_background_1.png"];
+        pauseMenu->x = screenBounds.size.width/2 - pauseMenu->pauseSprite.width*sx/2/screenScale;
+        if (screenWidth == 1242)
+            pauseMenu->y = screenBounds.size.height/2 + pauseMenu->pauseSprite.height*sy/2;
         else
-            backgroundSprite = [Picture fromFile:@"background_1.png"];*/
+            pauseMenu->y = screenBounds.size.height/2 + pauseMenu->pauseSprite.height*sy/2/screenScale;
         
         NSString *backgroundFilename;
         if (screenWidth == 1242)
@@ -207,10 +205,10 @@
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect
 {
-   
-   CGFloat blue[4] = {0.0f,0.0f,1.0f, 1.0f};
-   CGFloat purple[4] = {1.0f,0.0f,1.0f, 1.0f};
-   CGFloat yellow[4] = {1.0f,1.0f,0.0f, 1.0f};
+    CGFloat black[4] = {0.0f, 0.0f, 0.0f, 1.0f};
+    CGFloat blue[4] = {0.0f,0.0f,1.0f, 1.0f};
+    CGFloat purple[4] = {1.0f,0.0f,1.0f, 1.0f};
+    CGFloat yellow[4] = {1.0f,1.0f,0.0f, 1.0f};
     // Drawing code
     // Get a graphics context, saving its state
     context = UIGraphicsGetCurrentContext();
@@ -261,6 +259,7 @@
 //    [mouseSprite draw:context at:CGPointMake(mouse->x,mouse->y)];
   //  mouse = curLevel->mouse;
     [mouse draw:context];
+    
     
     t0 = CGContextGetCTM(context);
     //CGContextRestoreGState(context);
@@ -344,6 +343,7 @@
     CGContextAddArc(context, tapPoint.x, tapPoint.y, 5, 0, 2*M_PI,YES);
     CGContextStrokePath(context);
     
+   
     //for (int i=0; i < 1; i++)
     for (int i=0; i < cheese->numOfLives; i++)
     {
@@ -392,11 +392,29 @@
         t0 = CGAffineTransformTranslate(t0, -chx,-chy);
         CGContextConcatCTM(context, t0);*/
     }
-   
+    
+    if (screenWidth == 1242)
+    {
+        t0 = CGAffineTransformInvert(t0);
+        CGContextConcatCTM(context,t0);
+        t0 = CGAffineTransformIdentity;
+        t0 = CGAffineTransformTranslate(t0, pauseMenu->x,pauseMenu->y);
+        t0 = CGAffineTransformScale(t0, sx, sy);
+        t0 = CGAffineTransformTranslate(t0, -pauseMenu->x,
+                                        -pauseMenu->y);
+        CGContextConcatCTM(context,t0);
+    }
+    
+    /*CGContextBeginPath(context);
+    CGContextSetFillColor(context,blue);
+    CGContextFillRect(context, CGRectMake(pauseMenu->x, pauseMenu->y+pauseMenu->pauseSprite.height*2/4, pauseMenu->pauseSprite.width, pauseMenu->pauseSprite.height*1/4));
+    CGContextStrokePath(context);*/
+    
     
     for (int i=0; i < coins.count; i++)
     {
         coin = (Coin*)[coins objectAtIndex:i];
+       
         t0 = CGAffineTransformInvert(t0);
         CGContextConcatCTM(context,t0);
         t0 = CGAffineTransformIdentity;
@@ -407,14 +425,16 @@
                                         -coin->coinSprite.y);
         
         CGContextConcatCTM(context,t0);
-        
+       
         [coin draw:context];
+        
     }
-    NSString *strScore = [NSString stringWithFormat:@"X%2d", cheese->world->score]; //[strLevel stringByAppendingString:curLevel];
-   // CGContextRestoreGState(context);
-    //CGContextSaveGState(context);
     
+    
+    NSString *strScore = [NSString stringWithFormat:@"X%2d", cheese->world->score]; //[strLevel stringByAppendingString:curLevel];
    
+    
+    
     CGContextSetTextMatrix(context, CGAffineTransformIdentity);
     
     TextSprite *fakeScoreText = [TextSprite withString: strScore];
@@ -486,6 +506,33 @@
     CGContextConcatCTM(context,t0);
     [chatBubble draw:context];
     
+    if (game_state==GAME_PAUSED)
+    {
+        
+        if (screenWidth == 1242)
+        {
+            t0 = CGAffineTransformInvert(t0);
+            CGContextConcatCTM(context,t0);
+            t0 = CGAffineTransformIdentity;
+            t0 = CGAffineTransformTranslate(t0,pauseMenu->x,pauseMenu->y );
+            t0 = CGAffineTransformScale(t0, sx, sy);
+            t0 = CGAffineTransformTranslate(t0,-pauseMenu->x,-pauseMenu->y );
+            CGContextConcatCTM(context,t0);
+        }
+        [pauseMenu draw:context];
+        //else
+        //{
+        //CGContextRef context = UIGraphicsGetCurrentContext();
+        
+            //CGRect playRect = CGRectMake(pauseMenu->x, pauseMenu->y + 3/4*pauseMenu->height, pauseMenu->width, pauseMenu->height/4);
+            //CGContextSetRGBFillColor(context, 1.0, 0.0, 0.0, 1.0);
+            //CGContextSetRGBStrokeColor(context, 1.0, 0.0, 0.0, 1.0);
+            //CGContextFillRect(context, playRect);
+          
+        //}
+        
+    }
+    
     CGContextSaveGState(context);
     pauseButton->x = 10;
     if (screenWidth == 1242)
@@ -504,15 +551,18 @@
         pauseButton->y = 960+pauseButton->pauseSprite.height;
     }
     [pauseButton draw:context];
+    
     CGContextRestoreGState(context);
     
-    CGContextSetStrokeColor(context,blue);
+    /*CGContextSetStrokeColor(context,blue);
     CGContextMoveToPoint(context, pauseButton->x, pauseButton->y);
     CGContextAddLineToPoint(context, pauseButton->x + pauseButton->pauseSprite.width, pauseButton->y);
     CGContextStrokePath(context);
     CGContextMoveToPoint(context, pauseButton->x, pauseButton->y + pauseButton->pauseSprite.height);
     CGContextAddLineToPoint(context, pauseButton->x + pauseButton->pauseSprite.width, pauseButton->y + pauseButton->pauseSprite.height);
-    CGContextStrokePath(context);
+    CGContextStrokePath(context);*/
+    
+   
     
     float bombTopLeftX = 0;
     float bombTopLeftY = 0;
@@ -632,7 +682,7 @@
        // CGContextAddArc(context, flipperTopRightX, flipperTopRightY, 5, 0, 2*M_PI,YES);
         //CGContextStrokePath(context);
     }
-    CGFloat black[4] = {0.0f, 0.0f, 0.0f, 1.0f};
+    
     CGContextRestoreGState(context);
     
     /*CGContextSetStrokeColor(context, black);
@@ -1148,7 +1198,9 @@
     CGRect mouseRect = CGRectMake(mouseX, mouseY,
                                   mouse->mouseSprite->width*sx/screenScale, self.bounds.size.height - mouse->mouseSprite->height*sy/screenScale);
     CGContextAddRect(context, mouseRect);
-    //CGContextStrokePath(context);
+    CGContextStrokePath(context);
+    
+    
    
     CGContextSaveGState(context);
     CGContextSetTextMatrix(context, CGAffineTransformIdentity);
@@ -1502,7 +1554,7 @@
         }
        
         next_game_tick = cur_game_tick;
-        if ( ![pauseButton pointIsInside:tapPoint withScreenScale:sy])
+        if ( game_state == GAME_RUNNING) //![pauseButton pointIsInside:tapPoint withScreenScale:sy])
         {
             total_time+=interpolation;
             printf("interp: %f\n", interpolation);
@@ -1639,8 +1691,6 @@ void cleanRemoveFromSuperview( UIView * view ) {
     {
         teeterTotter = (TeeterTotter*)[teeterTotters objectAtIndex:i];
         teeterTotter->reset = true;
-
-        
     }
        
     if (!found)
@@ -1664,22 +1714,35 @@ void cleanRemoveFromSuperview( UIView * view ) {
         sy = screenHeight/1136.0f;
         if (![pauseButton pointIsInside:tapPoint withScreenScale:sy])
         {
-            if ([playerName isEqualToString:@"cheat"])
+            if (game_state == GAME_RUNNING)
             {
-                cheese->colPackage->foundCollision = false;
-                [cheese dropAt:pt];
-                cheese->colPackage->state = COLLISION_NONE;
-            }
-            else
-            {
-                if (y > (960 * sy))
+                if ([playerName isEqualToString:@"cheat"])
                 {
                     cheese->colPackage->foundCollision = false;
                     [cheese dropAt:pt];
                     cheese->colPackage->state = COLLISION_NONE;
                 }
+                else
+                {
+                    if (y > (960 * sy))
+                    {
+                        cheese->colPackage->foundCollision = false;
+                        [cheese dropAt:pt];
+                        cheese->colPackage->state = COLLISION_NONE;
+                    }
+                }
+            }
+            if (game_state == GAME_PAUSED)
+            {
+                if ( [pauseMenu pointIsInsidePlay:tapPoint withScreenScale:sy])
+                    game_state = GAME_RUNNING;
             }
         }
+        else if (game_state == GAME_RUNNING && [pauseButton pointIsInside:tapPoint withScreenScale:sy])
+        {
+            game_state = GAME_PAUSED;
+        }
+        
     }
     lastDate = [[NSDate date] retain];
     next_game_tick = -[lastDate timeIntervalSinceNow];//+SKIP_TICKS;

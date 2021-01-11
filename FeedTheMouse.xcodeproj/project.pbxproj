@@ -14,6 +14,10 @@
 		861A65E21E46419F0013918F /* Coin.m in Sources */ = {isa = PBXBuildFile; fileRef = 861A65E11E46419F0013918F /* Coin.m */; };
 		861A65E51E465CD80013918F /* coin.png in Resources */ = {isa = PBXBuildFile; fileRef = 861A65E41E465CD80013918F /* coin.png */; };
 		862E827524E9D76B0042F9C6 /* intro.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 862E827424E9D76B0042F9C6 /* intro.jpg */; };
+		8638367625AA590F004EF3D7 /* PauseMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 8638367525AA590F004EF3D7 /* PauseMenu.m */; };
+		8638367F25AA592E004EF3D7 /* pause_menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 8638367B25AA592E004EF3D7 /* pause_menu.png */; };
+		8638368125AA592E004EF3D7 /* pause_level_1_no_text.png in Resources */ = {isa = PBXBuildFile; fileRef = 8638367D25AA592E004EF3D7 /* pause_level_1_no_text.png */; };
+		8638368225AA592E004EF3D7 /* level_start_template.png in Resources */ = {isa = PBXBuildFile; fileRef = 8638367E25AA592E004EF3D7 /* level_start_template.png */; };
 		863A582824EC7989004D5541 /* bigCheese.png in Resources */ = {isa = PBXBuildFile; fileRef = 863A582724EC7989004D5541 /* bigCheese.png */; };
 		863D85A6259D7F13007E8C27 /* chat_bubble_compressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 863D85A5259D7F13007E8C27 /* chat_bubble_compressed.png */; };
 		8647A0D0212C5FCD00DE7685 /* FinishGameView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8647A0CF212C5FCD00DE7685 /* FinishGameView.m */; };
@@ -194,6 +198,11 @@
 		861A65E31E4641CC0013918F /* Coin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Coin.h; path = Classes/Coin.h; sourceTree = "<group>"; };
 		861A65E41E465CD80013918F /* coin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = coin.png; path = Images/Triggers/coin.png; sourceTree = "<group>"; };
 		862E827424E9D76B0042F9C6 /* intro.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = intro.jpg; path = Images/intro.jpg; sourceTree = "<group>"; };
+		8638367425AA590F004EF3D7 /* PauseMenu.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PauseMenu.h; path = Classes/PauseMenu.h; sourceTree = "<group>"; };
+		8638367525AA590F004EF3D7 /* PauseMenu.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = PauseMenu.m; path = Classes/PauseMenu.m; sourceTree = "<group>"; };
+		8638367B25AA592E004EF3D7 /* pause_menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause_menu.png; sourceTree = "<group>"; };
+		8638367D25AA592E004EF3D7 /* pause_level_1_no_text.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause_level_1_no_text.png; sourceTree = "<group>"; };
+		8638367E25AA592E004EF3D7 /* level_start_template.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = level_start_template.png; sourceTree = "<group>"; };
 		863A582724EC7989004D5541 /* bigCheese.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bigCheese.png; path = Images/bigCheese.png; sourceTree = "<group>"; };
 		863D85A5259D7F13007E8C27 /* chat_bubble_compressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = chat_bubble_compressed.png; path = Images/chat_bubble_compressed.png; sourceTree = "<group>"; };
 		8647A0CE212C5FCD00DE7685 /* FinishGameView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FinishGameView.h; sourceTree = "<group>"; };
@@ -426,6 +435,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8638367A25AA592E004EF3D7 /* pause_menu */ = {
+			isa = PBXGroup;
+			children = (
+				8638367B25AA592E004EF3D7 /* pause_menu.png */,
+				8638367D25AA592E004EF3D7 /* pause_level_1_no_text.png */,
+				8638367E25AA592E004EF3D7 /* level_start_template.png */,
+			);
+			name = pause_menu;
+			path = Images/pause_menu;
+			sourceTree = "<group>";
+		};
 		86E0749F1E4412B400E92CB9 = {
 			isa = PBXGroup;
 			children = (
@@ -579,6 +599,8 @@
 				86FE89A725A151B6002848DF /* Life.m */,
 				86DAE4DD25A626F700E1C871 /* PauseButton.h */,
 				86DAE4DE25A626F700E1C871 /* PauseButton.m */,
+				8638367425AA590F004EF3D7 /* PauseMenu.h */,
+				8638367525AA590F004EF3D7 /* PauseMenu.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -607,6 +629,7 @@
 		86E075371E44250400E92CB9 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				8638367A25AA592E004EF3D7 /* pause_menu */,
 				86E4A01F25A7BB040089B055 /* pause_button.png */,
 				863D85A5259D7F13007E8C27 /* chat_bubble_compressed.png */,
 				867909A3259D31360053C25A /* chat_bubble.png */,
@@ -914,6 +937,7 @@
 				86E075A11E44282700E92CB9 /* star_slider.png in Resources */,
 				86AE3BDA258E56C300F5EBBB /* info_button.png in Resources */,
 				86E075C21E44288900E92CB9 /* teeter_totter_purple.png in Resources */,
+				8638368125AA592E004EF3D7 /* pause_level_1_no_text.png in Resources */,
 				86E075581E44263400E92CB9 /* background_2.png in Resources */,
 				86E074BB1E4412B400E92CB9 /* LaunchScreen.storyboard in Resources */,
 				86E075BF1E44288900E92CB9 /* teeter_totter_green.png in Resources */,
@@ -934,6 +958,7 @@
 				864B619024FAF71700F616BD /* bigCoin.png in Resources */,
 				86E0754D1E44254000E92CB9 /* MouseWait.png in Resources */,
 				86E0754E1E44254000E92CB9 /* MouseWaitOpen.png in Resources */,
+				8638367F25AA592E004EF3D7 /* pause_menu.png in Resources */,
 				86D7FBA4258C03F3006C2432 /* back_button.png in Resources */,
 				86C497A22501CDF50006519F /* bigMouseChew.png in Resources */,
 				86E074B81E4412B400E92CB9 /* Assets.xcassets in Resources */,
@@ -957,6 +982,7 @@
 				86E0756A1E4426D300E92CB9 /* gear_orange.png in Resources */,
 				86E0759A1E44280500E92CB9 /* flipper_yellow.png in Resources */,
 				867909A4259D31360053C25A /* chat_bubble.png in Resources */,
+				8638368225AA592E004EF3D7 /* level_start_template.png in Resources */,
 				86E075781E4427DA00E92CB9 /* drum_face_left.png in Resources */,
 				86E075901E44280500E92CB9 /* flipper_green_game.png in Resources */,
 				8603B627253CF6D5003AF4E4 /* big_teeter_totter_red.png in Resources */,
@@ -1055,6 +1081,7 @@
 				8690AD6425954E9A003ACCE9 /* Utility.m in Sources */,
 				86708E52256183B8001A32D8 /* TextSprite.m in Sources */,
 				86E075191E441DF600E92CB9 /* Circle.m in Sources */,
+				8638367625AA590F004EF3D7 /* PauseMenu.m in Sources */,
 				86E074AD1E4412B400E92CB9 /* main.m in Sources */,
 				86E0751E1E441DF600E92CB9 /* Flipper.m in Sources */,
 				86E0751F1E441DF600E92CB9 /* Force.m in Sources */,
