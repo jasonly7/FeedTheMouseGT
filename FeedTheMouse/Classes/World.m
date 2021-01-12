@@ -191,6 +191,7 @@
                 //[cheese dealloc];
                // cheese = nil;
                 cheese->colPackage->state = COLLISION_EXPLODE;
+                
                 break;
             }
         }

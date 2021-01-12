@@ -33,7 +33,9 @@
 
 typedef enum {
     GAME_RUNNING = 0,
-    GAME_PAUSED
+    GAME_PAUSED,
+    GAME_CONTINUE,
+    GAME_OVER
 } GAME_STATE;
 
 
@@ -109,7 +111,7 @@ typedef enum {
 }
 
 
-- (void) start;
+- (void) startAt:(int) level andTime: (double) time;
 - (void) doParse:(NSData *) data;
 - (void) gameLoop;
 - (void) update_game;

@@ -50,7 +50,7 @@
 - (id) initWithCoder: (NSCoder *) coder {
     if (self = [super initWithCoder: coder]) {
         titleView = [[TitleView alloc] initWithCoder:coder];
-        [self start];
+        [self startAt:0 andTime:0];
         /*mouse = [[Mouse alloc] init];
         cheese = [[Cheese alloc] init];
         chatBubble = [[ChatBubble alloc] init];
@@ -192,7 +192,7 @@
 }
 
 
-- (void) start
+- (void) startAt:(int)level andTime:(double)time
 {
     mouse = [[Mouse alloc] init];
     cheese = [[Cheese alloc] init];
@@ -213,7 +213,7 @@
     }
     TitleViewController *titleViewController = (TitleViewController*)[UIApplication sharedApplication].keyWindow.rootViewController;
     titleViewController.playerNameTextField.hidden = true;
-    total_time = 0;
+    total_time = time;
     parser = [[XMLParser alloc] initXMLParser];
     game_state = GAME_RUNNING;
     NSData *data = [[NSData alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"FeedTheMouse.xml" ofType:nil]];
@@ -226,19 +226,25 @@
         
         currentLevelNumber = [playerName intValue]-1;
         curLevel = [levels objectAtIndex:currentLevelNumber];
-        mouse = curLevel->mouse;
-        [cheese->world setLevel: &curLevel];
-        coins = [curLevel getCoins];
-        gears = [curLevel getGears];
         
-    
-        drums = [curLevel getDrums];
-        bombs = [curLevel getBombs];
-
-        teeterTotters = [curLevel getTeeterTotters];
     }
     else
-        currentLevelNumber = 0;
+    {
+        currentLevelNumber = level;
+        curLevel = [levels objectAtIndex:currentLevelNumber];
+        [cheese->world setLevel: &curLevel];
+        
+    }
+    mouse = curLevel->mouse;
+    [cheese->world setLevel: &curLevel];
+    coins = [curLevel getCoins];
+    gears = [curLevel getGears];
+    
+
+    drums = [curLevel getDrums];
+    bombs = [curLevel getBombs];
+
+    teeterTotters = [curLevel getTeeterTotters];
    // cheese->mouse = mouse;
     /*cheese->gear = gear;
     cheese->drum = drum;
@@ -1433,7 +1439,72 @@
         CGContextRestoreGState(context);
     }
     
-    
+    if (game_state == GAME_CONTINUE)
+    {
+        CGContextSaveGState(context);
+        CGContextSetTextMatrix(context, CGAffineTransformIdentity);
+        TextSprite *fakeContinueText = [TextSprite withString:@"CONTINUE"];
+        fakeContinueText.x = screenWidth;
+        fakeContinueText.y = 1000;
+        if (screenWidth == 1242)
+            fakeContinueText.y = self.bounds.size.height*screenScale - 136;
+        [(TextSprite *) fakeContinueText setFontSize:24];
+        [fakeContinueText drawBody:context on:self.bounds];
+        CGContextRestoreGState(context);
+        
+        CGContextSaveGState(context);
+        CGContextSetTextMatrix(context, CGAffineTransformIdentity);
+        TextSprite *continueText = [TextSprite withString:@"CONTINUE"];
+        continueText.x = 320 - fakeContinueText.width/2*screenScale/sx;
+        continueText.y = self.bounds.size.height/2*screenScale/sy+fakeContinueText.height*screenScale/sy;
+        if (screenWidth == 1242)
+        {
+            continueText.x = self.bounds.size.width*screenScale/2 - fakeContinueText.width/2*screenScale;
+            continueText.y = self.bounds.size.height*screenScale+fakeContinueText.height/2*screenScale;
+        }
+        [(TextSprite *) continueText setFontSize:24];
+        [continueText drawBody:context on:self.bounds];
+        CGContextRestoreGState(context);
+        
+        CGContextSaveGState(context);
+        CGContextSetTextMatrix(context, CGAffineTransformIdentity);
+        TextSprite *fakeYesText = [TextSprite withString:@"YES"];
+        fakeYesText.x = screenWidth;
+        fakeYesText.y = 1000;
+        if (screenWidth == 1242)
+            fakeYesText.y = self.bounds.size.height*screenScale - 136;
+        [(TextSprite *) fakeYesText setFontSize:24];
+        [fakeYesText drawBody:context on:self.bounds];
+        CGContextRestoreGState(context);
+        
+        CGContextSaveGState(context);
+        CGContextSetTextMatrix(context, CGAffineTransformIdentity);
+        TextSprite *yesText = [TextSprite withString:@"YES"];
+        yesText.x = 320 - fakeYesText.width*2*screenScale/sx;
+        yesText.y = self.bounds.size.height/2*screenScale/sy-fakeYesText.height*screenScale/sy;
+        if (screenWidth == 1242)
+        {
+            yesText.x = self.bounds.size.width*screenScale/2 - fakeYesText.width/2*screenScale;
+            yesText.y = self.bounds.size.height*screenScale+fakeYesText.height/2*screenScale;
+        }
+        [(TextSprite *) continueText setFontSize:24];
+        [yesText drawBody:context on:self.bounds];
+        CGContextRestoreGState(context);
+        
+        CGContextSaveGState(context);
+        CGContextSetTextMatrix(context, CGAffineTransformIdentity);
+        TextSprite *noText = [TextSprite withString:@"NO"];
+        noText.x = 320 + fakeYesText.width*2*screenScale/sx;
+        noText.y = yesText.y;
+        if (screenWidth == 1242)
+        {
+            noText.x = self.bounds.size.width*screenScale/2 - fakeYesText.width/2*screenScale;
+            noText.y = self.bounds.size.height*screenScale+fakeYesText.height/2*screenScale;
+        }
+        [(TextSprite *) continueText setFontSize:24];
+        [noText drawBody:context on:self.bounds];
+        CGContextRestoreGState(context);
+    }
     
     
     CGContextSaveGState(context);
@@ -1588,6 +1659,11 @@
     {
         bomb = (Bomb*)[bombs objectAtIndex:i];
         [bomb update];
+        if (bomb->frame >= BOMB_FRAMES-1)
+        {
+            if (cheese->numOfLives <= 0)
+                game_state = GAME_CONTINUE;
+        }
     }
     for (int i=0; i < [teeterTotters count]; i++)
     {
@@ -1883,7 +1959,8 @@ void cleanRemoveFromSuperview( UIView * view ) {
                 {
                     [musicPlayer stop];
                     [timer invalidate];
-                    [self start];
+                    [self startAt:0 andTime:0];
+                    //[self startAt:currentLevelNumber andTime:total_time];
                 }
                 else if ( [pauseMenu pointIsInsideMainMenuButton:tapPoint withScreenScale:sy])
                 {
@@ -1901,7 +1978,28 @@ void cleanRemoveFromSuperview( UIView * view ) {
         {
             game_state = GAME_PAUSED;
         }
-        
+        if (game_state == GAME_CONTINUE)
+        {
+            if (touchX > self.bounds.size.width/2)
+            {
+                [musicPlayer stop];
+                TitleViewController *titleViewController = (TitleViewController*)[UIApplication sharedApplication].keyWindow.rootViewController;
+                titleViewController.playerNameTextField.hidden = false;
+                [titleViewController->musicTitlePlayer play];
+                
+                [self removeFromSuperview];
+            }
+            else
+            {
+                game_state = GAME_RUNNING;
+                [musicPlayer stop];
+                [timer invalidate];
+                //int tmpCurLvl = currentLevelNumber;
+                //float tmpTotalTime = total_time;
+                [self startAt:currentLevelNumber andTime:total_time];
+                //total_time = tmpTotalTime;
+            }
+        }
     }
     lastDate = [[NSDate date] retain];
     next_game_tick = -[lastDate timeIntervalSinceNow];//+SKIP_TICKS;
