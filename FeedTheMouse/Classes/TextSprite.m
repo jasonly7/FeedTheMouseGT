@@ -188,6 +188,34 @@
     CGContextRestoreGState(context);
 }
 
+- (bool) pointIsInside: (CGPoint)pt
+{
+    /*if (screenWidth == 1242)
+    {
+        if (pt.x < (x - sprite->width/2))
+            return false;
+        if (pt.x > (x + sprite->width/2))
+            return false;
+        if (pt.y > (y + sprite->width/2))
+            return false;
+        if (pt.y < (y - sprite->width/2))
+            return false;
+    }
+    else
+    {
+        if (pt.x < sx*(x - 84))
+            return false;
+        if (pt.x > sx*(x + 84))
+            return false;
+        if (pt.y > sy*(y + 84))
+            return false;
+        if (pt.y < sy*(y - 84))
+            return false;
+    }*/
+    return true;
+    
+}
+
 - (void) dealloc
 {
     [text release];

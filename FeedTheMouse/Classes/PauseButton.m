@@ -15,7 +15,14 @@
     self = [super init];
     if (self)
     {
-        pauseSprite = [Picture fromFile:@"pause_button.png"];
+        float screenWidth = [UIScreen.mainScreen bounds].size.width * [UIScreen.mainScreen scale];
+        float screenHeight = [UIScreen.mainScreen bounds].size.height * [UIScreen.mainScreen scale];
+        float sx = screenWidth/640.0f;
+        float sy = screenHeight/1136.0f;
+        if (screenWidth == 1242)
+            pauseSprite = [Picture fromFile:@"large_pause_button.png"];
+        else
+            pauseSprite = [Picture fromFile:@"pause_button.png"];
         
     }
     return self;

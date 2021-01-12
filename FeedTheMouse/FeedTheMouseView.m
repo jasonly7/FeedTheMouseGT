@@ -270,7 +270,17 @@
     drums = [curLevel getDrums];
     cheese->drums = drums;
     bombs = [curLevel getBombs];
+    /*if (screenWidth == 1242)
+    {
+        for (int i=0; i<[bombs count]; i++)
+        {
+            Bomb *bomb = [bombs objectAtIndex:i];
+            bomb->bombSprite.x -= 109;
+        }
+    }*/
     cheese->bombs = bombs;
+    
+        
     teeterTotters = [curLevel getTeeterTotters];
     cheese->teeterTotters = teeterTotters;
     if ([teeterTotters count] > 0)
@@ -682,26 +692,30 @@
         
     }
     
-    CGContextSaveGState(context);
+    //CGContextSaveGState(context);
     pauseButton->x = 10;
     if (screenWidth == 1242)
     {
-        pauseButton->y = 960*sy + pauseButton->pauseSprite.height*sy;
+        pauseButton->y = 960*sy + pauseButton->pauseSprite.height/2*sy;
         t0 = CGAffineTransformInvert(t0);
         CGContextConcatCTM(context,t0);
         t0 = CGAffineTransformIdentity;
         t0 = CGAffineTransformTranslate(t0,pauseButton->x,pauseButton->y );
-        t0 = CGAffineTransformScale(t0, screenScale, screenScale);
+        //t0 = CGAffineTransformScale(t0, screenScale, screenScale);
         t0 = CGAffineTransformTranslate(t0,-pauseButton->x,-pauseButton->y );
         CGContextConcatCTM(context,t0);
+        [pauseButton draw:context];
+        //t0 = CGAffineTransformTranslate(t0,pauseButton->x,pauseButton->y );
+        //t0 = CGAffineTransformScale(t0, 1/screenScale, 1/screenScale);
+        //t0 = CGAffineTransformTranslate(t0,-pauseButton->x,-pauseButton->y );
+        //CGContextConcatCTM(context,t0);
     }
     else
     {
         pauseButton->y = 960+pauseButton->pauseSprite.height;
+        [pauseButton draw:context];
     }
-    [pauseButton draw:context];
-    
-    CGContextRestoreGState(context);
+    //CGContextRestoreGState(context);
     
     /*CGContextSetStrokeColor(context,blue);
     CGContextMoveToPoint(context, pauseButton->x, pauseButton->y);
@@ -725,12 +739,28 @@
          t0 = CGAffineTransformIdentity;
          float bx = bomb->x;
          float by = bomb->y;
-         t0 = CGAffineTransformTranslate(t0, bx ,by);
-         float newAngle = [bomb getAngle]*M_PI/180;
-         t0 = CGAffineTransformRotate(t0,newAngle );
-         t0 = CGAffineTransformTranslate(t0, -bx ,-by);
-         CGContextConcatCTM(context,t0);
-        
+         /*if (screenWidth == 1242)
+         {
+            
+           
+             t0 = CGAffineTransformTranslate(t0,bx,by );
+             //t0 = CGAffineTransformScale(t0, 1/screenScale, 1/screenScale);
+             t0 = CGAffineTransformTranslate(t0,-bx,-by );
+             CGContextConcatCTM(context,t0);
+         }
+         else
+         {*/
+             t0 = CGAffineTransformTranslate(t0, bx ,by);
+             float newAngle = [bomb getAngle]*M_PI/180;
+             t0 = CGAffineTransformRotate(t0,newAngle );
+             t0 = CGAffineTransformTranslate(t0, -bx ,-by);
+             CGContextConcatCTM(context,t0);
+         //}
+        //if (screenWidth == 1242)
+        //{
+            
+          //  bomb->bombSprite.x-= bomb->bombSprite.width;
+        //}
         [bomb draw:context];
         
         CGContextBeginPath(context);
@@ -1439,7 +1469,7 @@
         CGContextRestoreGState(context);
     }
     
-    if (game_state == GAME_CONTINUE)
+    /*if (game_state == GAME_CONTINUE)
     {
         CGContextSaveGState(context);
         CGContextSetTextMatrix(context, CGAffineTransformIdentity);
@@ -1504,7 +1534,7 @@
         [(TextSprite *) continueText setFontSize:24];
         [noText drawBody:context on:self.bounds];
         CGContextRestoreGState(context);
-    }
+    }*/
     
     
     CGContextSaveGState(context);

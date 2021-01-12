@@ -73,6 +73,7 @@
 		86C8923D254E2E4000FB1919 /* big_background_4.png in Resources */ = {isa = PBXBuildFile; fileRef = 86C89239254E2E4000FB1919 /* big_background_4.png */; };
 		86D600862507ECF600DD9E93 /* SplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D600852507ECF600DD9E93 /* SplashViewController.m */; };
 		86D712312507195E00D643A6 /* cortex_intro.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 86D712302507195E00D643A6 /* cortex_intro.jpg */; };
+		86D7917325AE2A8E009E4AA9 /* large_pause_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 86D7917225AE2A8E009E4AA9 /* large_pause_button.png */; };
 		86D7FBA4258C03F3006C2432 /* back_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 86D7FBA3258C03F3006C2432 /* back_button.png */; };
 		86D98728253FA8C000B05A78 /* teeter_totter_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 86D98727253FA8C000B05A78 /* teeter_totter_blue.png */; };
 		86DAE4DF25A626F700E1C871 /* PauseButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 86DAE4DE25A626F700E1C871 /* PauseButton.m */; };
@@ -274,6 +275,7 @@
 		86D600842507ECF600DD9E93 /* SplashViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SplashViewController.h; sourceTree = "<group>"; };
 		86D600852507ECF600DD9E93 /* SplashViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SplashViewController.m; sourceTree = "<group>"; };
 		86D712302507195E00D643A6 /* cortex_intro.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = cortex_intro.jpg; path = Images/cortex_intro.jpg; sourceTree = "<group>"; };
+		86D7917225AE2A8E009E4AA9 /* large_pause_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = large_pause_button.png; path = Images/large_pause_button.png; sourceTree = "<group>"; };
 		86D7FBA3258C03F3006C2432 /* back_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = back_button.png; path = Images/back_button.png; sourceTree = "<group>"; };
 		86D98727253FA8C000B05A78 /* teeter_totter_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = teeter_totter_blue.png; path = Images/Triggers/TeeterTotters/teeter_totter_blue.png; sourceTree = "<group>"; };
 		86DAE4DD25A626F700E1C871 /* PauseButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PauseButton.h; path = Classes/PauseButton.h; sourceTree = "<group>"; };
@@ -629,6 +631,7 @@
 		86E075371E44250400E92CB9 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				86D7917225AE2A8E009E4AA9 /* large_pause_button.png */,
 				8638367A25AA592E004EF3D7 /* pause_menu */,
 				86E4A01F25A7BB040089B055 /* pause_button.png */,
 				863D85A5259D7F13007E8C27 /* chat_bubble_compressed.png */,
@@ -936,6 +939,7 @@
 				86C0D09B2530086400B9E269 /* big_teeter_totter.png in Resources */,
 				86E075A11E44282700E92CB9 /* star_slider.png in Resources */,
 				86AE3BDA258E56C300F5EBBB /* info_button.png in Resources */,
+				86D7917325AE2A8E009E4AA9 /* large_pause_button.png in Resources */,
 				86E075C21E44288900E92CB9 /* teeter_totter_purple.png in Resources */,
 				8638368125AA592E004EF3D7 /* pause_level_1_no_text.png in Resources */,
 				86E075581E44263400E92CB9 /* background_2.png in Resources */,
