@@ -965,6 +965,7 @@
             shortestDistance = collidedWithBottomRight;
         
         float xRightCheese = pos->x + cheeseSprite->width/2.0f;
+        float xLeftCheese = pos->x - cheeseSprite->width/2.0f;
         
         Vector *cheeseVector = [[Vector alloc] init];
         [cheeseVector initializeVectorX:x andY:y];
@@ -1217,7 +1218,7 @@
             foundCollision = true;
             colPackage->state = COLLISION_BOUNCE;
         }
-        else if ((collidedWithTop == shortestDistance || (isNearTopLine && xRightCheese < topRightX)) && [cheesePtToTopLeft crossProduct:topLineVector] < 0) // y>topLine->origin->y)// || isPastTopLine)
+        else if ((collidedWithTop == shortestDistance || (isNearTopLine && xRightCheese < topRightX && xLeftCheese > topLeftX)) && [cheesePtToTopLeft crossProduct:topLineVector] < 0) // y>topLine->origin->y)// || isPastTopLine)
         {
             if (collidedWithTop == shortestDistance)
             {

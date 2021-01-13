@@ -50,7 +50,7 @@
 - (id) initWithCoder: (NSCoder *) coder {
     if (self = [super initWithCoder: coder]) {
         titleView = [[TitleView alloc] initWithCoder:coder];
-        [self startAt:0 andTime:0];
+        [self startAt:0 andTime:0 withCoins:0];
         /*mouse = [[Mouse alloc] init];
         cheese = [[Cheese alloc] init];
         chatBubble = [[ChatBubble alloc] init];
@@ -192,7 +192,7 @@
 }
 
 
-- (void) startAt:(int)level andTime:(double)time
+- (void) startAt:(int)level andTime:(double)time withCoins:(int)numOfCoins
 {
     mouse = [[Mouse alloc] init];
     cheese = [[Cheese alloc] init];
@@ -243,12 +243,9 @@
 
     drums = [curLevel getDrums];
     bombs = [curLevel getBombs];
-
     teeterTotters = [curLevel getTeeterTotters];
-   // cheese->mouse = mouse;
-    /*cheese->gear = gear;
-    cheese->drum = drum;
-    cheese->teeterTotter = teeterTotter;*/
+    
+    cheese->world->numOfCoins = numOfCoins;
     next_game_tick = -[lastDate timeIntervalSinceNow];
     direction = kDirForward;
     screenScale = [[UIScreen mainScreen] scale];
@@ -270,14 +267,6 @@
     drums = [curLevel getDrums];
     cheese->drums = drums;
     bombs = [curLevel getBombs];
-    /*if (screenWidth == 1242)
-    {
-        for (int i=0; i<[bombs count]; i++)
-        {
-            Bomb *bomb = [bombs objectAtIndex:i];
-            bomb->bombSprite.x -= 109;
-        }
-    }*/
     cheese->bombs = bombs;
     
         
@@ -590,7 +579,7 @@
     }
     
     
-    NSString *strScore = [NSString stringWithFormat:@"X%2d", cheese->world->score]; //[strLevel stringByAppendingString:curLevel];
+    NSString *strScore = [NSString stringWithFormat:@"X%2d", cheese->world->numOfCoins]; //[strLevel stringByAppendingString:curLevel];
    
     
     
@@ -1469,7 +1458,7 @@
         CGContextRestoreGState(context);
     }
     
-    /*if (game_state == GAME_CONTINUE)
+    if (game_state == GAME_CONTINUE)
     {
         CGContextSaveGState(context);
         CGContextSetTextMatrix(context, CGAffineTransformIdentity);
@@ -1534,7 +1523,7 @@
         [(TextSprite *) continueText setFontSize:24];
         [noText drawBody:context on:self.bounds];
         CGContextRestoreGState(context);
-    }*/
+    }
     
     
     CGContextSaveGState(context);
@@ -1834,7 +1823,7 @@
             UIViewController *viewController = [sb instantiateViewControllerWithIdentifier:@"FinishGameViewController"];
             FinishGameViewController *finishController = (FinishGameViewController*) viewController;
             finishController->playerName = playerName;
-            finishController->score = cheese->world->score;
+            finishController->score = cheese->world->numOfCoins;
             finishController->total_time = total_time;
             NSString *strScore = [[NSString alloc] initWithFormat:@"Score: %d",finishController->scores[0]];
             //[finishController->score1Label setText:strScore];
@@ -1989,7 +1978,7 @@ void cleanRemoveFromSuperview( UIView * view ) {
                 {
                     [musicPlayer stop];
                     [timer invalidate];
-                    [self startAt:0 andTime:0];
+                    [self startAt:0 andTime:0 withCoins:0];
                     //[self startAt:currentLevelNumber andTime:total_time];
                 }
                 else if ( [pauseMenu pointIsInsideMainMenuButton:tapPoint withScreenScale:sy])
@@ -2024,10 +2013,18 @@ void cleanRemoveFromSuperview( UIView * view ) {
                 game_state = GAME_RUNNING;
                 [musicPlayer stop];
                 [timer invalidate];
-                //int tmpCurLvl = currentLevelNumber;
-                //float tmpTotalTime = total_time;
-                [self startAt:currentLevelNumber andTime:total_time];
-                //total_time = tmpTotalTime;
+                int numOfCoins = cheese->world->numOfCoins-25;
+                if (numOfCoins < 0)
+                    numOfCoins = 0;
+                if (numOfCoins > 0)
+                    [self startAt:currentLevelNumber andTime:total_time withCoins:numOfCoins];
+                else
+                {
+                    TitleViewController *titleViewController = (TitleViewController*)[UIApplication sharedApplication].keyWindow.rootViewController;
+                    titleViewController.playerNameTextField.hidden = false;
+                    [titleViewController->musicTitlePlayer play];
+                    [self removeFromSuperview];
+                }
             }
         }
     }
