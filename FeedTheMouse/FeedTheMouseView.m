@@ -1458,7 +1458,34 @@
         CGContextRestoreGState(context);
     }
     
-    if (game_state == GAME_CONTINUE)
+    if (game_state == GAME_OVER)
+    {
+        CGContextSaveGState(context);
+        CGContextSetTextMatrix(context, CGAffineTransformIdentity);
+        TextSprite *fakeGameOverText = [TextSprite withString:@"GAME OVER"];
+        fakeGameOverText.x = screenWidth;
+        fakeGameOverText.y = 1000;
+        if (screenWidth == 1242)
+            fakeGameOverText.y = self.bounds.size.height*screenScale - 136;
+        [(TextSprite *) fakeGameOverText setFontSize:24];
+        [fakeGameOverText drawBody:context on:self.bounds];
+        CGContextRestoreGState(context);
+        
+        CGContextSaveGState(context);
+        CGContextSetTextMatrix(context, CGAffineTransformIdentity);
+        TextSprite *txtGameOver = [TextSprite withString:@"GAME OVER"];
+        txtGameOver.x = 320 - fakeGameOverText.width/2*screenScale/sx;
+        txtGameOver.y = self.bounds.size.height/2*screenScale/sy+fakeGameOverText.height*screenScale/sy;
+        if (screenWidth == 1242)
+        {
+            txtGameOver.x = self.bounds.size.width*screenScale/2 - fakeGameOverText.width/2*screenScale;
+            txtGameOver.y = self.bounds.size.height*screenScale/2+fakeGameOverText.height/2*screenScale;
+        }
+        [(TextSprite *) txtGameOver setFontSize:24];
+        [txtGameOver drawBody:context on:self.bounds];
+        CGContextRestoreGState(context);
+    }
+    else if (game_state == GAME_CONTINUE)
     {
         CGContextSaveGState(context);
         CGContextSetTextMatrix(context, CGAffineTransformIdentity);
@@ -1681,7 +1708,12 @@
         if (bomb->frame >= BOMB_FRAMES-1)
         {
             if (cheese->numOfLives <= 0)
-                game_state = GAME_CONTINUE;
+            {
+                if (cheese->world->numOfCoins < 25)
+                    game_state = GAME_OVER;
+                else
+                    game_state = GAME_CONTINUE;
+            }
         }
     }
     for (int i=0; i < [teeterTotters count]; i++)
@@ -1997,7 +2029,15 @@ void cleanRemoveFromSuperview( UIView * view ) {
         {
             game_state = GAME_PAUSED;
         }
-        if (game_state == GAME_CONTINUE)
+        if (game_state == GAME_OVER)
+        {
+            [musicPlayer stop];
+            TitleViewController *titleViewController = (TitleViewController*)[UIApplication sharedApplication].keyWindow.rootViewController;
+            titleViewController.playerNameTextField.hidden = false;
+            [titleViewController->musicTitlePlayer play];
+            [self removeFromSuperview];
+        }
+        else if (game_state == GAME_CONTINUE)
         {
             //if (touchX > self.bounds.size.width/2)
             if ([noText pointIsInside:mousePt])
@@ -2015,17 +2055,17 @@ void cleanRemoveFromSuperview( UIView * view ) {
                 [musicPlayer stop];
                 [timer invalidate];
                 int numOfCoins = cheese->world->numOfCoins-25;
-                if (numOfCoins < 0)
+                /*if (numOfCoins < 0)
                     numOfCoins = 0;
-                if (numOfCoins > 0)
+                if (numOfCoins > 0)*/
                     [self startAt:currentLevelNumber andTime:total_time withCoins:numOfCoins];
-                else
+                /*else
                 {
                     TitleViewController *titleViewController = (TitleViewController*)[UIApplication sharedApplication].keyWindow.rootViewController;
                     titleViewController.playerNameTextField.hidden = false;
                     [titleViewController->musicTitlePlayer play];
                     [self removeFromSuperview];
-                }
+                }*/
             }
         }
     }
