@@ -198,6 +198,7 @@
     cheese = [[Cheese alloc] init];
     chatBubble = [[ChatBubble alloc] init];
     pauseButton = [[PauseButton alloc] init];
+    musicButton = [[MusicButton alloc] init];
     gear = [[Gear alloc] init];
     drum = [[Drum alloc] init];
     bomb = [[Bomb alloc] init];
@@ -682,33 +683,23 @@
     }
     
     //CGContextSaveGState(context);
-    
-    
-    
-    
     if (screenWidth == 1242)
     {
         pauseButton->x = timerText.x + timerText.width*screenScale + 10;
-        pauseButton->y = timerText.y;//960*sy + pauseButton->pauseSprite.height/2*sy;
-        //t0 = CGAffineTransformInvert(t0);
-        //CGContextConcatCTM(context,t0);
-        //t0 = CGAffineTransformIdentity;
-        //t0 = CGAffineTransformTranslate(t0,pauseButton->x,pauseButton->y );
-        //t0 = CGAffineTransformScale(t0, screenScale, screenScale);
-        //t0 = CGAffineTransformTranslate(t0,-pauseButton->x,-pauseButton->y );
-        //CGContextConcatCTM(context,t0);
+        pauseButton->y = timerText.y;
         [pauseButton draw:context];
-        //t0 = CGAffineTransformTranslate(t0,pauseButton->x,pauseButton->y );
-        //t0 = CGAffineTransformScale(t0, 1/screenScale, 1/screenScale);
-        //t0 = CGAffineTransformTranslate(t0,-pauseButton->x,-pauseButton->y );
-        //CGContextConcatCTM(context,t0);
+        musicButton->x = pauseButton->x + pauseButton->pauseSprite.width*screenScale ;
+        musicButton->y = pauseButton->y;
+        [musicButton draw:context];
     }
     else
     {
         pauseButton->x = timerText.x + timerText.width*screenScale/sx + 10;
         pauseButton->y = timerText.y;//960+pauseButton->pauseSprite.height*screenScale;
         [pauseButton draw:context];
-        //musicButton->x = pauseButton->x + pauseButton.width*screenScale/sx +
+        musicButton->x = pauseButton->x + pauseButton->pauseSprite.width*screenScale/sx ;
+        musicButton->y = pauseButton->y;
+        [musicButton draw:context];
     }
     //CGContextRestoreGState(context);
     
@@ -2044,11 +2035,25 @@ void cleanRemoveFromSuperview( UIView * view ) {
                 }
             }
         }
-        else if (game_state == GAME_RUNNING && [pauseButton pointIsInside:tapPoint withScreenScale:sy])
+        if (game_state == GAME_RUNNING)
         {
-            game_state = GAME_PAUSED;
+            if ([pauseButton pointIsInside:tapPoint withScreenScale:sy])
+                game_state = GAME_PAUSED;
+            else if ( [musicButton pointIsInside:tapPoint withScreenScale:sy])
+            {
+                if ([musicPlayer isPlaying])
+                {
+                    [musicButton turnOffMusic];
+                    [musicPlayer stop];
+                }
+                else
+                {
+                    [musicButton turnOnMusic];
+                    [musicPlayer play];
+                }
+            }
         }
-        if (game_state == GAME_OVER)
+        else if (game_state == GAME_OVER)
         {
             [musicPlayer stop];
             TitleViewController *titleViewController = (TitleViewController*)[UIApplication sharedApplication].keyWindow.rootViewController;

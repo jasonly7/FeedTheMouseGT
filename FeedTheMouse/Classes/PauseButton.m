@@ -30,10 +30,7 @@
 
 - (bool) pointIsInside: (CGPoint)pt withScreenScale:(float)scale
 {
-    
-        
-    
-    
+
     float top = self->y *scale+pauseSprite.height*scale;
     float bottom = self->y * scale-pauseSprite.height*scale;
     float right = (self->x + pauseSprite.width/2)*scale;
@@ -42,8 +39,8 @@
     {
         right = self->x + pauseSprite.width;
         left = self->x;
-        top = self->y+pauseSprite.height;//*3*scale;
-        bottom = self->y;// -pauseSprite.height*3*scale;
+        top = self->y+pauseSprite.height;
+        bottom = self->y;
     }
    
     if (pt.x > right)
