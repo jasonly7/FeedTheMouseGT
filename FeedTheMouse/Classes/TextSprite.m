@@ -190,28 +190,37 @@
 
 - (bool) pointIsInside: (CGPoint)pt
 {
-    /*if (screenWidth == 1242)
+    CGRect screenBounds = [[UIScreen mainScreen] bounds];
+    CGFloat screenScale = [[UIScreen mainScreen] scale];
+    CGSize screenSize = CGSizeMake(screenBounds.size.width * screenScale, screenBounds.size.height * screenScale);
+    float screenWidth = screenSize.width;
+    float screenHeight = screenSize.height;
+    float sx = screenWidth/640.0f;
+    float sy = screenHeight/1136.0f;
+    if (screenWidth == 1242)
     {
-        if (pt.x < (x - sprite->width/2))
+        if (pt.x*screenScale < x )
             return false;
-        if (pt.x > (x + sprite->width/2))
+        if (pt.x*screenScale > (x + width*screenScale))
             return false;
-        if (pt.y > (y + sprite->width/2))
+        float originalY = (screenBounds.size.height*screenScale - pt.y*screenScale);
+        if (originalY > (y + height*screenScale))
             return false;
-        if (pt.y < (y - sprite->width/2))
+        if (originalY < (y - height*screenScale))
             return false;
     }
     else
     {
-        if (pt.x < sx*(x - 84))
+        if (pt.x*screenScale/sx < x )
             return false;
-        if (pt.x > sx*(x + 84))
+        if (pt.x*screenScale/sx > (x + width))
             return false;
-        if (pt.y > sy*(y + 84))
+        float originalY = (screenBounds.size.height*screenScale/sy - pt.y*screenScale/sy);
+        if (originalY > (y + height))
             return false;
-        if (pt.y < sy*(y - 84))
+        if (originalY < (y - height))
             return false;
-    }*/
+    }
     return true;
     
 }

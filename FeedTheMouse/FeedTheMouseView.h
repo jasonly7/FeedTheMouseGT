@@ -104,6 +104,7 @@ typedef enum {
     ChatBubble *chatBubble;
     PauseButton *pauseButton;
     PauseMenu *pauseMenu;
+    TextSprite *yesText, *noText;
     @public
         NSString *playerName;
         int game_state;

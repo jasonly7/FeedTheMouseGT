@@ -1100,8 +1100,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2494"
             endingLineNumber = "2494"
-            landmarkName = "-collideWith:"
-            landmarkType = "7">
+            landmarkName = "Cheese"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -3183,8 +3183,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3667"
             endingLineNumber = "3667"
-            landmarkName = "-collideWithLineF:"
-            landmarkType = "7">
+            landmarkName = "Cheese"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -4513,8 +4513,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1819"
             endingLineNumber = "1819"
-            landmarkName = "-checkFlipper:"
-            landmarkType = "7">
+            landmarkName = "Cheese"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -6303,8 +6303,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2537"
             endingLineNumber = "2537"
-            landmarkName = "Cheese"
-            landmarkType = "3">
+            landmarkName = "-nearVertex:"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -13875,8 +13875,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2074"
-            endingLineNumber = "2074"
+            startingLineNumber = "2075"
+            endingLineNumber = "2075"
             landmarkName = "-touchesEnded:withEvent:"
             landmarkType = "7">
          </BreakpointContent>
@@ -19434,8 +19434,8 @@
             filePath = "FeedTheMouse/FeedTheMouseView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2020"
-            endingLineNumber = "2020"
+            startingLineNumber = "2021"
+            endingLineNumber = "2021"
             landmarkName = "-touchesBegan:withEvent:"
             landmarkType = "7">
          </BreakpointContent>
@@ -19485,6 +19485,134 @@
             startingLineNumber = "694"
             endingLineNumber = "694"
             landmarkName = "-drawRect:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2CD00409-9366-404F-9803-AD9AE02B0B6D"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FeedTheMouse/FeedTheMouseView.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "2003"
+            endingLineNumber = "2003"
+            landmarkName = "-touchesBegan:withEvent:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "86CDC550-1151-4A93-BACA-AD15061C40F6"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FeedTheMouse/Classes/TextSprite.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "202"
+            endingLineNumber = "202"
+            landmarkName = "-pointIsInside:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5AFE2F8C-294A-4C96-BE04-33A47A0C566D"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FeedTheMouse/FeedTheMouseView.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "2012"
+            endingLineNumber = "2012"
+            landmarkName = "-touchesBegan:withEvent:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BC2E3AC3-6351-484A-9617-C3CB6A1395BA"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FeedTheMouse/FeedTheMouseView.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1504"
+            endingLineNumber = "1504"
+            landmarkName = "-drawRect:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8B3B4D77-195E-4138-B3F2-9215AC515875"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FeedTheMouse/FeedTheMouseView.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1479"
+            endingLineNumber = "1479"
+            landmarkName = "-drawRect:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FB491B72-B6D9-453E-8CAA-FAD02A5F6B85"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FeedTheMouse/FeedTheMouseView.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1481"
+            endingLineNumber = "1481"
+            landmarkName = "-drawRect:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7A05F423-D8F1-46A7-A0AF-6450026DB129"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FeedTheMouse/FeedTheMouseView.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1506"
+            endingLineNumber = "1506"
+            landmarkName = "-drawRect:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "59938560-D869-4BE4-BB8D-972F3FBEB240"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FeedTheMouse/Classes/TextSprite.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "200"
+            endingLineNumber = "200"
+            landmarkName = "-pointIsInside:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

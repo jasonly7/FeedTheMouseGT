@@ -50,7 +50,7 @@ static int kExplosion[] = {0,1,2,3,4,5,6,7};
     if (screenWidth == 1242)
     {
         xLocation = xLocation * sx - 109;
-        yLocation = yLocation * sy;
+        yLocation = yLocation * sy - 109;
     }
     [self setX:xLocation];
     [self setY:yLocation];

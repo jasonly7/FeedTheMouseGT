@@ -1479,7 +1479,7 @@
         if (screenWidth == 1242)
         {
             continueText.x = self.bounds.size.width*screenScale/2 - fakeContinueText.width/2*screenScale;
-            continueText.y = self.bounds.size.height*screenScale+fakeContinueText.height/2*screenScale;
+            continueText.y = self.bounds.size.height*screenScale/2+fakeContinueText.height/2*screenScale;
         }
         [(TextSprite *) continueText setFontSize:24];
         [continueText drawBody:context on:self.bounds];
@@ -1498,13 +1498,13 @@
         
         CGContextSaveGState(context);
         CGContextSetTextMatrix(context, CGAffineTransformIdentity);
-        TextSprite *yesText = [TextSprite withString:@"YES"];
+        yesText = [TextSprite withString:@"YES"];
         yesText.x = 320 - fakeYesText.width*2*screenScale/sx;
         yesText.y = self.bounds.size.height/2*screenScale/sy-fakeYesText.height*screenScale/sy;
         if (screenWidth == 1242)
         {
-            yesText.x = self.bounds.size.width*screenScale/2 - fakeYesText.width/2*screenScale;
-            yesText.y = self.bounds.size.height*screenScale+fakeYesText.height/2*screenScale;
+            yesText.x = self.bounds.size.width*screenScale/2 - fakeYesText.width*2*screenScale;
+            yesText.y = self.bounds.size.height*screenScale/2 - fakeYesText.height/2*screenScale;
         }
         [(TextSprite *) continueText setFontSize:24];
         [yesText drawBody:context on:self.bounds];
@@ -1512,13 +1512,13 @@
         
         CGContextSaveGState(context);
         CGContextSetTextMatrix(context, CGAffineTransformIdentity);
-        TextSprite *noText = [TextSprite withString:@"NO"];
+        noText = [TextSprite withString:@"NO"];
         noText.x = 320 + fakeYesText.width*2*screenScale/sx;
         noText.y = yesText.y;
         if (screenWidth == 1242)
         {
-            noText.x = self.bounds.size.width*screenScale/2 - fakeYesText.width/2*screenScale;
-            noText.y = self.bounds.size.height*screenScale+fakeYesText.height/2*screenScale;
+            noText.x = self.bounds.size.width*screenScale/2 + fakeYesText.width*2*screenScale;
+            noText.y = self.bounds.size.height*screenScale/2 - fakeYesText.height/2*screenScale;
         }
         [(TextSprite *) continueText setFontSize:24];
         [noText drawBody:context on:self.bounds];
@@ -1886,12 +1886,12 @@ void cleanRemoveFromSuperview( UIView * view ) {
     float touchX = [touch locationInView:touch.view].x;
     float touchY = [touch locationInView:touch.view].y;
     mousePt = CGPointMake(touchX, touchY);
+    CGPoint touchPt = CGPointMake(touchX*screenScale,touchY*screenScale);
     //CGRect screenBounds = [[UIScreen mainScreen] bounds];
     //float sx = screenBounds.size.width/640.0f;
     sx = screenWidth/640.0f;
     sy = screenHeight/1136.0f;
     float x = touchX * screenScale ;
-    
     float y = 1136*sy-touchY*screenScale;
     if (screenWidth == 1242)
     {
@@ -1999,7 +1999,8 @@ void cleanRemoveFromSuperview( UIView * view ) {
         }
         if (game_state == GAME_CONTINUE)
         {
-            if (touchX > self.bounds.size.width/2)
+            //if (touchX > self.bounds.size.width/2)
+            if ([noText pointIsInside:mousePt])
             {
                 [musicPlayer stop];
                 TitleViewController *titleViewController = (TitleViewController*)[UIApplication sharedApplication].keyWindow.rootViewController;
@@ -2008,7 +2009,7 @@ void cleanRemoveFromSuperview( UIView * view ) {
                 
                 [self removeFromSuperview];
             }
-            else
+            else if ( [yesText pointIsInside:mousePt])
             {
                 game_state = GAME_RUNNING;
                 [musicPlayer stop];
