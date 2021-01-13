@@ -26,6 +26,11 @@
 		864B3F692558EE630028CBF3 /* score.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 864B3F682558EE630028CBF3 /* score.jpg */; };
 		864B3F6E2558EF9F0028CBF3 /* score.png in Resources */ = {isa = PBXBuildFile; fileRef = 864B3F6D2558EF9F0028CBF3 /* score.png */; };
 		864B619024FAF71700F616BD /* bigCoin.png in Resources */ = {isa = PBXBuildFile; fileRef = 864B618F24FAF71700F616BD /* bigCoin.png */; };
+		86526D6825AF8209004EA48A /* MusicButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 86526D6725AF8208004EA48A /* MusicButton.m */; };
+		86526D6E25AF82A0004EA48A /* music_off.png in Resources */ = {isa = PBXBuildFile; fileRef = 86526D6C25AF82A0004EA48A /* music_off.png */; };
+		86526D6F25AF82A0004EA48A /* music.png in Resources */ = {isa = PBXBuildFile; fileRef = 86526D6D25AF82A0004EA48A /* music.png */; };
+		86526D7525AF841D004EA48A /* small_music.png in Resources */ = {isa = PBXBuildFile; fileRef = 86526D7325AF841D004EA48A /* small_music.png */; };
+		86526D7625AF841D004EA48A /* small_music_off.png in Resources */ = {isa = PBXBuildFile; fileRef = 86526D7425AF841D004EA48A /* small_music_off.png */; };
 		8660C73A24F98D82003002C0 /* bigDrumsSheet.png in Resources */ = {isa = PBXBuildFile; fileRef = 8660C73924F98D82003002C0 /* bigDrumsSheet.png */; };
 		866429B825658BC0002AFBC1 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 866429B725658BC0002AFBC1 /* CoreText.framework */; };
 		8667F9D32509639F00AF9654 /* PushAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 8667F9D22509639F00AF9654 /* PushAnimator.m */; };
@@ -214,6 +219,12 @@
 		864B3F682558EE630028CBF3 /* score.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = score.jpg; path = Images/score.jpg; sourceTree = "<group>"; };
 		864B3F6D2558EF9F0028CBF3 /* score.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = score.png; path = Images/score.png; sourceTree = "<group>"; };
 		864B618F24FAF71700F616BD /* bigCoin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bigCoin.png; path = Images/Triggers/bigCoin.png; sourceTree = "<group>"; };
+		86526D6625AF8208004EA48A /* MusicButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MusicButton.h; path = Classes/MusicButton.h; sourceTree = "<group>"; };
+		86526D6725AF8208004EA48A /* MusicButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MusicButton.m; path = Classes/MusicButton.m; sourceTree = "<group>"; };
+		86526D6C25AF82A0004EA48A /* music_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = music_off.png; path = Images/music_off.png; sourceTree = "<group>"; };
+		86526D6D25AF82A0004EA48A /* music.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = music.png; path = Images/music.png; sourceTree = "<group>"; };
+		86526D7325AF841D004EA48A /* small_music.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = small_music.png; path = Images/small_music.png; sourceTree = "<group>"; };
+		86526D7425AF841D004EA48A /* small_music_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = small_music_off.png; path = Images/small_music_off.png; sourceTree = "<group>"; };
 		8660C73924F98D82003002C0 /* bigDrumsSheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bigDrumsSheet.png; path = Images/Triggers/Drums/bigDrumsSheet.png; sourceTree = "<group>"; };
 		866429B725658BC0002AFBC1 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		8667F9D12509639F00AF9654 /* PushAnimator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PushAnimator.h; sourceTree = "<group>"; };
@@ -539,6 +550,8 @@
 		86E074EB1E441D4C00E92CB9 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				86526D6625AF8208004EA48A /* MusicButton.h */,
+				86526D6725AF8208004EA48A /* MusicButton.m */,
 				86ABD019258BC42E00E84D8A /* SoundManager.h */,
 				86ABD018258BC42E00E84D8A /* SoundManager.m */,
 				86D600842507ECF600DD9E93 /* SplashViewController.h */,
@@ -631,6 +644,10 @@
 		86E075371E44250400E92CB9 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				86526D7425AF841D004EA48A /* small_music_off.png */,
+				86526D7325AF841D004EA48A /* small_music.png */,
+				86526D6C25AF82A0004EA48A /* music_off.png */,
+				86526D6D25AF82A0004EA48A /* music.png */,
 				86D7917225AE2A8E009E4AA9 /* large_pause_button.png */,
 				8638367A25AA592E004EF3D7 /* pause_menu */,
 				86E4A01F25A7BB040089B055 /* pause_button.png */,
@@ -952,6 +969,7 @@
 				8603B622253CF6CD003AF4E4 /* big_teeter_totter_purple.png in Resources */,
 				86E0758F1E44280500E92CB9 /* flipper_blue.png in Resources */,
 				86E075501E44254000E92CB9 /* newopenmouthsheet.png in Resources */,
+				86526D6F25AF82A0004EA48A /* music.png in Resources */,
 				86B3B97C24ED75B900BE2FE0 /* teeter_totter_yellow.png in Resources */,
 				86E0756D1E4426D300E92CB9 /* small_gear_blue.png in Resources */,
 				86E0754A1E44254000E92CB9 /* MouseCloseMouth.PNG in Resources */,
@@ -972,7 +990,9 @@
 				86E074B61E4412B400E92CB9 /* Main.storyboard in Resources */,
 				86E0757B1E4427DA00E92CB9 /* Drum.png in Resources */,
 				86D712312507195E00D643A6 /* cortex_intro.jpg in Resources */,
+				86526D7525AF841D004EA48A /* small_music.png in Resources */,
 				86E075471E44254000E92CB9 /* cheese.png in Resources */,
+				86526D6E25AF82A0004EA48A /* music_off.png in Resources */,
 				86C8923A254E2E4000FB1919 /* big_background_3.png in Resources */,
 				86E075791E4427DA00E92CB9 /* drum_face_right.png in Resources */,
 				864B3F6E2558EF9F0028CBF3 /* score.png in Resources */,
@@ -1013,6 +1033,7 @@
 				86C4979E250197560006519F /* bigMouseWait.png in Resources */,
 				861A65E51E465CD80013918F /* coin.png in Resources */,
 				86A04971257009E900B89DB6 /* large_coins in Resources */,
+				86526D7625AF841D004EA48A /* small_music_off.png in Resources */,
 				86E075A01E44282700E92CB9 /* small_star.png in Resources */,
 				8603B62C253CF6DC003AF4E4 /* big_teeter_totter_yellow.png in Resources */,
 				86E075C01E44288900E92CB9 /* teeter_totter_grey.png in Resources */,
@@ -1092,6 +1113,7 @@
 				86E6583425085DF000BA1889 /* PlayImageView.m in Sources */,
 				86DAE4DF25A626F700E1C871 /* PauseButton.m in Sources */,
 				86E075181E441DF600E92CB9 /* Cheese.m in Sources */,
+				86526D6825AF8209004EA48A /* MusicButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

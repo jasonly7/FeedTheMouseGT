@@ -682,17 +682,21 @@
     }
     
     //CGContextSaveGState(context);
-    pauseButton->x = 10;
+    
+    
+    
+    
     if (screenWidth == 1242)
     {
-        pauseButton->y = 960*sy + pauseButton->pauseSprite.height/2*sy;
-        t0 = CGAffineTransformInvert(t0);
-        CGContextConcatCTM(context,t0);
-        t0 = CGAffineTransformIdentity;
-        t0 = CGAffineTransformTranslate(t0,pauseButton->x,pauseButton->y );
+        pauseButton->x = timerText.x + timerText.width*screenScale + 10;
+        pauseButton->y = timerText.y;//960*sy + pauseButton->pauseSprite.height/2*sy;
+        //t0 = CGAffineTransformInvert(t0);
+        //CGContextConcatCTM(context,t0);
+        //t0 = CGAffineTransformIdentity;
+        //t0 = CGAffineTransformTranslate(t0,pauseButton->x,pauseButton->y );
         //t0 = CGAffineTransformScale(t0, screenScale, screenScale);
-        t0 = CGAffineTransformTranslate(t0,-pauseButton->x,-pauseButton->y );
-        CGContextConcatCTM(context,t0);
+        //t0 = CGAffineTransformTranslate(t0,-pauseButton->x,-pauseButton->y );
+        //CGContextConcatCTM(context,t0);
         [pauseButton draw:context];
         //t0 = CGAffineTransformTranslate(t0,pauseButton->x,pauseButton->y );
         //t0 = CGAffineTransformScale(t0, 1/screenScale, 1/screenScale);
@@ -701,8 +705,10 @@
     }
     else
     {
-        pauseButton->y = 960+pauseButton->pauseSprite.height;
+        pauseButton->x = timerText.x + timerText.width*screenScale/sx + 10;
+        pauseButton->y = timerText.y;//960+pauseButton->pauseSprite.height*screenScale;
         [pauseButton draw:context];
+        //musicButton->x = pauseButton->x + pauseButton.width*screenScale/sx +
     }
     //CGContextRestoreGState(context);
     
@@ -1370,6 +1376,21 @@
     
     
    
+    /*CGContextSaveGState(context);
+    CGContextSetTextMatrix(context, CGAffineTransformIdentity);
+    CGFloat screenScale = [[UIScreen mainScreen] scale];
+    NSString *strLevel = [NSString stringWithFormat:@"Level %d", curLevel->num];
+    TextSprite *fakeLevelText = [TextSprite withString: strLevel];
+    fakeLevelText.r = 0;
+    fakeLevelText.g = 1.0;
+    fakeLevelText.b = 1.0;
+    fakeLevelText.x = screenWidth;
+    fakeLevelText.y = self.bounds.size.height*screenScale/sy-fakeLevelText.height*screenScale/sy-15*screenScale;
+    if (screenWidth == 1242)
+        fakeLevelText.y = self.bounds.size.height*screenScale - 136;
+    [(TextSprite *) fakeLevelText setFontSize:24];
+    [fakeLevelText drawBody:context on:self.bounds];
+    CGContextRestoreGState(context);*/
     CGContextSaveGState(context);
     CGContextSetTextMatrix(context, CGAffineTransformIdentity);
     CGFloat screenScale = [[UIScreen mainScreen] scale];
@@ -1407,7 +1428,7 @@
     CGContextSetTextMatrix(context, CGAffineTransformIdentity);
     screenScale = [[UIScreen mainScreen] scale];
     NSString *strTimer = [NSString stringWithFormat:@"%d:%02d",(int)total_time/60,(int)total_time%60]; //[strLevel stringByAppendingString:curLevel];
-    TextSprite *timerText = [TextSprite withString: strTimer];
+    timerText = [TextSprite withString: strTimer];
     timerText.r = 0;
     timerText.g = 1.0;
     timerText.b = 1.0;
@@ -1424,9 +1445,9 @@
     //CGContextConcatCTM(context,t0);
     //t0 = CGAffineTransformIdentity;
     //CGContextConcatCTM(context,t0);
-    pauseButton->x = timerText.x;
-    pauseButton->y = timerText.y - levelText.height*screenScale/sy;
-    [pauseButton draw:context];
+    //pauseButton->x = timerText.x + timerText.width*screenScale/sx;
+    //pauseButton->y = timerText.y;// - levelText.height*screenScale/sy;
+    //[pauseButton draw:context];
     
     if (message != @"")
     {
@@ -2019,9 +2040,7 @@ void cleanRemoveFromSuperview( UIView * view ) {
                     TitleViewController *titleViewController = (TitleViewController*)[UIApplication sharedApplication].keyWindow.rootViewController;
                     titleViewController.playerNameTextField.hidden = false;
                     [titleViewController->musicTitlePlayer play];
-                    
                     [self removeFromSuperview];
-                    
                 }
             }
         }

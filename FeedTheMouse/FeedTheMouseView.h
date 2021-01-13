@@ -28,6 +28,7 @@
 #import "ChatBubble.h"
 #import "PauseButton.h"
 #import "PauseMenu.h"
+#import "MusicButton.h"
 //const int MOUSE_HEIGHT = 322;
 //const int MOUSE_WIDTH = 256;
 
@@ -103,8 +104,10 @@ typedef enum {
     NSMutableArray *cheeseArrayOfLives;
     ChatBubble *chatBubble;
     PauseButton *pauseButton;
+    MusicButton *musicButton;
     PauseMenu *pauseMenu;
     TextSprite *yesText, *noText;
+    TextSprite *timerText;
     @public
         NSString *playerName;
         int game_state;
