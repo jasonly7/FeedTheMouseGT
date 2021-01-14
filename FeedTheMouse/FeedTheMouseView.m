@@ -298,8 +298,10 @@
     screenHeight = screenSize.height;
     sx = screenWidth/640.0f;
     sy = screenHeight/1136.0f;
-    cheese->x = -cheese->cheeseSprite.width*sx;//-43;
+    cheese->x = -cheese->cheeseSprite.width*sx*screenScale;
     cheese->pos->x = cheese->x;//-43;
+    cheese->y = -cheese->cheeseSprite.height*sy*screenScale;
+    cheese->pos->y = cheese->y;
     chatBubble->x = mouse->x - chatBubble->bubbleSprite.width;
     chatBubble->y = mouse->y + chatBubble->bubbleSprite.height/4;
     [cheese->world setCheese:&(cheese)];
@@ -484,7 +486,8 @@
     CGContextConcatCTM(context,t0);
     if (cheese)
     {
-        [cheese draw: context];
+        if (game_state != GAME_CONTINUE)
+            [cheese draw: context];
     }
     
     CGContextBeginPath(context);

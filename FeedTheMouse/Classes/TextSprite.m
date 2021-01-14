@@ -7,7 +7,7 @@
 //
 
 #import "TextSprite.h"
-#define kDefaultFont    @"Helvetica"
+#define kDefaultFont    @"Marker Felt"//@"Helvetica"
 #define kDefaultFontSize        14
 
 @implementation TextSprite
@@ -120,7 +120,8 @@
     */
     CGContextSaveGState(context);
      // create a font, quasi systemFontWithSize:24.0
-    CTFontRef sysUIFont = CTFontCreateWithName(CFSTR("Helvetica-Bold"), fontSize, NULL);
+    //CTFontRef sysUIFont = CTFontCreateWithName(CFSTR("Helvetica-Bold"), fontSize, NULL);
+    CTFontRef sysUIFont = CTFontCreateWithName(CFSTR("Chalkduster"), fontSize, NULL);
     //CTFontCreateUIFontForLanguage(kCTFontSystemFontType,
            //  24.0, NULL);
       
