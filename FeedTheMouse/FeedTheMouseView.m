@@ -688,8 +688,8 @@
     //CGContextSaveGState(context);
     if (screenWidth == 1242)
     {
-        pauseButton->x = timerText.x + timerText.width*screenScale + 10;
-        pauseButton->y = timerText.y;
+        pauseButton->x = 10;
+        pauseButton->y = timerText.y - timerText.height*screenScale;
         [pauseButton draw:context];
         musicButton->x = pauseButton->x + pauseButton->pauseSprite.width*screenScale ;
         musicButton->y = pauseButton->y;
@@ -697,8 +697,8 @@
     }
     else
     {
-        pauseButton->x = timerText.x + timerText.width*screenScale/sx + 10;
-        pauseButton->y = timerText.y;//960+pauseButton->pauseSprite.height*screenScale;
+        pauseButton->x = 10;
+        pauseButton->y = timerText.y - timerText.height*screenScale/sy;//960+pauseButton->pauseSprite.height*screenScale;
         [pauseButton draw:context];
         musicButton->x = pauseButton->x + pauseButton->pauseSprite.width*screenScale/sx ;
         musicButton->y = pauseButton->y;

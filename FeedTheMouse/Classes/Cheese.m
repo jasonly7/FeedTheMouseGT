@@ -222,7 +222,7 @@
     double rightLimitX = 0;
     bool isBouncingOffWall = false;
    
-    if ( cheeseSprite.y > 0)
+    if ( cheeseSprite.y + cheeseSprite.height > 0)
     {
         if (screenWidth == 1242)
         {
