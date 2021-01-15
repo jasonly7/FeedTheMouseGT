@@ -21,14 +21,14 @@
         float screenHeight = screenSize.height;
         float sx = screenWidth/640.0f;
         float sy = screenHeight/1136.0f;
-        if (screenWidth == 1242)
+        /*if (screenWidth == 1242)
         {
             boomSprite = [Picture fromFile:@"BigBoom.png"];
         }
         else
-        {
-            boomSprite = [Picture fromFile:@"Boom.png"];
-        }
+        {*/
+            boomSprite = [Picture fromFile:@"Boom_bigger.png"];
+        //}
     }
     return self;
 }

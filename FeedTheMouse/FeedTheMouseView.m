@@ -754,8 +754,8 @@
         [bomb draw:context];
         if (bomb->state == BOMB_EXPLODE)
         {
-            boom->x = boom->boomSprite->x = bx - bomb->bombSprite.width;
-            boom->y = boom->boomSprite->y = by - bomb->bombSprite.height/2;
+            boom->x = boom->boomSprite->x = bx - boom->boomSprite.width/2;
+            boom->y = boom->boomSprite->y = by - boom->boomSprite.height/2;
             [boom draw:context];
         }
         

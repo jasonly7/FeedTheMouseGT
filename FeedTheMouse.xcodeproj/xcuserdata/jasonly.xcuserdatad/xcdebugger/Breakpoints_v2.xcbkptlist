@@ -1030,8 +1030,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1916"
             endingLineNumber = "1916"
-            landmarkName = "-display_game"
-            landmarkType = "7">
+            landmarkName = "FeedTheMouseView"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1423,8 +1423,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1915"
             endingLineNumber = "1915"
-            landmarkName = "FeedTheMouseView"
-            landmarkType = "3">
+            landmarkName = "cleanRemoveFromSuperview(view)"
+            landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -17097,8 +17097,8 @@
             filePath = "FeedTheMouse/Classes/TextSprite.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "181"
-            endingLineNumber = "181"
+            startingLineNumber = "190"
+            endingLineNumber = "190"
             landmarkName = "-drawBody:on:"
             landmarkType = "7">
          </BreakpointContent>
@@ -17113,8 +17113,8 @@
             filePath = "FeedTheMouse/Classes/TextSprite.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "165"
-            endingLineNumber = "165"
+            startingLineNumber = "174"
+            endingLineNumber = "174"
             landmarkName = "-drawBody:on:"
             landmarkType = "7">
          </BreakpointContent>
@@ -17145,8 +17145,8 @@
             filePath = "FeedTheMouse/Classes/TextSprite.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "166"
-            endingLineNumber = "166"
+            startingLineNumber = "175"
+            endingLineNumber = "175"
             landmarkName = "-drawBody:on:"
             landmarkType = "7">
          </BreakpointContent>
@@ -17161,8 +17161,8 @@
             filePath = "FeedTheMouse/Classes/TextSprite.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "164"
-            endingLineNumber = "164"
+            startingLineNumber = "173"
+            endingLineNumber = "173"
             landmarkName = "-drawBody:on:"
             landmarkType = "7">
          </BreakpointContent>
@@ -17177,8 +17177,8 @@
             filePath = "FeedTheMouse/Classes/TextSprite.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "157"
-            endingLineNumber = "157"
+            startingLineNumber = "166"
+            endingLineNumber = "166"
             landmarkName = "-drawBody:on:"
             landmarkType = "7">
          </BreakpointContent>
@@ -17193,8 +17193,8 @@
             filePath = "FeedTheMouse/Classes/TextSprite.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "156"
-            endingLineNumber = "156"
+            startingLineNumber = "165"
+            endingLineNumber = "165"
             landmarkName = "-drawBody:on:"
             landmarkType = "7">
          </BreakpointContent>
@@ -17209,8 +17209,8 @@
             filePath = "FeedTheMouse/Classes/TextSprite.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "166"
-            endingLineNumber = "166"
+            startingLineNumber = "175"
+            endingLineNumber = "175"
             landmarkName = "-drawBody:on:"
             landmarkType = "7">
          </BreakpointContent>
@@ -17449,8 +17449,8 @@
             filePath = "FeedTheMouse/Classes/TextSprite.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "132"
-            endingLineNumber = "132"
+            startingLineNumber = "141"
+            endingLineNumber = "141"
             landmarkName = "-drawBody:on:"
             landmarkType = "7">
          </BreakpointContent>
@@ -17465,8 +17465,8 @@
             filePath = "FeedTheMouse/Classes/TextSprite.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "179"
-            endingLineNumber = "179"
+            startingLineNumber = "188"
+            endingLineNumber = "188"
             landmarkName = "-drawBody:on:"
             landmarkType = "7">
          </BreakpointContent>
@@ -17481,8 +17481,8 @@
             filePath = "FeedTheMouse/Classes/TextSprite.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "175"
-            endingLineNumber = "175"
+            startingLineNumber = "184"
+            endingLineNumber = "184"
             landmarkName = "-drawBody:on:"
             landmarkType = "7">
          </BreakpointContent>
@@ -17497,8 +17497,8 @@
             filePath = "FeedTheMouse/Classes/TextSprite.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "176"
-            endingLineNumber = "176"
+            startingLineNumber = "185"
+            endingLineNumber = "185"
             landmarkName = "-drawBody:on:"
             landmarkType = "7">
          </BreakpointContent>
@@ -18313,8 +18313,8 @@
             filePath = "FeedTheMouse/Classes/TextSprite.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "160"
-            endingLineNumber = "160"
+            startingLineNumber = "169"
+            endingLineNumber = "169"
             landmarkName = "-drawBody:on:"
             landmarkType = "7">
          </BreakpointContent>
@@ -19418,8 +19418,8 @@
             filePath = "FeedTheMouse/Classes/TextSprite.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "203"
-            endingLineNumber = "203"
+            startingLineNumber = "212"
+            endingLineNumber = "212"
             landmarkName = "-pointIsInside:"
             landmarkType = "7">
          </BreakpointContent>
@@ -19514,8 +19514,8 @@
             filePath = "FeedTheMouse/Classes/TextSprite.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "201"
-            endingLineNumber = "201"
+            startingLineNumber = "210"
+            endingLineNumber = "210"
             landmarkName = "-pointIsInside:"
             landmarkType = "7">
          </BreakpointContent>
@@ -19709,6 +19709,22 @@
             startingLineNumber = "164"
             endingLineNumber = "164"
             landmarkName = "-init"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2A50AE72-52F2-40CC-BFEA-5D272E68A52F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FeedTheMouse/Classes/TextSprite.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "133"
+            endingLineNumber = "133"
+            landmarkName = "-drawBody:on:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

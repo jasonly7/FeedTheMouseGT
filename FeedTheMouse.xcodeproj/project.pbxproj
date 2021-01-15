@@ -48,6 +48,8 @@
 		868AE37025A4E49B00DB028A /* projectx_large_512x512px.png in Resources */ = {isa = PBXBuildFile; fileRef = 868AE36F25A4E49B00DB028A /* projectx_large_512x512px.png */; };
 		8690AD6425954E9A003ACCE9 /* Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = 8690AD6325954E9A003ACCE9 /* Utility.m */; };
 		8699A07F2553A0C900B5CFEE /* Wall.m in Sources */ = {isa = PBXBuildFile; fileRef = 8699A07E2553A0C900B5CFEE /* Wall.m */; };
+		869A951E25B21EA400F4847B /* comic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 869A951D25B21EA400F4847B /* comic.ttf */; };
+		869A952325B21FF700F4847B /* Boom_bigger.png in Resources */ = {isa = PBXBuildFile; fileRef = 869A952225B21FF700F4847B /* Boom_bigger.png */; };
 		86A0496C256FFE0500B89DB6 /* medium_coins in Resources */ = {isa = PBXBuildFile; fileRef = 86A0496B256FFE0500B89DB6 /* medium_coins */; };
 		86A04971257009E900B89DB6 /* large_coins in Resources */ = {isa = PBXBuildFile; fileRef = 86A04970257009E900B89DB6 /* large_coins */; };
 		86A50DA924DF6EFA00108BB2 /* animation_frames in Resources */ = {isa = PBXBuildFile; fileRef = 86A50DA724DF6EFA00108BB2 /* animation_frames */; };
@@ -256,6 +258,8 @@
 		8690AD6325954E9A003ACCE9 /* Utility.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = Utility.m; path = Classes/Utility.m; sourceTree = "<group>"; };
 		8699A07D2553A0C900B5CFEE /* Wall.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Wall.h; path = Classes/Wall.h; sourceTree = "<group>"; };
 		8699A07E2553A0C900B5CFEE /* Wall.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = Wall.m; path = Classes/Wall.m; sourceTree = "<group>"; };
+		869A951D25B21EA400F4847B /* comic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = comic.ttf; sourceTree = "<group>"; };
+		869A952225B21FF700F4847B /* Boom_bigger.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Boom_bigger.png; path = Images/Boom_bigger.png; sourceTree = "<group>"; };
 		86A0496B256FFE0500B89DB6 /* medium_coins */ = {isa = PBXFileReference; lastKnownFileType = folder; name = medium_coins; path = Images/Triggers/medium_coins; sourceTree = "<group>"; };
 		86A04970257009E900B89DB6 /* large_coins */ = {isa = PBXFileReference; lastKnownFileType = folder; name = large_coins; path = Images/Triggers/large_coins; sourceTree = "<group>"; };
 		86A50DA724DF6EFA00108BB2 /* animation_frames */ = {isa = PBXFileReference; lastKnownFileType = folder; name = animation_frames; path = Images/animation_frames; sourceTree = "<group>"; };
@@ -466,6 +470,14 @@
 			path = Images/pause_menu;
 			sourceTree = "<group>";
 		};
+		869A951C25B21EA400F4847B /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				869A951D25B21EA400F4847B /* comic.ttf */,
+			);
+			path = fonts;
+			sourceTree = "<group>";
+		};
 		86E0749F1E4412B400E92CB9 = {
 			isa = PBXGroup;
 			children = (
@@ -644,6 +656,7 @@
 		86E075361E4424F100E92CB9 /* Feed The Mouse */ = {
 			isa = PBXGroup;
 			children = (
+				869A951C25B21EA400F4847B /* fonts */,
 				86ABD01E258BCA9800E84D8A /* sounds */,
 				86E075371E44250400E92CB9 /* Images */,
 			);
@@ -653,6 +666,7 @@
 		86E075371E44250400E92CB9 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				869A952225B21FF700F4847B /* Boom_bigger.png */,
 				86FC61D225B212410028D68F /* BigBoom.png */,
 				86FC61C725B1F5660028D68F /* Boom.png */,
 				86526D7425AF841D004EA48A /* small_music_off.png */,
@@ -1025,12 +1039,14 @@
 				8603B627253CF6D5003AF4E4 /* big_teeter_totter_red.png in Resources */,
 				86C8923D254E2E4000FB1919 /* big_background_4.png in Resources */,
 				86C8923B254E2E4000FB1919 /* big_background_1.png in Resources */,
+				869A952325B21FF700F4847B /* Boom_bigger.png in Resources */,
 				86E075A51E44285100E92CB9 /* star.mat in Resources */,
 				86E075C51E44288900E92CB9 /* teeter_totter.png in Resources */,
 				86C73EB725016A820014C5C2 /* big_gear_purple.png in Resources */,
 				86E075701E4426D300E92CB9 /* small_gear_red.png in Resources */,
 				8660C73A24F98D82003002C0 /* bigDrumsSheet.png in Resources */,
 				86E075591E44263400E92CB9 /* background_3.png in Resources */,
+				869A951E25B21EA400F4847B /* comic.ttf in Resources */,
 				86C497A02501CAD90006519F /* bigMouseBlink.png in Resources */,
 				86C0D08C252FDD3800B9E269 /* bomb.png in Resources */,
 				868AE36B25A4E36200DB028A /* icon.png in Resources */,

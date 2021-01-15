@@ -121,7 +121,16 @@
     CGContextSaveGState(context);
      // create a font, quasi systemFontWithSize:24.0
     //CTFontRef sysUIFont = CTFontCreateWithName(CFSTR("Helvetica-Bold"), fontSize, NULL);
-    CTFontRef sysUIFont = CTFontCreateWithName(CFSTR("Chalkduster"), fontSize, NULL);
+    /*for (NSString* family in [UIFont familyNames])
+    {
+      NSLog(@"FONT FAMILY: %@", family);
+
+      for (NSString *name in [UIFont fontNamesForFamilyName: family])
+      {
+        NSLog(@"  %@", name);
+      }
+    }*/
+    CTFontRef sysUIFont = CTFontCreateWithName(CFSTR("Comic Sans MS"), fontSize, NULL);
     //CTFontCreateUIFontForLanguage(kCTFontSystemFontType,
            //  24.0, NULL);
       
