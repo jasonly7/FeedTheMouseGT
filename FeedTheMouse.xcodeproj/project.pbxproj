@@ -175,6 +175,9 @@
 		86E658312508593100BA1889 /* button_down.png in Resources */ = {isa = PBXBuildFile; fileRef = 86E6582F2508593100BA1889 /* button_down.png */; };
 		86E6583425085DF000BA1889 /* PlayImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86E6583325085DF000BA1889 /* PlayImageView.m */; };
 		86E65836250878A800BA1889 /* small_button_up.png in Resources */ = {isa = PBXBuildFile; fileRef = 86E65835250878A800BA1889 /* small_button_up.png */; };
+		86FC61C825B1F5660028D68F /* Boom.png in Resources */ = {isa = PBXBuildFile; fileRef = 86FC61C725B1F5660028D68F /* Boom.png */; };
+		86FC61CE25B1F69E0028D68F /* Boom.m in Sources */ = {isa = PBXBuildFile; fileRef = 86FC61CD25B1F69E0028D68F /* Boom.m */; };
+		86FC61D325B212410028D68F /* BigBoom.png in Resources */ = {isa = PBXBuildFile; fileRef = 86FC61D225B212410028D68F /* BigBoom.png */; };
 		86FE89A825A151B6002848DF /* Life.m in Sources */ = {isa = PBXBuildFile; fileRef = 86FE89A725A151B6002848DF /* Life.m */; };
 /* End PBXBuildFile section */
 
@@ -414,6 +417,10 @@
 		86E6583225085DF000BA1889 /* PlayImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayImageView.h; sourceTree = "<group>"; };
 		86E6583325085DF000BA1889 /* PlayImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlayImageView.m; sourceTree = "<group>"; };
 		86E65835250878A800BA1889 /* small_button_up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = small_button_up.png; path = Images/small_button_up.png; sourceTree = "<group>"; };
+		86FC61C725B1F5660028D68F /* Boom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Boom.png; path = Images/Boom.png; sourceTree = "<group>"; };
+		86FC61CC25B1F69E0028D68F /* Boom.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Boom.h; path = Classes/Boom.h; sourceTree = "<group>"; };
+		86FC61CD25B1F69E0028D68F /* Boom.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = Boom.m; path = Classes/Boom.m; sourceTree = "<group>"; };
+		86FC61D225B212410028D68F /* BigBoom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = BigBoom.png; path = Images/BigBoom.png; sourceTree = "<group>"; };
 		86FE89A625A151B6002848DF /* Life.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Life.h; path = Classes/Life.h; sourceTree = "<group>"; };
 		86FE89A725A151B6002848DF /* Life.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = Life.m; path = Classes/Life.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -562,6 +569,8 @@
 				86E074ED1E441DF600E92CB9 /* AtlasSprite.m */,
 				86E074EE1E441DF600E92CB9 /* Cheese.h */,
 				86E074EF1E441DF600E92CB9 /* Cheese.m */,
+				86FC61CC25B1F69E0028D68F /* Boom.h */,
+				86FC61CD25B1F69E0028D68F /* Boom.m */,
 				8699A07D2553A0C900B5CFEE /* Wall.h */,
 				8699A07E2553A0C900B5CFEE /* Wall.m */,
 				86E074F01E441DF600E92CB9 /* Circle.h */,
@@ -644,6 +653,8 @@
 		86E075371E44250400E92CB9 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				86FC61D225B212410028D68F /* BigBoom.png */,
+				86FC61C725B1F5660028D68F /* Boom.png */,
 				86526D7425AF841D004EA48A /* small_music_off.png */,
 				86526D7325AF841D004EA48A /* small_music.png */,
 				86526D6C25AF82A0004EA48A /* music_off.png */,
@@ -946,6 +957,7 @@
 				86E075971E44280500E92CB9 /* flipper_purple.png in Resources */,
 				86E0754F1E44254000E92CB9 /* newclosemouthsheet.png in Resources */,
 				86E075931E44280500E92CB9 /* flipper_magenta_game.png in Resources */,
+				86FC61C825B1F5660028D68F /* Boom.png in Resources */,
 				86ABD01F258BCA9800E84D8A /* sounds in Resources */,
 				86A50DAA24DF6EFA00108BB2 /* bomb_explosion in Resources */,
 				86B71D9E2595326500A6C6D8 /* mediumlargecoins.png in Resources */,
@@ -994,6 +1006,7 @@
 				86E075471E44254000E92CB9 /* cheese.png in Resources */,
 				86526D6E25AF82A0004EA48A /* music_off.png in Resources */,
 				86C8923A254E2E4000FB1919 /* big_background_3.png in Resources */,
+				86FC61D325B212410028D68F /* BigBoom.png in Resources */,
 				86E075791E4427DA00E92CB9 /* drum_face_right.png in Resources */,
 				864B3F6E2558EF9F0028CBF3 /* score.png in Resources */,
 				86E075941E44280500E92CB9 /* flipper_orange_game.png in Resources */,
@@ -1068,6 +1081,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86FC61CE25B1F69E0028D68F /* Boom.m in Sources */,
 				861A65E21E46419F0013918F /* Coin.m in Sources */,
 				86E075231E441DF600E92CB9 /* Matrix.m in Sources */,
 				86E075211E441DF600E92CB9 /* Level.m in Sources */,

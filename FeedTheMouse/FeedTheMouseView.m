@@ -202,6 +202,7 @@
     gear = [[Gear alloc] init];
     drum = [[Drum alloc] init];
     bomb = [[Bomb alloc] init];
+    boom = [[Boom alloc] init];
     teeterTotter = [[TeeterTotter alloc] init];
     flipper = [[Flipper alloc] init];
     coin = [[Coin alloc] init];
@@ -751,18 +752,27 @@
           //  bomb->bombSprite.x-= bomb->bombSprite.width;
         //}
         [bomb draw:context];
+        if (bomb->state == BOMB_EXPLODE)
+        {
+            boom->x = boom->boomSprite->x = bx - bomb->bombSprite.width;
+            boom->y = boom->boomSprite->y = by - bomb->bombSprite.height/2;
+            [boom draw:context];
+        }
         
-        CGContextBeginPath(context);
-        CGContextSetStrokeColor(context, green);
-        /* double radianAngle = bomb->angle*M_PI/180.0f;
-        bombTopLeftX = bomb->x - cos(radianAngle)*bomb->bombSprite.width/2 + cos(radianAngle+M_PI_2)*bomb->bombSprite.height/2;
-        bombTopLeftY = bomb->y - sin(radianAngle)*bomb->bombSprite.width/2 + sin(radianAngle+M_PI_2)*bomb->bombSprite.height/2;
-        bombTopLeftX = bombTopLeftX/2.0f;
-        bombTopLeftY = self.bounds.size.height - bombTopLeftY/2.0f;*/
-        float bombCenterX = bomb->x; //+ bomb->bombSprite.width/2;
-        float bombCenterY = bomb->y;// + bomb->bombSprite.height/2;
-        CGContextAddArc(context, bombCenterX, bombCenterY, bomb->r, 0, 2*M_PI,YES);
-       // CGContextStrokePath(context);
+        if (DEBUG)
+        {
+            CGContextBeginPath(context);
+            CGContextSetStrokeColor(context, green);
+            /* double radianAngle = bomb->angle*M_PI/180.0f;
+            bombTopLeftX = bomb->x - cos(radianAngle)*bomb->bombSprite.width/2 + cos(radianAngle+M_PI_2)*bomb->bombSprite.height/2;
+            bombTopLeftY = bomb->y - sin(radianAngle)*bomb->bombSprite.width/2 + sin(radianAngle+M_PI_2)*bomb->bombSprite.height/2;
+            bombTopLeftX = bombTopLeftX/2.0f;
+            bombTopLeftY = self.bounds.size.height - bombTopLeftY/2.0f;*/
+            float bombCenterX = bomb->x; //+ bomb->bombSprite.width/2;
+            float bombCenterY = bomb->y;// + bomb->bombSprite.height/2;
+            CGContextAddArc(context, bombCenterX, bombCenterY, bomb->r, 0, 2*M_PI,YES);
+            CGContextStrokePath(context);
+        }
     }
     
     float drumTopLeftX = 0;

@@ -20,7 +20,7 @@
 #import "XMLParser.h"
 #import "Level.h" 
 #import "TitleViewController.h"
-
+#import "Boom.h"
 #import "FinishGameViewController.h"
 #import "TitleView.h"
 #import "TextSprite.h"
@@ -31,6 +31,8 @@
 #import "MusicButton.h"
 //const int MOUSE_HEIGHT = 322;
 //const int MOUSE_WIDTH = 256;
+
+#define DEBUG   true
 
 typedef enum {
     GAME_RUNNING = 0,
@@ -51,6 +53,7 @@ typedef enum {
     Gear *gear;
     Drum *drum;
     Bomb *bomb;
+    Boom *boom;
     TeeterTotter *teeterTotter;
     Flipper *flipper;
     Coin *coin;
