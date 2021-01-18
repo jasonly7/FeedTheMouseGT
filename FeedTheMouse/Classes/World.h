@@ -12,6 +12,7 @@
 #import "Cheese.h"
 #import "Wall.h"
 #import "SoundManager.h"
+#import "globals.h"
 
 @class Cheese;
 

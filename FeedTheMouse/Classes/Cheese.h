@@ -7,6 +7,7 @@
 //
 #import <sys/utsname.h>
 #include <sys/sysctl.h>
+#import "globals.h"
 #import "Picture.h"
 #import "Circle.h"
 #import "Mouse.h"
@@ -21,7 +22,7 @@
 #import "Quadratic.h"
 #import "CollisionPacket.h"
 #import "World.h"
-
+//#define DEBUG true
 
 @class World;
 

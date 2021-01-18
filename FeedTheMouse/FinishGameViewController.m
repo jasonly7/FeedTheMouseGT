@@ -211,22 +211,24 @@
         [_score1Label setFrame:CGRectMake(_score1Label.frame.origin.x+40, _player1Label.frame.origin.y, _score1Label.frame.size.width, _player1Label.frame.size.height)];
         _score1Label.frame = frame;
     }
-    
-    NSLog(@"%@ score 1 label: %@ (x,y): (%f,%f)",_score1Label.text, _score1Label.text, _score1Label.frame.origin.x,_score1Label.frame.origin.y);
-    NSLog(@"%@ score 2 label: %@ (x,y): (%f,%f)",_score2Label.text, _score2Label.text, _score2Label.frame.origin.x,_score2Label.frame.origin.y);
-    NSLog(@"%@ score 3 label: %@",_player3Label.text, _score3Label.text);
-    NSLog(@"%@ score 4 label: %@",_player4Label.text, _score4Label.text);
-    NSLog(@"%@ score 5 label: %@",_player5Label.text, _score5Label.text);
-    NSLog(@"%@ score 6 label: %@",_player6Label.text, _score6Label.text);
-    NSLog(@"%@ score 7 label: %@",_player7Label.text, _score7Label.text);
-    NSLog(@"%@ score 8 label: %@",_player8Label.text, _score8Label.text);
-    NSLog(@"%@ score 9 label: %@",_player9Label.text, _score9Label.text);
-    NSLog(@"%@ score 10 label: %@",_player10Label.text, _score10Label.text);
-    NSLog(@"%@ score 11 label: %@",_player11Label.text, _score11Label.text);
-    NSLog(@"%@ score 12 label: %@",_player12Label.text, _score12Label.text);
-    NSLog(@"%@ score 13 label: %@",_player13Label.text, _score13Label.text);
-    NSLog(@"%@ score 14 label: %@",_player14Label.text, _score14Label.text);
-    NSLog(@"%@ score 15 label: %@",_player15Label.text, _score15Label.text);
+    if (DEBUG)
+    {
+        NSLog(@"%@ score 1 label: %@ (x,y): (%f,%f)",_score1Label.text, _score1Label.text, _score1Label.frame.origin.x,_score1Label.frame.origin.y);
+        NSLog(@"%@ score 2 label: %@ (x,y): (%f,%f)",_score2Label.text, _score2Label.text, _score2Label.frame.origin.x,_score2Label.frame.origin.y);
+        NSLog(@"%@ score 3 label: %@",_player3Label.text, _score3Label.text);
+        NSLog(@"%@ score 4 label: %@",_player4Label.text, _score4Label.text);
+        NSLog(@"%@ score 5 label: %@",_player5Label.text, _score5Label.text);
+        NSLog(@"%@ score 6 label: %@",_player6Label.text, _score6Label.text);
+        NSLog(@"%@ score 7 label: %@",_player7Label.text, _score7Label.text);
+        NSLog(@"%@ score 8 label: %@",_player8Label.text, _score8Label.text);
+        NSLog(@"%@ score 9 label: %@",_player9Label.text, _score9Label.text);
+        NSLog(@"%@ score 10 label: %@",_player10Label.text, _score10Label.text);
+        NSLog(@"%@ score 11 label: %@",_player11Label.text, _score11Label.text);
+        NSLog(@"%@ score 12 label: %@",_player12Label.text, _score12Label.text);
+        NSLog(@"%@ score 13 label: %@",_player13Label.text, _score13Label.text);
+        NSLog(@"%@ score 14 label: %@",_player14Label.text, _score14Label.text);
+        NSLog(@"%@ score 15 label: %@",_player15Label.text, _score15Label.text);
+    }
 }
 
 - (void)initializeTimes {

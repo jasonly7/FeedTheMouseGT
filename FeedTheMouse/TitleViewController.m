@@ -19,7 +19,7 @@
     
     if (self)
     {
-        NSLog(@"Title view controller created");
+     //   NSLog(@"Title view controller created");
         
        /* CGRect buttonFrame = _playButton.frame;
          buttonFrame.size = CGSizeMake(10,10);
@@ -38,7 +38,8 @@
 
 - (IBAction)btnClicked:(id)sender
 {
-    NSLog(@"Button Clicked");
+    if (DEBUG)
+        NSLog(@"Button Clicked");
     float x =  self.view.center.x - _playButton.frame.size.width/2;
     float y = self.view.center.y;
     CGRect playRect = CGRectMake(0, y, _playButton.frame.size.width, _playButton.frame.size.height);
@@ -62,19 +63,20 @@
 -(void)animationCompleted{
 
    // Whatever you want to do after finish animation
-
-    NSLog(@"Animation Completed");
+    if (DEBUG)
+        NSLog(@"Animation Completed");
 
 }
 
 - (void) splashLoop
 {
-    NSLog(@"Count: %d", count);
+    if (DEBUG)
+        NSLog(@"Count: %d", count);
     count--;
     if (count<=0)
     {
-
-        NSLog(@"Titleview added");
+        if (DEBUG)
+            NSLog(@"Titleview added");
         timer = [NSTimer scheduledTimerWithTimeInterval: 0.1
             target:self
             selector:@selector(transitionLoop)
@@ -200,7 +202,8 @@
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    NSLog(@"Play Clicked");
+    if (DEBUG)
+        NSLog(@"Play Clicked");
    
    /* float x =  self.view.center.x - _playButton.frame.size.width/2;
     float y = self.view.center.y;

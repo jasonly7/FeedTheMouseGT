@@ -16,7 +16,6 @@
 #import "Drum.h"
 #import "Coin.h"
 #import "VectorSprite.h"
-//#import "Obstacles.h"
 #import "XMLParser.h"
 #import "Level.h" 
 #import "TitleViewController.h"
@@ -29,10 +28,8 @@
 #import "PauseButton.h"
 #import "PauseMenu.h"
 #import "MusicButton.h"
-//const int MOUSE_HEIGHT = 322;
-//const int MOUSE_WIDTH = 256;
-
-#define DEBUG   true
+#import "globals.h"
+#define DEBUG false
 
 typedef enum {
     GAME_RUNNING = 0,
@@ -111,6 +108,7 @@ typedef enum {
     PauseMenu *pauseMenu;
     TextSprite *yesText, *noText;
     TextSprite *timerText;
+
     @public
         NSString *playerName;
         int game_state;

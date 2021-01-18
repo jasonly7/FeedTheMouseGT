@@ -205,6 +205,7 @@
 		8603B626253CF6D5003AF4E4 /* big_teeter_totter_red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = big_teeter_totter_red.png; path = Images/Triggers/TeeterTotters/big_teeter_totter_red.png; sourceTree = "<group>"; };
 		8603B62B253CF6DC003AF4E4 /* big_teeter_totter_yellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = big_teeter_totter_yellow.png; path = Images/Triggers/TeeterTotters/big_teeter_totter_yellow.png; sourceTree = "<group>"; };
 		860BDC6D252F8361007B91C4 /* big_teeter_totter_orange.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = big_teeter_totter_orange.png; path = Images/Triggers/TeeterTotters/big_teeter_totter_orange.png; sourceTree = "<group>"; };
+		8612495D25B3A3E500916FCF /* globals.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = globals.h; sourceTree = "<group>"; };
 		861A65E11E46419F0013918F /* Coin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Coin.m; path = Classes/Coin.m; sourceTree = "<group>"; };
 		861A65E31E4641CC0013918F /* Coin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Coin.h; path = Classes/Coin.h; sourceTree = "<group>"; };
 		861A65E41E465CD80013918F /* coin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = coin.png; path = Images/Triggers/coin.png; sourceTree = "<group>"; };
@@ -247,6 +248,8 @@
 		867909AE259D38730053C25A /* ChatBubble.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ChatBubble.h; path = Classes/ChatBubble.h; sourceTree = "<group>"; };
 		867909AF259D38730053C25A /* ChatBubble.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ChatBubble.m; path = Classes/ChatBubble.m; sourceTree = "<group>"; };
 		867F9F6425006E03002E231A /* big */ = {isa = PBXFileReference; lastKnownFileType = folder; name = big; path = Images/Triggers/Flipper/big; sourceTree = "<group>"; };
+		867FEDB725B336ED00EA0B8D /* InneractiveAdSDK-v113.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "InneractiveAdSDK-v113.a"; path = "lib/InneractiveAdSDK-v113.a"; sourceTree = "<group>"; };
+		867FEDBD25B3413B00EA0B8D /* InneractiveAd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InneractiveAd.h; sourceTree = "<group>"; };
 		868A774B212B3A62003B5205 /* TitleViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TitleViewController.h; sourceTree = "<group>"; };
 		868A774C212B3A62003B5205 /* TitleViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TitleViewController.m; sourceTree = "<group>"; };
 		868A774E212B3C24003B5205 /* TitleView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TitleView.h; sourceTree = "<group>"; };
@@ -470,6 +473,14 @@
 			path = Images/pause_menu;
 			sourceTree = "<group>";
 		};
+		867FEDBC25B3413B00EA0B8D /* include */ = {
+			isa = PBXGroup;
+			children = (
+				867FEDBD25B3413B00EA0B8D /* InneractiveAd.h */,
+			);
+			path = include;
+			sourceTree = SOURCE_ROOT;
+		};
 		869A951C25B21EA400F4847B /* fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -637,6 +648,7 @@
 				86DAE4DE25A626F700E1C871 /* PauseButton.m */,
 				8638367425AA590F004EF3D7 /* PauseMenu.h */,
 				8638367525AA590F004EF3D7 /* PauseMenu.m */,
+				8612495D25B3A3E500916FCF /* globals.h */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -644,6 +656,7 @@
 		86E0752D1E441EFD00E92CB9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				867FEDB725B336ED00EA0B8D /* InneractiveAdSDK-v113.a */,
 				866429B725658BC0002AFBC1 /* CoreText.framework */,
 				86E075341E441F2000E92CB9 /* CoreGraphics.framework */,
 				86E075321E441F1300E92CB9 /* Foundation.framework */,
@@ -656,6 +669,7 @@
 		86E075361E4424F100E92CB9 /* Feed The Mouse */ = {
 			isa = PBXGroup;
 			children = (
+				867FEDBC25B3413B00EA0B8D /* include */,
 				869A951C25B21EA400F4847B /* fonts */,
 				86ABD01E258BCA9800E84D8A /* sounds */,
 				86E075371E44250400E92CB9 /* Images */,
@@ -1313,7 +1327,11 @@
 				DEVELOPMENT_TEAM = DT3J43232S;
 				INFOPLIST_FILE = FeedTheMouse/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Cortex-Interactive.FeedTheMouse";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/lib",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.CortexInteractive.FeedTheMouse;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -1327,7 +1345,11 @@
 				DEVELOPMENT_TEAM = DT3J43232S;
 				INFOPLIST_FILE = FeedTheMouse/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Cortex-Interactive.FeedTheMouse";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/lib",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.CortexInteractive.FeedTheMouse;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

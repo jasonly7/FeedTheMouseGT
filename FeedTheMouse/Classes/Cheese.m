@@ -267,9 +267,11 @@
             x = pos->x + vxt;
             y = pos->y + vyt;
             
-            NSLog(@"vel->y: %f", vel->y);
-            
-            NSLog(@"time: %f",time);
+            if (DEBUG)
+            {
+                NSLog(@"vel->y: %f", vel->y);
+                NSLog(@"time: %f",time);
+            }
             colPackage->R3Velocity = vel;
         }
         else
@@ -305,7 +307,7 @@
                     
                     int vxt = 0;
                     int vyt = 0;
-                    if (!colPackage->foundCollision || colPackage->isSlidingOff)
+                    if (!colPackage->foundCollision || colPackage->isSlidingOff || colPackage->state == COLLISION_BOUNCE)
                     {
                         time = interpolation;
                        
@@ -430,8 +432,8 @@
     Vector *coinPosition = [[Vector alloc] init];
     if (screenWidth == 1242)
     {
-        cx = c->pos->x;
-        cy = c->pos->y;
+        cx = c->pos->x - c->coinSprite.width/2;
+        cy = c->pos->y - c->coinSprite.height/2;
     }
     else
     {
@@ -489,7 +491,8 @@
     // is more than the sum of their radii, there's no
     // way they are going collide
     double sumRadiiSquared = sumRadii * sumRadii;
-    NSLog(@"Sum of the Radii^2: %f", sumRadiiSquared);
+    if (DEBUG)
+        NSLog(@"Sum of the Radii^2: %f", sumRadiiSquared);
     if(F >= sumRadiiSquared){
         return false;
     }
@@ -1173,18 +1176,18 @@
             //foundCollision = true;
             
         }
-        else if (collidedWithLeft == shortestDistance || isNearLeftLine)
+        else if (collidedWithLeft == shortestDistance)// || isNearLeftLine) //commented to keep from getting stuck on top left
         {
             [self collideWithLine:leftLine];
-            if ([leftLine isFrontFacingTo:vel])
-            {
+            //if ([leftLine isFrontFacingTo:vel])
+            //{
                 normal = leftLine->normal = [leftLine normal];
-            }
+            /*}
             else
             {
                 [normal initializeVectorX:-leftLine->normal->x andY: -leftLine->normal->y];
                 leftLine->normal = normal;
-            }
+            }*/
             [normal normalize];
             // projection of the normal along I (initial velocity vector going towards the line)
             N = [normal multiply:[negativeI dotProduct:normal]];
@@ -1337,7 +1340,7 @@
             slidingLine->normal = normal;
             colPackage->state = COLLISION_BOUNCE;
         }
-        else if ((isPastTopLine || isPastBottomLine || isPastBottomRight || isPastBottomLeft || isPastTopLeft || isPastTopRight)) //&& (shortestDistance == FLT_MAX || shortestDistance==-1))
+        else if ((isPastTopLine || isPastBottomLine || isPastBottomRight || isPastBottomLeft || isPastTopLeft || isPastTopRight || isPastRightLine || isPastLeftLine)) //&& (shortestDistance == FLT_MAX || shortestDistance==-1))
         {
             if (diff < veryCloseDistance)
                 diff = veryCloseDistance;
@@ -1358,6 +1361,10 @@
                 normal = [self->pos subtract:bottomRightVector];
             else if (isPastBottomLeft)
                 normal = [self->pos subtract:bottomLeftVector];
+            else if (isPastLeftLine)
+                normal = [leftLine normal];
+            else if (isPastRightLine)
+                normal = [rightLine normal];
             else if (isPastTopLine)
             {
                 CGPoint p1 = CGPointMake( topLine->p1.x/cheeseRadius, topLine->p1.y/cheeseRadius);
@@ -1850,7 +1857,8 @@
     }
     topLeftPt = CGPointMake(topLeftX, topLeftY);
     // get top right of rectangle
-    printf("flipper rad angle: %f \n", radAngle);
+    if (DEBUG)
+        printf("flipper rad angle: %f \n", radAngle);
     if (screenWidth == 1242)
     {
         topRightX = (f->x + cos(radAngle)*f->sprite.width/2 + cos(radAngle+M_PI_2)*f->sprite.height/2);
@@ -2618,7 +2626,8 @@
         float dot2 =[cheeseToLine dotProduct:edge];//[cheeseToLineNormalized dotProduct:edgeNormal];//
         int roundRadius = (int)(10 * (cheeseToLine.length));
         float cheeseRadius = roundRadius/10.0f;
-        printf("near line radius: %f ",cheeseRadius);
+        if (DEBUG)
+            printf("near line radius: %f\n",cheeseRadius);
         
         float closeDistance = veryCloseDistance*scale;
         if (cheeseToLine.length < nearDist && dot2 < veryCloseDistance) // perpendicular = 0
@@ -2687,7 +2696,8 @@
     float dot2 = [cheeseToLine dotProduct:edge];
     int roundRadius = (int)(10 * (cheeseToLine.length));
     float cheeseRadius = roundRadius/10.0f;
-    printf("near line radius: %f ",cheeseRadius);
+    if (DEBUG)
+        printf("near line radius: %f\n",cheeseRadius);
     if (cheeseToLine.length <= nearDist && dot2 <= veryCloseDistance) // perpendicular = 0
         return true;
     return false;
@@ -2834,8 +2844,8 @@
    // NSLog(@"posInR3: %p", posInR3);
     [posInR3 initializeVectorX:M11 andY:M12];
    // NSLog(@"posInR3(x,y): (%f,%f)", posInR3->x, posInR3->y);
-   
-    NSLog(@"x1: %f", [x1 floatValue]);
+    if (DEBUG)
+        NSLog(@"x1: %f", [x1 floatValue]);
     numerator = ([edge dotProduct:velocityInESpace])*[x1 floatValue] - ([edge dotProduct:baseToVertex]);
     denominator = edge.length*edge.length;
     f0 = numerator/denominator;
@@ -3058,8 +3068,8 @@
    // NSLog(@"posInR3: %p", posInR3);
     [posInR3 initializeVectorX:M11 andY:M12];
    // NSLog(@"posInR3(x,y): (%f,%f)", posInR3->x, posInR3->y);
-   
-    NSLog(@"x1: %f", [x1 floatValue]);
+    if (DEBUG)
+        NSLog(@"x1: %f", [x1 floatValue]);
     numerator = ([edge dotProduct:velocityInESpace])*[x1 floatValue] - ([edge dotProduct:baseToVertex]);
     denominator = edge.length*edge.length;
     f0 = numerator/denominator;
@@ -3230,7 +3240,8 @@
     bool nearTeeterTotter = false;
     colPackage->isSlidingOff = false;
     time = lerp;
-    NSLog(@"time in collideAndSlide: %.20g\n", time );
+    if (DEBUG)
+        NSLog(@"time in collideAndSlide: %.20g\n", time );
     for (int i=0; i < [teeterTotters count]; i++)
     {
         TeeterTotter *teeterTotter = [[TeeterTotter alloc] init];
@@ -3241,7 +3252,8 @@
     {
        if (colPackage->state == COLLISION_SLIDE)
        {
-           NSLog(@"cheese sliding");
+           if (DEBUG)
+               NSLog(@"cheese sliding");
            //Vector *velocityNormalized = [[Vector alloc] init];
            //[velocityNormalized initializeVectorX:vel->x andY:vel->y];
            //[velocityNormalized normalize];
@@ -3368,13 +3380,16 @@ const float unitsPerMeter = 1000.0f;
     
     if (colPackage->foundCollision == false )
     {
-        NSLog(@"slide velocity: %f", vel);
+        if (DEBUG)
+            NSLog(@"slide velocity: %f", vel);
         if (colPackage->state== COLLISION_SLIDE) {
-            NSLog(@"cheese sliding");
+            if (DEBUG)
+                NSLog(@"cheese sliding");
         }
         else
         {
-            NSLog(@"cheese not sliding");
+            if (DEBUG)
+                NSLog(@"cheese not sliding");
             return position;
         }
     }
@@ -3550,8 +3565,8 @@ const float unitsPerMeter = 1000.0f;
              angle = colPackage->collidedTotter->angle;
              angle = angle * M_PI/180;
              
-             NSLog(@"cos value %f",cos(angle));
-             NSLog(@"sin value %f",sin(angle));
+             //NSLog(@"cos value %f",cos(angle));
+             //NSLog(@"sin value %f",sin(angle));
              double v2x = 0;
              double v2y = 0;
              double collidedTotterX;
@@ -3809,8 +3824,8 @@ const float unitsPerMeter = 1000.0f;
      // NSLog(@"posInR3: %p", posInR3);
       [posInR3 initializeVectorX:M11 andY:M12];
      // NSLog(@"posInR3(x,y): (%f,%f)", posInR3->x, posInR3->y);
-     
-      NSLog(@"x1: %f", [x1 floatValue]);
+      if (DEBUG)
+          NSLog(@"x1: %f", [x1 floatValue]);
       numerator = ([edge dotProduct:velocityInESpace])*[x1 floatValue] - ([edge dotProduct:baseToVertex]);
       denominator = edge.length*edge.length;
       f0 = numerator/denominator;

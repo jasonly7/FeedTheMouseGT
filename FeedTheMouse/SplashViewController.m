@@ -52,17 +52,11 @@
 
 - (void) splashLoop
 {
-    NSLog(@"Count: %d", count);
+    //NSLog(@"Count: %d", count);
     count--;
     if (count<=0)
     {
 
-        NSLog(@"Titleview added");
-        /*timer2 = [NSTimer scheduledTimerWithTimeInterval: 0.1
-            target:self
-            selector:@selector(dissolve)
-            userInfo:nil
-            repeats:YES];*/
         UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
         UIViewController *titleViewController = [sb instantiateViewControllerWithIdentifier:@"TitleViewController"];
         titleViewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
@@ -78,7 +72,7 @@
 
    // Whatever you want to do after finish animation
 
-    NSLog(@"Animation Completed");
+    //NSLog(@"Animation Completed");
 
 }
 /*

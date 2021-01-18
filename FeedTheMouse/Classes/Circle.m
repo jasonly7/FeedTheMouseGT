@@ -40,8 +40,6 @@
 
      printf( "height: %f spritey: %f\n",sprite->height , sprite->y);
     
-    if (y<=140)
-        printf("blah\n");
     float a = y;
     float b = */
    // printf("a: %f b: %f\n", a , b);

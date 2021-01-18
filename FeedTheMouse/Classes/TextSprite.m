@@ -130,7 +130,7 @@
         NSLog(@"  %@", name);
       }
     }*/
-    CTFontRef sysUIFont = CTFontCreateWithName(CFSTR("Comic Sans MS"), fontSize, NULL);
+    CTFontRef sysUIFont = CTFontCreateWithName(CFSTR("ComicSansMS"), fontSize, NULL);
     //CTFontCreateUIFontForLanguage(kCTFontSystemFontType,
            //  24.0, NULL);
       

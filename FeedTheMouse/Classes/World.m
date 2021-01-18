@@ -142,7 +142,8 @@
         for (int i = 0; i < [lvl->drums count]; i++)
         {
             Drum *drum = [lvl->drums objectAtIndex:i];
-            NSLog(@"Checking drum %d", i);
+            if (DEBUG)
+                NSLog(@"Checking drum %d", i);
             cheese->colPackage->foundCollision = [cheese checkDrum:drum];
             if (cheese->colPackage->foundCollision || cheese->colPackage->state == COLLISION_BOUNCE)
             {
@@ -172,7 +173,8 @@
         for (int i = 0; i < [lvl->bombs count]; i++)
         {
             Bomb *bomb = [lvl->bombs objectAtIndex:i];
-            NSLog(@"Checking bomb %d", i);
+            if (DEBUG)
+                NSLog(@"Checking bomb %d", i);
             if (bomb->state != BOMB_GONE)
                 cheese->colPackage->foundCollision = [cheese checkBomb:bomb];
             if (cheese->colPackage->foundCollision)// || cheese->colPackage->state == COLLISION_BOUNCE)
@@ -263,12 +265,14 @@
                         
                         if (cheese->colPackage->foundCollision)
                         {
-                            printf("collided with teeter totter\n");
+                            if (DEBUG)
+                                printf("collided with teeter totter\n");
                             [cheese->vel initializeVectorX:0 andY:0];
                         }
                         else if (cheese->colPackage->state != COLLISION_BOUNCE)// && !cheese->isPastTopRight)
                         {
-                            printf("near the teeter totter\n");
+                            if (DEBUG)
+                                printf("near the teeter totter\n");
                             cheese->colPackage->state = cheese->colPackage->state == COLLISION_SLIDE;
                             //cheese->colPackage->foundCollision = true;
                             [cheese->vel initializeVectorX:0 andY:0];
@@ -378,7 +382,8 @@
                     }
                     else if ( cheese->colPackage->collisionRecursionDepth > 0 )
                     {
-                        printf("sliding on teeter totter\n");
+                        if (DEBUG)
+                            printf("sliding on teeter totter\n");
                         if (cheese->colPackage->state == COLLISION_SLIDE)
                         {
                             [cheese slideOffTeeterTotter:teeterTotter];
@@ -389,7 +394,8 @@
                     }
                     else
                     {
-                        printf("miss the teeter totter\n");
+                        if (DEBUG)
+                            printf("miss the teeter totter\n");
                         
                         if (cheese->colPackage->prevStates[i] == COLLISION_NONE)
                             [cheese->prevVelocities[i] initializeVectorX:0 andY:0];

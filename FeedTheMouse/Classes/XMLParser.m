@@ -13,7 +13,7 @@
 #import "Level.h"
 #import "Drum.h"
 #import "Bomb.h"
-
+#import "globals.h"
 
 @implementation XMLParser
 
@@ -203,7 +203,8 @@
             int gy = [g getY];
             UIColor *c = [g getColor];
             NSString *strColor = [g getStringColor];
-            NSLog(@"gear color:%@", strColor);
+            if (DEBUG)
+                NSLog(@"gear color:%@", strColor);
             [newGear initializeGearWithX:gx andY:gy andColor:c];
             [level addGear:newGear];
         }
