@@ -1740,25 +1740,27 @@ void cleanRemoveFromSuperview( UIView * view ) {
     mouseTouchedPoint = pt;
     printf("drop (x,y): (%f, %f)\n",pt.x,pt.y);
     bool found = false;
-    for (int i=0; i < [flippers count]; i++)
+    if (game_state != GAME_PAUSED)
     {
-        flipper = (Flipper*)[flippers objectAtIndex:i];
-        flipper->sx = sx;
-        flipper->sy = sy;
+        for (int i=0; i < [flippers count]; i++)
+        {
+            flipper = (Flipper*)[flippers objectAtIndex:i];
+            flipper->sx = sx;
+            flipper->sy = sy;
 
-        if ([flipper pointIsInside:mouseTouchedPoint])
-            found = true;
-    }
-    for (int i=0; i < [gears count]; i++)
-    {
-        gear = (Gear*)[gears objectAtIndex:i];
-        gear->sx = sx;
-        gear->sy = sy;
+            if ([flipper pointIsInside:mouseTouchedPoint])
+                found = true;
+        }
+        for (int i=0; i < [gears count]; i++)
+        {
+            gear = (Gear*)[gears objectAtIndex:i];
+            gear->sx = sx;
+            gear->sy = sy;
 
-        if ([gear pointIsInside:mouseTouchedPoint])
-            found = true;
+            if ([gear pointIsInside:mouseTouchedPoint])
+                found = true;
+        }
     }
-    
     for (int i=0; i < [teeterTotters count]; i++)
     {
         teeterTotter = (TeeterTotter*)[teeterTotters objectAtIndex:i];
