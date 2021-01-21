@@ -469,66 +469,42 @@
     CGContextConcatCTM(context,t0);
     [chatBubble draw:context];
     
-    if (game_state==GAME_PAUSED)
+    float drumTopLeftX = 0;
+    float drumTopLeftY = 0;
+   // CGContextSaveGState(context);
+    for (int i=0; i < drums.count; i++)
     {
+         drum = (Drum*)[drums objectAtIndex:i];
+         t0 = CGAffineTransformInvert(t0);
+         CGContextConcatCTM(context,t0);
+         t0 = CGAffineTransformIdentity;
+         float drx = drum->x;
+         float dry = drum->y;
+         t0 = CGAffineTransformTranslate(t0, drx ,dry);
+         float newAngle = [drum getAngle]*M_PI/180;
+         t0 = CGAffineTransformRotate(t0,newAngle );
+         t0 = CGAffineTransformTranslate(t0, -drx ,-dry);
+         CGContextConcatCTM(context,t0);
         
-        if (screenWidth == 1242)
-        {
-            t0 = CGAffineTransformInvert(t0);
-            CGContextConcatCTM(context,t0);
-            t0 = CGAffineTransformIdentity;
-            t0 = CGAffineTransformTranslate(t0,pauseMenu->x,pauseMenu->y );
-            t0 = CGAffineTransformScale(t0, sx, sy);
-            t0 = CGAffineTransformTranslate(t0,-pauseMenu->x,-pauseMenu->y );
-            CGContextConcatCTM(context,t0);
-        }
-        [pauseMenu draw:context];
-        if (DEBUG)
-        {
-            CGRect playRect = CGRectMake(pauseMenu->x, pauseMenu->y + 3/4*pauseMenu->height, pauseMenu->width, pauseMenu->height/4);
-            CGContextSetRGBFillColor(context, 1.0, 0.0, 0.0, 1.0);
-            CGContextSetRGBStrokeColor(context, 1.0, 0.0, 0.0, 1.0);
-            CGContextFillRect(context, playRect);
-        }
+        [drum draw:context];
         
+       // CGContextBeginPath(context);
+      //  CGContextSetStrokeColor(context, green);
+        double radianAngle = drum->angle*M_PI/180.0f;
+        drumTopLeftX = drum->x - cos(radianAngle)*drum->drumSprite.width/2 + cos(radianAngle+M_PI_2)*drum->drumSprite.height/2;
+        drumTopLeftY = drum->y - sin(radianAngle)*drum->drumSprite.width/2 + sin(radianAngle+M_PI_2)*drum->drumSprite.height/2;
+        drumTopLeftX = drumTopLeftX/2.0f;
+        drumTopLeftY = self.bounds.size.height - drumTopLeftY/2.0f;
+       // CGContextAddArc(context, drumTopLeftX, drumTopLeftY, 5, 0, 2*M_PI,YES);
+       // CGContextStrokePath(context);
     }
-    
-    if (screenWidth == 1242)
-    {
-        pauseButton->x = 10;
-        pauseButton->y = timerText.y - timerText.height*screenScale;
-        [pauseButton draw:context];
-        musicButton->x = pauseButton->x + pauseButton->pauseSprite.width*screenScale ;
-        musicButton->y = pauseButton->y;
-        [musicButton draw:context];
-    }
-    else
-    {
-        pauseButton->x = 10;
-        pauseButton->y = timerText.y - timerText.height*screenScale/sy;//960+pauseButton->pauseSprite.height*screenScale;
-        [pauseButton draw:context];
-        musicButton->x = pauseButton->x + pauseButton->pauseSprite.width*screenScale/sx ;
-        musicButton->y = pauseButton->y;
-        [musicButton draw:context];
-    }
-    
-    if (DEBUG)
-    {
-        CGContextSetStrokeColor(context,blue);
-        CGContextMoveToPoint(context, pauseButton->x, pauseButton->y);
-        CGContextAddLineToPoint(context, pauseButton->x + pauseButton->pauseSprite.width, pauseButton->y);
-        CGContextStrokePath(context);
-        CGContextMoveToPoint(context, pauseButton->x, pauseButton->y + pauseButton->pauseSprite.height);
-        CGContextAddLineToPoint(context, pauseButton->x + pauseButton->pauseSprite.width, pauseButton->y + pauseButton->pauseSprite.height);
-        CGContextStrokePath(context);
-    }
-    
-   
+   // CGContextRestoreGState(context);
     
     float bombTopLeftX = 0;
     float bombTopLeftY = 0;
 
     CGFloat green[4] = {0.0f, 1.0f, 0.0f, 1.0f};
+    //CGContextSaveGState(context);
     for (int i=0; i < bombs.count; i++)
     {
          bomb = (Bomb*)[bombs objectAtIndex:i];
@@ -563,38 +539,8 @@
             CGContextStrokePath(context);
         }
     }
-    
-    float drumTopLeftX = 0;
-    float drumTopLeftY = 0;
-
-    
-    for (int i=0; i < drums.count; i++)
-    {
-         drum = (Drum*)[drums objectAtIndex:i];
-         t0 = CGAffineTransformInvert(t0);
-         CGContextConcatCTM(context,t0);
-         t0 = CGAffineTransformIdentity;
-         float drx = drum->x;
-         float dry = drum->y;
-         t0 = CGAffineTransformTranslate(t0, drx ,dry);
-         float newAngle = [drum getAngle]*M_PI/180;
-         t0 = CGAffineTransformRotate(t0,newAngle );
-         t0 = CGAffineTransformTranslate(t0, -drx ,-dry);
-         CGContextConcatCTM(context,t0);
-        
-        [drum draw:context];
-        
-       // CGContextBeginPath(context);
-      //  CGContextSetStrokeColor(context, green);
-        double radianAngle = drum->angle*M_PI/180.0f;
-        drumTopLeftX = drum->x - cos(radianAngle)*drum->drumSprite.width/2 + cos(radianAngle+M_PI_2)*drum->drumSprite.height/2;
-        drumTopLeftY = drum->y - sin(radianAngle)*drum->drumSprite.width/2 + sin(radianAngle+M_PI_2)*drum->drumSprite.height/2;
-        drumTopLeftX = drumTopLeftX/2.0f;
-        drumTopLeftY = self.bounds.size.height - drumTopLeftY/2.0f;
-       // CGContextAddArc(context, drumTopLeftX, drumTopLeftY, 5, 0, 2*M_PI,YES);
-       // CGContextStrokePath(context);
-    }
-    
+   // CGContextRestoreGState(context);
+  
     for (int i=0; i < teeterTotters.count; i++)
     {
         teeterTotter = (TeeterTotter*)[teeterTotters objectAtIndex:i];
@@ -613,38 +559,111 @@
         
         [teeterTotter draw:context];
     }
-    CGFloat red[4] = {1.0f, 0.0f, 0.0f, 1.0f};
-   
-    float flipperTopRightX;
-    float flipperTopRightY;
-    for (int i=0; i < flippers.count; i++)
+    
+    t0 = CGAffineTransformInvert(t0);
+    CGContextConcatCTM(context,t0);
+    t0 = CGAffineTransformIdentity;
+    CGContextConcatCTM(context,t0);
+    if (screenWidth == 1242)
     {
-        flipper = (Flipper*)[flippers objectAtIndex:i];
+        pauseButton->x = 10;
+        pauseButton->y = timerText.y - timerText.height*screenScale;
+        [pauseButton draw:context];
+        musicButton->x = pauseButton->x + pauseButton->pauseSprite.width*screenScale ;
+        musicButton->y = pauseButton->y;
+        [musicButton draw:context];
+    }
+    else
+    {
+        pauseButton->x = 10;
+        pauseButton->y = timerText.y - timerText.height*screenScale/sy;//960+pauseButton->pauseSprite.height*screenScale;
+        [pauseButton draw:context];
+        musicButton->x = pauseButton->x + pauseButton->pauseSprite.width*screenScale/sx ;
+        musicButton->y = pauseButton->y;
+        [musicButton draw:context];
+    }
+    
+    if (DEBUG)
+    {
+        CGContextSetStrokeColor(context,blue);
+        CGContextMoveToPoint(context, pauseButton->x, pauseButton->y);
+        CGContextAddLineToPoint(context, pauseButton->x + pauseButton->pauseSprite.width, pauseButton->y);
+        CGContextStrokePath(context);
+        CGContextMoveToPoint(context, pauseButton->x, pauseButton->y + pauseButton->pauseSprite.height);
+        CGContextAddLineToPoint(context, pauseButton->x + pauseButton->pauseSprite.width, pauseButton->y + pauseButton->pauseSprite.height);
+        CGContextStrokePath(context);
+    }
+    // CGContextSaveGState(context);
+     CGFloat red[4] = {1.0f, 0.0f, 0.0f, 1.0f};
+    
+     float flipperTopRightX;
+     float flipperTopRightY;
+     for (int i=0; i < flippers.count; i++)
+     {
+         flipper = (Flipper*)[flippers objectAtIndex:i];
+        
+         t0 = CGAffineTransformInvert(t0);
+         CGContextConcatCTM(context,t0);
+         t0 = CGAffineTransformIdentity;
+         
+         float fx = flipper->x;
+         float fy = flipper->y;
+         t0 = CGAffineTransformTranslate(t0,fx,fy );
+         t0 = CGAffineTransformRotate(t0,[flipper getAngle]*M_PI/180 );
+         if (flipper->isImgFlipped)
+         {
+             t0 = CGAffineTransformScale(t0, -1, 1);
+         }
+         t0 = CGAffineTransformTranslate(t0, -fx, -fy);
+         
+         CGContextConcatCTM(context,t0);
+         [flipper draw:context];
+         
+         //CGContextSetStrokeColor(context, red);
+         //CGContextBeginPath(context);
+         double radianAngle = flipper->angle*M_PI/180.0f;
+         flipperTopRightX = flipper->x + cos(radianAngle)*flipper->sprite.width/2 + cos(radianAngle+M_PI_2)*flipper->sprite.height/2;
+         flipperTopRightY = flipper->y + sin(radianAngle)*flipper->sprite.width/2 + sin(radianAngle+M_PI_2)*flipper->sprite.height/2;
+         flipperTopRightX = flipperTopRightX/2.0f;
+         flipperTopRightY = self.bounds.size.height - flipperTopRightY/2.0f;
        
+     }
+   
+    //CGContextRestoreGState(context);
+    
+    if (game_state==GAME_PAUSED)
+    {
         t0 = CGAffineTransformInvert(t0);
         CGContextConcatCTM(context,t0);
         t0 = CGAffineTransformIdentity;
-        t0 = CGAffineTransformTranslate(t0,flipper->x, flipper->y);//CGAffineTransformTranslate(t0, flipper->sprite.x+flipper->sprite.width/2,flipper->sprite.y+flipper->sprite.height/2);
-        t0 = CGAffineTransformRotate(t0,[flipper getAngle]*M_PI/180 );
-        if (flipper->isImgFlipped)
+        if (screenWidth == 1242)
         {
-            t0 = CGAffineTransformScale(t0, -1, 1);
+            
+            t0 = CGAffineTransformTranslate(t0,pauseMenu->x,pauseMenu->y );
+            t0 = CGAffineTransformScale(t0, sx, sy);
+            t0 = CGAffineTransformTranslate(t0,-pauseMenu->x,-pauseMenu->y );
+        
         }
-        t0 = CGAffineTransformTranslate(t0, -flipper->x, -flipper->y); //CGAffineTransformTranslate(t0, -flipper->sprite.x-flipper->sprite.width/2,
-                                        //-flipper->sprite.y-flipper->sprite.height/2);
         
         CGContextConcatCTM(context,t0);
-        [flipper draw:context];
+        [pauseMenu draw:context];
+        if (DEBUG)
+        {
+            CGRect playRect = CGRectMake(pauseMenu->x, pauseMenu->y + 3/4*pauseMenu->height, pauseMenu->width, pauseMenu->height/4);
+            CGContextSetRGBFillColor(context, 1.0, 0.0, 0.0, 1.0);
+            CGContextSetRGBStrokeColor(context, 1.0, 0.0, 0.0, 1.0);
+            CGContextFillRect(context, playRect);
+        }
         
-        //CGContextSetStrokeColor(context, red);
-        //CGContextBeginPath(context);
-        double radianAngle = flipper->angle*M_PI/180.0f;
-        flipperTopRightX = flipper->x + cos(radianAngle)*flipper->sprite.width/2 + cos(radianAngle+M_PI_2)*flipper->sprite.height/2;
-        flipperTopRightY = flipper->y + sin(radianAngle)*flipper->sprite.width/2 + sin(radianAngle+M_PI_2)*flipper->sprite.height/2;
-        flipperTopRightX = flipperTopRightX/2.0f;
-        flipperTopRightY = self.bounds.size.height - flipperTopRightY/2.0f;
-      
     }
+    
+    
+  
+   
+    
+    
+   
+    
     
     CGContextRestoreGState(context);
     

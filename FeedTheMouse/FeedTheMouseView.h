@@ -29,7 +29,7 @@
 #import "PauseMenu.h"
 #import "MusicButton.h"
 #import "globals.h"
-#define DEBUG false
+#define DEBUG true
 
 typedef enum {
     GAME_RUNNING = 0,
