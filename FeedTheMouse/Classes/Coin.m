@@ -30,6 +30,22 @@
     return self;
 }
 
+
+- (void) setIconX: (int) xLocation andY: (int) yLocation
+{
+    float screenWidth = [UIScreen.mainScreen bounds].size.width * [UIScreen.mainScreen scale];
+    float screenHeight = [UIScreen.mainScreen bounds].size.height * [UIScreen.mainScreen scale];
+    float sx = screenWidth/640.0f;
+    float sy = screenHeight/1136.0f;
+    if (screenWidth == 1242)
+    {
+        xLocation = xLocation * sx;
+        yLocation = yLocation * sy;
+    }
+    [self setX:xLocation];
+    [self setY:yLocation];
+}
+
 - (void) initializeCoinAtX:(float)xLocation andY:(float)yLocation andImage:(NSString*) file
 {
     float screenWidth = [UIScreen.mainScreen bounds].size.width * [UIScreen.mainScreen scale];

@@ -29,7 +29,7 @@
 #import "PauseMenu.h"
 #import "MusicButton.h"
 #import "globals.h"
-#define DEBUG true
+#define DEBUG false
 
 typedef enum {
     GAME_RUNNING = 0,
@@ -54,7 +54,7 @@ typedef enum {
     TeeterTotter *teeterTotter;
     Flipper *flipper;
     Coin *coin;
-    
+    Coin *coinIcon;
     NSTimer *timer;
 
 	int direction;

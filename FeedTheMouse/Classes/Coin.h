@@ -22,6 +22,7 @@
 - (void) update;
 - (void) initializeCoinAtX:(float)xLocation andY:(float)yLocation andImage:(NSString*)file;
 - (void) initializeCoinAtX:(float) xLocation andY: (float)yLocation;
+- (void) setIconX: (int) xLocation andY: (int) yLocation;
 - (int)getX;
 - (int)getY;
 - (int)getRadius;

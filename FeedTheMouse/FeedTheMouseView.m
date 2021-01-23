@@ -50,7 +50,7 @@
 - (id) initWithCoder: (NSCoder *) coder {
     if (self = [super initWithCoder: coder]) {
         titleView = [[TitleView alloc] initWithCoder:coder];
-    
+        
         [self startAt:0 andTime:0 withCoins:0];
     }
     return self;
@@ -107,8 +107,9 @@
     [cheese->world setLevel: &curLevel];
     coins = [curLevel getCoins];
     gears = [curLevel getGears];
+    coinIcon = [[Coin alloc] init];
     
-
+    [coinIcon initializeCoinAtX:0 andY:0 andImage:@"mediumlargecoins.png"];
     drums = [curLevel getDrums];
     bombs = [curLevel getBombs];
     teeterTotters = [curLevel getTeeterTotters];
@@ -324,7 +325,7 @@
         if (game_state != GAME_CONTINUE)
             [cheese draw: context];
     }
-    
+   
     if (DEBUG)
     {
         CGContextBeginPath(context);
@@ -413,14 +414,16 @@
     [(TextSprite *) fakeScoreText setFontSize:24];
     [fakeScoreText drawBody:context on:self.bounds];
     int fakeX,fakeY;
-    coin = [[Coin alloc] init];
-    [coin initializeCoinAtX:0 andY:0 andImage:@"mediumlargecoins.png"];
-    fakeX = (screenWidth/sx - fakeScoreText.width*screenScale/sx-coin->coinSprite.width/2/sx);
+    
+    fakeX = (screenWidth/sx - fakeScoreText.width*screenScale/sx-coinIcon->coinSprite.width/2/sx);
     fakeY = self.bounds.size.height*screenScale/sy-(fakeScoreText.height*screenScale/sy+5*screenScale);
-    coin = [[[Coin alloc] init] autorelease];
+    //coin = [[[Coin alloc] init] autorelease];
     int cx = fakeX;
     int cy = fakeY;
-    [coin initializeCoinAtX:cx andY:cy andImage:@"mediumlargecoins.png"];
+    //[coinIcon setX:cx];
+    //[coinIcon setY:cy];
+    [coinIcon setIconX:cx andY:cy];
+    //[coinIcon initializeCoinAtX:cx andY:cy andImage:@"mediumlargecoins.png"];
    
     t0= CGAffineTransformInvert(t0);
     CGContextConcatCTM(context,t0);
@@ -436,7 +439,7 @@
     
     t0 = CGAffineTransformTranslate(t0, -cx,-cy);
     CGContextConcatCTM(context, t0);
-    [coin draw:context];
+    [coinIcon draw:context];
     
     t0 = CGAffineTransformInvert(t0);
     CGContextConcatCTM(context,t0);

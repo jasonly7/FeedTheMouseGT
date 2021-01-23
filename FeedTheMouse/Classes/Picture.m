@@ -50,12 +50,40 @@
     pic->filename = fname;
     pic->clipRect = pic->box;
     
+    
     return pic;
 }
 
 - (void) drawBody: (CGContextRef) context //onLayer: (CALayer *) layer
 {
-    CGContextSaveGState(context);
+    /*CGImageRef img = [pic->picture CGImage];
+    // Compute the image size
+    size_t width  = CGImageGetWidth(img);
+    size_t height = CGImageGetHeight(img);
+     
+    // create a reference to a color space
+    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceGray();
+     
+    // allocate some memory for the bitmap buffer
+    Pixel_8 *bitmap = (Pixel_8 *)malloc(width * height * sizeof(Pixel_8));
+     
+    long bytesPerPixel = 1;
+    long bytesPerRow = bytesPerPixel * width;
+    long bitsPerComponent = 8;
+     
+    // create a context
+    CGContextRef context = CGBitmapContextCreate(bitmap,
+                                                 width,
+                                                 height,
+                                                 bitsPerComponent,
+                                                 bytesPerRow,
+                                                 colorSpace,
+                                                 kCGImageAlphaNone);
+    vImage_Buffer srcBuffer = {bitmap, height, width, bytesPerRow };
+    
+    
+    pic->picture = (UIImage*)&srcBuffer; */
+   CGContextSaveGState(context);
     // clip our image from the atlas
     CGContextBeginPath(context);
     CGContextAddRect(context, clipRect);

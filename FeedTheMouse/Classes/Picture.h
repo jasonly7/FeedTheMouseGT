@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreGraphics/CoreGraphics.h>
 #import <UIKit/UIkit.h>
-
+#import <Accelerate/Accelerate.h>
 #import "Sprite.h"
 
 @interface Picture : Sprite {
