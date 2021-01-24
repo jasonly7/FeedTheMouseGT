@@ -59,6 +59,7 @@
 
 - (void) startAt:(int)level andTime:(double)time withCoins:(int)numOfCoins
 {
+    primarySurface = [[Picture alloc] init];
     mouse = [[Mouse alloc] init];
     cheese = [[Cheese alloc] init];
     chatBubble = [[ChatBubble alloc] init];
@@ -199,8 +200,10 @@
         backgroundFilename = [[NSString alloc] initWithString:curLevel->backgroundFilename];
     }
     backgroundSprite = [Picture fromFile:backgroundFilename];
-    struct vImage_Buffer buf;
-   
+    primarySurface = [Picture fromFile:backgroundFilename];
+    struct vImage_Buffer inputBuffer;
+    struct vImage_Buffer outputBuffer;
+    
     CGImageRef bgImageRef = backgroundSprite->image;
 
     vImage_CGImageFormat format = {
@@ -214,12 +217,19 @@
         .renderingIntent = kCGRenderingIntentDefault
     };
     
-    long error = vImageBuffer_InitWithCGImage(&buf, &format, NULL, bgImageRef, kvImageNoFlags);
+    long error = vImageBuffer_InitWithCGImage(&inputBuffer, &format, NULL, bgImageRef, kvImageNoFlags);
     if (error != kvImageNoError)
-        NSLog(@"Failed to put background image into buffer");
-    backgroundSprite->image = vImageCreateCGImageFromBuffer(&buf, &format, NULL, NULL, kvImageNoFlags, &error);
+        NSLog(@"Failed to put background image into input buffer");
+    backgroundSprite->image = vImageCreateCGImageFromBuffer(&inputBuffer, &format, NULL, NULL, kvImageNoFlags, &error);
+    outputBuffer.data = malloc(sizeof(inputBuffer.data));
+    error = vImageBuffer_Init(&outputBuffer, inputBuffer.height, inputBuffer.width, format.bitsPerPixel, kvImageNoFlags);
+    if (error != kvImageNoError)
+        NSLog(@"Failed to init output buffer");
+    error = vImageCopyBuffer(&inputBuffer, &outputBuffer, 4, kvImageNoFlags);
+    if (error != kvImageNoError)
+        NSLog(@"Failed to put background image into output buffer");
+    primarySurface->image = vImageCreateCGImageFromBuffer(&outputBuffer, &format, NULL, NULL, kvImageNoFlags, &error);
     
-    //[titleViewController->musicTitlePlayer stop];
     pathForMusicFile = [[NSBundle mainBundle] pathForResource:@"sounds/Cute_By_Benjamin_Tissot" ofType:@"mp3"];
     musicFile = [[NSURL alloc] initFileURLWithPath:pathForMusicFile];
     musicPlayer = [AVAudioPlayer alloc];
@@ -279,8 +289,8 @@
         
     CGContextConcatCTM(context,t0);
     
-    [backgroundSprite draw:context at:CGPointMake(0,0)];
-    
+    //[backgroundSprite draw:context at:CGPointMake(0,0)];
+    [primarySurface draw:context at:CGPointMake(0, 0)];
    
     
     if (screenWidth == 1242 )

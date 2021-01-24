@@ -108,7 +108,7 @@ typedef enum {
     PauseMenu *pauseMenu;
     TextSprite *yesText, *noText;
     TextSprite *timerText;
-
+    Picture *primarySurface;
     @public
         NSString *playerName;
         int game_state;
