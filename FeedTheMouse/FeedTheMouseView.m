@@ -200,27 +200,19 @@
     }
     backgroundSprite = [Picture fromFile:backgroundFilename];
     struct vImage_Buffer buf;
-    //buf.data = backgroundSprite->image;
-    //buf.width = backgroundSprite.width;
-   // buf.height = backgroundSprite.height;
-    //buf.rowBytes = backgroundSprite.width * 3;
-    //vImage_CGImageFormat *format;
-    CGImageRef bgImageRef = backgroundSprite->image;//[Picture getPictureImage:backgroundFilename].CGImage;
-    //format->bitmapInfo
-    //kvImageNoError
-    //long error = vImageBuffer_Init(&buf, backgroundSprite->height, backgroundSprite->width, 24, kvImageNoFlags);
+   
+    CGImageRef bgImageRef = backgroundSprite->image;
+
     vImage_CGImageFormat format = {
         .bitsPerComponent = 8,
         .bitsPerPixel = 32,
         .colorSpace = NULL,
-        // (kCGImageAlphaPremultipliedFirst | kCGBitmapByteOrder32Little)
         // requests a BGRA buffer.
         .bitmapInfo = kCGImageAlphaPremultipliedFirst | kCGBitmapByteOrder32Little,
         .version = 0,
         .decode = NULL,
         .renderingIntent = kCGRenderingIntentDefault
     };
-    //error = vImageBuffer_InitWithCGImage(&buf, &format, NULL,backgroundSprite->image , kvImageNoFlags);
     
     long error = vImageBuffer_InitWithCGImage(&buf, &format, NULL, bgImageRef, kvImageNoFlags);
     if (error != kvImageNoError)
@@ -1510,21 +1502,39 @@
         }
         
         flippers = [curLevel getFlippers];
-       // printf("teeter count: %d\n", teeterTotters.count);
-       /* cheese->gears = gears;
-        cheese->drums = drums;
-        cheese->teeterTotters = teeterTotters;
+
         NSString *backgroundFilename;
         if (screenWidth == 1242)
         {
             backgroundFilename = [[NSString alloc] initWithString:@"big_"];
             backgroundFilename = [backgroundFilename stringByAppendingString:curLevel->backgroundFilename];
+            backgroundFilename = [backgroundFilename stringByDeletingPathExtension];
+            backgroundFilename = [backgroundFilename stringByAppendingString:@".jpg"];
         }
         else
         {
             backgroundFilename = [[NSString alloc] initWithString:curLevel->backgroundFilename];
         }
-        backgroundSprite = [Picture fromFile:backgroundFilename];*/
+        backgroundSprite = [Picture fromFile:backgroundFilename];
+        struct vImage_Buffer buf;
+       
+        CGImageRef bgImageRef = backgroundSprite->image;
+
+        vImage_CGImageFormat format = {
+            .bitsPerComponent = 8,
+            .bitsPerPixel = 32,
+            .colorSpace = NULL,
+            // requests a BGRA buffer.
+            .bitmapInfo = kCGImageAlphaPremultipliedFirst | kCGBitmapByteOrder32Little,
+            .version = 0,
+            .decode = NULL,
+            .renderingIntent = kCGRenderingIntentDefault
+        };
+        
+        long error = vImageBuffer_InitWithCGImage(&buf, &format, NULL, bgImageRef, kvImageNoFlags);
+        if (error != kvImageNoError)
+            NSLog(@"Failed to put background image into buffer");
+        backgroundSprite->image = vImageCreateCGImageFromBuffer(&buf, &format, NULL, NULL, kvImageNoFlags, &error);
         
         [cheese->world->removedCoins removeAllObjects];
         //message = @"Tap Here To Start";
