@@ -27,7 +27,7 @@
     return sharedSpriteDictionary;
 }
 
-+ (UIImage *) getPictureImage:(NSString *)name
++ (CGImageRef *) getPictureImage:(NSString *)name
 {
     NSMutableDictionary *d = [Picture sharedSpriteAtlas];
     UIImage *img = [d objectForKey:name];
@@ -50,39 +50,27 @@
     pic->filename = fname;
     pic->clipRect = pic->box;
     
-    
     return pic;
 }
 
+/*+ (UIImage *) fromImageFile: (NSString *)fname
+{
+    Picture *pic = [[Picture alloc] init];
+    pic->picture = [[Picture getPictureImage:fname] retain];
+    CGImageRef img = [pic->picture CGImage];
+    pic->image = img;
+    pic->width = CGImageGetWidth(pic->image);
+    pic->height = CGImageGetHeight(pic->image);
+    pic->box = CGRectMake(0, 0, pic->width, pic->height);
+    pic->filename = fname;
+    pic->clipRect = pic->box;
+    
+    return pic->image;
+}*/
+
 - (void) drawBody: (CGContextRef) context //onLayer: (CALayer *) layer
 {
-    /*CGImageRef img = [pic->picture CGImage];
-    // Compute the image size
-    size_t width  = CGImageGetWidth(img);
-    size_t height = CGImageGetHeight(img);
-     
-    // create a reference to a color space
-    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceGray();
-     
-    // allocate some memory for the bitmap buffer
-    Pixel_8 *bitmap = (Pixel_8 *)malloc(width * height * sizeof(Pixel_8));
-     
-    long bytesPerPixel = 1;
-    long bytesPerRow = bytesPerPixel * width;
-    long bitsPerComponent = 8;
-     
-    // create a context
-    CGContextRef context = CGBitmapContextCreate(bitmap,
-                                                 width,
-                                                 height,
-                                                 bitsPerComponent,
-                                                 bytesPerRow,
-                                                 colorSpace,
-                                                 kCGImageAlphaNone);
-    vImage_Buffer srcBuffer = {bitmap, height, width, bytesPerRow };
-    
-    
-    pic->picture = (UIImage*)&srcBuffer; */
+   
    CGContextSaveGState(context);
     // clip our image from the atlas
     CGContextBeginPath(context);

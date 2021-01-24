@@ -86,8 +86,8 @@
 
 - (void) drawBody: (CGContextRef) context
 {
-    int r0 = floor(frame/columns);
-    int c0 = frame - columns * r0;
+    int r0 = floor(frame/columns); // row
+    int c0 = frame - columns * r0;  // (u,v) center of sprite frame
     CGFloat u = c0 * width + w2;
     CGFloat v = atlasHeight - (r0*height + h2);     // within the atlas
     
@@ -95,7 +95,7 @@
     CGContextBeginPath(context);
     CGContextAddRect(context, clipRect);
     CGContextClip(context);
-    CGContextDrawImage(context, CGRectMake(-u,-v, atlasWidth, atlasHeight), image);
+    CGContextDrawImage(context, CGRectMake(-u,-v, atlasWidth, atlasHeight), image); // draws at center, pg 117 in book
 }
 
 - (id) init

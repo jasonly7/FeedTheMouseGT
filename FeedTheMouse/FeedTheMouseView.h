@@ -43,7 +43,7 @@ typedef enum {
     IBOutlet UILabel *fpsLabel;
     
     Sprite *mouseSprite;
-    Sprite *backgroundSprite;
+    Picture *backgroundSprite;
     
     Cheese *cheese;
     Mouse *mouse;

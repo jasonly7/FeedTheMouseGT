@@ -191,13 +191,41 @@
     {
         backgroundFilename = [[NSString alloc] initWithString:@"big_"];
         backgroundFilename = [backgroundFilename stringByAppendingString:curLevel->backgroundFilename];
+        backgroundFilename = [backgroundFilename stringByDeletingPathExtension];
+        backgroundFilename = [backgroundFilename stringByAppendingString:@".jpg"];
     }
     else
     {
         backgroundFilename = [[NSString alloc] initWithString:curLevel->backgroundFilename];
     }
     backgroundSprite = [Picture fromFile:backgroundFilename];
+    struct vImage_Buffer buf;
+    //buf.data = backgroundSprite->image;
+    //buf.width = backgroundSprite.width;
+   // buf.height = backgroundSprite.height;
+    //buf.rowBytes = backgroundSprite.width * 3;
+    //vImage_CGImageFormat *format;
+    CGImageRef bgImageRef = backgroundSprite->image;//[Picture getPictureImage:backgroundFilename].CGImage;
+    //format->bitmapInfo
+    //kvImageNoError
+    //long error = vImageBuffer_Init(&buf, backgroundSprite->height, backgroundSprite->width, 24, kvImageNoFlags);
+    vImage_CGImageFormat format = {
+        .bitsPerComponent = 8,
+        .bitsPerPixel = 32,
+        .colorSpace = NULL,
+        // (kCGImageAlphaPremultipliedFirst | kCGBitmapByteOrder32Little)
+        // requests a BGRA buffer.
+        .bitmapInfo = kCGImageAlphaPremultipliedFirst | kCGBitmapByteOrder32Little,
+        .version = 0,
+        .decode = NULL,
+        .renderingIntent = kCGRenderingIntentDefault
+    };
+    //error = vImageBuffer_InitWithCGImage(&buf, &format, NULL,backgroundSprite->image , kvImageNoFlags);
     
+    long error = vImageBuffer_InitWithCGImage(&buf, &format, NULL, bgImageRef, kvImageNoFlags);
+    if (error != kvImageNoError)
+        NSLog(@"Failed to put background image into buffer");
+    backgroundSprite->image = vImageCreateCGImageFromBuffer(&buf, &format, NULL, NULL, kvImageNoFlags, &error);
     
     //[titleViewController->musicTitlePlayer stop];
     pathForMusicFile = [[NSBundle mainBundle] pathForResource:@"sounds/Cute_By_Benjamin_Tissot" ofType:@"mp3"];
@@ -1485,7 +1513,7 @@
        // printf("teeter count: %d\n", teeterTotters.count);
        /* cheese->gears = gears;
         cheese->drums = drums;
-        cheese->teeterTotters = teeterTotters;*/
+        cheese->teeterTotters = teeterTotters;
         NSString *backgroundFilename;
         if (screenWidth == 1242)
         {
@@ -1496,7 +1524,8 @@
         {
             backgroundFilename = [[NSString alloc] initWithString:curLevel->backgroundFilename];
         }
-        backgroundSprite = [Picture fromFile:backgroundFilename];
+        backgroundSprite = [Picture fromFile:backgroundFilename];*/
+        
         [cheese->world->removedCoins removeAllObjects];
         //message = @"Tap Here To Start";
         if (currentLevelNumber == 1)

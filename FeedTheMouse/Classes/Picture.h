@@ -15,7 +15,7 @@
 @interface Picture : Sprite {
    
     
-
+@public
     CGLayerRef layerReference;
     CGContextRef *contextReference;
     CGContextRef layerContext;
@@ -29,6 +29,7 @@
 @property (assign) CGImageRef image;
 
 + (Picture *) fromFile: (NSString *) fname;
+//+ (CGImageRef *) fromImageFile: (NSString *) fname;
 + (NSMutableDictionary *) sharedSpriteAtlas;
 + (UIImage *) getPictureImage: (NSString *) name;
 - (void) draw: (CGContextRef) context resizeTo: (CGSize) scale;
