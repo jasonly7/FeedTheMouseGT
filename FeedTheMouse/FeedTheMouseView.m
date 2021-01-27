@@ -289,7 +289,7 @@
         
     CGContextConcatCTM(context,t0);
     
-    //[backgroundSprite draw:context at:CGPointMake(0,0)];
+    
     [primarySurface draw:context at:CGPointMake(0, 0)];
    
     
@@ -297,8 +297,12 @@
     {
         t0 = CGAffineTransformScale(t0, sx, sy);
     }
+    else
+    {
+        [backgroundSprite draw:context at:CGPointMake(0,0)];
+    }
 
-    [mouse draw:context];
+   // [mouse draw:context];
     
     t0 = CGContextGetCTM(context);
     t0 = CGAffineTransformTranslate(t0, cheese->cheeseSprite.x+cheese->cheeseSprite.width/2,cheese->cheeseSprite.y+cheese->cheeseSprite.height/2);
@@ -353,9 +357,85 @@
     if (cheese)
     {
         if (game_state != GAME_CONTINUE)
-            [cheese draw: context];
+        {
+            /*if (screenWidth == 1242)
+            {
+                struct vImage_Buffer inputBuffer;
+                struct vImage_Buffer outputBuffer;
+                
+                CGImageRef bgImageRef = backgroundSprite->image;
+                CGImageRef cheeseImageRef = cheese->cheeseSprite->image;
+                vImage_CGImageFormat format = {
+                    .bitsPerComponent = 8,
+                    .bitsPerPixel = 32,
+                    .colorSpace = NULL,
+                    // requests a BGRA buffer.
+                    .bitmapInfo = kCGImageAlphaPremultipliedFirst | kCGBitmapByteOrder32Little,
+                    .version = 0,
+                    .decode = NULL,
+                    .renderingIntent = kCGRenderingIntentDefault
+                };
+                
+                long error = vImageBuffer_InitWithCGImage(&outputBuffer, &format, NULL, bgImageRef, kvImageNoFlags);
+                if (error != kvImageNoError)
+                    NSLog(@"Failed to put background image into output buffer");
+                
+                
+                error = vImageBuffer_InitWithCGImage(&inputBuffer, &format, NULL, cheeseImageRef, kvImageNoFlags);
+                if (error != kvImageNoError)
+                    NSLog(@"Failed to put background image into input buffer");
+                //outputBuffer.data = malloc(sizeof(inputBuffer.data));
+                
+                Byte *data = (Byte*)inputBuffer.data;
+                
+                int j = 0, k = 0;
+                
+                for(vImagePixelCount i = 0; i < inputBuffer.rowBytes * inputBuffer.height ; i+=4) {
+                     
+                    unsigned long x,y;
+                    //unsigned long j = (unsigned long)(cheese->x*sx) + i;
+                    y = i / inputBuffer.rowBytes;
+                  
+                    x = ( i % inputBuffer.rowBytes ) >> 2;
+                      
+                    if (x >= inputBuffer.width)
+                        continue;
+                    
+                    if ((cheese->x - cheese->cheeseSprite.width) < backgroundSprite.width && (cheese->x + cheese->cheeseSprite.width) > 0 &&
+                        (cheese->y + cheese->cheeseSprite.height) < backgroundSprite.height && (cheese->y - cheese->cheeseSprite.height) > 0)
+                    {
+                        unsigned long outputI = (y + (unsigned long)(backgroundSprite.height - cheese->y-cheese->cheeseSprite.height/2)) * outputBuffer.rowBytes + ((x << 2) + (unsigned long)((int)(cheese->x-cheese->cheeseSprite.width/2) << 2));
+                       // int outputI = i;
+                        Byte R = (Byte)data[i];
+                        Byte G = (Byte)data[i + 1];
+                        Byte B = (Byte)data[i + 2];
+                        Byte A = (Byte)data[i + 3];
+                        //NSLog(@"1: (%d) %d, %d, %d, %d", i, R,G,B,A);
+                        
+                        if (A>127)
+                        {
+                            ((Byte*)outputBuffer.data)[outputI] = R;
+                
+                            ((Byte*)outputBuffer.data)[outputI + 1] = G;
+                    
+                            ((Byte*)outputBuffer.data)[outputI + 2] = B;
+                           
+                            ((Byte*)outputBuffer.data)[outputI + 3] = A;
+                        }
+                    }
+                }
+               
+                primarySurface->image = vImageCreateCGImageFromBuffer(&outputBuffer, &format, NULL, NULL, kvImageNoFlags, &error);
+                [primarySurface draw:context at:CGPointMake(0, 0)];
+            }
+            else
+            {*/
+                [cheese draw: context];
+            //}
+        }
+        
     }
-   
+    [mouse draw:context];
     if (DEBUG)
     {
         CGContextBeginPath(context);

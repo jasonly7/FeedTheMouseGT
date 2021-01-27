@@ -92,7 +92,7 @@
         if (screenWidth == 1242)
         {
             cheeseSprite = [Picture fromFile:@"bigCheese.png"];
-            accel = -10*UNIT;
+            accel = -10*UNIT*sy;
             x = (cheeseSprite.x + cheeseSprite.width/2);
             y = (cheeseSprite.y + cheeseSprite.height/2);
         }

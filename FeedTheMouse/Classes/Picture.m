@@ -78,7 +78,7 @@
     
     CGContextClip(context);
 
-    if (layerReference==nil)
+    if (layerReference==nil)// || box.size.width == 1242)
     {
         layerReference = CGLayerCreateWithContext(context, box.size, NULL);
 

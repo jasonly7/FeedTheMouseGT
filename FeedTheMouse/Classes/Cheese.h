@@ -49,7 +49,7 @@
         Vector *initVel;
         Vector *bounceVel;
         Line *slidingLine;
-        Sprite *cheeseSprite;
+        Picture *cheeseSprite;
         NSMutableArray *gears;
         NSMutableArray *drums;
         NSMutableArray *bombs;

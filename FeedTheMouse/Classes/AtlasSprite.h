@@ -16,10 +16,12 @@
     CGFloat atlasWidth;     // width of the whole spritesheet
     CGFloat atlasHeight;
     UIImage *atlas;         // atlas containing all images of this sprite
-    CGImageRef image;       // a Quartz reference to the image
+    
     CGRect clipRect;        // a clip rectangle
     int rows;               // how many rows are in the atlas
     int columns;            // how many columns are in the atlas
+    @public
+        CGImageRef image;       // a Quartz reference to the image
 }
 
 @property (assign) CGFloat w2, h2, atlasWidth, atlasHeight;
