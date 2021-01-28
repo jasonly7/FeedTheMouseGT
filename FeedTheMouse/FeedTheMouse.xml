@@ -193,8 +193,8 @@
     <Level>
         <Background>background_1.png</Background>
         <Mouse>
-            <X>478</X>
-            <Y>121</Y>
+            <X>538</X>
+            <Y>112</Y>
         </Mouse>
         <Coin>
             <X>485</X>
@@ -271,8 +271,8 @@
     <Level>
         <Background>background_2.png</Background>
         <Mouse>
-            <X>511</X>
-            <Y>123</Y>
+            <X>549</X>
+            <Y>140</Y>
         </Mouse>
         <Coin>
             <X>176</X>
@@ -303,8 +303,8 @@
             <Y>380</Y>
         </Coin>
         <Coin>
-            <X>243</X>
-            <Y>135</Y>
+            <X>288</X>
+            <Y>124</Y>
         </Coin>
         <Coin>
             <X>84</X>
@@ -346,8 +346,8 @@
             <ANGLE>0.000000</ANGLE>
         </Bomb>
         <Bomb>
-            <X>390</X>
-            <Y>156</Y>
+            <X>384</X>
+            <Y>217</Y>
             <ANGLE>0.000000</ANGLE>
         </Bomb>
     </Level>
@@ -435,8 +435,8 @@
             <ANGLE>0.000000</ANGLE>
         </Bomb>
         <Bomb>
-            <X>378</X>
-            <Y>370</Y>
+            <X>375</X>
+            <Y>397</Y>
             <ANGLE>0.000000</ANGLE>
         </Bomb>
     </Level>
@@ -489,8 +489,8 @@
             <ANGLE>0.000000</ANGLE>
         </Bomb>
         <Bomb>
-            <X>552</X>
-            <Y>777</Y>
+            <X>594</X>
+            <Y>781</Y>
             <ANGLE>0.000000</ANGLE>
         </Bomb>
         <Bomb>
@@ -603,7 +603,7 @@
             <ANGLE>0.000000</ANGLE>
         </Bomb>
         <Bomb>
-            <X>565</X>
+            <X>590</X>
             <Y>818</Y>
             <ANGLE>0.000000</ANGLE>
         </Bomb>
@@ -653,8 +653,8 @@
             <Y>712</Y>
         </Coin>
         <Coin>
-            <X>292</X>
-            <Y>484</Y>
+            <X>318</X>
+            <Y>472</Y>
         </Coin>
         <Coin>
             <X>168</X>
@@ -689,8 +689,8 @@
             <Y>453</Y>
         </Coin>
         <Drum>
-            <X>148</X>
-            <Y>494</Y>
+            <X>165</X>
+            <Y>519</Y>
             <ANGLE>-32.498978</ANGLE>
         </Drum>
         <Drum>
@@ -797,8 +797,8 @@
             <Color>blue</Color>
         </Gear>
         <Bomb>
-            <X>507</X>
-            <Y>729</Y>
+            <X>565</X>
+            <Y>722</Y>
             <ANGLE>0.000000</ANGLE>
         </Bomb>
         <Bomb>
@@ -822,13 +822,13 @@
             <ANGLE>0.000000</ANGLE>
         </Bomb>
         <Bomb>
-            <X>438</X>
+            <X>473</X>
             <Y>852</Y>
             <ANGLE>0.000000</ANGLE>
         </Bomb>
         <Bomb>
-            <X>477</X>
-            <Y>437</Y>
+            <X>580</X>
+            <Y>390</Y>
             <ANGLE>0.000000</ANGLE>
         </Bomb>
         <TeeterTotter>
@@ -850,8 +850,8 @@
     <Level>
         <Background>background_3.png</Background>
         <Mouse>
-            <X>496</X>
-            <Y>112</Y>
+            <X>536</X>
+            <Y>113</Y>
         </Mouse>
         <Coin>
             <X>165</X>
@@ -886,8 +886,8 @@
             <Y>222</Y>
         </Coin>
         <Coin>
-            <X>222</X>
-            <Y>137</Y>
+            <X>161</X>
+            <Y>422</Y>
         </Coin>
         <Gear>
             <X>218</X>
@@ -905,8 +905,8 @@
             <ANGLE>-33.192551</ANGLE>
         </Drum>
         <Bomb>
-            <X>137</X>
-            <Y>416</Y>
+            <X>232</X>
+            <Y>129</Y>
             <ANGLE>0.000000</ANGLE>
         </Bomb>
         <Bomb>
@@ -984,8 +984,8 @@
             <Y>189</Y>
         </Coin>
         <Coin>
-            <X>215</X>
-            <Y>128</Y>
+            <X>366</X>
+            <Y>158</Y>
         </Coin>
         <Gear>
             <X>232</X>
@@ -1023,8 +1023,8 @@
             <ANGLE>0.000000</ANGLE>
         </Bomb>
         <Bomb>
-            <X>549</X>
-            <Y>300</Y>
+            <X>567</X>
+            <Y>271</Y>
             <ANGLE>0.000000</ANGLE>
         </Bomb>
         <Bomb>
@@ -1043,8 +1043,8 @@
             <Color>blue</Color>
         </TeeterTotter>
         <TeeterTotter>
-            <X>471</X>
-            <Y>391</Y>
+            <X>522</X>
+            <Y>380</Y>
             <Color>orange</Color>
         </TeeterTotter>
     </Level>
@@ -1087,8 +1087,8 @@
             <Y>536</Y>
         </Coin>
         <Coin>
-            <X>226</X>
-            <Y>142</Y>
+            <X>54</X>
+            <Y>460</Y>
         </Coin>
         <Coin>
             <X>60</X>
@@ -1208,8 +1208,8 @@
             <ANGLE>-39.469284</ANGLE>
         </Drum>
         <Drum>
-            <X>420</X>
-            <Y>760</Y>
+            <X>466</X>
+            <Y>768</Y>
             <ANGLE>43.102081</ANGLE>
         </Drum>
         <Drum>
@@ -1256,8 +1256,8 @@
     <Level>
         <Background>background_3.png</Background>
         <Mouse>
-            <X>499</X>
-            <Y>116</Y>
+            <X>536</X>
+            <Y>123</Y>
         </Mouse>
         <Coin>
             <X>288</X>
@@ -1268,8 +1268,8 @@
             <Y>437</Y>
         </Coin>
         <Coin>
-            <X>233</X>
-            <Y>364</Y>
+            <X>310</X>
+            <Y>324</Y>
         </Coin>
         <Coin>
             <X>527</X>
@@ -1288,12 +1288,12 @@
             <Y>774</Y>
         </Coin>
         <Coin>
-            <X>65</X>
-            <Y>239</Y>
+            <X>439</X>
+            <Y>683</Y>
         </Coin>
         <Coin>
-            <X>192</X>
-            <Y>130</Y>
+            <X>572</X>
+            <Y>872</Y>
         </Coin>
         <Gear>
             <X>317</X>
@@ -1301,8 +1301,8 @@
             <Color>purple</Color>
         </Gear>
         <Drum>
-            <X>457</X>
-            <Y>601</Y>
+            <X>472</X>
+            <Y>595</Y>
             <ANGLE>44.487549</ANGLE>
         </Drum>
         <Drum>
@@ -1311,18 +1311,18 @@
             <ANGLE>-35.256210</ANGLE>
         </Drum>
         <Drum>
-            <X>273</X>
-            <Y>210</Y>
+            <X>274</X>
+            <Y>229</Y>
             <ANGLE>-35.818115</ANGLE>
         </Drum>
         <Bomb>
-            <X>133</X>
-            <Y>324</Y>
+            <X>208</X>
+            <Y>129</Y>
             <ANGLE>0.000000</ANGLE>
         </Bomb>
         <Bomb>
-            <X>470</X>
-            <Y>710</Y>
+            <X>48</X>
+            <Y>305</Y>
             <ANGLE>0.000000</ANGLE>
         </Bomb>
         <Bomb>
@@ -1336,8 +1336,8 @@
             <ANGLE>0.000000</ANGLE>
         </Bomb>
         <Bomb>
-            <X>304</X>
-            <Y>302</Y>
+            <X>191</X>
+            <Y>390</Y>
             <ANGLE>0.000000</ANGLE>
         </Bomb>
         <Bomb>
@@ -1351,8 +1351,8 @@
             <ANGLE>0.000000</ANGLE>
         </Bomb>
         <Bomb>
-            <X>567</X>
-            <Y>850</Y>
+            <X>137</X>
+            <Y>272</Y>
             <ANGLE>0.000000</ANGLE>
         </Bomb>
         <Bomb>
@@ -1397,8 +1397,8 @@
             <Y>201</Y>
         </Coin>
         <Coin>
-            <X>231</X>
-            <Y>127</Y>
+            <X>474</X>
+            <Y>226</Y>
         </Coin>
         <Coin>
             <X>577</X>
@@ -1429,8 +1429,8 @@
             <ANGLE>-37.276230</ANGLE>
         </Drum>
         <Bomb>
-            <X>401</X>
-            <Y>125</Y>
+            <X>366</X>
+            <Y>120</Y>
             <ANGLE>0.000000</ANGLE>
         </Bomb>
         <Bomb>
@@ -1444,8 +1444,8 @@
             <ANGLE>0.000000</ANGLE>
         </Bomb>
         <Bomb>
-            <X>490</X>
-            <Y>252</Y>
+            <X>235</X>
+            <Y>118</Y>
             <ANGLE>0.000000</ANGLE>
         </Bomb>
         <Bomb>
