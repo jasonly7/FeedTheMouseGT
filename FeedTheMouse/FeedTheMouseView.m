@@ -290,12 +290,13 @@
     CGContextConcatCTM(context,t0);
     
     
-    [primarySurface draw:context at:CGPointMake(0, 0)];
+    
    
     
     if (screenWidth == 1242 )
     {
         t0 = CGAffineTransformScale(t0, sx, sy);
+        [primarySurface draw:context at:CGPointMake(0, 0)];
     }
     else
     {
@@ -1951,6 +1952,10 @@ void cleanRemoveFromSuperview( UIView * view ) {
         {
             if (game_state == GAME_RUNNING)
             {
+                /*if (cheese == nil)
+                {
+                    cheese = [[Cheese alloc] init];
+                }*/
                 if ([playerName isEqualToString:@"cheat"])
                 {
                     cheese->colPackage->foundCollision = false;

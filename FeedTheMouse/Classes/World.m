@@ -34,6 +34,8 @@
 }
 - (void)checkCollision :( CollisionPacket **) colPackage
 {
+    if (cheese==nil)
+        return;
     cheese->colPackage->foundCollision = false;
     cheese->colPackage->collidedObj = nil;
     cheese->colPackage->state = COLLISION_NONE;
@@ -189,11 +191,12 @@
                 NSString *pathForBombSoundFile = [[NSBundle mainBundle] pathForResource:@"sounds/bomb" ofType:@"wav"];
                 [sndMan playSound:pathForBombSoundFile];
                // [mouse openMouth];
-                //[cheese release];
-                //[cheese dealloc];
+                
                 
                 cheese->colPackage->state = COLLISION_EXPLODE;
-                cheese = nil;
+                //[cheese release];
+               // [cheese dealloc];
+                //cheese = nil;
                 break;
             }
         }
