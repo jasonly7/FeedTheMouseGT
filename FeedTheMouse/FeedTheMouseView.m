@@ -356,7 +356,7 @@
     CGContextConcatCTM(context,t0);
     if (cheese)
     {
-        if (game_state != GAME_CONTINUE)
+        if (game_state != GAME_CONTINUE && game_state!=GAME_OVER)
         {
             /*if (screenWidth == 1242)
             {
@@ -639,6 +639,7 @@
             boom->x = boom->boomSprite->x = bx - boom->boomSprite.width/2;
             boom->y = boom->boomSprite->y = by - boom->boomSprite.height/2;
             [boom draw:context];
+            
         }
         
         if (DEBUG)
@@ -1676,14 +1677,16 @@
             if (cheese->numOfLives <= 0)
             {
                 //[InneractiveAd DisplayAd:@"test" withType:IaAdType_Banner withRoot:self.view withReload:60];
-                if (cheese->world->numOfCoins < 25)
+                if (cheese->world->numOfCoins < 5)
                 {
                     game_state = GAME_OVER;
+                   
                 }
                 else
                     game_state = GAME_CONTINUE;
             }
         }
+        
     }
     for (int i=0; i < [teeterTotters count]; i++)
     {
@@ -1792,7 +1795,14 @@
             {
                 [cheese collideAndSlide:interpolation];
             }
-            if (cheese->colPackage->state!=COLLISION_EXPLODE)
+            if (cheese->colPackage->state==COLLISION_EXPLODE)
+            {
+                cheese->x = -cheese->cheeseSprite.width*sx*screenScale;
+                cheese->pos->x = cheese->x;
+                cheese->y = -cheese->cheeseSprite.height*sy*screenScale;
+                cheese->pos->y = cheese->y;                
+            }
+            else
             {
                 [cheese fall:interpolation];
             }
@@ -2021,7 +2031,7 @@ void cleanRemoveFromSuperview( UIView * view ) {
                 game_state = GAME_RUNNING;
                 [musicPlayer stop];
                 [timer invalidate];
-                int numOfCoins = cheese->world->numOfCoins-25;
+                int numOfCoins = cheese->world->numOfCoins-5;
                 /*if (numOfCoins < 0)
                     numOfCoins = 0;
                 if (numOfCoins > 0)*/

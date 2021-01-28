@@ -3374,7 +3374,9 @@ const float unitsPerMeter = 1000.0f;
     [world checkCollision:&(colPackage)];
     if (colPackage->state == COLLISION_EXPLODE)
     {
-        [position setVector:zeroVector];
+        Vector *offScreenVector = [[Vector alloc] init];
+        [offScreenVector initializeVectorX:-cheeseSprite.width andY:-cheeseSprite.height];
+        [position setVector:offScreenVector];
         return position;        
     }
     

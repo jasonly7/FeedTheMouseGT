@@ -191,9 +191,9 @@
                // [mouse openMouth];
                 //[cheese release];
                 //[cheese dealloc];
-               // cheese = nil;
-                cheese->colPackage->state = COLLISION_EXPLODE;
                 
+                cheese->colPackage->state = COLLISION_EXPLODE;
+                cheese = nil;
                 break;
             }
         }

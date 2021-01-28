@@ -139,6 +139,7 @@ static int kExplosion[] = {0,1,2,3,4,5,6,7};
     {
         frame = 0;
         state = BOMB_GONE;
+        
     }
 }
 
