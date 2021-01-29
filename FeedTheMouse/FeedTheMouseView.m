@@ -303,7 +303,7 @@
         [backgroundSprite draw:context at:CGPointMake(0,0)];
     }
 
-   // [mouse draw:context];
+    [mouse draw:context];
     
     t0 = CGContextGetCTM(context);
     t0 = CGAffineTransformTranslate(t0, cheese->cheeseSprite.x+cheese->cheeseSprite.width/2,cheese->cheeseSprite.y+cheese->cheeseSprite.height/2);
@@ -436,7 +436,7 @@
         }
         
     }
-    [mouse draw:context];
+   // [mouse draw:context];
     if (DEBUG)
     {
         CGContextBeginPath(context);
@@ -1413,7 +1413,7 @@
         fakeGameOverText.y = 1000;
         if (screenWidth == 1242)
             fakeGameOverText.y = self.bounds.size.height*screenScale - 136;
-        [(TextSprite *) fakeGameOverText setFontSize:24];
+        [(TextSprite *) fakeGameOverText setFontSize:48];
         [fakeGameOverText drawBody:context on:self.bounds];
         CGContextRestoreGState(context);
         
@@ -1427,7 +1427,7 @@
             txtGameOver.x = self.bounds.size.width*screenScale/2 - fakeGameOverText.width/2*screenScale;
             txtGameOver.y = self.bounds.size.height*screenScale/2+fakeGameOverText.height/2*screenScale;
         }
-        [(TextSprite *) txtGameOver setFontSize:24];
+        [(TextSprite *) txtGameOver setFontSize:48];
         [txtGameOver drawBody:context on:self.bounds];
         CGContextRestoreGState(context);
     }
@@ -1440,7 +1440,7 @@
         fakeContinueText.y = 1000;
         if (screenWidth == 1242)
             fakeContinueText.y = self.bounds.size.height*screenScale - 136;
-        [(TextSprite *) fakeContinueText setFontSize:24];
+        [(TextSprite *) fakeContinueText setFontSize:32];
         [fakeContinueText drawBody:context on:self.bounds];
         CGContextRestoreGState(context);
         
@@ -1454,7 +1454,7 @@
             continueText.x = self.bounds.size.width*screenScale/2 - fakeContinueText.width/2*screenScale;
             continueText.y = self.bounds.size.height*screenScale/2+fakeContinueText.height/2*screenScale;
         }
-        [(TextSprite *) continueText setFontSize:24];
+        [(TextSprite *) continueText setFontSize:32];
         [continueText drawBody:context on:self.bounds];
         CGContextRestoreGState(context);
         
@@ -1471,12 +1471,23 @@
         
         CGContextSaveGState(context);
         CGContextSetTextMatrix(context, CGAffineTransformIdentity);
+        TextSprite *fakeNoText = [TextSprite withString:@"NO"];
+        fakeNoText.x = screenWidth;
+        fakeNoText.y = 1000;
+        if (screenWidth == 1242)
+            fakeNoText.y = self.bounds.size.height*screenScale - 136;
+        [(TextSprite *) fakeYesText setFontSize:24];
+        [fakeNoText drawBody:context on:self.bounds];
+        CGContextRestoreGState(context);
+        
+        CGContextSaveGState(context);
+        CGContextSetTextMatrix(context, CGAffineTransformIdentity);
         yesText = [TextSprite withString:@"YES"];
-        yesText.x = 320 - fakeYesText.width*2*screenScale/sx;
+        yesText.x = 320/2 - fakeYesText.width/2*screenScale/sx;
         yesText.y = self.bounds.size.height/2*screenScale/sy-fakeYesText.height*screenScale/sy;
         if (screenWidth == 1242)
         {
-            yesText.x = self.bounds.size.width*screenScale/2 - fakeYesText.width*2*screenScale;
+            yesText.x = (self.bounds.size.width*screenScale/4) - fakeYesText.width/2*screenScale;
             yesText.y = self.bounds.size.height*screenScale/2 - fakeYesText.height/2*screenScale;
         }
         [(TextSprite *) continueText setFontSize:24];
@@ -1486,12 +1497,12 @@
         CGContextSaveGState(context);
         CGContextSetTextMatrix(context, CGAffineTransformIdentity);
         noText = [TextSprite withString:@"NO"];
-        noText.x = 320 + fakeYesText.width*2*screenScale/sx;
+        noText.x = 480 - fakeNoText.width/2*screenScale/sx;
         noText.y = yesText.y;
         if (screenWidth == 1242)
         {
-            noText.x = self.bounds.size.width*screenScale/2 + fakeYesText.width*2*screenScale;
-            noText.y = self.bounds.size.height*screenScale/2 - fakeYesText.height/2*screenScale;
+            noText.x = 3*(self.bounds.size.width*screenScale/4) - fakeNoText.width/2*screenScale;
+            noText.y = self.bounds.size.height*screenScale/2 - fakeNoText.height/2*screenScale;
         }
         [(TextSprite *) continueText setFontSize:24];
         [noText drawBody:context on:self.bounds];
