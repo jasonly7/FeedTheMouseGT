@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 {
     @public
         Sprite *boomSprite;
+        float lifespan;
 }
 
 - (void) draw: (CGContextRef) context;

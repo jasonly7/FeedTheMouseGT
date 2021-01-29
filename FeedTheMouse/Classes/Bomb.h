@@ -33,6 +33,7 @@ typedef enum {
     int frame;
     float screenWidth;
     float screenHeight;
+    float lifespan;
 }
 
 - (Bomb*) initializeBombAtX:(float) xLocation andY: (float)yLocation andAngle: (float)newAngle;

@@ -635,7 +635,7 @@
          CGContextConcatCTM(context,t0);
        
         [bomb draw:context];
-        if (bomb->state == BOMB_EXPLODE)
+        if ((bomb->state == BOMB_EXPLODE || bomb->state == BOMB_GONE) && bomb->lifespan > 0)
         {
             boom->x = boom->boomSprite->x = bx - boom->boomSprite.width/2;
             boom->y = boom->boomSprite->y = by - boom->boomSprite.height/2;

@@ -38,6 +38,7 @@ static int kExplosion[] = {0,1,2,3,4,5,6,7};
         [self setY:0];
         angle = 0;
         state = BOMB_WAIT;
+        lifespan = 1;
     }
     return self;
 }
@@ -121,6 +122,8 @@ static int kExplosion[] = {0,1,2,3,4,5,6,7};
         [self updateWait];
     else if (state == BOMB_EXPLODE)
         [self updateExplosion];
+    else if (state == BOMB_GONE)
+        lifespan-=0.1;
    
         
 }
@@ -139,7 +142,6 @@ static int kExplosion[] = {0,1,2,3,4,5,6,7};
     {
         frame = 0;
         state = BOMB_GONE;
-        
     }
 }
 
