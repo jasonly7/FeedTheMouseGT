@@ -1767,6 +1767,7 @@
             NSLog(@"interpolation: %f", interpolation);
         }
         loops = 0;
+        delta_tick = -[lastDate timeIntervalSinceNow] - cur_game_tick;
         cur_game_tick = -[lastDate timeIntervalSinceNow];
         while (cur_game_tick > next_game_tick && loops < MAX_FRAMESKIP)
         {
@@ -1817,7 +1818,7 @@
         next_game_tick = cur_game_tick;
         if ( game_state == GAME_RUNNING)
         {
-            total_time+=interpolation;
+            total_time+= delta_tick;
             if (DEBUG)
                 printf("interp: %f\n", interpolation);
             if (cheese->colPackage->state!=COLLISION_EXPLODE)
