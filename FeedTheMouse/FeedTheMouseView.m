@@ -540,8 +540,8 @@
     CGContextConcatCTM(context,t0);
     t0 = CGAffineTransformIdentity;
 
-    if (DEBUG)
-        NSLog(@"coinSprite.y: %f", coin->coinSprite.y);
+    //if (DEBUG)
+      //  NSLog(@"coinSprite.y: %f", coin->coinSprite.y);
     t0= CGAffineTransformTranslate(t0,cx,cy );
     if (screenWidth == 1242)
         t0 = CGAffineTransformScale(t0,1,1);
@@ -1485,12 +1485,27 @@
         yesText = [TextSprite withString:@"YES"];
         yesText.x = 320/2 - fakeYesText.width/2*screenScale/sx;
         yesText.y = self.bounds.size.height/2*screenScale/sy-fakeYesText.height*screenScale/sy;
+        //float xVal = yesText.x*sx/(self.bounds.size.width*screenScale);
+        //xVal = xVal/(self.bounds.size.width*screenScale);
+        float xYesVal = self.bounds.size.width/4 - fakeYesText.width/2 - fakeYesText.width/4;
+        float yYesVal = self.bounds.size.height/2 + fakeYesText.height/2 - fakeYesText.height/4;
+        float xNoVal = self.bounds.size.width/4 + self.bounds.size.width/2 - fakeNoText.width/2 - fakeNoText.width/4;
+        float yNoVal = yYesVal;
+        CGContextSetFillColor(context,black);
+        
         if (screenWidth == 1242)
         {
             yesText.x = (self.bounds.size.width*screenScale/4) - fakeYesText.width/2*screenScale;
             yesText.y = self.bounds.size.height*screenScale/2 - fakeYesText.height/2*screenScale;
+            yYesVal -= fakeYesText.height/2;
+            yNoVal = yYesVal;
         }
+        CGRect yesRect = CGRectMake(xYesVal, yYesVal, fakeYesText.width, fakeYesText.height);
+        CGContextFillRect(context, yesRect);
+        CGRect noRect = CGRectMake(xNoVal, yNoVal, fakeYesText.width, fakeYesText.height);
+        CGContextFillRect(context, noRect);
         [(TextSprite *) continueText setFontSize:24];
+        yesText->color = [UIColor whiteColor];
         [yesText drawBody:context on:self.bounds];
         CGContextRestoreGState(context);
         
@@ -1501,10 +1516,12 @@
         noText.y = yesText.y;
         if (screenWidth == 1242)
         {
-            noText.x = 3*(self.bounds.size.width*screenScale/4) - fakeNoText.width/2*screenScale;
-            noText.y = self.bounds.size.height*screenScale/2 - fakeNoText.height/2*screenScale;
+            noText.x = 3*(self.bounds.size.width*screenScale/4) - fakeNoText.width/2;
+            noText.y = yesText.y;//self.bounds.size.height*screenScale/2 - fakeNoText.height/2*screenScale;
+            //yNoVal -= fakeNoText.height/2;
         }
         [(TextSprite *) continueText setFontSize:24];
+        noText->color = [UIColor whiteColor];
         [noText drawBody:context on:self.bounds];
         CGContextRestoreGState(context);
     }

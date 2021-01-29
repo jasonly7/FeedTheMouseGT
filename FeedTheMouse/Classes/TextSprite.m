@@ -195,6 +195,13 @@
     CFRelease(line);
     CFRelease(sysUIFont);
     [stringToDraw release];
+    /*if ( text == @"YES" || text == @"NO")
+    {
+        CGFloat black[4] = {0.0f, 0.0f, 0.0f, 1.0f};
+        CGRect yesRect = CGRectMake(xVal*rect.size.width, yVal*rect.size.height, width, height);
+        CGContextSetFillColor(context,black);
+        CGContextFillRect(context, yesRect);
+    }*/
     CGContextRestoreGState(context);
 }
 
