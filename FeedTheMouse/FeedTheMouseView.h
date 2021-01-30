@@ -116,7 +116,7 @@ typedef enum {
 }
 
 
-- (void) startAt:(int) level andTime: (double) time withCoins: (int)numOfCoins;
+- (void) startAt:(int) level andTime: (double) startingTime withCoins: (int)numOfCoins;
 - (void) doParse:(NSData *) data;
 - (void) gameLoop;
 - (void) update_game;

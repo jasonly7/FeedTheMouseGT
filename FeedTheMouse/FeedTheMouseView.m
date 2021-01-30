@@ -57,7 +57,7 @@
 }
 
 
-- (void) startAt:(int)level andTime:(double)time withCoins:(int)numOfCoins
+- (void) startAt:(int)level andTime:(double)startingTime withCoins:(int)numOfCoins
 {
     primarySurface = [[Picture alloc] init];
     mouse = [[Mouse alloc] init];
@@ -81,7 +81,7 @@
     }
     TitleViewController *titleViewController = (TitleViewController*)[UIApplication sharedApplication].keyWindow.rootViewController;
     titleViewController.playerNameTextField.hidden = true;
-    total_time = time;
+    total_time = startingTime;
     parser = [[XMLParser alloc] initXMLParser];
     game_state = GAME_RUNNING;
     NSData *data = [[NSData alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"FeedTheMouse.xml" ofType:nil]];
@@ -1394,8 +1394,8 @@
             touchText.x = self.bounds.size.width*screenScale/2 - fakeTouchText.width/2*screenScale;
             touchText.y = self.bounds.size.height*screenScale-fakeTouchText.height*screenScale-30*screenScale;
         }
-        if (currentLevelNumber == 1 || currentLevelNumber == 6)
-            touchText.y = self.bounds.size.height*screenScale/2-fakeTouchText.height*screenScale;
+        //if (currentLevelNumber == 1 || currentLevelNumber == 6)
+           // touchText.y = self.bounds.size.height*screenScale/2-fakeTouchText.height*screenScale;
             
         [(TextSprite *) touchText setFontSize:24];
         
@@ -1440,7 +1440,7 @@
         fakeContinueText.y = 1000;
         if (screenWidth == 1242)
             fakeContinueText.y = self.bounds.size.height*screenScale - 136;
-        [(TextSprite *) fakeContinueText setFontSize:32];
+        [(TextSprite *) fakeContinueText setFontSize:48];
         [fakeContinueText drawBody:context on:self.bounds];
         CGContextRestoreGState(context);
         
@@ -1454,7 +1454,7 @@
             continueText.x = self.bounds.size.width*screenScale/2 - fakeContinueText.width/2*screenScale;
             continueText.y = self.bounds.size.height*screenScale/2+fakeContinueText.height/2*screenScale;
         }
-        [(TextSprite *) continueText setFontSize:32];
+        [(TextSprite *) continueText setFontSize:48];
         [continueText drawBody:context on:self.bounds];
         CGContextRestoreGState(context);
         
@@ -1465,7 +1465,7 @@
         fakeYesText.y = 1000;
         if (screenWidth == 1242)
             fakeYesText.y = self.bounds.size.height*screenScale - 136;
-        [(TextSprite *) fakeYesText setFontSize:24];
+        [(TextSprite *) fakeYesText setFontSize:32];
         [fakeYesText drawBody:context on:self.bounds];
         CGContextRestoreGState(context);
         
@@ -1476,20 +1476,20 @@
         fakeNoText.y = 1000;
         if (screenWidth == 1242)
             fakeNoText.y = self.bounds.size.height*screenScale - 136;
-        [(TextSprite *) fakeYesText setFontSize:24];
+        [(TextSprite *) fakeYesText setFontSize:32];
         [fakeNoText drawBody:context on:self.bounds];
         CGContextRestoreGState(context);
         
         CGContextSaveGState(context);
         CGContextSetTextMatrix(context, CGAffineTransformIdentity);
         yesText = [TextSprite withString:@"YES"];
-        yesText.x = 320/2 - fakeYesText.width/2*screenScale/sx;
+        yesText.x = 320/2 + 64 - fakeYesText.width/2*screenScale/sx;
         yesText.y = self.bounds.size.height/2*screenScale/sy-fakeYesText.height*screenScale/sy;
         //float xVal = yesText.x*sx/(self.bounds.size.width*screenScale);
         //xVal = xVal/(self.bounds.size.width*screenScale);
-        float xYesVal = self.bounds.size.width/4 - fakeYesText.width/2 - fakeYesText.width/4;
+        float xYesVal = self.bounds.size.width/4 + self.bounds.size.width/10 - fakeYesText.width/2 - fakeYesText.width/4;
         float yYesVal = self.bounds.size.height/2 + fakeYesText.height/2 - fakeYesText.height/4;
-        float xNoVal = self.bounds.size.width/4 + self.bounds.size.width/2 - fakeNoText.width/2 - fakeNoText.width/4;
+        float xNoVal = self.bounds.size.width/4 + self.bounds.size.width/2 - self.bounds.size.width/10 - fakeNoText.width/2 - fakeNoText.width/4;
         float yNoVal = yYesVal;
         CGContextSetFillColor(context,black);
         
@@ -1504,7 +1504,7 @@
         CGContextFillRect(context, yesRect);
         CGRect noRect = CGRectMake(xNoVal, yNoVal, fakeYesText.width, fakeYesText.height);
         CGContextFillRect(context, noRect);
-        [(TextSprite *) continueText setFontSize:24];
+        [(TextSprite *) continueText setFontSize:32];
         yesText->color = [UIColor whiteColor];
         [yesText drawBody:context on:self.bounds];
         CGContextRestoreGState(context);
@@ -1512,7 +1512,7 @@
         CGContextSaveGState(context);
         CGContextSetTextMatrix(context, CGAffineTransformIdentity);
         noText = [TextSprite withString:@"NO"];
-        noText.x = 480 - fakeNoText.width/2*screenScale/sx;
+        noText.x = 480 - 40 - fakeNoText.width/2*screenScale/sx;
         noText.y = yesText.y;
         if (screenWidth == 1242)
         {
@@ -1658,10 +1658,10 @@
         
         [cheese->world->removedCoins removeAllObjects];
         //message = @"Tap Here To Start";
-        if (currentLevelNumber == 1)
+       /* if (currentLevelNumber == 1)
             message = @"Tap Gears to Rotate Other Way";
         else if (currentLevelNumber == 6)
-            message = @"Tap Flippers to Rotate";
+            message = @"Tap Flippers to Rotate";*/
     }
     /* else if ([mouseSprite getFileName]==@"newopenmouthsheet.png")
      {
@@ -1893,6 +1893,7 @@ void cleanRemoveFromSuperview( UIView * view ) {
 }*/
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
+    
     double leftLimit = 0;
     double rightLimit = 0;
     if (screenWidth == 1242)
@@ -1957,17 +1958,10 @@ void cleanRemoveFromSuperview( UIView * view ) {
         teeterTotter = (TeeterTotter*)[teeterTotters objectAtIndex:i];
         teeterTotter->reset = true;
     }
-       
+    
     if (!found)
     {
-        /*TitleViewController *titleViewController = (TitleViewController*)[UIApplication sharedApplication].keyWindow.rootViewController;
-        NSString *playerName = titleViewController.playerNameTextField.text;
-        NSLog(@"name: %@", playerName);
-        if ([Utility isNumeric:playerName])
-        {
-            currentLevelNumber = [playerName intValue];
-            
-        }*/
+        
         TitleViewController *titleViewController = (TitleViewController*)[UIApplication sharedApplication].keyWindow.rootViewController;
         NSString *playerName = titleViewController.playerNameTextField.text;
         CGRect screenBounds = [[UIScreen mainScreen] bounds];
@@ -1979,12 +1973,9 @@ void cleanRemoveFromSuperview( UIView * view ) {
         sy = screenHeight/1136.0f;
         if (![pauseButton pointIsInside:tapPoint withScreenScale:sy])
         {
+            
             if (game_state == GAME_RUNNING)
             {
-                /*if (cheese == nil)
-                {
-                    cheese = [[Cheese alloc] init];
-                }*/
                 if ([playerName isEqualToString:@"cheat"])
                 {
                     cheese->colPackage->foundCollision = false;
@@ -2080,8 +2071,9 @@ void cleanRemoveFromSuperview( UIView * view ) {
             }
         }
     }
-    lastDate = [[NSDate date] retain];
-    next_game_tick = -[lastDate timeIntervalSinceNow];//+SKIP_TICKS;
+    message = @"";
+   // lastDate = [[NSDate date] retain];
+    //next_game_tick = -[lastDate timeIntervalSinceNow];//+SKIP_TICKS;
    /* for (int i=0; i < [flippers count]; i++)
     {
         flipper = (Flipper*)[flippers objectAtIndex:i];
