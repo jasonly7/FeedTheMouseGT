@@ -249,6 +249,8 @@
         {
             scores[i] = 15-i;
         }*/
+        if (time == 0)
+            time = 3600;
         times[i] = time;
         if (strName==NULL)
         {
