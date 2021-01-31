@@ -1357,7 +1357,8 @@
     CGContextSaveGState(context);
     CGContextSetTextMatrix(context, CGAffineTransformIdentity);
     screenScale = [[UIScreen mainScreen] scale];
-    NSString *strTimer = [NSString stringWithFormat:@"%d:%02d",(int)total_time/60,(int)total_time%60]; //[strLevel stringByAppendingString:curLevel];
+    int secs = (int)total_time%60;
+    NSString *strTimer = [NSString stringWithFormat:@"%d:%02d",(int)total_time/60,secs]; //[strLevel stringByAppendingString:curLevel];
     timerText = [TextSprite withString: strTimer];
     timerText.r = 0;
     timerText.g = 1.0;
@@ -1818,7 +1819,8 @@
         next_game_tick = cur_game_tick;
         if ( game_state == GAME_RUNNING)
         {
-            total_time+= delta_tick;
+            if (delta_tick > 0)
+                total_time+= delta_tick;
             if (DEBUG)
                 printf("interp: %f\n", interpolation);
             if (cheese->colPackage->state!=COLLISION_EXPLODE)
@@ -2081,8 +2083,9 @@ void cleanRemoveFromSuperview( UIView * view ) {
         flipper->sy = sy;
         if ([flipper pointIsInside:pt])
             [flipper rotate];
-    }*/
-   /* switch (animationNumber)
+    }
+    int steps;
+    switch (animationNumber)
     {
         case 0:
             steps = 7;

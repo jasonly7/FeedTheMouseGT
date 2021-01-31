@@ -78,9 +78,6 @@
 		86C73EB725016A820014C5C2 /* big_gear_purple.png in Resources */ = {isa = PBXBuildFile; fileRef = 86C73EB325016A810014C5C2 /* big_gear_purple.png */; };
 		86C73EB825016A820014C5C2 /* big_gear_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 86C73EB425016A810014C5C2 /* big_gear_blue.png */; };
 		86C73EB925016A820014C5C2 /* big_gear_orange.png in Resources */ = {isa = PBXBuildFile; fileRef = 86C73EB525016A810014C5C2 /* big_gear_orange.png */; };
-		86C8923A254E2E4000FB1919 /* big_background_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 86C89236254E2E4000FB1919 /* big_background_3.png */; };
-		86C8923C254E2E4000FB1919 /* big_background_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 86C89238254E2E4000FB1919 /* big_background_2.png */; };
-		86C8923D254E2E4000FB1919 /* big_background_4.png in Resources */ = {isa = PBXBuildFile; fileRef = 86C89239254E2E4000FB1919 /* big_background_4.png */; };
 		86D600862507ECF600DD9E93 /* SplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D600852507ECF600DD9E93 /* SplashViewController.m */; };
 		86D712312507195E00D643A6 /* cortex_intro.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 86D712302507195E00D643A6 /* cortex_intro.jpg */; };
 		86D7917325AE2A8E009E4AA9 /* large_pause_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 86D7917225AE2A8E009E4AA9 /* large_pause_button.png */; };
@@ -296,9 +293,6 @@
 		86C73EB325016A810014C5C2 /* big_gear_purple.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = big_gear_purple.png; path = Images/Triggers/Gear/big_gear_purple.png; sourceTree = "<group>"; };
 		86C73EB425016A810014C5C2 /* big_gear_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = big_gear_blue.png; path = Images/Triggers/Gear/big_gear_blue.png; sourceTree = "<group>"; };
 		86C73EB525016A810014C5C2 /* big_gear_orange.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = big_gear_orange.png; path = Images/Triggers/Gear/big_gear_orange.png; sourceTree = "<group>"; };
-		86C89236254E2E4000FB1919 /* big_background_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = big_background_3.png; path = Images/Backgrounds/big_background_3.png; sourceTree = "<group>"; };
-		86C89238254E2E4000FB1919 /* big_background_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = big_background_2.png; path = Images/Backgrounds/big_background_2.png; sourceTree = "<group>"; };
-		86C89239254E2E4000FB1919 /* big_background_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = big_background_4.png; path = Images/Backgrounds/big_background_4.png; sourceTree = "<group>"; };
 		86D600842507ECF600DD9E93 /* SplashViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SplashViewController.h; sourceTree = "<group>"; };
 		86D600852507ECF600DD9E93 /* SplashViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SplashViewController.m; sourceTree = "<group>"; };
 		86D712302507195E00D643A6 /* cortex_intro.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = cortex_intro.jpg; path = Images/cortex_intro.jpg; sourceTree = "<group>"; };
@@ -738,9 +732,6 @@
 				86A6D7E825BD2A49004E0D63 /* big_background_2.jpg */,
 				86A6D7E325BD2962004E0D63 /* big_background_1.jpg */,
 				86BCDECF256AF255004BA326 /* small_background.png */,
-				86C89238254E2E4000FB1919 /* big_background_2.png */,
-				86C89236254E2E4000FB1919 /* big_background_3.png */,
-				86C89239254E2E4000FB1919 /* big_background_4.png */,
 				86E075531E44263400E92CB9 /* background_1.png */,
 				86E075541E44263400E92CB9 /* background_2.png */,
 				86E075551E44263400E92CB9 /* background_3.png */,
@@ -999,7 +990,6 @@
 				86A50DAA24DF6EFA00108BB2 /* bomb_explosion in Resources */,
 				86B71D9E2595326500A6C6D8 /* mediumlargecoins.png in Resources */,
 				864B3F692558EE630028CBF3 /* score.jpg in Resources */,
-				86C8923C254E2E4000FB1919 /* big_background_2.png in Resources */,
 				86AE3BDF258E56E000F5EBBB /* scores_button.png in Resources */,
 				86E075C31E44288900E92CB9 /* teeter_totter_red.png in Resources */,
 				86C0D09B2530086400B9E269 /* big_teeter_totter.png in Resources */,
@@ -1044,7 +1034,6 @@
 				86526D7525AF841D004EA48A /* small_music.png in Resources */,
 				86E075471E44254000E92CB9 /* cheese.png in Resources */,
 				86526D6E25AF82A0004EA48A /* music_off.png in Resources */,
-				86C8923A254E2E4000FB1919 /* big_background_3.png in Resources */,
 				86FC61D325B212410028D68F /* BigBoom.png in Resources */,
 				86E075791E4427DA00E92CB9 /* drum_face_right.png in Resources */,
 				864B3F6E2558EF9F0028CBF3 /* score.png in Resources */,
@@ -1062,7 +1051,6 @@
 				86E075781E4427DA00E92CB9 /* drum_face_left.png in Resources */,
 				86E075901E44280500E92CB9 /* flipper_green_game.png in Resources */,
 				8603B627253CF6D5003AF4E4 /* big_teeter_totter_red.png in Resources */,
-				86C8923D254E2E4000FB1919 /* big_background_4.png in Resources */,
 				869A952325B21FF700F4847B /* Boom_bigger.png in Resources */,
 				86E075A51E44285100E92CB9 /* star.mat in Resources */,
 				86E075C51E44288900E92CB9 /* teeter_totter.png in Resources */,

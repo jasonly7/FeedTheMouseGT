@@ -29,7 +29,7 @@ typedef enum {
 @interface Mouse : NSObject
 {
     
-    int steps;
+    
     int frame;
     MOUSE_STATE state;
     NSDate *startBlinkDate;
@@ -41,6 +41,7 @@ typedef enum {
    
     @public
         AtlasSprite *mouseSprite;
+        int steps;
     int x,y;
 }
 - (Mouse*) initializeMouseAtX:(float) xLocation andY: (float)yLocation;
