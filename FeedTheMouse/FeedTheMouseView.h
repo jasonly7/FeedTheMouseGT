@@ -28,8 +28,9 @@
 #import "PauseButton.h"
 #import "PauseMenu.h"
 #import "MusicButton.h"
+//#import "SoundManager.h"
 #import "globals.h"
-//#define DEBUG false
+
 
 typedef enum {
     GAME_RUNNING = 0,
@@ -44,7 +45,7 @@ typedef enum {
     
     Sprite *mouseSprite;
     Picture *backgroundSprite;
-    
+    //SoundManager *sndMan;
     Cheese *cheese;
     Mouse *mouse;
     Gear *gear;

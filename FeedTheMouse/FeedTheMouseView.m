@@ -109,11 +109,16 @@
     coins = [curLevel getCoins];
     gears = [curLevel getGears];
     coinIcon = [[Coin alloc] init];
-    
     [coinIcon initializeCoinAtX:0 andY:0 andImage:@"mediumlargecoins.png"];
     drums = [curLevel getDrums];
     bombs = [curLevel getBombs];
     teeterTotters = [curLevel getTeeterTotters];
+    
+    if ([gears count] > 0)
+    {
+        NSString *pathForGearSoundFile = [[NSBundle mainBundle] pathForResource:@"sounds/Gear_Turning" ofType:@"mp3"];
+        [cheese->world->sndMan playLoopedSound:pathForGearSoundFile];
+    }
     
     cheese->world->numOfCoins = numOfCoins;
     next_game_tick = -[lastDate timeIntervalSinceNow];
@@ -1611,6 +1616,12 @@
         //printf("drums count: %d\n", drums.count);
         teeterTotters = [curLevel getTeeterTotters];
         
+        if ([gears count] > 0)
+        {
+            NSString *pathForGearSoundFile = [[NSBundle mainBundle] pathForResource:@"sounds/Gear_Turning" ofType:@"mp3"];
+            [cheese->world->sndMan playLoopedSound:pathForGearSoundFile];
+        }
+        
         if ([cheese->prevVelocities count] > 0)
             [cheese->prevVelocities removeAllObjects];
          for (int i=0; i < [teeterTotters count]; i++)
@@ -1952,7 +1963,11 @@ void cleanRemoveFromSuperview( UIView * view ) {
             gear->sy = sy;
 
             if ([gear pointIsInside:mouseTouchedPoint])
+            {
                 found = true;
+                //NSString *pathForGearSoundFile = [[NSBundle mainBundle] pathForResource:@"sounds/Gear_Turning" ofType:@"mp3"];
+               // [sndMan playSound:pathForGearSoundFile];
+            }
         }
     }
     for (int i=0; i < [teeterTotters count]; i++)
@@ -2008,6 +2023,7 @@ void cleanRemoveFromSuperview( UIView * view ) {
                 else if ( [pauseMenu pointIsInsideMainMenuButton:tapPoint withScreenScale:sy])
                 {
                     [musicPlayer stop];
+                    [cheese->world->sndMan stopAllSounds];
                     TitleViewController *titleViewController = (TitleViewController*)[UIApplication sharedApplication].keyWindow.rootViewController;
                     titleViewController.playerNameTextField.hidden = false;
                     [titleViewController->musicTitlePlayer play];
@@ -2036,6 +2052,7 @@ void cleanRemoveFromSuperview( UIView * view ) {
         else if (game_state == GAME_OVER)
         {
             [musicPlayer stop];
+            [cheese->world->sndMan stopAllSounds];
             TitleViewController *titleViewController = (TitleViewController*)[UIApplication sharedApplication].keyWindow.rootViewController;
             titleViewController.playerNameTextField.hidden = false;
             [titleViewController->musicTitlePlayer play];
@@ -2057,6 +2074,7 @@ void cleanRemoveFromSuperview( UIView * view ) {
             {
                 game_state = GAME_RUNNING;
                 [musicPlayer stop];
+                [cheese->world->sndMan stopAllSounds];
                 [timer invalidate];
                 int numOfCoins = cheese->world->numOfCoins-5;
                 /*if (numOfCoins < 0)

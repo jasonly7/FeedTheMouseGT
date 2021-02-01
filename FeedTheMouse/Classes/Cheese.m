@@ -1794,6 +1794,8 @@
                 slidingLine->p1 = CGPointMake( topLine->p1.x/(r*sx), topLine->p1.y/(r*sy));
                 slidingLine->p2 = CGPointMake( topLine->p2.x/(r*sx), topLine->p2.y/(r*sy));
                 colPackage->state = COLLISION_BOUNCE;
+                NSString *pathForDrumSoundFile = [[NSBundle mainBundle] pathForResource:@"sounds/Drum_Bounce" ofType:@"mp3"];
+                [world->sndMan playSound:pathForDrumSoundFile];
             }
             else if (collidedWithBottom == shortestDistance)
             {
@@ -3325,6 +3327,9 @@
         if ([colPackage->collidedObj class] == [TeeterTotter class] )
         {
             isSlidingOffTetterTotter = true;
+            NSString *pathForSlidingSoundFile = [[NSBundle mainBundle] pathForResource:@"sounds/Cheese_Sliding" ofType:@"mp3"];
+            //[world->sndMan stopAllSounds];
+            [world->sndMan stopSound:pathForSlidingSoundFile];
         }
     }
     if ( isSlidingOffTetterTotter || colPackage->foundCollision && !colPackage->isSlidingOff ) {

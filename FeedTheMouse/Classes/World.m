@@ -25,7 +25,7 @@
         removedCoins = [[NSMutableArray alloc] initWithCapacity:10];
         numOfCoins = 0;
         sndMan = [[SoundManager alloc] init ];
-        [sndMan initializeSoundManager:(1)];
+        [sndMan initializeSoundManager:(10)];
         pathForCoinSoundFile = [[[NSBundle mainBundle] pathForResource:@"sounds/coin_sound" ofType:@"wav"] retain];
         
         
@@ -125,6 +125,8 @@
                 cheese->colPackage->collidedObj = gear;
                // [mouse openMouth];
                 [cheese bounceOffGear:gear];
+                NSString *pathForBounceSoundFile = [[NSBundle mainBundle] pathForResource:@"sounds/Ball_Bounce" ofType:@"mp3"];
+                [sndMan playSound:pathForBounceSoundFile];
                 break;
             }
         }
@@ -150,19 +152,9 @@
             if (cheese->colPackage->foundCollision || cheese->colPackage->state == COLLISION_BOUNCE)
             {
                 cheese->colPackage->collidedObj = drum;
-             //   NSLog(@"bounceVel length: %f", [cheese->bounceVel length]);
-               // if ([cheese->bounceVel length] < 1)
-               // {
-                    //cheese->colPackage->state = COLLISION_SLIDE;
-               // }
-                //else
-               // {
-                    cheese->colPackage->state = COLLISION_BOUNCE;
-                   // cheese->initVel = cheese->bounceVel; will be set in bounceOffDrum
-                    [cheese bounceOffDrum];
-                    //[drum vibrate];
-               // }
-               // [mouse openMouth];
+                cheese->colPackage->state = COLLISION_BOUNCE;
+                [cheese bounceOffDrum];
+               
                 
                 break;
             }
@@ -213,17 +205,12 @@
                 if (cheese->colPackage->foundCollision || cheese->colPackage->state == COLLISION_BOUNCE)
                 {
                     cheese->colPackage->collidedObj = flipper;
-                    /*if ( [cheese->bounceVel length] < 1)
-                    {
-                        cheese->colPackage->state = COLLISION_SLIDE;
-                    }
-                    else
-                    {*/
-                        cheese->colPackage->state = COLLISION_BOUNCE;
-                        [cheese bounceOffFlipper];
+                   
+                    cheese->colPackage->state = COLLISION_BOUNCE;
+                    [cheese bounceOffFlipper];
+                    NSString *pathForFlippersSoundFile = [[NSBundle mainBundle] pathForResource:@"sounds/Flippers" ofType:@"mp3"];
+                    [sndMan playSound:pathForFlippersSoundFile];
                     
-                    //}
-                   // [mouse openMouth];
                     break;
                 }
             }
@@ -381,6 +368,11 @@
                         if (cheese->colPackage->prevStates[i] == COLLISION_NONE)
                             [cheese->prevVelocities[i] initializeVectorX:0 andY:0];
                         cheese->colPackage->prevStates[i] = cheese->colPackage->state;
+                        
+                        NSString *pathForSlidingSoundFile = [[NSBundle mainBundle] pathForResource:@"sounds/Cheese_Sliding" ofType:@"mp3"];
+                        if (![sndMan checkSound:pathForSlidingSoundFile])
+                            [sndMan playSound:pathForSlidingSoundFile];
+                        
                         break;
                     }
                     else if ( cheese->colPackage->collisionRecursionDepth > 0 )
@@ -485,6 +477,8 @@
             CGPoint pt = CGPointMake(0,-960);
             [cheese dropAt:pt];
             [mouse chew];
+            NSString *pathForChewSoundFile = [[NSBundle mainBundle] pathForResource:@"sounds/Chewing_Sound" ofType:@"mp3"];
+            [sndMan playSound:pathForChewSoundFile];
         }
     }
 }
