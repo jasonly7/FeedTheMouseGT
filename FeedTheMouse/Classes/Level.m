@@ -18,7 +18,7 @@
     drums = [[NSMutableArray alloc] initWithCapacity:10];
     teeterTotters = [[NSMutableArray alloc] initWithCapacity:10];
     flippers = [[NSMutableArray alloc] initWithCapacity:10];
-    mouse = [[Mouse alloc] init];
+    mouse = [[[Mouse alloc] init] autorelease];
     [mouse initializeMouseAtX:500 andY:150];
     backgroundFilename = [[NSString alloc] init];
 }

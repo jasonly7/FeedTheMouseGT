@@ -178,7 +178,7 @@
     //NSDictionary<NSAttributedString*, id> *stringDictionary;
     
     //stringDictionary = [NSDictionary dictionaryWithObject:stringToDraw forKey:@"key1"];
-    NSStringDrawingContext *con = [[NSStringDrawingContext alloc] init];
+    NSStringDrawingContext *con = [[[NSStringDrawingContext alloc] init] autorelease];
     con.minimumScaleFactor = screenScale;
     
     CGRect strRect = [text boundingRectWithSize:rect.size options:NSStringDrawingUsesLineFragmentOrigin attributes:attributesDict context:con];

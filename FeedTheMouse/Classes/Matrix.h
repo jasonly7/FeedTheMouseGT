@@ -13,6 +13,7 @@
 @public
     NSMutableArray *M;
     Matrix *result;
+    NSString *name;
 }
 + (Matrix *)arrayOfWidth:(NSInteger)width andHeight:(NSInteger)height;
 - (id)initWithWidth:(NSInteger)width andHeight:(NSInteger)height;

@@ -811,7 +811,7 @@
     if (cSquared < sumRadiiSquared)
     {
         
-        justTouchVelocity = bounceVel;
+       // justTouchVelocity = bounceVel;
         [justTouchVelocity normalize];
         distance = sumRadii - lengthC;
         justTouchVelocity = [justTouchVelocity multiply:distance];
@@ -2713,7 +2713,7 @@
     double M11, M12;
     NSNumber *numX, *numY;
     
-    positionInESpace = [[Vector alloc] init];
+    positionInESpace = [[[Vector alloc] init] autorelease];
     velocityInESpace = [[Vector alloc] init];
     
     //double eVx = (colPackage->velocity->x+acceleration->x)/r;
@@ -2952,7 +2952,7 @@
     [positionInESpace initializeVectorX:colPackage->basePoint->x andY:colPackage->basePoint->y];
     [velocityInESpace initializeVectorX:eVx andY:eVy];
     
-    Matrix *CBM = [[[Matrix alloc] init] autorelease]; // multiply this to get into eSpace
+   // Matrix *CBM = [[Matrix alloc] init]; // multiply this to get into eSpace
     NSNumber *num11 = [NSNumber numberWithDouble:1/(r*sx)];
     NSNumber *num12 = [NSNumber numberWithDouble:0.0];
     NSNumber *num21 = [NSNumber numberWithDouble:0.0];
@@ -2965,7 +2965,9 @@
         num22 = [NSNumber numberWithDouble:1/(r)];
     }
     
-    CBM = [CBM initWithWidth:2 andHeight:2];
+    Matrix *CBM = [[Matrix alloc] initWithWidth:2 andHeight:2];
+   // CBM->name = @"CBM";
+    //NSLog(@"M retain count after return from initWithWidth: %d", [CBM->M retainCount]);
     [[CBM->M objectAtIndex:0] addObject:num11];
     [[CBM->M objectAtIndex:0] addObject:num12];
     [[CBM->M objectAtIndex:1] addObject:num21];
@@ -2997,10 +2999,11 @@
     [[matrixP1->M objectAtIndex:0] addObject:numX];
     [[matrixP1->M objectAtIndex:0] addObject:numY];
     matrixP1 = [Matrix matrixA:matrixP1 multiplyMatrixB:CBM];
-   // matrixP1 = [Matrix matrixA:matrixP1 multiplyMatrixB:CBM2];
+    
     M11 = [[[matrixP1->M objectAtIndex:0] objectAtIndex:0] floatValue];
     M12 = [[[matrixP1->M objectAtIndex:0] objectAtIndex:1] floatValue];
     [p1 initializeVectorX:M11 andY:M12];
+    //[matrixP1 release];
    // NSLog(@"p1: (%f,%f): ", p1->x, p1->y);
 
     Vector *p2 = [[[Vector alloc] init] autorelease];
@@ -3017,8 +3020,11 @@
     M11 = [[[matrixP2->M objectAtIndex:0] objectAtIndex:0] floatValue];
     M12 = [[[matrixP2->M objectAtIndex:0] objectAtIndex:1] floatValue];
     [p2 initializeVectorX:M11 andY:M12];
+  //  [matrixP2 release];
    // NSLog(@"p2: (%f,%f): ", p2->x, p2->y);
-    
+   // NSLog(@"M retain count before return from collideWithLine: %d", [CBM->M retainCount]);
+   // NSLog(@"CBM retain count: %d", [CBM retainCount]);
+   //[CBM release];
     Vector *baseToVertex = [[[Vector alloc] init] autorelease];
     baseToVertex = [p1 subtract:positionInESpace];
     //NSLog(@"baseToVertex: (%f,%f)", baseToVertex->x, baseToVertex->y);
@@ -3053,7 +3059,7 @@
     
   
      double speed = [vel length];
-   
+    
     if (!quadraticSuccess)
         return false;
 
@@ -3065,6 +3071,7 @@
     [[matrixPosInR3->M objectAtIndex:0] addObject:numX];
     [[matrixPosInR3->M objectAtIndex:0] addObject:numY];
     matrixPosInR3 = [Matrix matrixA:matrixPosInR3 multiplyMatrixB:CBMInverse];
+   // [CBMInverse release];
     M11 = [[[matrixPosInR3->M objectAtIndex:0] objectAtIndex:0] floatValue];
     M12 = [[[matrixPosInR3->M objectAtIndex:0] objectAtIndex:1] floatValue];
    // NSLog(@"posInR3: %p", posInR3);

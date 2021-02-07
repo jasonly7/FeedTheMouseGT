@@ -34,6 +34,7 @@
     teeterTotters = [[NSMutableArray alloc] initWithCapacity:3];
     flippers = [[NSMutableArray alloc] initWithCapacity:3];
     lvlNum = 0;
+    
     return self;
 }
 
@@ -316,5 +317,17 @@
     }
     [currentElementValue release];
     currentElementValue = nil;
+}
+
+- (void) dealloc {
+    
+    [coins removeAllObjects];
+   // [levels removeAllObjects];
+    [gears removeAllObjects];
+    [drums removeAllObjects];
+    [bombs removeAllObjects];
+    [teeterTotters removeAllObjects];
+    [flippers removeAllObjects];
+    [super dealloc];
 }
 @end

@@ -38,10 +38,10 @@
 
 - (Line*) initializeLineWithVectorOrigin:(Vector*)o andVectorNormal:(Vector*) n
 {
-    normal = [[Vector alloc] init];
+    normal = [[[Vector alloc] init] autorelease];
     normal = n;
     normal->length = [normal length];
-    origin = [[Vector alloc] init];
+    origin = [[[Vector alloc] init] autorelease];
     origin = o;
    // [normal normalize];
     

@@ -67,7 +67,7 @@
     musicButton = [[MusicButton alloc] init];
     gear = [[Gear alloc] init];
     drum = [[Drum alloc] init];
-    bomb = [[Bomb alloc] init];
+    bomb = [[[Bomb alloc] init] autorelease];
     boom = [[Boom alloc] init];
     teeterTotter = [[TeeterTotter alloc] init];
     flipper = [[Flipper alloc] init];
@@ -200,6 +200,10 @@
         backgroundFilename = [backgroundFilename stringByDeletingPathExtension];
         backgroundFilename = [backgroundFilename stringByAppendingString:@".jpg"];
     }
+   /* else if (screenWidth == 750)
+    {
+        backgroundFilename = @"background_1_641x1140.jpg";
+    }*/
     else
     {
         backgroundFilename = [[NSString alloc] initWithString:curLevel->backgroundFilename];
@@ -294,15 +298,17 @@
         
     CGContextConcatCTM(context,t0);
     
-    
-    
-   
-    
     if (screenWidth == 1242 )
     {
-        t0 = CGAffineTransformScale(t0, sx, sy);
         [primarySurface draw:context at:CGPointMake(0, 0)];
+        t0 = CGAffineTransformScale(t0, sx, sy);
     }
+    /*else if (screenWidth == 750)
+    {
+        
+        [primarySurface draw:context at:CGPointMake(0, 0)];
+        //t0 = CGAffineTransformScale(t0, 1/sx, 1/sy);
+    }*/
     else
     {
         [backgroundSprite draw:context at:CGPointMake(0,0)];
@@ -1943,7 +1949,7 @@ void cleanRemoveFromSuperview( UIView * view ) {
         x = leftLimit+1;
     CGPoint pt = CGPointMake(x,y);
     mouseTouchedPoint = pt;
-    printf("drop (x,y): (%f, %f)\n",pt.x,pt.y);
+    //printf("drop (x,y): (%f, %f)\n",pt.x,pt.y);
     bool found = false;
     if (game_state != GAME_PAUSED)
     {
@@ -2077,59 +2083,13 @@ void cleanRemoveFromSuperview( UIView * view ) {
                 [cheese->world->sndMan stopAllSounds];
                 [timer invalidate];
                 int numOfCoins = cheese->world->numOfCoins-5;
-                /*if (numOfCoins < 0)
-                    numOfCoins = 0;
-                if (numOfCoins > 0)*/
-                    [self startAt:currentLevelNumber andTime:total_time withCoins:numOfCoins];
-                /*else
-                {
-                    TitleViewController *titleViewController = (TitleViewController*)[UIApplication sharedApplication].keyWindow.rootViewController;
-                    titleViewController.playerNameTextField.hidden = false;
-                    [titleViewController->musicTitlePlayer play];
-                    [self removeFromSuperview];
-                }*/
+                [self startAt:currentLevelNumber andTime:total_time withCoins:numOfCoins];
+               
             }
         }
     }
     message = @"";
-   // lastDate = [[NSDate date] retain];
-    //next_game_tick = -[lastDate timeIntervalSinceNow];//+SKIP_TICKS;
-   /* for (int i=0; i < [flippers count]; i++)
-    {
-        flipper = (Flipper*)[flippers objectAtIndex:i];
-        flipper->sx = sx;
-        flipper->sy = sy;
-        if ([flipper pointIsInside:pt])
-            [flipper rotate];
-    }
-    int steps;
-    switch (animationNumber)
-    {
-        case 0:
-            steps = 7;
-           // if (mouseSprite!=nil)
-              //  [mouseSprite release];
-            mouseSprite = [AtlasSprite fromFile: @"MouseBlink.png" withRows: 1 withColumns: steps];
-            break;
-        case 1:
-            steps = 12;
-            //if (mouseSprite!=nil)
-              //  [mouseSprite release];
-            mouseSprite = [AtlasSprite fromFile: @"newopenmouthsheet.png" withRows: 1 withColumns: steps];
-            break;
-        case 2:
-            steps = 12;
-           // if (mouseSprite!=nil)
-               // [mouseSprite release];
-            mouseSprite = [AtlasSprite fromFile: @"newclosemouthsheet.png" withRows: 1 withColumns: steps];
-            break;
-        case 3:
-            steps = 6;
-           // if (mouseSprite!=nil)
-              //  [mouseSprite release];
-            mouseSprite = [AtlasSprite fromFile: @"MouseSad.png" withRows: 1 withColumns: steps];
-            break;
-    }*/
+  
     chatBubble->visible = false;
     message = @"";
 }

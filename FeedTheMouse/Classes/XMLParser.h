@@ -67,4 +67,5 @@
 @property (nonatomic, retain) NSMutableArray *levels;
 
 - (XMLParser *) initXMLParser;
+- (void)dealloc;
 @end

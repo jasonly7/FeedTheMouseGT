@@ -150,7 +150,7 @@
 - (void) dealloc
 {
     [picture release];
-    CGImageRelease(image);
+   // CGImageRelease(image);
     [super dealloc];
 }
 @end

@@ -110,9 +110,8 @@
 
 - (void) dealloc
 {
-    
-    [atlas release];
-    CGImageRelease(image);
+//    [atlas release];
+  //  CGImageRelease(image);
     [super dealloc];
 }
 

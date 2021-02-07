@@ -30,7 +30,12 @@
     int total_time;
     SoundManager *sndMan;
     NSString *pathForCoinSoundFile;
-    
+    Wall *leftWall;
+    Wall *rightWall;
+    CGPoint wallTopLeft;
+    CGPoint wallBottomLeft;
+    CGPoint wallTopRight;
+    CGPoint wallBottomRight;
 }
 
 - (void)checkCollision :( CollisionPacket **) colPackage;

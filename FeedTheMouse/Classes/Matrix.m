@@ -25,16 +25,26 @@
 
 - (id)initWithWidth:(NSInteger)width andHeight:(NSInteger)height {
     self = [self init];
-  //  result = [[Matrix alloc] init];
-    M = [[NSMutableArray alloc] initWithCapacity:height];
-   
-    for(int i = 0; i < height; i++) {
-         NSMutableArray *inner = [[NSMutableArray alloc] initWithCapacity:width];
-       [M addObject:inner];
-        [inner release];
-    }
-  //  [inner release];
-  //  [self release];
+    //if (self)
+    //{
+        M = [[NSMutableArray alloc] initWithCapacity:height] ;
+       
+        for(int i = 0; i < height; i++) {
+            //@autoreleasepool {
+                //[M retain];
+            NSMutableArray *inner = [[NSMutableArray alloc] initWithCapacity:width] ;
+            [M addObject:inner];
+           // NSLog(@"inner retain count: %d", [inner retainCount]);
+            [inner release];
+          //  inner = nil;
+           // }
+        }
+       // NSLog(@"M retain count before autorelease: %d", [M retainCount]);
+       // [M release];
+       // NSLog(@"M retain count in initWithWidth: %d", [M retainCount]);
+     //  [M release];
+       // M = nil;
+    //}
     return self;
 }
 
@@ -91,6 +101,7 @@
     for(int i = 0; i < [M count]; i++) {
         [[M objectAtIndex:i] removeAllObjects];
     }
+
    // [M release];
     [super dealloc];
 }

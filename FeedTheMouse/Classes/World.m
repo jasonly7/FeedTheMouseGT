@@ -28,7 +28,16 @@
         [sndMan initializeSoundManager:(10)];
         pathForCoinSoundFile = [[[NSBundle mainBundle] pathForResource:@"sounds/coin_sound" ofType:@"wav"] retain];
         
-        
+        wallTopLeft = CGPointMake(0, 960 * sy);
+        wallBottomLeft = CGPointMake(0,0);
+        wallTopRight = CGPointMake(640 * sx ,1334 * sy);
+        wallBottomRight = CGPointMake(640 * sx, 0);
+        leftWall = [[Wall alloc] init];
+        rightWall = [[Wall alloc] init];
+
+        [leftWall initializeLineWithPoint1:wallTopLeft andPoint2:wallBottomLeft];
+        [rightWall initializeLineWithPoint1:wallBottomRight andPoint2:wallTopRight];
+             
     }
     return self;
 }
@@ -39,31 +48,10 @@
     cheese->colPackage->foundCollision = false;
     cheese->colPackage->collidedObj = nil;
     cheese->colPackage->state = COLLISION_NONE;
-    /*CGPoint wallTopLeft = CGPointMake(cheese->cheeseSprite->width/4, 0);
-    CGPoint wallBottomLeft = CGPointMake(cheese->cheeseSprite->width/4,960);
-    CGPoint wallTopRight = CGPointMake(640 - cheese->cheeseSprite->width/4,0);
-    CGPoint wallBottomRight = CGPointMake(640 - cheese->cheeseSprite->width/4, 960);*/
-    CGPoint wallTopLeft = CGPointMake(0, 960 * sy);
-    CGPoint wallBottomLeft = CGPointMake(0,0);
-    CGPoint wallTopRight = CGPointMake(640 * sx ,1334 * sy);
-    CGPoint wallBottomRight = CGPointMake(640 * sx, 0);
     
-    /*CGPoint wallTopLeft = CGPointMake(0, 0);
-    CGPoint wallBottomLeft = CGPointMake(0,960);
-    CGPoint wallTopRight = CGPointMake(640 ,0);
-    CGPoint wallBottomRight = CGPointMake(640 , 960);*/
-    Wall *leftWall = [[Wall alloc] init];
-    Wall *rightWall = [[Wall alloc] init];
-    Line *topWall = [[Line alloc] init];
-    [topWall initializeLineWithPoint1:wallTopLeft andPoint2:wallTopRight];
-    [leftWall initializeLineWithPoint1:wallTopLeft andPoint2:wallBottomLeft];
-    [rightWall initializeLineWithPoint1:wallBottomRight andPoint2:wallTopRight];
     cheese->teeterTotters = lvl->teeterTotters;
     cheese->colPackage->collisionCount = 0;
-    /*if (cheese->y > 960*sy - cheese->cheeseSprite.height/2 && cheese->vel->y > 0)//([cheese collideWithLine:topWall])
-    {
-        [cheese bounceOffTopWall];
-    }*/
+   
     if ([cheese collideWithLine:leftWall])
     {
         [cheese bounceOffLeftWall];
@@ -78,6 +66,7 @@
         //cheese->pos->x = cheese->cheeseSprite.width/2*sx;
         //cheese->x = cheese->pos->x;
     }
+    
     TeeterTotter *topTeeterTotter = [[TeeterTotter alloc] init];
     if ([lvl->teeterTotters count] > 0)
         topTeeterTotter = [lvl->teeterTotters objectAtIndex:0];
