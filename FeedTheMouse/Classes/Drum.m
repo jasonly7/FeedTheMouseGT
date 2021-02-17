@@ -40,7 +40,7 @@ static int kVibration[] = {0,1,2,3,4,5,6,7};
     float screenHeight = [UIScreen.mainScreen bounds].size.height * [UIScreen.mainScreen scale];
     float sx = screenWidth/640.0f;
     float sy = screenHeight/1136.0f;
-    if (screenWidth == 1242)
+    if (screenWidth == 1242 )
     {
         xLocation = xLocation * sx;
         yLocation = yLocation * sy;

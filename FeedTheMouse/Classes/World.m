@@ -28,7 +28,7 @@
         [sndMan initializeSoundManager:(10)];
         pathForCoinSoundFile = [[[NSBundle mainBundle] pathForResource:@"sounds/coin_sound" ofType:@"wav"] retain];
         
-        wallTopLeft = CGPointMake(0, 960 * sy);
+        wallTopLeft = CGPointMake(0, 1334 * sy);//960 * sy);
         wallBottomLeft = CGPointMake(0,0);
         wallTopRight = CGPointMake(640 * sx ,1334 * sy);
         wallBottomRight = CGPointMake(640 * sx, 0);
@@ -52,7 +52,7 @@
     cheese->teeterTotters = lvl->teeterTotters;
     cheese->colPackage->collisionCount = 0;
    
-    if ([cheese collideWithLine:leftWall])
+    if ([cheese checkWall:leftWall])
     {
         [cheese bounceOffLeftWall];
         cheese->colPackage->collidedObj = leftWall;
@@ -218,7 +218,7 @@
             for (int i = 0; i < [lvl->teeterTotters count]; i++ )
             {
                 TeeterTotter *teeterTotter = [lvl->teeterTotters objectAtIndex:i];
-                if (screenWidth == 1242)
+                if (screenWidth == 1242 )
                 {
                     topRightX = (teeterTotter->x + cos(radAngle)*teeterTotter->totterSprite.width/2 + cos(radAngle+M_PI_2)*teeterTotter->totterSprite.height/2);
                 }
@@ -271,7 +271,7 @@
                         if (cheese->pos->y > teeterTotter->topLine->p1.y && cheese->pos->y > teeterTotter->topLine->p2.y)
                         {
                             double teeterTotterX = teeterTotter->x*sx;
-                            if (screenWidth == 1242)
+                            if (screenWidth == 1242 )
                                 teeterTotterX = teeterTotter->x;
                             if (cheese->pos->x > teeterTotterX)
                             {
@@ -327,7 +327,7 @@
                             }
                             radAngle = teeterTotter->angle*M_PI/180.0f;
                             // get top left of rectangle
-                            if (screenWidth == 1242)
+                            if (screenWidth == 1242 )
                             {
                                 topLeftX = (teeterTotter->x - cos(radAngle)*teeterTotter->totterSprite.width/2 + cos(radAngle+M_PI_2)*teeterTotter->totterSprite.height/2);
                                 topLeftY = (teeterTotter->y - sin(radAngle)*teeterTotter->totterSprite.width/2 + sin(radAngle+M_PI_2)*teeterTotter->totterSprite.height/2);
@@ -385,7 +385,7 @@
                             [cheese->prevVelocities[i] initializeVectorX:0 andY:0];
                         cheese->colPackage->prevStates[i] = cheese->colPackage->state;
                         
-                        if (screenWidth == 1242)
+                        if (screenWidth == 1242 )
                         {
                             topLeftX = (teeterTotter->x - cos(radAngle)*teeterTotter->totterSprite.width/2 + cos(radAngle+M_PI_2)*teeterTotter->totterSprite.height/2);
                             topLeftY = (teeterTotter->y - sin(radAngle)*teeterTotter->totterSprite.width/2 + sin(radAngle+M_PI_2)*teeterTotter->totterSprite.height/2);

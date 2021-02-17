@@ -31,6 +31,7 @@
 		86526D6F25AF82A0004EA48A /* music.png in Resources */ = {isa = PBXBuildFile; fileRef = 86526D6D25AF82A0004EA48A /* music.png */; };
 		86526D7525AF841D004EA48A /* small_music.png in Resources */ = {isa = PBXBuildFile; fileRef = 86526D7325AF841D004EA48A /* small_music.png */; };
 		86526D7625AF841D004EA48A /* small_music_off.png in Resources */ = {isa = PBXBuildFile; fileRef = 86526D7425AF841D004EA48A /* small_music_off.png */; };
+		86554CEB25D4E75B004E6F0B /* cheese_ipad11.png in Resources */ = {isa = PBXBuildFile; fileRef = 86554CEA25D4E75B004E6F0B /* cheese_ipad11.png */; };
 		8660C73A24F98D82003002C0 /* bigDrumsSheet.png in Resources */ = {isa = PBXBuildFile; fileRef = 8660C73924F98D82003002C0 /* bigDrumsSheet.png */; };
 		866429B825658BC0002AFBC1 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 866429B725658BC0002AFBC1 /* CoreText.framework */; };
 		8667F9D32509639F00AF9654 /* PushAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 8667F9D22509639F00AF9654 /* PushAnimator.m */; };
@@ -238,6 +239,7 @@
 		86526D6D25AF82A0004EA48A /* music.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = music.png; path = Images/music.png; sourceTree = "<group>"; };
 		86526D7325AF841D004EA48A /* small_music.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = small_music.png; path = Images/small_music.png; sourceTree = "<group>"; };
 		86526D7425AF841D004EA48A /* small_music_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = small_music_off.png; path = Images/small_music_off.png; sourceTree = "<group>"; };
+		86554CEA25D4E75B004E6F0B /* cheese_ipad11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cheese_ipad11.png; path = Images/cheese_ipad11.png; sourceTree = "<group>"; };
 		8660C73924F98D82003002C0 /* bigDrumsSheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bigDrumsSheet.png; path = Images/Triggers/Drums/bigDrumsSheet.png; sourceTree = "<group>"; };
 		866429B725658BC0002AFBC1 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		8667F9D12509639F00AF9654 /* PushAnimator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PushAnimator.h; sourceTree = "<group>"; };
@@ -694,6 +696,7 @@
 		86E075371E44250400E92CB9 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				86554CEA25D4E75B004E6F0B /* cheese_ipad11.png */,
 				869A952225B21FF700F4847B /* Boom_bigger.png */,
 				86FC61D225B212410028D68F /* BigBoom.png */,
 				86FC61C725B1F5660028D68F /* Boom.png */,
@@ -1077,6 +1080,7 @@
 				862E827524E9D76B0042F9C6 /* intro.jpg in Resources */,
 				86E075981E44280500E92CB9 /* flipper_yellow_game.png in Resources */,
 				86C73EB825016A820014C5C2 /* big_gear_blue.png in Resources */,
+				86554CEB25D4E75B004E6F0B /* cheese_ipad11.png in Resources */,
 				86E0756C1E4426D300E92CB9 /* gear_red.png in Resources */,
 				86E075961E44280500E92CB9 /* flipper_purple_grey.png in Resources */,
 				86E0757D1E4427DA00E92CB9 /* DrumsSheet.png in Resources */,
@@ -1370,7 +1374,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.CortexInteractive.FeedTheMouse;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -1389,7 +1393,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.CortexInteractive.FeedTheMouse;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
