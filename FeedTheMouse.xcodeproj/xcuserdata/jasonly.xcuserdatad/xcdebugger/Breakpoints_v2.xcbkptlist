@@ -17315,7 +17315,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "627"
             endingLineNumber = "627"
-            landmarkName = "-updateScoresWithNew:andNew:"
+            landmarkName = "-initializeScores"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -17331,7 +17331,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "441"
             endingLineNumber = "441"
-            landmarkName = "-initializeScores"
+            landmarkName = "-initializeTimes"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -17347,7 +17347,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "626"
             endingLineNumber = "626"
-            landmarkName = "-updateScoresWithNew:andNew:"
+            landmarkName = "-initializeScores"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -19575,7 +19575,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "346"
             endingLineNumber = "346"
-            landmarkName = "-initializeTimes"
+            landmarkName = "-viewWillAppear:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -19591,7 +19591,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "345"
             endingLineNumber = "345"
-            landmarkName = "-initializeTimes"
+            landmarkName = "-viewWillAppear:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
