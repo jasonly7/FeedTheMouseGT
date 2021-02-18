@@ -89,11 +89,11 @@
         justTouchVelocity = [[Vector alloc] init];
         prevVel = [[Vector alloc] init];
         [prevVel initializeVectorX:0 andY:0];
-        if (screenWidth == 1242 || screenWidth == 1668 || screenWidth == 2048)
+        if (screenWidth == 1242 || screenWidth == 1668 || screenWidth == 2048 || screenWidth == 1536)
         {
             if (screenWidth == 1242)
                 cheeseSprite = [Picture fromFile:@"bigCheese.png"];
-            else if (screenWidth == 1668)
+            else if (screenWidth == 1668 || screenWidth == 1536)
                 cheeseSprite = [Picture fromFile:@"cheese_ipad11.png"];
             else if (screenWidth == 2048)
                 cheeseSprite = [Picture fromFile:@"cheese_ipad12.png"];
@@ -118,7 +118,7 @@
         gravityForce->a = accelVector;
         gravityForce->m = 1;
         gravity = [[Vector alloc] init];
-        if (screenWidth == 1242 || screenWidth == 1668 || screenWidth == 2048)
+        if (screenWidth == 1242 || screenWidth == 1668 || screenWidth == 2048 || screenWidth == 1536)
             [gravity initializeVectorX:0 andY:(-10*UNIT*screenScale) ];
         else
             [gravity initializeVectorX:0 andY:(-10*UNIT*sy*screenScale) ];
@@ -196,7 +196,7 @@
     [vel initializeVectorX:0 andY:0];
     acceleration->x = 0;
     acceleration->y = gravity->y;
-    if (screenWidth == 1242 || screenWidth == 1668 || screenWidth == 2048)
+    if (screenWidth == 1242 || screenWidth == 1668 || screenWidth == 2048 || screenWidth == 1536)
     {
         cheeseSprite.x = pt.x - cheeseSprite.width/2;
         cheeseSprite.y = pt.y - cheeseSprite.height/2;
@@ -229,7 +229,7 @@
    
     if ( cheeseSprite.y + cheeseSprite.height > 0)
     {
-        if (screenWidth == 1242 || screenWidth == 1668 || screenWidth == 2048)
+        if (screenWidth == 1242 || screenWidth == 1668 || screenWidth == 2048 || screenWidth == 1536)
         {
             leftLimitX = cheeseSprite.width/2;
             rightLimitX = screenWidth - cheeseSprite.width/2;
@@ -1546,7 +1546,7 @@
             [negativeI initializeVectorX:-vel->x andY:-vel->y];
             colPackage->state = COLLISION_BOUNCE;
             double cheeseRadius = r*sy;
-            if ( screenWidth == 1242 || screenWidth == 1668 || screenWidth == 2048)
+            if ( screenWidth == 1242 || screenWidth == 1668 || screenWidth == 2048 || screenWidth == 1536)
                 cheeseRadius = r;
             if (isPastTopLine)
             {
@@ -2365,7 +2365,7 @@
   //  bounceVel = [bounceVel multiply:0.5];
     colPackage->foundCollision = true;
     
-    if (screenWidth == 1242 || screenWidth == 1668 || screenWidth == 2048)
+    if (screenWidth == 1242 || screenWidth == 1668 || screenWidth == 2048 || screenWidth == 1536)
     {
         self->pos->x = cheeseSprite->width/2 + 1;
         self->x = self->pos->x;
@@ -2557,7 +2557,7 @@
     Vector *distanceVector = [[Vector alloc] init];
     distanceVector = [self->pos subtract:vertex];
     double cheeseRadius = sx*self->r;
-    if (screenWidth == 1242 || screenWidth == 1668 || screenWidth == 2048)
+    if (screenWidth == 1242 || screenWidth == 1668 || screenWidth == 2048 || screenWidth == 1536)
         cheeseRadius = self->r;
     if (distanceVector->length < cheeseRadius)
     {
@@ -2579,7 +2579,7 @@
         float eSpaceP1Y = line->p1.y/(sy*r);
         float eSpaceP2X = line->p2.x/(sx*r);
         float eSpaceP2Y = line->p2.y/(sy*r);
-        if (screenWidth == 1242 || screenWidth == 1668 || screenWidth == 2048)
+        if (screenWidth == 1242 || screenWidth == 1668 || screenWidth == 2048 || screenWidth == 1536)
         {
             eSpaceP1X = line->p1.x/r;
             eSpaceP1Y = line->p1.y/r;
@@ -2594,7 +2594,7 @@
         [eLine initializeLineWithPoint1:p1 andPoint2:p2];
         float cx = self->x/(sx*r);
         float cy = self->y/(sy*r);
-        if (screenWidth == 1242 || screenWidth == 1668 || screenWidth == 2048)
+        if (screenWidth == 1242 || screenWidth == 1668 || screenWidth == 2048 || screenWidth == 1536)
         {
             cx = self->x/r;
             cy = self->y/r;
@@ -2660,7 +2660,7 @@
     float eSpaceP1Y = line->p1.y/(sy*r);
     float eSpaceP2X = line->p2.x/(sx*r);
     float eSpaceP2Y = line->p2.y/(sy*r);
-    if (screenWidth == 1242 || screenWidth == 1668 || screenWidth == 2048)
+    if (screenWidth == 1242 || screenWidth == 1668 || screenWidth == 2048 || screenWidth == 1536)
     {
         eSpaceP1X = line->p1.x/r;
         eSpaceP1Y = line->p1.y/r;
@@ -2675,7 +2675,7 @@
     [eLine initializeLineWithPoint1:p1 andPoint2:p2];
     float cx = self->x/(r*sx);
     float cy = self->y/(r*sy);
-    if (screenWidth == 1242 || screenWidth == 1668 || screenWidth == 2048)
+    if (screenWidth == 1242 || screenWidth == 1668 || screenWidth == 2048 || screenWidth == 1536)
     {
         cx = self->x/r;
         cy = self->y/r;
@@ -2725,7 +2725,7 @@
     //double eVy = (colPackage->velocity->y+acceleration->y)/r;
     double eVx = (colPackage->velocity->x)/(r*sx);
     double eVy = (colPackage->velocity->y)/(r*sy);
-    if (screenWidth == 1242 || screenWidth == 1668  || screenWidth == 2048)
+    if (screenWidth == 1242 || screenWidth == 1668  || screenWidth == 2048 || screenWidth == 1536)
     {
         eVx = colPackage->velocity->x/r;
         eVy = colPackage->velocity->y/r;
@@ -2738,7 +2738,7 @@
     NSNumber *num12 = [NSNumber numberWithDouble:0.0];
     NSNumber *num21 = [NSNumber numberWithDouble:0.0];
     NSNumber *num22 = [NSNumber numberWithDouble:1/(r*sy)];
-    if (screenWidth == 1242 || screenWidth == 1668 || screenWidth == 2048)
+    if (screenWidth == 1242 || screenWidth == 1668 || screenWidth == 2048 || screenWidth == 1536)
     {
         num11 = [NSNumber numberWithDouble:1/(r)];
         num12 = [NSNumber numberWithDouble:0.0];
@@ -2883,7 +2883,7 @@
         double collisionPointY = collisionPoint->y;
         [eSpaceIntersectionPt initializeVectorX:collisionPointX andY:collisionPointY];
         
-        if (screenWidth == 1242 || screenWidth == 1668 || screenWidth == 2048)
+        if (screenWidth == 1242 || screenWidth == 1668 || screenWidth == 2048 || screenWidth == 1536)
         {
             collisionPointX = collisionPoint->x * r;
             collisionPointY = collisionPoint->y * r;
@@ -2910,7 +2910,7 @@
        // eSpaceNearestDist = colPackage->nearestDistance * 1/(r*sy);
         double eNearestDistX = colPackage->nearestDistance * 1/(r*sx);
         double eNearestDistY = colPackage->nearestDistance * 1/(r*sy);
-        if (screenWidth == 1242 || screenWidth == 1668 || screenWidth == 2048)
+        if (screenWidth == 1242 || screenWidth == 1668 || screenWidth == 2048 || screenWidth == 1536)
         {
             eNearestDistX = colPackage->nearestDistance * 1/(r);
             eNearestDistY = colPackage->nearestDistance * 1/(r);
@@ -2920,7 +2920,7 @@
         eSpaceNearestDist = [eNearestDist length];
         Vector *normal = [[[Vector alloc] init] autorelease];
         double cheeseRadius = r*sy;
-        if ( screenWidth == 1242 || screenWidth == 1668 || screenWidth == 2048)
+        if ( screenWidth == 1242 || screenWidth == 1668 || screenWidth == 2048 || screenWidth == 1536)
             cheeseRadius = r;
         CGPoint p1 = CGPointMake( line->p1.x/cheeseRadius, line->p1.y/cheeseRadius);
         CGPoint p2 = CGPointMake( line->p2.x/cheeseRadius, line->p2.y/cheeseRadius);
@@ -2949,7 +2949,7 @@
     //double eVy = (colPackage->velocity->y+acceleration->y)/r;
     double eVx = (colPackage->velocity->x)/(r*sx);
     double eVy = (colPackage->velocity->y)/(r*sy);
-    if (screenWidth == 1242 || screenWidth == 1668 || screenWidth == 2048)
+    if (screenWidth == 1242 || screenWidth == 1668 || screenWidth == 2048 || screenWidth == 1536)
     {
         eVx = colPackage->velocity->x/r;
         eVy = colPackage->velocity->y/r;
@@ -2962,7 +2962,7 @@
     NSNumber *num12 = [NSNumber numberWithDouble:0.0];
     NSNumber *num21 = [NSNumber numberWithDouble:0.0];
     NSNumber *num22 = [NSNumber numberWithDouble:1/(r*sy)];
-    if (screenWidth == 1242 || screenWidth == 1668 || screenWidth == 2048)
+    if (screenWidth == 1242 || screenWidth == 1668 || screenWidth == 2048 || screenWidth == 1536)
     {
         num11 = [NSNumber numberWithDouble:1/(r)];
         num12 = [NSNumber numberWithDouble:0.0];
@@ -3114,7 +3114,7 @@
         double collisionPointY = collisionPoint->y;
         [eSpaceIntersectionPt initializeVectorX:collisionPointX andY:collisionPointY];
         
-        if (screenWidth == 1242 || screenWidth == 1668 || screenWidth == 2048)
+        if (screenWidth == 1242 || screenWidth == 1668 || screenWidth == 2048 || screenWidth == 1536)
         {
             collisionPointX = collisionPoint->x * r;
             collisionPointY = collisionPoint->y * r;
@@ -3141,7 +3141,7 @@
        // eSpaceNearestDist = colPackage->nearestDistance * 1/(r*sy);
         double eNearestDistX = colPackage->nearestDistance * 1/(r*sx);
         double eNearestDistY = colPackage->nearestDistance * 1/(r*sy);
-        if (screenWidth == 1242 || screenWidth == 1668 || screenWidth == 2048)
+        if (screenWidth == 1242 || screenWidth == 1668 || screenWidth == 2048 || screenWidth == 1536)
         {
             eNearestDistX = colPackage->nearestDistance * 1/(r);
             eNearestDistY = colPackage->nearestDistance * 1/(r);
@@ -3171,7 +3171,7 @@
     //double eVy = (colPackage->velocity->y+acceleration->y)/r;
     double eVx = (colPackage->velocity->x)/(r*sx);
     double eVy = (colPackage->velocity->y)/(r*sy);
-    if (screenWidth == 1242 || screenWidth == 1668 || screenWidth == 2048)
+    if (screenWidth == 1242 || screenWidth == 1668 || screenWidth == 2048 || screenWidth == 1536)
     {
         eVx = (colPackage->velocity->x)/r;
         eVy = (colPackage->velocity->y)/r;
@@ -3184,7 +3184,7 @@
     NSNumber *num12 = [NSNumber numberWithDouble:0.0f];
     NSNumber *num21 = [NSNumber numberWithDouble:0.0f];
     NSNumber *num22 = [NSNumber numberWithDouble:1/(r*sy)];
-    if (screenWidth == 1242 || screenWidth == 1668 || screenWidth == 2048)
+    if (screenWidth == 1242 || screenWidth == 1668 || screenWidth == 2048 || screenWidth == 1536)
     {
         num11 = [NSNumber numberWithDouble:1/r];
         num22 = [NSNumber numberWithDouble:1/r];
@@ -3231,7 +3231,7 @@
     colPackage->nearestDistance = [x1 floatValue] * [vel length];
     double eSpaceIntersectionPtX = 0;
     double eSpaceIntersectionPtY = 0;
-    if (screenWidth == 1242 || screenWidth == 1668 || screenWidth == 2048)
+    if (screenWidth == 1242 || screenWidth == 1668 || screenWidth == 2048 || screenWidth == 1536)
     {
         eSpaceIntersectionPtX = colPackage->intersectionPoint->x * (1.0f/(r));
         eSpaceIntersectionPtY = colPackage->intersectionPoint->y * (1.0f/(r));
@@ -3294,7 +3294,7 @@
     //eSpacePosition = [colPackage->R3Position multiply:(1.0f/(colPackage->eRadius*sy))];
     double ePosX = colPackage->R3Position->x * (1.0f/(colPackage->eRadius*sx));
     double ePosY = colPackage->R3Position->y * (1.0f/(colPackage->eRadius*sy));
-    if (screenWidth == 1242 || screenWidth == 1668 || screenWidth == 2048)
+    if (screenWidth == 1242 || screenWidth == 1668 || screenWidth == 2048 || screenWidth == 1536)
     {
         ePosX = colPackage->R3Position->x * (1.0f/(colPackage->eRadius));
         ePosY = colPackage->R3Position->y * (1.0f/(colPackage->eRadius));
@@ -3302,7 +3302,7 @@
     [eSpacePosition initializeVectorX:ePosX andY:ePosY];
     double eVelX = colPackage->R3Velocity->x * (1.0f/(colPackage->eRadius*sx));
     double eVelY = colPackage->R3Velocity->y * (1.0f/(colPackage->eRadius*sy));
-    if (screenWidth == 1242 || screenWidth == 1668 || screenWidth == 2048 || screenWidth == 2048)
+    if (screenWidth == 1242 || screenWidth == 1668 || screenWidth == 2048 || screenWidth == 1536)
     {
         eVelX = colPackage->R3Velocity->x * (1.0f/(colPackage->eRadius));
         eVelY = colPackage->R3Velocity->y * (1.0f/(colPackage->eRadius));
@@ -3325,7 +3325,7 @@
     //float radius = colPackage->eRadius*sy;
     double radiusX = finalPosition->x*colPackage->eRadius*sx;
     double radiusY = finalPosition->y*colPackage->eRadius*sy;
-    if (screenWidth == 1242 || screenWidth == 1668 || screenWidth == 2048)
+    if (screenWidth == 1242 || screenWidth == 1668 || screenWidth == 2048 || screenWidth == 1536)
     {
         radiusX = finalPosition->x*colPackage->eRadius;
         radiusY = finalPosition->y*colPackage->eRadius;
@@ -3415,7 +3415,7 @@ const float unitsPerMeter = 1000.0f;
     else if (colPackage->state == COLLISION_BOUNCE && [colPackage->collidedObj class] == [Gear class] )
     {
         double cheeseRadius = r*sy;
-        if ( screenWidth == 1242 || screenWidth == 1668 || screenWidth == 2048)
+        if ( screenWidth == 1242 || screenWidth == 1668 || screenWidth == 2048 || screenWidth == 1536)
             cheeseRadius = r;
         double eJustTouchVelocityX = justTouchVelocity->x/cheeseRadius;
         double eJustTouchVelocityY = justTouchVelocity->y/cheeseRadius;
@@ -3589,7 +3589,7 @@ const float unitsPerMeter = 1000.0f;
              double v2x = 0;
              double v2y = 0;
              double collidedTotterX;
-             if (screenWidth == 1242 || screenWidth == 1668 || screenWidth == 2048)
+             if (screenWidth == 1242 || screenWidth == 1668 || screenWidth == 2048 || screenWidth == 1536)
              {
                  collidedTotterX = colPackage->collidedTotter->x;
              }
@@ -3651,7 +3651,7 @@ const float unitsPerMeter = 1000.0f;
                      //vel = [vel add:[dirAlongTeeter multiply:accel]];
              }
              
-             if (screenWidth == 1242 || screenWidth == 1668 || screenWidth == 2048)
+             if (screenWidth == 1242 || screenWidth == 1668 || screenWidth == 2048 || screenWidth == 1536)
                  eAccel = accel/radius;
              else
                  eAccel = accel/(34.0f*sy);
@@ -3719,7 +3719,7 @@ const float unitsPerMeter = 1000.0f;
       double eVx = (colPackage->velocity->x)/(r*sx);
       double eVy = (colPackage->velocity->y)/(r*sy);
     
-      if (screenWidth == 1242 || screenWidth == 1668 || screenWidth == 2048)
+      if (screenWidth == 1242 || screenWidth == 1668 || screenWidth == 2048 || screenWidth == 1536)
       {
           eVx = colPackage->velocity->x/r;
           eVy = colPackage->velocity->y/r;
@@ -3732,7 +3732,7 @@ const float unitsPerMeter = 1000.0f;
       NSNumber *num12 = [NSNumber numberWithDouble:0.0];
       NSNumber *num21 = [NSNumber numberWithDouble:0.0];
       NSNumber *num22 = [NSNumber numberWithDouble:1/(r*sy)];
-      if (screenWidth == 1242 || screenWidth == 1668 || screenWidth == 2048)
+      if (screenWidth == 1242 || screenWidth == 1668 || screenWidth == 2048 || screenWidth == 1536)
       {
           num11 = [NSNumber numberWithDouble:1/(r)];
           num12 = [NSNumber numberWithDouble:0.0];
@@ -3877,7 +3877,7 @@ const float unitsPerMeter = 1000.0f;
           double collisionPointY = collisionPoint->y;
           [eSpaceIntersectionPt initializeVectorX:collisionPointX andY:collisionPointY];
           
-          if (screenWidth == 1242 || screenWidth == 1668 || screenWidth == 2048)
+          if (screenWidth == 1242 || screenWidth == 1668 || screenWidth == 2048 || screenWidth == 1536)
           {
               collisionPointX = collisionPoint->x * (r);
               collisionPointY = collisionPoint->y * (r);
@@ -3900,7 +3900,7 @@ const float unitsPerMeter = 1000.0f;
          // eSpaceIntersectionPt = [colPackage->intersectionPoint multiply:1/(r*sx)];
           double eNearestDistX = 0;
           double eNearestDistY = 0;
-          if (screenWidth == 1242 || screenWidth == 1668 || screenWidth == 2048)
+          if (screenWidth == 1242 || screenWidth == 1668 || screenWidth == 2048 || screenWidth == 1536)
           {
               eNearestDistX = colPackage->nearestDistance * 1/(r);
               eNearestDistY = colPackage->nearestDistance * 1/(r);
@@ -3931,7 +3931,7 @@ const float unitsPerMeter = 1000.0f;
     velocityInESpace = [[[Vector alloc] init] autorelease];
     [p initializeVectorX:pt.x andY:pt.y];
     
-    if (screenWidth == 1242 || screenWidth == 1668 || screenWidth == 2048)
+    if (screenWidth == 1242 || screenWidth == 1668 || screenWidth == 2048 || screenWidth == 1536)
     {
         eVx = (colPackage->velocity->x)/r;
         eVy = (colPackage->velocity->y)/r;
@@ -3949,7 +3949,7 @@ const float unitsPerMeter = 1000.0f;
     NSNumber *num12 = [NSNumber numberWithDouble:0.0];
     NSNumber *num21 = [NSNumber numberWithDouble:0.0];
     NSNumber *num22 = [NSNumber numberWithDouble:1/(r*sy)];
-    if (screenWidth == 1242 || screenWidth == 1668 || screenWidth == 2048)
+    if (screenWidth == 1242 || screenWidth == 1668 || screenWidth == 2048 || screenWidth == 1536)
     {
         num11 = [NSNumber numberWithDouble:1/(r)];
         num12 = [NSNumber numberWithDouble:0.0];
@@ -3997,7 +3997,7 @@ const float unitsPerMeter = 1000.0f;
     colPackage->nearestDistance = [x1 floatValue] * [vel length];
     double eSpaceIntersectionPtX = 0;
     double eSpaceIntersectionPtY = 0;
-    if (screenWidth == 1242 || screenWidth == 1668 || screenWidth == 2048)
+    if (screenWidth == 1242 || screenWidth == 1668 || screenWidth == 2048 || screenWidth == 1536)
     {
         eSpaceIntersectionPtX = colPackage->intersectionPoint->x * (1.0f/(r));
         eSpaceIntersectionPtY = colPackage->intersectionPoint->y * (1.0f/(r));
