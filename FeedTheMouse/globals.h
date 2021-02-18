@@ -9,6 +9,6 @@
 #ifndef globals_h
 #define globals_h
 
-#define DEBUG true
+#define DEBUG false
 
 #endif /* globals_h */

@@ -20,6 +20,7 @@
 		8638368225AA592E004EF3D7 /* level_start_template.png in Resources */ = {isa = PBXBuildFile; fileRef = 8638367E25AA592E004EF3D7 /* level_start_template.png */; };
 		863A582824EC7989004D5541 /* bigCheese.png in Resources */ = {isa = PBXBuildFile; fileRef = 863A582724EC7989004D5541 /* bigCheese.png */; };
 		863D85A6259D7F13007E8C27 /* chat_bubble_compressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 863D85A5259D7F13007E8C27 /* chat_bubble_compressed.png */; };
+		8647687E25DDDE9B00D9DB99 /* cheese_ipad12.png in Resources */ = {isa = PBXBuildFile; fileRef = 8647687D25DDDE9B00D9DB99 /* cheese_ipad12.png */; };
 		8647A0D0212C5FCD00DE7685 /* FinishGameView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8647A0CF212C5FCD00DE7685 /* FinishGameView.m */; };
 		8647A0D3212C634000DE7685 /* FinishGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8647A0D2212C634000DE7685 /* FinishGameViewController.m */; };
 		864AFC8A253920F600FF1A57 /* big_teeter_totter_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 864AFC89253920F600FF1A57 /* big_teeter_totter_blue.png */; };
@@ -225,6 +226,7 @@
 		8638367E25AA592E004EF3D7 /* level_start_template.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = level_start_template.png; sourceTree = "<group>"; };
 		863A582724EC7989004D5541 /* bigCheese.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bigCheese.png; path = Images/bigCheese.png; sourceTree = "<group>"; };
 		863D85A5259D7F13007E8C27 /* chat_bubble_compressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = chat_bubble_compressed.png; path = Images/chat_bubble_compressed.png; sourceTree = "<group>"; };
+		8647687D25DDDE9B00D9DB99 /* cheese_ipad12.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cheese_ipad12.png; path = Images/cheese_ipad12.png; sourceTree = "<group>"; };
 		8647A0CE212C5FCD00DE7685 /* FinishGameView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FinishGameView.h; sourceTree = "<group>"; };
 		8647A0CF212C5FCD00DE7685 /* FinishGameView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FinishGameView.m; sourceTree = "<group>"; };
 		8647A0D1212C634000DE7685 /* FinishGameViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FinishGameViewController.h; sourceTree = "<group>"; };
@@ -696,6 +698,7 @@
 		86E075371E44250400E92CB9 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				8647687D25DDDE9B00D9DB99 /* cheese_ipad12.png */,
 				86554CEA25D4E75B004E6F0B /* cheese_ipad11.png */,
 				869A952225B21FF700F4847B /* Boom_bigger.png */,
 				86FC61D225B212410028D68F /* BigBoom.png */,
@@ -1096,6 +1099,7 @@
 				86E075C51E44288900E92CB9 /* teeter_totter.png in Resources */,
 				86C73EB725016A820014C5C2 /* big_gear_purple.png in Resources */,
 				86E075701E4426D300E92CB9 /* small_gear_red.png in Resources */,
+				8647687E25DDDE9B00D9DB99 /* cheese_ipad12.png in Resources */,
 				8660C73A24F98D82003002C0 /* bigDrumsSheet.png in Resources */,
 				86E075591E44263400E92CB9 /* background_3.png in Resources */,
 				869A951E25B21EA400F4847B /* comic.ttf in Resources */,
