@@ -103,6 +103,7 @@
     //[creditVC->background setBounds:CGRectMake(0, 0, self.view.bounds.size.width*sx, self.view.bounds.size.height*sy)];
     [creditVC.view setFrame:CGRectMake(0, 0, screenWidth*sx, screenHeight*sy)];
     //creditVC.view.frame.size = CGSizeMake(screenWidth*sx, screenHeight*sy);
+    creditVC.modalPresentationStyle = UIModalPresentationFullScreen;
     [self presentViewController:creditVC animated:YES completion:nil];
     //[self.view addSubview:creditVC.view];
 }

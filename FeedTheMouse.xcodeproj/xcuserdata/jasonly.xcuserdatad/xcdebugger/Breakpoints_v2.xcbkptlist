@@ -979,8 +979,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1946"
             endingLineNumber = "1946"
-            landmarkName = "-display_game"
-            landmarkType = "7">
+            landmarkName = "FeedTheMouseView"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1372,8 +1372,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1945"
             endingLineNumber = "1945"
-            landmarkName = "FeedTheMouseView"
-            landmarkType = "3">
+            landmarkName = "cleanRemoveFromSuperview(view)"
+            landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -17265,8 +17265,8 @@
             filePath = "FeedTheMouse/TitleViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "186"
-            endingLineNumber = "186"
+            startingLineNumber = "187"
+            endingLineNumber = "187"
             landmarkName = "-viewDidLoad"
             landmarkType = "7">
          </BreakpointContent>
@@ -17313,8 +17313,8 @@
             filePath = "FeedTheMouse/FinishGameViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "535"
-            endingLineNumber = "535"
+            startingLineNumber = "627"
+            endingLineNumber = "627"
             landmarkName = "-updateScoresWithNew:andNew:"
             landmarkType = "7">
          </BreakpointContent>
@@ -17329,8 +17329,8 @@
             filePath = "FeedTheMouse/FinishGameViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "349"
-            endingLineNumber = "349"
+            startingLineNumber = "441"
+            endingLineNumber = "441"
             landmarkName = "-initializeScores"
             landmarkType = "7">
          </BreakpointContent>
@@ -17345,8 +17345,8 @@
             filePath = "FeedTheMouse/FinishGameViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "534"
-            endingLineNumber = "534"
+            startingLineNumber = "626"
+            endingLineNumber = "626"
             landmarkName = "-updateScoresWithNew:andNew:"
             landmarkType = "7">
          </BreakpointContent>
@@ -17361,8 +17361,8 @@
             filePath = "FeedTheMouse/TitleViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "118"
-            endingLineNumber = "118"
+            startingLineNumber = "119"
+            endingLineNumber = "119"
             landmarkName = "-scoreButtonTouchedUp:"
             landmarkType = "7">
          </BreakpointContent>
@@ -17729,8 +17729,8 @@
             filePath = "FeedTheMouse/FinishGameViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "341"
-            endingLineNumber = "341"
+            startingLineNumber = "433"
+            endingLineNumber = "433"
             landmarkName = "-initializeTimes"
             landmarkType = "7">
          </BreakpointContent>
@@ -19573,8 +19573,8 @@
             filePath = "FeedTheMouse/FinishGameViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "254"
-            endingLineNumber = "254"
+            startingLineNumber = "346"
+            endingLineNumber = "346"
             landmarkName = "-initializeTimes"
             landmarkType = "7">
          </BreakpointContent>
@@ -19589,8 +19589,8 @@
             filePath = "FeedTheMouse/FinishGameViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "253"
-            endingLineNumber = "253"
+            startingLineNumber = "345"
+            endingLineNumber = "345"
             landmarkName = "-initializeTimes"
             landmarkType = "7">
          </BreakpointContent>
@@ -20840,6 +20840,54 @@
             startingLineNumber = "330"
             endingLineNumber = "330"
             landmarkName = "-drawRect:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1760EF0E-A2B0-4616-9D05-11F95480358D"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FeedTheMouse/FinishGameViewController.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
+            landmarkName = "-viewWillAppear:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6133F790-C21D-4AA2-86EF-83BAE781821E"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FeedTheMouse/FinishGameViewController.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
+            landmarkName = "-viewWillAppear:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8666223A-BFEB-4B67-9D73-1A78C76951CE"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FeedTheMouse/FinishGameViewController.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
+            landmarkName = "-viewWillAppear:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
