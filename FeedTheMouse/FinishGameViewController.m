@@ -293,17 +293,14 @@
         [_score2Label setFrame:CGRectMake(_score2Label.frame.origin.x+380, _player2Label.frame.origin.y, _score2Label.frame.size.width, _player2Label.frame.size.height-2)];
         
         [_player1Label setFont:[UIFont systemFontOfSize:24]];
-
-       // CGRect frame = _player1Label.frame;
-      //  frame.origin.x = 285;
-        //frame.origin.y = 152;
         
         [_player1Label setFrame:CGRectMake(80, _player2Label.frame.origin.y - _player15Label.frame.size.height, _player15Label.frame.size.width, _player15Label.frame.size.height)];
         [_score1Label setFont:[UIFont systemFontOfSize:24]];
         [_score1Label setFrame:CGRectMake(_score1Label.frame.origin.x+380, _player1Label.frame.origin.y, _score1Label.frame.size.width, _player1Label.frame.size.height)];
-        //_score1Label.frame = frame;
 
-        
+    }
+    else if (screenBounds.size.width == 820)
+    {
     }
     else if (screenBounds.size.width == 834)
     {

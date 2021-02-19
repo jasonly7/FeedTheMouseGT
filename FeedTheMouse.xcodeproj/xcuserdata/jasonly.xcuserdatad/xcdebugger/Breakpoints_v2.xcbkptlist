@@ -17313,9 +17313,9 @@
             filePath = "FeedTheMouse/FinishGameViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "717"
-            endingLineNumber = "717"
-            landmarkName = "-initializeScores"
+            startingLineNumber = "714"
+            endingLineNumber = "714"
+            landmarkName = "-viewWillAppear:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -17329,9 +17329,9 @@
             filePath = "FeedTheMouse/FinishGameViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "716"
-            endingLineNumber = "716"
-            landmarkName = "-initializeScores"
+            startingLineNumber = "713"
+            endingLineNumber = "713"
+            landmarkName = "-viewWillAppear:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -19541,8 +19541,8 @@
             filePath = "FeedTheMouse/FinishGameViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "436"
-            endingLineNumber = "436"
+            startingLineNumber = "433"
+            endingLineNumber = "433"
             landmarkName = "-viewWillAppear:"
             landmarkType = "7">
          </BreakpointContent>
@@ -19557,8 +19557,8 @@
             filePath = "FeedTheMouse/FinishGameViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "435"
-            endingLineNumber = "435"
+            startingLineNumber = "432"
+            endingLineNumber = "432"
             landmarkName = "-viewWillAppear:"
             landmarkType = "7">
          </BreakpointContent>
@@ -20901,8 +20901,8 @@
             filePath = "FeedTheMouse/FinishGameViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "488"
-            endingLineNumber = "488"
+            startingLineNumber = "485"
+            endingLineNumber = "485"
             landmarkName = "-viewWillAppear:"
             landmarkType = "7">
          </BreakpointContent>
@@ -20917,8 +20917,8 @@
             filePath = "FeedTheMouse/FinishGameViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "403"
-            endingLineNumber = "403"
+            startingLineNumber = "400"
+            endingLineNumber = "400"
             landmarkName = "-viewWillAppear:"
             landmarkType = "7">
          </BreakpointContent>
@@ -20933,8 +20933,8 @@
             filePath = "FeedTheMouse/FinishGameViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "401"
-            endingLineNumber = "401"
+            startingLineNumber = "398"
+            endingLineNumber = "398"
             landmarkName = "-viewWillAppear:"
             landmarkType = "7">
          </BreakpointContent>
@@ -20997,8 +20997,8 @@
             filePath = "FeedTheMouse/FinishGameViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "315"
-            endingLineNumber = "315"
+            startingLineNumber = "312"
+            endingLineNumber = "312"
             landmarkName = "-viewWillAppear:"
             landmarkType = "7">
          </BreakpointContent>
@@ -21013,8 +21013,8 @@
             filePath = "FeedTheMouse/FinishGameViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "310"
-            endingLineNumber = "310"
+            startingLineNumber = "307"
+            endingLineNumber = "307"
             landmarkName = "-viewWillAppear:"
             landmarkType = "7">
          </BreakpointContent>
