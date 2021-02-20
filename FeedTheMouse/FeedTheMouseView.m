@@ -189,7 +189,7 @@
     pauseMenu->x = screenBounds.size.width/2 - pauseMenu->pauseSprite.width*sx/2/screenScale;
     if ( screenWidth == 1242 )
         pauseMenu->y = screenBounds.size.height/2 + pauseMenu->pauseSprite.height*sy/2;
-    else if (screenWidth == 1668 || screenWidth == 2048 || screenWidth == 1536)
+    else if (screenWidth == 1668 || screenWidth == 2048 || screenWidth == 1536 || screenWidth == 1620)
         pauseMenu->y = screenBounds.size.height/2 ;
     else
         pauseMenu->y = screenBounds.size.height/2 + pauseMenu->pauseSprite.height*sy/2/screenScale;
@@ -327,7 +327,7 @@
         t0 = CGAffineTransformScale(t0, 1/sx, 1/sy);
     }
     
-    if (screenWidth == 1668 || screenWidth == 2048 || screenWidth == 1536)
+    if (screenWidth == 1668 || screenWidth == 2048 || screenWidth == 1536 || screenWidth == 1620)
         t0 = CGAffineTransformScale(t0, 1/sx, 1/sy);
         
     if (screenHeight == 960)
@@ -477,7 +477,7 @@
             chx = 630 - (i)*(cheeseLife->cheeseSprite.width/4);
             [cheeseLife placeAt:CGPointMake(chx*sx, chy*sy-cheeseLife->r*2)];
         }
-        else if (screenWidth == 1668 || screenWidth == 2048 || screenWidth == 1536)
+        else if (screenWidth == 1668 || screenWidth == 2048 || screenWidth == 1536 || screenWidth == 1620)
         {
             chx = 640 - (i)*(cheeseLife->cheeseSprite.width/4);
             chy = 960+cheeseLife->r*1.5;
@@ -551,7 +551,7 @@
     fakeX = (screenWidth/sx - fakeScoreText.width*screenScale/sx-coinIcon->coinSprite.width/2/sx);
     fakeY = self.bounds.size.height*screenScale/sy-(fakeScoreText.height*screenScale/sy+5*screenScale);
     //coin = [[[Coin alloc] init] autorelease];
-    if (screenWidth == 1668 || screenWidth == 2048 || screenWidth == 1536)
+    if (screenWidth == 1668 || screenWidth == 2048 || screenWidth == 1536 || screenWidth == 1620)
         fakeX = screenWidth/sx - fakeScoreText.width*screenScale/sx-coinIcon->coinSprite.width/sx;
     int cx = fakeX;
     int cy = fakeY;
@@ -703,7 +703,7 @@
     CGContextConcatCTM(context,t0);
     t0 = CGAffineTransformIdentity;
     CGContextConcatCTM(context,t0);
-    if (screenWidth == 1242 || screenWidth == 1668 || screenWidth == 2048 || screenWidth == 1536)
+    if (screenWidth == 1242 || screenWidth == 1668 || screenWidth == 2048 || screenWidth == 1536 || screenWidth == 1620)
     {
         pauseButton->x = 10;
         pauseButton->y = timerText.y - timerText.height*screenScale;
@@ -815,7 +815,7 @@
             cheeseHeight = (cheese->cheeseSprite.height)/2/screenScale;
         }
         float cheeseRadius = cheese->r*sy/screenScale;//sqrtf(cheeseWidth*cheeseWidth+cheeseHeight*cheeseHeight);
-        if (screenWidth == 1668 || screenWidth == 2048 || screenWidth == 1536)
+        if (screenWidth == 1668 || screenWidth == 2048 || screenWidth == 1536 || screenWidth == 1620)
             cheeseRadius = cheese->r/screenScale;
         CGContextAddArc( context, cheesePtX,cheesePtY, cheeseRadius, 0, 2*M_PI, YES);
         CGContextStrokePath(context);
@@ -861,7 +861,7 @@
     {
         CGContextSetStrokeColor(context, red);
         CGContextBeginPath(context);
-        if (screenWidth == 1242 || screenWidth == 1668 || screenWidth == 2048 || screenWidth == 1536)
+        if (screenWidth == 1242 || screenWidth == 1668 || screenWidth == 2048 || screenWidth == 1536 || screenWidth == 1620)
             CGContextAddArc(context, x3, y3, cheese->r/screenScale, 0, 2*M_PI, YES);
         else
             CGContextAddArc(context, x3, y3, cheese->r*sy/screenScale, 0, 2*M_PI, YES);
@@ -1958,7 +1958,7 @@ void cleanRemoveFromSuperview( UIView * view ) {
     
     double leftLimit = 0;
     double rightLimit = 0;
-    if (screenWidth == 1242 || screenWidth == 1668 || screenWidth == 2048 || screenWidth == 1536)
+    if (screenWidth == 1242 || screenWidth == 1668 || screenWidth == 2048 || screenWidth == 1536 || screenWidth == 1620)
     {
         leftLimit = cheese->cheeseSprite->width/2;
         rightLimit = screenWidth - cheese->cheeseSprite->width/2;

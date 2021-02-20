@@ -65,6 +65,7 @@
 		86AE3BD5258E56BC00F5EBBB /* credits.png in Resources */ = {isa = PBXBuildFile; fileRef = 86AE3BD4258E56BC00F5EBBB /* credits.png */; };
 		86AE3BDA258E56C300F5EBBB /* info_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 86AE3BD9258E56C300F5EBBB /* info_button.png */; };
 		86AE3BDF258E56E000F5EBBB /* scores_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 86AE3BDE258E56E000F5EBBB /* scores_button.png */; };
+		86B064A825E1881600EAE774 /* cheese_ipad8th.png in Resources */ = {isa = PBXBuildFile; fileRef = 86B064A725E1881600EAE774 /* cheese_ipad8th.png */; };
 		86B11076258E81FE002D98BC /* CreditsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86B11075258E81FE002D98BC /* CreditsViewController.m */; };
 		86B3B97C24ED75B900BE2FE0 /* teeter_totter_yellow.png in Resources */ = {isa = PBXBuildFile; fileRef = 86B3B97B24ED75B900BE2FE0 /* teeter_totter_yellow.png */; };
 		86B71D9E2595326500A6C6D8 /* mediumlargecoins.png in Resources */ = {isa = PBXBuildFile; fileRef = 86B71D9D2595326500A6C6D8 /* mediumlargecoins.png */; };
@@ -288,6 +289,7 @@
 		86AE3BD4258E56BC00F5EBBB /* credits.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = credits.png; path = Images/credits.png; sourceTree = "<group>"; };
 		86AE3BD9258E56C300F5EBBB /* info_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = info_button.png; path = Images/info_button.png; sourceTree = "<group>"; };
 		86AE3BDE258E56E000F5EBBB /* scores_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = scores_button.png; path = Images/scores_button.png; sourceTree = "<group>"; };
+		86B064A725E1881600EAE774 /* cheese_ipad8th.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cheese_ipad8th.png; path = Images/cheese_ipad8th.png; sourceTree = "<group>"; };
 		86B11074258E81FE002D98BC /* CreditsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CreditsViewController.h; path = Classes/CreditsViewController.h; sourceTree = "<group>"; };
 		86B11075258E81FE002D98BC /* CreditsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = CreditsViewController.m; path = Classes/CreditsViewController.m; sourceTree = "<group>"; };
 		86B3B97B24ED75B900BE2FE0 /* teeter_totter_yellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = teeter_totter_yellow.png; path = Images/Triggers/TeeterTotters/teeter_totter_yellow.png; sourceTree = "<group>"; };
@@ -698,6 +700,7 @@
 		86E075371E44250400E92CB9 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				86B064A725E1881600EAE774 /* cheese_ipad8th.png */,
 				8647687D25DDDE9B00D9DB99 /* cheese_ipad12.png */,
 				86554CEA25D4E75B004E6F0B /* cheese_ipad11.png */,
 				869A952225B21FF700F4847B /* Boom_bigger.png */,
@@ -1064,6 +1067,7 @@
 				86E0754E1E44254000E92CB9 /* MouseWaitOpen.png in Resources */,
 				8638367F25AA592E004EF3D7 /* pause_menu.png in Resources */,
 				86D7FBA4258C03F3006C2432 /* back_button.png in Resources */,
+				86B064A825E1881600EAE774 /* cheese_ipad8th.png in Resources */,
 				86C497A22501CDF50006519F /* bigMouseChew.png in Resources */,
 				86E074B81E4412B400E92CB9 /* Assets.xcassets in Resources */,
 				86E0758E1E44280500E92CB9 /* flipper_blue_grey.png in Resources */,

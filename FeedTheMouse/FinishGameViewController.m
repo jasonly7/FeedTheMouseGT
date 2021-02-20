@@ -128,7 +128,6 @@
         [_titleLabel setFrame:CGRectMake(0, 80 - _titleLabel.frame.size.height, scoreboardImageView.frame.size.width, _titleLabel.bounds.size.height+5)];
         [_titleLabel setTextAlignment:UIListContentTextAlignmentCenter];
         [_titleLabel setFont:[UIFont boldSystemFontOfSize:24]];
-        
        
         [_player15Label setFont:[UIFont systemFontOfSize:24]];
         [_player15Label setFrame:CGRectMake(51, 830, _player15Label.frame.size.width+50, 47)];
@@ -301,6 +300,259 @@
     }
     else if (screenBounds.size.width == 820)
     {
+        [_titleLabel setFrame:CGRectMake(0, 80 - _titleLabel.frame.size.height, scoreboardImageView.frame.size.width, _titleLabel.bounds.size.height+5)];
+        [_titleLabel setTextAlignment:UIListContentTextAlignmentCenter];
+        [_titleLabel setFont:[UIFont boldSystemFontOfSize:24]];
+       
+        [_player15Label setBackgroundColor:[UIColor blueColor]];
+        [_player15Label setFont:[UIFont systemFontOfSize:24]];
+        [_player15Label setFrame:CGRectMake(80, 1055, _player15Label.frame.size.width+50, 65)];
+        [_score15Label setFont:[UIFont systemFontOfSize:24]];
+        [_score15Label setFrame:CGRectMake(_score15Label.frame.origin.x+400, _player15Label.frame.origin.y, _score15Label.frame.size.width, _player15Label.frame.size.height)];
+        
+        [_player14Label setBackgroundColor:[UIColor redColor]];
+        [_player14Label setFont:[UIFont systemFontOfSize:24]];
+        [_player14Label setFrame:CGRectMake(80, _player15Label.frame.origin.y - _player15Label.frame.size.height, _player15Label.frame.size.width, _player15Label.frame.size.height)];
+        [_score14Label setFont:[UIFont systemFontOfSize:24]];
+        [_score14Label setFrame:CGRectMake(_score14Label.frame.origin.x+400, _player14Label.frame.origin.y, _score14Label.frame.size.width, _player14Label.frame.size.height)];
+        
+        [_player13Label setFont:[UIFont systemFontOfSize:24]];
+        [_player13Label setFrame:CGRectMake(80, _player14Label.frame.origin.y - _player15Label.frame.size.height, _player15Label.frame.size.width, _player15Label.frame.size.height)];
+        [_score13Label setFont:[UIFont systemFontOfSize:24]];
+        [_score13Label setFrame:CGRectMake(_score13Label.frame.origin.x+400, _player13Label.frame.origin.y, _score13Label.frame.size.width, _player13Label.frame.size.height)];
+        
+        [_player12Label setFont:[UIFont systemFontOfSize:24]];
+        [_player12Label setFrame:CGRectMake(80, _player13Label.frame.origin.y - _player15Label.frame.size.height+3, _player15Label.frame.size.width, _player15Label.frame.size.height)];
+        [_score12Label setFont:[UIFont systemFontOfSize:24]];
+        [_score12Label setFrame:CGRectMake(_score12Label.frame.origin.x+400, _player12Label.frame.origin.y, _score12Label.frame.size.width, _player12Label.frame.size.height)];
+        
+        [_player11Label setFont:[UIFont systemFontOfSize:24]];
+        [_player11Label setFrame:CGRectMake(80, _player12Label.frame.origin.y - _player15Label.frame.size.height + 2, _player15Label.frame.size.width, _player15Label.frame.size.height)];
+        [_score11Label setFont:[UIFont systemFontOfSize:24]];
+        [_score11Label setFrame:CGRectMake(_score11Label.frame.origin.x+400, _player11Label.frame.origin.y, _score11Label.frame.size.width, _player11Label.frame.size.height)];
+        
+        [_player10Label setFont:[UIFont systemFontOfSize:24]];
+        [_player10Label setFrame:CGRectMake(80, _player11Label.frame.origin.y - _player15Label.frame.size.height + 2, _player15Label.frame.size.width, _player15Label.frame.size.height)];
+        [_score10Label setFont:[UIFont systemFontOfSize:24]];
+        [_score10Label setFrame:CGRectMake(_score10Label.frame.origin.x+400, _player10Label.frame.origin.y, _score10Label.frame.size.width, _player10Label.frame.size.height)];
+        
+        [_player9Label setFont:[UIFont systemFontOfSize:24]];
+        [_player9Label setFrame:CGRectMake(80, _player10Label.frame.origin.y - _player15Label.frame.size.height + 3, _player15Label.frame.size.width, _player15Label.frame.size.height)];
+        [_score9Label setFont:[UIFont systemFontOfSize:24]];
+        [_score9Label setFrame:CGRectMake(_score9Label.frame.origin.x+400, _player9Label.frame.origin.y, _score9Label.frame.size.width, _player9Label.frame.size.height)];
+        
+        [_player8Label setFont:[UIFont systemFontOfSize:24]];
+        [_player8Label setFrame:CGRectMake(80, _player9Label.frame.origin.y - _player15Label.frame.size.height + 3, _player15Label.frame.size.width, _player15Label.frame.size.height)];
+        [_score8Label setFont:[UIFont systemFontOfSize:24]];
+        [_score8Label setFrame:CGRectMake(_score8Label.frame.origin.x+400, _player8Label.frame.origin.y, _score8Label.frame.size.width, _player8Label.frame.size.height)];
+        
+        [_player7Label setFont:[UIFont systemFontOfSize:24]];
+        [_player7Label setFrame:CGRectMake(80, _player8Label.frame.origin.y - _player15Label.frame.size.height + 5, _player15Label.frame.size.width, _player15Label.frame.size.height)];
+        [_score7Label setFont:[UIFont systemFontOfSize:24]];
+        [_score7Label setFrame:CGRectMake(_score7Label.frame.origin.x+400, _player7Label.frame.origin.y, _score7Label.frame.size.width, _player7Label.frame.size.height)];
+        
+        [_player6Label setFont:[UIFont systemFontOfSize:24]];
+        [_player6Label setFrame:CGRectMake(80, _player7Label.frame.origin.y - _player15Label.frame.size.height + 5, _player15Label.frame.size.width, _player15Label.frame.size.height)];
+        [_score6Label setFont:[UIFont systemFontOfSize:24]];
+        [_score6Label setFrame:CGRectMake(_score6Label.frame.origin.x+400, _player6Label.frame.origin.y, _score6Label.frame.size.width, _player6Label.frame.size.height)];
+        
+        [_player5Label setFont:[UIFont systemFontOfSize:24]];
+        [_player5Label setFrame:CGRectMake(80, _player6Label.frame.origin.y - _player15Label.frame.size.height + 5, _player15Label.frame.size.width, _player15Label.frame.size.height)];
+        [_score5Label setFont:[UIFont systemFontOfSize:24]];
+        [_score5Label setFrame:CGRectMake(_score5Label.frame.origin.x+400, _player5Label.frame.origin.y, _score5Label.frame.size.width, _player5Label.frame.size.height)];
+        
+        [_player4Label setFont:[UIFont systemFontOfSize:24]];
+        [_player4Label setFrame:CGRectMake(80, _player5Label.frame.origin.y - _player15Label.frame.size.height, _player15Label.frame.size.width, _player15Label.frame.size.height)];
+        [_score4Label setFont:[UIFont systemFontOfSize:24]];
+        [_score4Label setFrame:CGRectMake(_score4Label.frame.origin.x+400, _player4Label.frame.origin.y, _score4Label.frame.size.width, _player4Label.frame.size.height)];
+        
+        [_player3Label setFont:[UIFont systemFontOfSize:24]];
+        [_player3Label setFrame:CGRectMake(80, _player4Label.frame.origin.y - _player15Label.frame.size.height + 3, _player15Label.frame.size.width, _player15Label.frame.size.height)];
+        [_score3Label setFont:[UIFont systemFontOfSize:24]];
+        [_score3Label setFrame:CGRectMake(_score3Label.frame.origin.x+400, _player3Label.frame.origin.y, _score3Label.frame.size.width, _player3Label.frame.size.height)];
+        
+        [_player2Label setFont:[UIFont systemFontOfSize:24]];
+        [_player2Label setFrame:CGRectMake(80, _player3Label.frame.origin.y - _player15Label.frame.size.height + 2, _player15Label.frame.size.width, _player15Label.frame.size.height)];
+        [_score2Label setFont:[UIFont systemFontOfSize:24]];
+        [_score2Label setFrame:CGRectMake(_score2Label.frame.origin.x+400, _player2Label.frame.origin.y, _score2Label.frame.size.width, _player2Label.frame.size.height)];
+        
+        [_player1Label setFont:[UIFont systemFontOfSize:24]];
+        [_player1Label setFrame:CGRectMake(80, _player2Label.frame.origin.y - _player15Label.frame.size.height+5, _player15Label.frame.size.width, _player15Label.frame.size.height)];
+        [_score1Label setFont:[UIFont systemFontOfSize:24]];
+        [_score1Label setFrame:CGRectMake(_score1Label.frame.origin.x+400, _player1Label.frame.origin.y, _score1Label.frame.size.width, _player1Label.frame.size.height)];
+
+    }
+    else if (screenBounds.size.width == 768)
+    {
+        [_titleLabel setFrame:CGRectMake(0, 100 - _titleLabel.frame.size.height, scoreboardImageView.frame.size.width, _titleLabel.bounds.size.height+5)];
+        [_titleLabel setTextAlignment:UIListContentTextAlignmentCenter];
+        [_titleLabel setFont:[UIFont boldSystemFontOfSize:24]];
+        
+        [_player15Label setFont:[UIFont systemFontOfSize:24]];
+        [_player15Label setFrame:CGRectMake(80, 915, _player15Label.frame.size.width+50, 56)];
+        [_score15Label setFont:[UIFont systemFontOfSize:24]];
+        [_score15Label setFrame:CGRectMake(_score15Label.frame.origin.x+380, _player15Label.frame.origin.y, _score15Label.frame.size.width, _player15Label.frame.size.height)];
+        
+        //[_player14Label setBackgroundColor:[UIColor redColor]];
+        [_player14Label setFont:[UIFont systemFontOfSize:24]];
+        [_player14Label setFrame:CGRectMake(80, _player15Label.frame.origin.y - _player15Label.frame.size.height+2, _player15Label.frame.size.width, _player15Label.frame.size.height-2)];
+        [_score14Label setFont:[UIFont systemFontOfSize:24]];
+        [_score14Label setFrame:CGRectMake(_score14Label.frame.origin.x+380, _player14Label.frame.origin.y, _score14Label.frame.size.width, _player14Label.frame.size.height-2)];
+        
+        //[_player13Label setBackgroundColor:[UIColor blueColor]];
+        [_player13Label setFont:[UIFont systemFontOfSize:24]];
+        [_player13Label setFrame:CGRectMake(80, _player14Label.frame.origin.y - _player15Label.frame.size.height, _player15Label.frame.size.width, _player15Label.frame.size.height)];
+        [_score13Label setFont:[UIFont systemFontOfSize:24]];
+        [_score13Label setFrame:CGRectMake(_score13Label.frame.origin.x+380, _player13Label.frame.origin.y, _score13Label.frame.size.width, _player13Label.frame.size.height)];
+        
+       // [_player12Label setBackgroundColor:[UIColor redColor]];
+        [_player12Label setFont:[UIFont systemFontOfSize:24]];
+        [_player12Label setFrame:CGRectMake(80, _player13Label.frame.origin.y - _player15Label.frame.size.height+2, _player15Label.frame.size.width, _player15Label.frame.size.height)];
+        [_score12Label setFont:[UIFont systemFontOfSize:24]];
+        [_score12Label setFrame:CGRectMake(_score12Label.frame.origin.x+380, _player12Label.frame.origin.y, _score12Label.frame.size.width, _player12Label.frame.size.height-2)];
+        
+        
+        [_player11Label setFont:[UIFont systemFontOfSize:24]];
+        [_player11Label setFrame:CGRectMake(80, _player12Label.frame.origin.y - _player15Label.frame.size.height, _player15Label.frame.size.width, _player15Label.frame.size.height)];
+        [_score11Label setFont:[UIFont systemFontOfSize:24]];
+        [_score11Label setFrame:CGRectMake(_score11Label.frame.origin.x+380, _player11Label.frame.origin.y, _score11Label.frame.size.width, _player11Label.frame.size.height)];
+        
+        [_player10Label setFont:[UIFont systemFontOfSize:24]];
+        [_player10Label setFrame:CGRectMake(80, _player11Label.frame.origin.y - _player15Label.frame.size.height+2, _player15Label.frame.size.width, _player15Label.frame.size.height-2)];
+        [_score10Label setFont:[UIFont systemFontOfSize:24]];
+        [_score10Label setFrame:CGRectMake(_score10Label.frame.origin.x+380, _player10Label.frame.origin.y, _score10Label.frame.size.width, _player10Label.frame.size.height -2)];
+        
+        [_player9Label setFont:[UIFont systemFontOfSize:24]];
+        [_player9Label setFrame:CGRectMake(80, _player10Label.frame.origin.y - _player15Label.frame.size.height, _player15Label.frame.size.width, _player15Label.frame.size.height)];
+        [_score9Label setFont:[UIFont systemFontOfSize:24]];
+        [_score9Label setFrame:CGRectMake(_score9Label.frame.origin.x+380, _player9Label.frame.origin.y, _score9Label.frame.size.width, _player9Label.frame.size.height)];
+        
+        [_player8Label setFont:[UIFont systemFontOfSize:24]];
+        [_player8Label setFrame:CGRectMake(80, _player9Label.frame.origin.y - _player15Label.frame.size.height+2, _player15Label.frame.size.width, _player15Label.frame.size.height-2)];
+        [_score8Label setFont:[UIFont systemFontOfSize:24]];
+        [_score8Label setFrame:CGRectMake(_score8Label.frame.origin.x+380, _player8Label.frame.origin.y, _score8Label.frame.size.width, _player8Label.frame.size.height-2)];
+        
+        [_player7Label setFont:[UIFont systemFontOfSize:24]];
+        [_player7Label setFrame:CGRectMake(80, _player8Label.frame.origin.y - _player15Label.frame.size.height +3, _player15Label.frame.size.width, _player15Label.frame.size.height)];
+        [_score7Label setFont:[UIFont systemFontOfSize:24]];
+        [_score7Label setFrame:CGRectMake(_score7Label.frame.origin.x+380, _player7Label.frame.origin.y, _score7Label.frame.size.width, _player7Label.frame.size.height)];
+        
+        [_player6Label setFont:[UIFont systemFontOfSize:24]];
+        [_player6Label setFrame:CGRectMake(80, _player7Label.frame.origin.y - _player15Label.frame.size.height+5, _player15Label.frame.size.width, _player15Label.frame.size.height-2)];
+        [_score6Label setFont:[UIFont systemFontOfSize:24]];
+        [_score6Label setFrame:CGRectMake(_score6Label.frame.origin.x+380, _player6Label.frame.origin.y, _score6Label.frame.size.width, _player6Label.frame.size.height-2)];
+        
+        [_player5Label setFont:[UIFont systemFontOfSize:24]];
+        [_player5Label setFrame:CGRectMake(80, _player6Label.frame.origin.y - _player15Label.frame.size.height+3, _player15Label.frame.size.width, _player15Label.frame.size.height)];
+        [_score5Label setFont:[UIFont systemFontOfSize:24]];
+        [_score5Label setFrame:CGRectMake(_score5Label.frame.origin.x+380, _player5Label.frame.origin.y, _score5Label.frame.size.width, _player5Label.frame.size.height)];
+        
+        [_player4Label setFont:[UIFont systemFontOfSize:24]];
+        [_player4Label setFrame:CGRectMake(80, _player5Label.frame.origin.y - _player15Label.frame.size.height+3, _player15Label.frame.size.width, _player15Label.frame.size.height-2)];
+        [_score4Label setFont:[UIFont systemFontOfSize:24]];
+        [_score4Label setFrame:CGRectMake(_score4Label.frame.origin.x+380, _player4Label.frame.origin.y, _score4Label.frame.size.width, _player4Label.frame.size.height-2)];
+        
+        [_player3Label setFont:[UIFont systemFontOfSize:24]];
+        [_player3Label setFrame:CGRectMake(80, _player4Label.frame.origin.y - _player15Label.frame.size.height+3, _player15Label.frame.size.width, _player15Label.frame.size.height)];
+        [_score3Label setFont:[UIFont systemFontOfSize:24]];
+        [_score3Label setFrame:CGRectMake(_score3Label.frame.origin.x+380, _player3Label.frame.origin.y, _score3Label.frame.size.width, _player3Label.frame.size.height)];
+        
+        [_player2Label setFont:[UIFont systemFontOfSize:24]];
+        [_player2Label setFrame:CGRectMake(80, _player3Label.frame.origin.y - _player15Label.frame.size.height+2, _player15Label.frame.size.width, _player15Label.frame.size.height-2)];
+        [_score2Label setFont:[UIFont systemFontOfSize:24]];
+        [_score2Label setFrame:CGRectMake(_score2Label.frame.origin.x+380, _player2Label.frame.origin.y, _score2Label.frame.size.width, _player2Label.frame.size.height-2)];
+        
+        [_player1Label setFont:[UIFont systemFontOfSize:24]];
+        
+        [_player1Label setFrame:CGRectMake(80, _player2Label.frame.origin.y - _player15Label.frame.size.height, _player15Label.frame.size.width, _player15Label.frame.size.height)];
+        [_score1Label setFont:[UIFont systemFontOfSize:24]];
+        [_score1Label setFrame:CGRectMake(_score1Label.frame.origin.x+380, _player1Label.frame.origin.y, _score1Label.frame.size.width, _player1Label.frame.size.height)];
+    }
+    else if (screenBounds.size.width == 810)
+    {
+        [_titleLabel setFrame:CGRectMake(0, 100 - _titleLabel.frame.size.height, scoreboardImageView.frame.size.width, _titleLabel.bounds.size.height+5)];
+        [_titleLabel setTextAlignment:UIListContentTextAlignmentCenter];
+        [_titleLabel setFont:[UIFont boldSystemFontOfSize:24]];
+        
+        [_player15Label setFont:[UIFont systemFontOfSize:24]];
+        [_player15Label setFrame:CGRectMake(80, 915, _player15Label.frame.size.width+50, 56)];
+        [_score15Label setFont:[UIFont systemFontOfSize:24]];
+        [_score15Label setFrame:CGRectMake(_score15Label.frame.origin.x+380, _player15Label.frame.origin.y, _score15Label.frame.size.width, _player15Label.frame.size.height)];
+        
+        //[_player14Label setBackgroundColor:[UIColor redColor]];
+        [_player14Label setFont:[UIFont systemFontOfSize:24]];
+        [_player14Label setFrame:CGRectMake(80, _player15Label.frame.origin.y - _player15Label.frame.size.height, _player15Label.frame.size.width, _player15Label.frame.size.height-2)];
+        [_score14Label setFont:[UIFont systemFontOfSize:24]];
+        [_score14Label setFrame:CGRectMake(_score14Label.frame.origin.x+380, _player14Label.frame.origin.y, _score14Label.frame.size.width, _player14Label.frame.size.height-2)];
+        
+        //[_player13Label setBackgroundColor:[UIColor blueColor]];
+        [_player13Label setFont:[UIFont systemFontOfSize:24]];
+        [_player13Label setFrame:CGRectMake(80, _player14Label.frame.origin.y - _player15Label.frame.size.height, _player15Label.frame.size.width, _player15Label.frame.size.height)];
+        [_score13Label setFont:[UIFont systemFontOfSize:24]];
+        [_score13Label setFrame:CGRectMake(_score13Label.frame.origin.x+380, _player13Label.frame.origin.y, _score13Label.frame.size.width, _player13Label.frame.size.height)];
+        
+       // [_player12Label setBackgroundColor:[UIColor redColor]];
+        [_player12Label setFont:[UIFont systemFontOfSize:24]];
+        [_player12Label setFrame:CGRectMake(80, _player13Label.frame.origin.y - _player15Label.frame.size.height, _player15Label.frame.size.width, _player15Label.frame.size.height)];
+        [_score12Label setFont:[UIFont systemFontOfSize:24]];
+        [_score12Label setFrame:CGRectMake(_score12Label.frame.origin.x+380, _player12Label.frame.origin.y, _score12Label.frame.size.width, _player12Label.frame.size.height-2)];
+        
+        
+        [_player11Label setFont:[UIFont systemFontOfSize:24]];
+        [_player11Label setFrame:CGRectMake(80, _player12Label.frame.origin.y - _player15Label.frame.size.height, _player15Label.frame.size.width, _player15Label.frame.size.height)];
+        [_score11Label setFont:[UIFont systemFontOfSize:24]];
+        [_score11Label setFrame:CGRectMake(_score11Label.frame.origin.x+380, _player11Label.frame.origin.y, _score11Label.frame.size.width, _player11Label.frame.size.height)];
+        
+        [_player10Label setFont:[UIFont systemFontOfSize:24]];
+        [_player10Label setFrame:CGRectMake(80, _player11Label.frame.origin.y - _player15Label.frame.size.height, _player15Label.frame.size.width, _player15Label.frame.size.height-2)];
+        [_score10Label setFont:[UIFont systemFontOfSize:24]];
+        [_score10Label setFrame:CGRectMake(_score10Label.frame.origin.x+380, _player10Label.frame.origin.y, _score10Label.frame.size.width, _player10Label.frame.size.height -2)];
+        
+        [_player9Label setFont:[UIFont systemFontOfSize:24]];
+        [_player9Label setFrame:CGRectMake(80, _player10Label.frame.origin.y - _player15Label.frame.size.height, _player15Label.frame.size.width, _player15Label.frame.size.height)];
+        [_score9Label setFont:[UIFont systemFontOfSize:24]];
+        [_score9Label setFrame:CGRectMake(_score9Label.frame.origin.x+380, _player9Label.frame.origin.y, _score9Label.frame.size.width, _player9Label.frame.size.height)];
+        
+        [_player8Label setFont:[UIFont systemFontOfSize:24]];
+        [_player8Label setFrame:CGRectMake(80, _player9Label.frame.origin.y - _player15Label.frame.size.height, _player15Label.frame.size.width, _player15Label.frame.size.height-2)];
+        [_score8Label setFont:[UIFont systemFontOfSize:24]];
+        [_score8Label setFrame:CGRectMake(_score8Label.frame.origin.x+380, _player8Label.frame.origin.y, _score8Label.frame.size.width, _player8Label.frame.size.height-2)];
+        
+        [_player7Label setFont:[UIFont systemFontOfSize:24]];
+        [_player7Label setFrame:CGRectMake(80, _player8Label.frame.origin.y - _player15Label.frame.size.height, _player15Label.frame.size.width, _player15Label.frame.size.height)];
+        [_score7Label setFont:[UIFont systemFontOfSize:24]];
+        [_score7Label setFrame:CGRectMake(_score7Label.frame.origin.x+380, _player7Label.frame.origin.y, _score7Label.frame.size.width, _player7Label.frame.size.height)];
+        
+        [_player6Label setFont:[UIFont systemFontOfSize:24]];
+        [_player6Label setFrame:CGRectMake(80, _player7Label.frame.origin.y - _player15Label.frame.size.height, _player15Label.frame.size.width, _player15Label.frame.size.height-2)];
+        [_score6Label setFont:[UIFont systemFontOfSize:24]];
+        [_score6Label setFrame:CGRectMake(_score6Label.frame.origin.x+380, _player6Label.frame.origin.y, _score6Label.frame.size.width, _player6Label.frame.size.height-2)];
+        
+        [_player5Label setFont:[UIFont systemFontOfSize:24]];
+        [_player5Label setFrame:CGRectMake(80, _player6Label.frame.origin.y - _player15Label.frame.size.height, _player15Label.frame.size.width, _player15Label.frame.size.height)];
+        [_score5Label setFont:[UIFont systemFontOfSize:24]];
+        [_score5Label setFrame:CGRectMake(_score5Label.frame.origin.x+380, _player5Label.frame.origin.y, _score5Label.frame.size.width, _player5Label.frame.size.height)];
+        
+        [_player4Label setFont:[UIFont systemFontOfSize:24]];
+        [_player4Label setFrame:CGRectMake(80, _player5Label.frame.origin.y - _player15Label.frame.size.height, _player15Label.frame.size.width, _player15Label.frame.size.height-2)];
+        [_score4Label setFont:[UIFont systemFontOfSize:24]];
+        [_score4Label setFrame:CGRectMake(_score4Label.frame.origin.x+380, _player4Label.frame.origin.y, _score4Label.frame.size.width, _player4Label.frame.size.height-2)];
+        
+        [_player3Label setFont:[UIFont systemFontOfSize:24]];
+        [_player3Label setFrame:CGRectMake(80, _player4Label.frame.origin.y - _player15Label.frame.size.height, _player15Label.frame.size.width, _player15Label.frame.size.height)];
+        [_score3Label setFont:[UIFont systemFontOfSize:24]];
+        [_score3Label setFrame:CGRectMake(_score3Label.frame.origin.x+380, _player3Label.frame.origin.y, _score3Label.frame.size.width, _player3Label.frame.size.height)];
+        
+        [_player2Label setFont:[UIFont systemFontOfSize:24]];
+        [_player2Label setFrame:CGRectMake(80, _player3Label.frame.origin.y - _player15Label.frame.size.height, _player15Label.frame.size.width, _player15Label.frame.size.height-2)];
+        [_score2Label setFont:[UIFont systemFontOfSize:24]];
+        [_score2Label setFrame:CGRectMake(_score2Label.frame.origin.x+380, _player2Label.frame.origin.y, _score2Label.frame.size.width, _player2Label.frame.size.height-2)];
+        
+        [_player1Label setFont:[UIFont systemFontOfSize:24]];
+        
+        [_player1Label setFrame:CGRectMake(80, _player2Label.frame.origin.y - _player15Label.frame.size.height, _player15Label.frame.size.width, _player15Label.frame.size.height)];
+        [_score1Label setFont:[UIFont systemFontOfSize:24]];
+        [_score1Label setFrame:CGRectMake(_score1Label.frame.origin.x+380, _player1Label.frame.origin.y, _score1Label.frame.size.width, _player1Label.frame.size.height)];
     }
     else if (screenBounds.size.width == 834)
     {
