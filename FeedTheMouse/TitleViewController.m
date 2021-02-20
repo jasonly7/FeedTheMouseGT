@@ -40,6 +40,10 @@
 {
     if (DEBUG)
         NSLog(@"Button Clicked");
+    if ([_playerNameTextField.text isEqualToString:@""])
+    {        
+        return;
+    }
     float x =  self.view.center.x - _playButton.frame.size.width/2;
     float y = self.view.center.y;
     CGRect playRect = CGRectMake(0, y, _playButton.frame.size.width, _playButton.frame.size.height);

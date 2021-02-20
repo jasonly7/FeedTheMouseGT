@@ -65,7 +65,6 @@
 		86AE3BD5258E56BC00F5EBBB /* credits.png in Resources */ = {isa = PBXBuildFile; fileRef = 86AE3BD4258E56BC00F5EBBB /* credits.png */; };
 		86AE3BDA258E56C300F5EBBB /* info_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 86AE3BD9258E56C300F5EBBB /* info_button.png */; };
 		86AE3BDF258E56E000F5EBBB /* scores_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 86AE3BDE258E56E000F5EBBB /* scores_button.png */; };
-		86B064A825E1881600EAE774 /* cheese_ipad8th.png in Resources */ = {isa = PBXBuildFile; fileRef = 86B064A725E1881600EAE774 /* cheese_ipad8th.png */; };
 		86B11076258E81FE002D98BC /* CreditsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86B11075258E81FE002D98BC /* CreditsViewController.m */; };
 		86B3B97C24ED75B900BE2FE0 /* teeter_totter_yellow.png in Resources */ = {isa = PBXBuildFile; fileRef = 86B3B97B24ED75B900BE2FE0 /* teeter_totter_yellow.png */; };
 		86B71D9E2595326500A6C6D8 /* mediumlargecoins.png in Resources */ = {isa = PBXBuildFile; fileRef = 86B71D9D2595326500A6C6D8 /* mediumlargecoins.png */; };
@@ -187,6 +186,8 @@
 		86E658312508593100BA1889 /* button_down.png in Resources */ = {isa = PBXBuildFile; fileRef = 86E6582F2508593100BA1889 /* button_down.png */; };
 		86E6583425085DF000BA1889 /* PlayImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86E6583325085DF000BA1889 /* PlayImageView.m */; };
 		86E65836250878A800BA1889 /* small_button_up.png in Resources */ = {isa = PBXBuildFile; fileRef = 86E65835250878A800BA1889 /* small_button_up.png */; };
+		86F5FE2725E1CA4D000B00F3 /* cheese_ipad8th.png in Resources */ = {isa = PBXBuildFile; fileRef = 86F5FE2525E1CA4D000B00F3 /* cheese_ipad8th.png */; };
+		86F5FE2825E1CA4D000B00F3 /* cheese_ipad4th.png in Resources */ = {isa = PBXBuildFile; fileRef = 86F5FE2625E1CA4D000B00F3 /* cheese_ipad4th.png */; };
 		86FC61C825B1F5660028D68F /* Boom.png in Resources */ = {isa = PBXBuildFile; fileRef = 86FC61C725B1F5660028D68F /* Boom.png */; };
 		86FC61CE25B1F69E0028D68F /* Boom.m in Sources */ = {isa = PBXBuildFile; fileRef = 86FC61CD25B1F69E0028D68F /* Boom.m */; };
 		86FC61D325B212410028D68F /* BigBoom.png in Resources */ = {isa = PBXBuildFile; fileRef = 86FC61D225B212410028D68F /* BigBoom.png */; };
@@ -289,7 +290,6 @@
 		86AE3BD4258E56BC00F5EBBB /* credits.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = credits.png; path = Images/credits.png; sourceTree = "<group>"; };
 		86AE3BD9258E56C300F5EBBB /* info_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = info_button.png; path = Images/info_button.png; sourceTree = "<group>"; };
 		86AE3BDE258E56E000F5EBBB /* scores_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = scores_button.png; path = Images/scores_button.png; sourceTree = "<group>"; };
-		86B064A725E1881600EAE774 /* cheese_ipad8th.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cheese_ipad8th.png; path = Images/cheese_ipad8th.png; sourceTree = "<group>"; };
 		86B11074258E81FE002D98BC /* CreditsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CreditsViewController.h; path = Classes/CreditsViewController.h; sourceTree = "<group>"; };
 		86B11075258E81FE002D98BC /* CreditsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = CreditsViewController.m; path = Classes/CreditsViewController.m; sourceTree = "<group>"; };
 		86B3B97B24ED75B900BE2FE0 /* teeter_totter_yellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = teeter_totter_yellow.png; path = Images/Triggers/TeeterTotters/teeter_totter_yellow.png; sourceTree = "<group>"; };
@@ -444,6 +444,8 @@
 		86E6583225085DF000BA1889 /* PlayImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayImageView.h; sourceTree = "<group>"; };
 		86E6583325085DF000BA1889 /* PlayImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlayImageView.m; sourceTree = "<group>"; };
 		86E65835250878A800BA1889 /* small_button_up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = small_button_up.png; path = Images/small_button_up.png; sourceTree = "<group>"; };
+		86F5FE2525E1CA4D000B00F3 /* cheese_ipad8th.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cheese_ipad8th.png; path = Images/cheese_ipad8th.png; sourceTree = "<group>"; };
+		86F5FE2625E1CA4D000B00F3 /* cheese_ipad4th.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cheese_ipad4th.png; path = Images/cheese_ipad4th.png; sourceTree = "<group>"; };
 		86FC61C725B1F5660028D68F /* Boom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Boom.png; path = Images/Boom.png; sourceTree = "<group>"; };
 		86FC61CC25B1F69E0028D68F /* Boom.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Boom.h; path = Classes/Boom.h; sourceTree = "<group>"; };
 		86FC61CD25B1F69E0028D68F /* Boom.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = Boom.m; path = Classes/Boom.m; sourceTree = "<group>"; };
@@ -700,7 +702,8 @@
 		86E075371E44250400E92CB9 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				86B064A725E1881600EAE774 /* cheese_ipad8th.png */,
+				86F5FE2625E1CA4D000B00F3 /* cheese_ipad4th.png */,
+				86F5FE2525E1CA4D000B00F3 /* cheese_ipad8th.png */,
 				8647687D25DDDE9B00D9DB99 /* cheese_ipad12.png */,
 				86554CEA25D4E75B004E6F0B /* cheese_ipad11.png */,
 				869A952225B21FF700F4847B /* Boom_bigger.png */,
@@ -1049,6 +1052,7 @@
 				86D98728253FA8C000B05A78 /* teeter_totter_blue.png in Resources */,
 				86E3888A25C85E400005CD68 /* background_3.jpg in Resources */,
 				86E0757A1E4427DA00E92CB9 /* drum_flat.png in Resources */,
+				86F5FE2725E1CA4D000B00F3 /* cheese_ipad8th.png in Resources */,
 				8603B622253CF6CD003AF4E4 /* big_teeter_totter_purple.png in Resources */,
 				86E0758F1E44280500E92CB9 /* flipper_blue.png in Resources */,
 				86E075501E44254000E92CB9 /* newopenmouthsheet.png in Resources */,
@@ -1067,7 +1071,6 @@
 				86E0754E1E44254000E92CB9 /* MouseWaitOpen.png in Resources */,
 				8638367F25AA592E004EF3D7 /* pause_menu.png in Resources */,
 				86D7FBA4258C03F3006C2432 /* back_button.png in Resources */,
-				86B064A825E1881600EAE774 /* cheese_ipad8th.png in Resources */,
 				86C497A22501CDF50006519F /* bigMouseChew.png in Resources */,
 				86E074B81E4412B400E92CB9 /* Assets.xcassets in Resources */,
 				86E0758E1E44280500E92CB9 /* flipper_blue_grey.png in Resources */,
@@ -1084,6 +1087,7 @@
 				86E3888B25C85E400005CD68 /* background_2.jpg in Resources */,
 				864B3F6E2558EF9F0028CBF3 /* score.png in Resources */,
 				86E075941E44280500E92CB9 /* flipper_orange_game.png in Resources */,
+				86F5FE2825E1CA4D000B00F3 /* cheese_ipad4th.png in Resources */,
 				862E827524E9D76B0042F9C6 /* intro.jpg in Resources */,
 				86E075981E44280500E92CB9 /* flipper_yellow_game.png in Resources */,
 				86C73EB825016A820014C5C2 /* big_gear_blue.png in Resources */,
