@@ -479,7 +479,14 @@
         }
         else if (screenWidth == 1668 || screenWidth == 2048 || screenWidth == 1536 || screenWidth == 1620 || screenWidth == 1640)
         {
-            chx = 640 - (i)*(cheeseLife->cheeseSprite.width/4);
+            if (screenWidth == 1640 || screenWidth == 1620 )
+                chx = 680 - (i)*(cheeseLife->cheeseSprite.width/8);
+            else if (screenWidth == 1536 )
+                chx = 670 - (i)*(cheeseLife->cheeseSprite.width/6);
+            else if (screenWidth == 2048)
+                chx = 660 - (i)*(cheeseLife->cheeseSprite.width/6);
+            else
+                chx = 640 - (i)*(cheeseLife->cheeseSprite.width/4);
             chy = 960+cheeseLife->r*1.5;
             [cheeseLife placeAt:CGPointMake(chx, chy)];
         }
@@ -494,7 +501,12 @@
         
         CGContextConcatCTM(context, t0);
        
-        [cheeseLife draw:context resizeTo:CGSizeMake(1/sx, 1/sy)];
+        if (screenWidth == 1640 || screenWidth == 1620)
+            [cheeseLife draw:context resizeTo:CGSizeMake(1/(2*sx), 1/(2*sy))];
+        else if (screenWidth == 1536)
+            [cheeseLife draw:context resizeTo:CGSizeMake(1/(2*sx), 1/(2*sy))];
+        else
+            [cheeseLife draw:context resizeTo:CGSizeMake(1/sx, 1/sy)];
     }
     
     if (screenWidth == 1242 || screenWidth == 1668)
