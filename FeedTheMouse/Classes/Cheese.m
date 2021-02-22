@@ -233,14 +233,19 @@
    
     if ( cheeseSprite.y + cheeseSprite.height > 0)
     {
-        if (screenWidth == 1242 || screenWidth == 1668 || screenWidth == 2048 || screenWidth == 1536 || screenWidth == 1620 || screenWidth == 1640)
+        if (screenWidth == 1242 || screenWidth == 1668 || screenWidth == 1536 || screenWidth == 1620 || screenWidth == 1640 )
+        {
+            leftLimitX = cheeseSprite.width/2;
+            rightLimitX = screenWidth - cheeseSprite.width/2;
+        }
+        else if (screenWidth == 2048)
         {
             leftLimitX = cheeseSprite.width/2;
             rightLimitX = screenWidth - cheeseSprite.width/2;
         }
         else
         {
-            leftLimitX = cheeseSprite.width/2*sx;
+            leftLimitX = cheeseSprite.width/2;
             rightLimitX = 640*sx - cheeseSprite.width/2*sx;
         }
         if (pos->x > rightLimitX)
@@ -250,7 +255,7 @@
             [self bounceOffRightWall];
             
         }
-        else if (pos->x < leftLimitX)
+        else if (pos->x <= leftLimitX)
         {
             pos->x = leftLimitX;
             x = pos->x;
@@ -2369,10 +2374,11 @@
   //  bounceVel = [bounceVel multiply:0.5];
     colPackage->foundCollision = true;
     
-    if (screenWidth == 1242 || screenWidth == 1668 || screenWidth == 2048 || screenWidth == 1536 || screenWidth == 1620 || screenWidth == 1640)
+    if (screenWidth == 1242 || screenWidth == 1668 || screenWidth == 1536 || screenWidth == 1620 || screenWidth == 1640 || screenWidth == 2048)
     {
-        self->pos->x = cheeseSprite->width/2 + 1;
+        self->pos->x = cheeseSprite->width/2 +1;
         self->x = self->pos->x;
+        cheeseSprite.x = 1;
     }
     else
     {
