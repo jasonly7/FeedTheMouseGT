@@ -233,12 +233,7 @@
    
     if ( cheeseSprite.y + cheeseSprite.height > 0)
     {
-        if (screenWidth == 1242 || screenWidth == 1668 || screenWidth == 1536 || screenWidth == 1620 || screenWidth == 1640 )
-        {
-            leftLimitX = cheeseSprite.width/2;
-            rightLimitX = screenWidth - cheeseSprite.width/2;
-        }
-        else if (screenWidth == 2048)
+        if (screenWidth == 1242 || screenWidth == 1668 || screenWidth == 1536 || screenWidth == 1620 || screenWidth == 1640 || screenWidth == 2048)
         {
             leftLimitX = cheeseSprite.width/2;
             rightLimitX = screenWidth - cheeseSprite.width/2;
@@ -2837,8 +2832,15 @@
     Line *cheeseLine = [[[Line alloc] init] autorelease];
     Line *boundLine = [[[Line alloc] init] autorelease];
     float max = time;
-    bool quadraticSuccess = [Quadratic getLowestRootA:A andB:B andC:C andMinThreshold:(veryCloseDistance) andMaxThreshold:max andRoot:&x1];
-    //bool quadraticSuccess = [Quadratic getLowestRootA:A andB:B andC:C andMinThreshold:(0) andMaxThreshold:time andRoot:&x1];
+    bool quadraticSuccess = false;
+    if (screenWidth == 1242 || screenWidth == 1668  || screenWidth == 2048 || screenWidth == 1536 || screenWidth == 1620 || screenWidth == 1640)
+    {
+        quadraticSuccess = [Quadratic getLowestRootA:A andB:B andC:C andMinThreshold:(0) andMaxThreshold:time andRoot:&x1];
+    }
+    else
+    {
+        quadraticSuccess = [Quadratic getLowestRootA:A andB:B andC:C andMinThreshold:(veryCloseDistance) andMaxThreshold:max andRoot:&x1];
+    }
     bool lineIntersects = false;
     CGPoint pt0, pt1,pt2,pt3;
     
