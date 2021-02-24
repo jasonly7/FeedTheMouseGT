@@ -980,9 +980,9 @@
             CGContextSetStrokeColor(context, black);
             CGContextBeginPath(context);
             gear = [gears objectAtIndex:i];
-            CGContextAddArc(context, gear->pos->x/screenScale*sx, self.bounds.size.height-gear->pos->y/screenScale*sy, gear->r/screenScale*sy , 0, 2*M_PI,YES);
+          //  CGContextAddArc(context, gear->pos->x/screenScale*sx, self.bounds.size.height-gear->pos->y/screenScale*sy, gear->r/screenScale*sy , 0, 2*M_PI,YES);
            
-            CGContextStrokePath(context);
+            //CGContextStrokePath(context);
             gear = [gears objectAtIndex:i];
             float gearX = 0;
             float gearY = 0;
@@ -1004,7 +1004,7 @@
             }
             UIBezierPath *arc = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(gearX, gearY, width, height)];
             [[UIColor blackColor] setStroke];
-            //[arc stroke];
+            [arc stroke];
         }
 
         for (int i = 0; i < [coins count]; i++)

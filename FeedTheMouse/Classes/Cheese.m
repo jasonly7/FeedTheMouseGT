@@ -565,6 +565,10 @@
     {
         sumRadii = g->r + r;
     }
+    else if (screenWidth == 1668 || screenWidth == 2048 || screenWidth == 1536 || screenWidth == 1620 || screenWidth == 1640)
+    {
+        sumRadii = g->r * sx + r;
+    }
     dist -= sumRadii;
     if( [vel length]*time < dist){
         return false;
