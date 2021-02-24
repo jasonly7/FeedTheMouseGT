@@ -250,7 +250,7 @@
             [self bounceOffRightWall];
             
         }
-        else if (pos->x <= leftLimitX)
+        else if (pos->x < leftLimitX)
         {
             pos->x = leftLimitX;
             x = pos->x;
@@ -2407,6 +2407,18 @@
     bounceVel = [bounceVel multiply:(vel.length/screenScale)];
    // bounceVel = [bounceVel multiply:0.1];
     colPackage->foundCollision = true;
+    if (screenWidth == 1242 || screenWidth == 1668 || screenWidth == 1536 || screenWidth == 1620 || screenWidth == 1640 || screenWidth == 2048)
+    {
+        self->pos->x = screenWidth - cheeseSprite->width/2 -1;
+        self->x = self->pos->x;
+        cheeseSprite.x =  screenWidth- cheeseSprite->width-1;
+    }
+    else
+    {
+        self->pos->x = screenWidth - 34*sx-1;
+        self->x = self->pos->x;
+    }
+    
     [initVel initializeVectorX:bounceVel->x andY:bounceVel->y];
    // t = 0;
     colPackage->state = COLLISION_BOUNCE;
@@ -2839,7 +2851,7 @@
     }
     else
     {
-        quadraticSuccess = [Quadratic getLowestRootA:A andB:B andC:C andMinThreshold:(veryCloseDistance) andMaxThreshold:max andRoot:&x1];
+        quadraticSuccess = [Quadratic getLowestRootA:A andB:B andC:C andMinThreshold:(0) andMaxThreshold:max andRoot:&x1];
     }
     bool lineIntersects = false;
     CGPoint pt0, pt1,pt2,pt3;
@@ -3471,6 +3483,14 @@ const float unitsPerMeter = 1000.0f;
         
         lineToCheese = [slidingLine->normal multiply:diff];
         return [position add:lineToCheese];
+    }
+    else if (colPackage->state == COLLISION_BOUNCE && [colPackage->collidedObj class] == [Wall class] &&
+              (screenWidth != 1242 && screenWidth != 1668 && screenWidth != 1536 && screenWidth != 1620 && screenWidth != 1640 && screenWidth != 2048))
+    {
+        float x = pos->x/(r*sx);
+        float y = pos->y/(r*sy);
+        [position initializeVectorX:x andY:y];
+        return position;
     }
     
     [destinationPoint initializeVectorX:0 andY:0];
