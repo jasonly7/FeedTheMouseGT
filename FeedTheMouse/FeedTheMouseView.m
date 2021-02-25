@@ -2009,7 +2009,7 @@ void cleanRemoveFromSuperview( UIView * view ) {
     mouseTouchedPoint = pt;
     //printf("drop (x,y): (%f, %f)\n",pt.x,pt.y);
     bool found = false;
-    if (game_state != GAME_PAUSED)
+    if (game_state != GAME_PAUSED && game_state != GAME_CONTINUE)
     {
         for (int i=0; i < [flippers count]; i++)
         {
