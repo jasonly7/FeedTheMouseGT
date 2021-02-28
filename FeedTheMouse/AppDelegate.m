@@ -6,6 +6,38 @@
 //  Copyright © 2017 Jason Ly. All rights reserved.
 //
 
+// Objective-C
+//
+// AppDelegate.m
+#import "AppDelegate.h"
+#import "FBSDKApplicationDelegate.h"
+
+@interface AppDelegate ()
+
+@end
+
+@implementation AppDelegate
+
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+  
+  [[FBSDKApplicationDelegate sharedInstance] application:application
+                           didFinishLaunchingWithOptions:launchOptions];
+  return YES;
+}
+
+
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+            options:(nonnull NSDictionary<UIApplicationOpenURLOptionsKey, id> *)options
+{
+  [[FBSDKApplicationDelegate sharedInstance] application:application
+                                                 openURL:url
+                                                 options:options];
+  return YES;
+}
+    
+@end
+/*
 #import "AppDelegate.h"
 
 @interface AppDelegate ()
@@ -49,3 +81,4 @@
 
 
 @end
+*/

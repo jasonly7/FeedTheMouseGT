@@ -7,6 +7,7 @@
 //
 
 #import "TitleViewController.h"
+#import "FBSDKShareButton.h"
 
 @interface TitleViewController ()
 
@@ -198,6 +199,12 @@
     [_playerNameTextField setCenter:CGPointMake(screenBounds.size.width/2+_playerNameTextField.frame.size.width/4,screenBounds.size.height*ratio+_playerNameTextField.frame.size.height/2)];
     ratio = _nameTextField.frame.origin.y/667;
     [_nameTextField setCenter:CGPointMake(screenBounds.size.width/2-_nameTextField.frame.size.width,_playerNameTextField.center.y)];
+    FBSDKShareLinkContent *content = [[FBSDKShareLinkContent alloc] init];
+    content.contentURL = [NSURL URLWithString:@"https://apps.apple.com/app/id1549473314?fbclid=IwAR3xeISabeJpouSbVaOxwQ4jAsR_P7KngvUfSIdxc34GEgbPf8N2s_ROjwA"];
+    FBSDKShareButton *button = [[FBSDKShareButton alloc] init];
+    button.shareContent = content;
+    [button setCenter:CGPointMake(button.frame.size.width/2 + 10,screenBounds.size.height - button.frame.size.height/2-10)];
+    [self.view addSubview:button];
 }
 
 - (void)didReceiveMemoryWarning {

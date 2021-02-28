@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -68,6 +68,10 @@
 		86B11076258E81FE002D98BC /* CreditsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86B11075258E81FE002D98BC /* CreditsViewController.m */; };
 		86B3B97C24ED75B900BE2FE0 /* teeter_totter_yellow.png in Resources */ = {isa = PBXBuildFile; fileRef = 86B3B97B24ED75B900BE2FE0 /* teeter_totter_yellow.png */; };
 		86B71D9E2595326500A6C6D8 /* mediumlargecoins.png in Resources */ = {isa = PBXBuildFile; fileRef = 86B71D9D2595326500A6C6D8 /* mediumlargecoins.png */; };
+		86B8BCA525EB198100B6DA98 /* FacebookShare in Frameworks */ = {isa = PBXBuildFile; productRef = 86B8BCA425EB198100B6DA98 /* FacebookShare */; };
+		86B8BCA725EB198100B6DA98 /* FacebookCore in Frameworks */ = {isa = PBXBuildFile; productRef = 86B8BCA625EB198100B6DA98 /* FacebookCore */; };
+		86B8BCA925EB198100B6DA98 /* FacebookGamingServices in Frameworks */ = {isa = PBXBuildFile; productRef = 86B8BCA825EB198100B6DA98 /* FacebookGamingServices */; };
+		86B8BCAB25EB198100B6DA98 /* FacebookLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 86B8BCAA25EB198100B6DA98 /* FacebookLogin */; };
 		86BCDED0256AF255004BA326 /* small_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 86BCDECF256AF255004BA326 /* small_background.png */; };
 		86C0D08C252FDD3800B9E269 /* bomb.png in Resources */ = {isa = PBXBuildFile; fileRef = 86C0D08B252FDD3800B9E269 /* bomb.png */; };
 		86C0D0962530054800B9E269 /* big_bomb.png in Resources */ = {isa = PBXBuildFile; fileRef = 86C0D0952530054800B9E269 /* big_bomb.png */; };
@@ -461,9 +465,13 @@
 			files = (
 				866429B825658BC0002AFBC1 /* CoreText.framework in Frameworks */,
 				86E075351E441F2000E92CB9 /* CoreGraphics.framework in Frameworks */,
+				86B8BCA725EB198100B6DA98 /* FacebookCore in Frameworks */,
+				86B8BCA525EB198100B6DA98 /* FacebookShare in Frameworks */,
 				86E075331E441F1300E92CB9 /* Foundation.framework in Frameworks */,
+				86B8BCAB25EB198100B6DA98 /* FacebookLogin in Frameworks */,
 				86E075311E441F0B00E92CB9 /* UIKit.framework in Frameworks */,
 				86E0752F1E441EFD00E92CB9 /* QuartzCore.framework in Frameworks */,
+				86B8BCA925EB198100B6DA98 /* FacebookGamingServices in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -916,6 +924,12 @@
 			dependencies = (
 			);
 			name = FeedTheMouse;
+			packageProductDependencies = (
+				86B8BCA425EB198100B6DA98 /* FacebookShare */,
+				86B8BCA625EB198100B6DA98 /* FacebookCore */,
+				86B8BCA825EB198100B6DA98 /* FacebookGamingServices */,
+				86B8BCAA25EB198100B6DA98 /* FacebookLogin */,
+			);
 			productName = FeedTheMouse;
 			productReference = 86E074A81E4412B400E92CB9 /* FeedTheMouse.app */;
 			productType = "com.apple.product-type.application";
@@ -993,6 +1007,9 @@
 				Base,
 			);
 			mainGroup = 86E0749F1E4412B400E92CB9;
+			packageReferences = (
+				86B8BCA325EB198100B6DA98 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */,
+			);
 			productRefGroup = 86E074A91E4412B400E92CB9 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -1380,7 +1397,10 @@
 				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = DT3J43232S;
 				INFOPLIST_FILE = FeedTheMouse/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/lib",
@@ -1400,7 +1420,10 @@
 				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = DT3J43232S;
 				INFOPLIST_FILE = FeedTheMouse/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/lib",
@@ -1417,7 +1440,11 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = DT3J43232S;
 				INFOPLIST_FILE = FeedTheMouseTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "Cortex-Interactive.FeedTheMouseTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FeedTheMouse.app/FeedTheMouse";
@@ -1430,7 +1457,11 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = DT3J43232S;
 				INFOPLIST_FILE = FeedTheMouseTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "Cortex-Interactive.FeedTheMouseTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FeedTheMouse.app/FeedTheMouse";
@@ -1442,7 +1473,11 @@
 			buildSettings = {
 				DEVELOPMENT_TEAM = DT3J43232S;
 				INFOPLIST_FILE = FeedTheMouseUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "Cortex-Interactive.FeedTheMouseUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_TARGET_NAME = FeedTheMouse;
@@ -1454,7 +1489,11 @@
 			buildSettings = {
 				DEVELOPMENT_TEAM = DT3J43232S;
 				INFOPLIST_FILE = FeedTheMouseUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "Cortex-Interactive.FeedTheMouseUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_TARGET_NAME = FeedTheMouse;
@@ -1501,6 +1540,40 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		86B8BCA325EB198100B6DA98 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/facebook/facebook-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		86B8BCA425EB198100B6DA98 /* FacebookShare */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 86B8BCA325EB198100B6DA98 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookShare;
+		};
+		86B8BCA625EB198100B6DA98 /* FacebookCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 86B8BCA325EB198100B6DA98 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookCore;
+		};
+		86B8BCA825EB198100B6DA98 /* FacebookGamingServices */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 86B8BCA325EB198100B6DA98 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookGamingServices;
+		};
+		86B8BCAA25EB198100B6DA98 /* FacebookLogin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 86B8BCA325EB198100B6DA98 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookLogin;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 86E074A01E4412B400E92CB9 /* Project object */;
 }
