@@ -50,7 +50,7 @@
 - (id) initWithCoder: (NSCoder *) coder {
     if (self = [super initWithCoder: coder]) {
         titleView = [[TitleView alloc] initWithCoder:coder];
-        
+
         [self startAt:0 andTime:0 withCoins:0];
     }
     return self;
@@ -252,6 +252,10 @@
    
 }
 
+- (void) stopSounds
+{
+    [cheese->world->sndMan stopAllSounds];
+}
 /*- (id)initWithFrame:(CGRect)frame
  {
  self = [super initWithFrame:frame];
@@ -1784,11 +1788,13 @@
                 //[InneractiveAd DisplayAd:@"test" withType:IaAdType_Banner withRoot:self.view withReload:60];
                 if (cheese->world->numOfCoins < 5)
                 {
-                    game_state = GAME_OVER;
-                   
+                    //game_state = GAME_OVER;
+                    game_state = GAME_AD;
                 }
                 else
+                {
                     game_state = GAME_CONTINUE;
+                }
             }
         }
         
@@ -1915,13 +1921,13 @@
             }
         }
         [self display_game];
-       
+        UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
         if (currentLevelNumber >= [levels count])
         {
             TitleViewController *titleViewController = (TitleViewController*)[UIApplication sharedApplication].keyWindow.rootViewController;
             NSString *playerName = titleViewController.playerNameTextField.text;
             //UIViewController *titleViewController = [[TitleViewController alloc] initWithNibName:@"TitleViewController" bundle:[NSBundle mainBundle]];
-            UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+            
             [musicPlayer stop];
             UIViewController *viewController = [sb instantiateViewControllerWithIdentifier:@"FinishGameViewController"];
             FinishGameViewController *finishController = (FinishGameViewController*) viewController;
@@ -1937,6 +1943,16 @@
             timer = nil;
 
            [self removeFromSuperview];
+        }
+        if (cheese->numOfLives <= 0 && game_state == GAME_AD)
+        {
+            game_state = GAME_OVER;
+            UIViewController *viewController = [sb instantiateViewControllerWithIdentifier:@"AdStoryboard"];
+            AdViewController *adController = (AdViewController*)viewController;
+            adController.modalPresentationStyle = UIModalPresentationFullScreen;
+            [_feedTheMouserViewController presentViewController:adController animated:YES completion:nil];
+            //[_feedTheMouserViewController displayAd];
+            //[self addSubview:adController.view];
         }
     }
 }
@@ -2140,7 +2156,11 @@ void cleanRemoveFromSuperview( UIView * view ) {
                 [musicPlayer stop];
                 [cheese->world->sndMan stopAllSounds];
                 [timer invalidate];
-                int numOfCoins = cheese->world->numOfCoins-5;
+                int numOfCoins = cheese->world->numOfCoins;
+                if (numOfCoins >= 5)
+                    numOfCoins = cheese->world->numOfCoins-5;
+                else
+                    numOfCoins = cheese->world->numOfCoins+5;
                 [self startAt:currentLevelNumber andTime:total_time withCoins:numOfCoins];
                
             }

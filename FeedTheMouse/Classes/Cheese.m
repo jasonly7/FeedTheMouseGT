@@ -2013,7 +2013,7 @@
         if (collidedWithBottomRight < shortestDistance && collidedWithBottomRight > 0)
             shortestDistance = collidedWithBottomRight;
         if (shortestDistance != FLT_MAX && shortestDistance!=-1)
-            colPackage->state == COLLISION_BOUNCE;
+            colPackage->state = COLLISION_BOUNCE;
         
         
         if ((isPastTopLine || isPastBottomLine || isPastLeftLine || isPastRightLine || isPastTopRight || isPastBottomRight || isPastTopLeft || isPastBottomLeft ) &&

@@ -14,6 +14,8 @@
 @end
 
 @implementation TitleViewController
+
+
 - (id) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -165,7 +167,7 @@
     [titleImageView setFrame:(CGRectMake(titleImageView.frame.origin.x, titleImageView.frame.origin.y, screenBounds.size.width,screenBounds.size.height))];
     float x =  self.view.center.x;// - _playButton.frame.size.width/2;
     float y = self.view.center.y + screenBounds.size.height/4;
-   
+
     [_playButton setCenter:CGPointMake(x, y)];
     count = 5;
     splashTimer = [NSTimer scheduledTimerWithTimeInterval: 1

@@ -7,6 +7,11 @@
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="comic.ttf">
+            <string>ComicSansMS</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Feed The Mouse View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -37,6 +42,7 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <connections>
+                            <outlet property="feedTheMouserViewController" destination="BYZ-38-t0r" id="B6S-Gk-xOA"/>
                             <outlet property="fpsLabel" destination="GM6-7E-e2K" id="hPG-hE-oGz"/>
                         </connections>
                     </view>
@@ -330,7 +336,77 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rgA-Ph-ji9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2333.5999999999999" y="37.331334332833585"/>
+            <point key="canvasLocation" x="2889" y="37"/>
+        </scene>
+        <!--Ad View Controller-->
+        <scene sceneID="fSF-Tf-43L">
+            <objects>
+                <viewController storyboardIdentifier="AdStoryboard" id="IhY-M4-rbm" customClass="AdViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dJq-uT-KhZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="AbP-gx-rZu"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="wzt-Op-GkO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="It8-bX-8SY">
+                                <rect key="frame" x="156" y="424" width="62" height="31"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="17"/>
+                                <state key="normal" title="Show Ad"/>
+                                <connections>
+                                    <action selector="displayAd:" destination="IhY-M4-rbm" eventType="touchUpInside" id="lWi-bq-vYd"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="opi-KH-kBg">
+                                <rect key="frame" x="111" y="361" width="156" height="31"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="17"/>
+                                <state key="normal" title="Return to Title Screen"/>
+                                <connections>
+                                    <action selector="returnToTitleScreen" destination="IhY-M4-rbm" eventType="touchUpInside" id="rZW-vf-BOr"/>
+                                </connections>
+                            </button>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="+5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aez-RI-uyd">
+                                <rect key="frame" x="165" y="446" width="18" height="22"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="GAME OVER" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tal-ng-vCJ">
+                                <rect key="frame" x="71" y="160" width="242" height="85"/>
+                                <fontDescription key="fontDescription" name="ComicSansMS" family="Comic Sans MS" pointSize="40"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="coin.png" translatesAutoresizingMaskIntoConstraints="NO" id="iFy-69-BLF">
+                                <rect key="frame" x="179" y="446" width="27" height="19"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="It8-bX-8SY" firstAttribute="centerX" secondItem="wzt-Op-GkO" secondAttribute="centerX" id="4Ye-J0-zMI"/>
+                            <constraint firstItem="opi-KH-kBg" firstAttribute="top" secondItem="tal-ng-vCJ" secondAttribute="bottom" constant="116" id="BN5-BE-p0H"/>
+                            <constraint firstItem="Aez-RI-uyd" firstAttribute="firstBaseline" secondItem="It8-bX-8SY" secondAttribute="baseline" constant="22.5" symbolType="layoutAnchor" id="DZK-zW-ru4"/>
+                            <constraint firstItem="tal-ng-vCJ" firstAttribute="centerX" secondItem="wzt-Op-GkO" secondAttribute="centerX" id="R1j-LG-b4c"/>
+                            <constraint firstItem="opi-KH-kBg" firstAttribute="centerX" secondItem="wzt-Op-GkO" secondAttribute="centerX" id="TQA-Xz-JVq"/>
+                            <constraint firstItem="tal-ng-vCJ" firstAttribute="top" secondItem="dJq-uT-KhZ" secondAttribute="bottom" constant="160" id="Tay-wT-uuA"/>
+                            <constraint firstItem="Aez-RI-uyd" firstAttribute="top" secondItem="It8-bX-8SY" secondAttribute="bottom" id="WAZ-JG-eAY"/>
+                            <constraint firstItem="iFy-69-BLF" firstAttribute="top" secondItem="It8-bX-8SY" secondAttribute="bottom" constant="-9" id="X3U-pD-cHE"/>
+                            <constraint firstItem="It8-bX-8SY" firstAttribute="leading" secondItem="Aez-RI-uyd" secondAttribute="trailing" constant="-27" id="a4y-vm-R6R"/>
+                            <constraint firstItem="iFy-69-BLF" firstAttribute="leading" secondItem="Aez-RI-uyd" secondAttribute="trailing" constant="1" id="blh-rL-gG5"/>
+                            <constraint firstItem="iFy-69-BLF" firstAttribute="top" secondItem="Aez-RI-uyd" secondAttribute="top" id="c3I-Qc-4lm"/>
+                            <constraint firstItem="It8-bX-8SY" firstAttribute="top" secondItem="opi-KH-kBg" secondAttribute="bottom" constant="32" id="h1m-yk-uzN"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="add5CoinsLabel" destination="Aez-RI-uyd" id="Igh-hu-edK"/>
+                        <outlet property="coinImageView" destination="iFy-69-BLF" id="QHt-vh-jG2"/>
+                        <outlet property="showAdButton" destination="It8-bX-8SY" id="yMh-0b-mja"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QsP-nc-sx0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2248.8000000000002" y="44.527736131934034"/>
         </scene>
         <!--Credits View Controller-->
         <scene sceneID="iKc-7u-chF">
@@ -440,7 +516,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Gr-Lt-n6B" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3056.8000000000002" y="37.331334332833585"/>
+            <point key="canvasLocation" x="3511" y="36"/>
         </scene>
         <!--Title View Controller-->
         <scene sceneID="QLR-20-oKD">
@@ -532,6 +608,7 @@
     </scenes>
     <resources>
         <image name="back_button.png" width="86" height="86"/>
+        <image name="coin.png" width="58" height="58"/>
         <image name="cortex_intro.jpg" width="1242" height="2688"/>
         <image name="credits.png" width="640" height="960"/>
         <image name="info_button.png" width="86" height="86"/>

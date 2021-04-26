@@ -28,15 +28,18 @@
 #import "PauseButton.h"
 #import "PauseMenu.h"
 #import "MusicButton.h"
+#import "AdViewController.h"
 //#import "SoundManager.h"
 #import "globals.h"
+
 
 
 typedef enum {
     GAME_RUNNING = 0,
     GAME_PAUSED,
     GAME_CONTINUE,
-    GAME_OVER
+    GAME_OVER,
+    GAME_AD
 } GAME_STATE;
 
 
@@ -100,7 +103,7 @@ typedef enum {
     //TitleViewController *titleViewController;
     NSString *pathForMusicFile;
     NSURL *musicFile;
-    AVAudioPlayer *musicPlayer;
+    
     NSString *message;
     NSMutableArray *cheeseArrayOfLives;
     ChatBubble *chatBubble;
@@ -113,13 +116,14 @@ typedef enum {
     @public
         NSString *playerName;
         int game_state;
-
+        AVAudioPlayer *musicPlayer;
 }
 
-
+@property (retain, nonatomic) IBOutlet UIViewController *feedTheMouserViewController;
 - (void) startAt:(int) level andTime: (double) startingTime withCoins: (int)numOfCoins;
 - (void) doParse:(NSData *) data;
 - (void) gameLoop;
 - (void) update_game;
 - (void) display_game;
+- (void) stopSounds;
 @end

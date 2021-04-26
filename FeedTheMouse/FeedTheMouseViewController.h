@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "FeedTheMouseView.h"
 #import "TitleViewController.h"
+@import GoogleMobileAds;
+@import UIKit;
 
 @interface FeedTheMouseViewController : UIViewController
 {
@@ -17,6 +19,8 @@
     
 }
 //@property (retain, nonatomic) IBOutlet FeedTheMouseView *feedTheMouseView;
+@property(nonatomic, strong) GADInterstitialAd *interstitial;
+- (void)close;
 -(void) setPlayerName: (NSString*) name;
 -(NSString*) getPlayerName;
 @end
